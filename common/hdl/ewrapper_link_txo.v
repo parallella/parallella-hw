@@ -1,7 +1,7 @@
 /*
   File: ewrapper_link_txo.v
  
-  This file is part of the Parallella FPGA Reference Design.
+  This file is part of the Parallella Project
 
   Copyright (C) 2013 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
@@ -55,6 +55,9 @@ module ewrapper_link_txo(/*AUTOARG*/
    output 	  txo_emesh_wait;
 
    //# To the lvds-serdes
+//   output [63:0]  txo_data;  //Eight Parallel Byte words
+//   output [7:0]   txo_frame; //Parallel frame signals representing 
+//                             // 4 transmission clock cycles
    output [71:0]  tx_in;
    
    /*AUTOINPUT*/
@@ -89,6 +92,8 @@ module ewrapper_link_txo(/*AUTOARG*/
 
    reg 		  byte0_inc0;
    reg 		  txo_emesh_wait;
+   //reg [7:0] 	  txo_frame;
+   //reg [63:0]   txo_data;
    reg [71:0] 	  tx_in;
 
    reg 		  cycle1_frame_bit_del;
@@ -131,6 +136,16 @@ module ewrapper_link_txo(/*AUTOARG*/
    wire [7:0] 	  channel6;
    wire [7:0] 	  channel7;
 
+//   wire [8:0] 	  channel0;
+//   wire [8:0] 	  channel1;
+//   wire [8:0] 	  channel2;
+//   wire [8:0] 	  channel3;
+//   wire [8:0] 	  channel4;
+//   wire [8:0] 	  channel5;
+//   wire [8:0] 	  channel6;
+//   wire [8:0] 	  channel7;
+
+//   wire [63:0] 	  txo_data_int;
    wire [71:0] 	  txo_data_int;
    
    //##########################
@@ -237,7 +252,8 @@ module ewrapper_link_txo(/*AUTOARG*/
        byte0_inc0     <= inc0_match_del;
 
    //# transaction type + transaction address comparison
-   assign cycle1_dbl = cycle1_access & cycle1_write & (&(cycle1_datamode[1:0]));
+   assign cycle1_dbl = cycle1_access & cycle1_write & 
+		       (&(cycle1_datamode[1:0])) & ~(|(cycle1_ctrlmode[3:0]));
    
    assign cycle1_dstaddr_inc8[31:0] = cycle1_dstaddr[31:0] + 
 				      {{(28){1'b0}},4'b1000};
@@ -286,42 +302,49 @@ module ewrapper_link_txo(/*AUTOARG*/
 			   data_long[24],data_long[16], 
 			   data_long[8], data_long[0]
 			   };
+//   assign channel0[8:0] = {txo_frame_int[0],data_long[7:0]};
    
    assign channel1[7:0] = {data_long[57],data_long[49], 
 			   data_long[41],data_long[33], 
 			   data_long[25],data_long[17], 
 			   data_long[9], data_long[1]
 			   };
+//   assign channel1[8:0] = {txo_frame_int[1],data_long[15:8]};
    
    assign channel2[7:0] = {data_long[58],data_long[50], 
 			   data_long[42],data_long[34], 
 			   data_long[26],data_long[18], 
 			   data_long[10],data_long[2]
 			   };
+//   assign channel2[8:0] = {txo_frame_int[2],data_long[23:16]};
    
    assign channel3[7:0] = {data_long[59],data_long[51], 
 			   data_long[43],data_long[35], 
 			   data_long[27],data_long[19], 
 			   data_long[11],data_long[3]
 			   };
+//   assign channel3[8:0] = {txo_frame_int[3],data_long[31:24]};
    
    assign channel4[7:0] = {data_long[60],data_long[52], 
 			   data_long[44],data_long[36], 
 			   data_long[28],data_long[20], 
 			   data_long[12],data_long[4]
 			   };
+//   assign channel4[8:0] = {txo_frame_int[4],data_long[39:32]};
    
    assign channel5[7:0] = {data_long[61],data_long[53], 
 			   data_long[45],data_long[37], 
 			   data_long[29],data_long[21], 
 			   data_long[13],data_long[5]
 			   };
+//   assign channel5[8:0] = {txo_frame_int[5],data_long[47:40]};
    
    assign channel6[7:0] = {data_long[62],data_long[54], 
 			   data_long[46],data_long[38], 
 			   data_long[30],data_long[22], 
 			   data_long[14],data_long[6]
 			   };
+//   assign channel6[8:0] = {txo_frame_int[6],data_long[55:48]};
    
    assign channel7[7:0] = {data_long[63],data_long[55], 
 			   data_long[47],data_long[39], 
@@ -329,11 +352,26 @@ module ewrapper_link_txo(/*AUTOARG*/
 			   data_long[15],data_long[7]
 			   };
 
+//   assign channel7[8:0] = {txo_frame_int[7],data_long[63:56]};
+   
+   
    assign txo_data_int[71:0] =
 		      {txo_frame_int[7:0],
 		       channel7[7:0],channel6[7:0],channel5[7:0],channel4[7:0],
 		       channel3[7:0],channel2[7:0],channel1[7:0],channel0[7:0]};
 
+//   assign txo_data_int[71:0] =
+//		      {channel7[8:0],channel6[8:0],channel5[8:0],channel4[8:0],
+//		       channel3[8:0],channel2[8:0],channel1[8:0],channel0[8:0]};
+
+//   always @ (posedge txo_lclk or posedge reset)
+//     if (reset)
+//       txo_frame[7:0] <= {(8){1'b0}};
+//     else
+//       txo_frame[7:0] <= txo_frame_int[7:0];
+
+//   always @ (posedge txo_lclk)
+//     txo_data[63:0] <= txo_data_int[63:0];
 
    always @ (posedge txo_lclk or posedge reset)
      if (reset)

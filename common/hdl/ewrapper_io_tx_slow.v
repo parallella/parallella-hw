@@ -1,7 +1,7 @@
 /*
-  File: ewrapper_io_tx_slow.v
+  File: ewrapper_io_rx_slow.v
  
-  This file is part of the Parallella FPGA Reference Design.
+  This file is part of the Parallella Project .
 
   Copyright (C) 2013 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
@@ -90,28 +90,10 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    wire 	LCLK_OUT_TO_PINS_P;
    wire 	LCLK_OUT_TO_PINS_N;
       
-   wire [8:0] 	oddr_data_d1;
-   wire [8:0] 	oddr_data_d2;
-   wire 	oddr_clk_d1;
-   wire 	oddr_clk_d2;
-   
    /*AUTOINPUT*/
    /*AUTOWIRE*/
-
-`ifdef EP64
-   assign oddr_data_d1[8:0] = ~clk_even_reg[8:0];
-   assign oddr_data_d2[8:0] = ~clk_odd_reg[8:0];
-   assign oddr_clk_d1       =  1'b0;
-   assign oddr_clk_d2       =  1'b1;
-`else
-   assign oddr_data_d1[8:0] =  clk_even_reg[8:0];
-   assign oddr_data_d2[8:0] =  clk_odd_reg[8:0];
-   assign oddr_clk_d1       =  1'b1;
-   assign oddr_clk_d2       =  1'b0;
-`endif
    
-   
-   assign reset         = CLK_RESET;
+   assign reset         = IO_RESET;
 
    assign tx_in[71:0]  = DATA_OUT_FROM_DEVICE[71:0];
    assign txo_lclk     = CLK_IN;
@@ -134,14 +116,14 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    genvar 	pin_count;
    generate 
       for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
-	 OBUFDS #(.IOSTANDARD (`IOSTND)) obufds_inst
+	 OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_inst
 	   (.O   (DATA_OUT_TO_PINS_P[pin_count]),
 	    .OB  (DATA_OUT_TO_PINS_N[pin_count]),
             .I   (tx_out[pin_count]));
       end
    endgenerate
 
-   OBUFDS #(.IOSTANDARD (`IOSTND)) obufds_lclk_inst
+   OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_lclk_inst
      (.O   (LCLK_OUT_TO_PINS_P),
       .OB  (LCLK_OUT_TO_PINS_N),
       .I   (tx_lclk_out));
@@ -161,8 +143,8 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
                     .Q  (tx_out[oddr_cnt]),
                     .C  (txo_lclk),
                     .CE (1'b1),
-                    .D1 (oddr_data_d1[oddr_cnt]),
-                    .D2 (oddr_data_d2[oddr_cnt]),
+                    .D1 (clk_even_reg[oddr_cnt]),
+                    .D2 (clk_odd_reg[oddr_cnt]),
                     .R  (reset),
                     .S  (1'b0));
       end
@@ -176,9 +158,9 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
               .Q  (tx_lclk_out),
               .C  (txo_lclk90),
               .CE (1'b1),
-              .D1 (oddr_clk_d1),
-              .D2 (oddr_clk_d2),
-              .R  (reset),
+              .D1 (1'b1),
+              .D2 (1'b0),
+              .R  (CLK_RESET),
               .S  (1'b0));
    
    //########################

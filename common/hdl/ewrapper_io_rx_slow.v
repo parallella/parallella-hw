@@ -1,7 +1,7 @@
 /*
   File: ewrapper_io_rx_slow.v
  
-  This file is part of the Parallella FPGA Reference Design.
+  This file is part of the Parallella Project .
 
   Copyright (C) 2013 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
@@ -77,25 +77,12 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    wire [8:0] 	 rx_in;
    wire [8:0] 	 clk_even;
    wire [8:0] 	 clk_odd;
-   wire [8:0] 	 iddr_d;
-   wire [8:0] 	 iddr_q1;
-   wire [8:0] 	 iddr_q2;
       
 
    /*AUTOINPUT*/
    /*AUTOWIRE*/
 
-`ifdef EP64
-   assign clk_even[8:0] = iddr_q2[8:0];
-   assign clk_odd[8:0]  = iddr_q1[8:0];
-   assign iddr_d[8:0]   = ~rx_in[8:0];
-`else
-   assign clk_even[8:0] = iddr_q1[8:0];
-   assign clk_odd[8:0]  = iddr_q2[8:0];
-   assign iddr_d[8:0]   = rx_in[8:0];
-`endif
-   
-   assign reset                   = CLK_RESET;
+   assign reset                   = IO_RESET;
    assign DATA_IN_TO_DEVICE[71:0] = rx_out[71:0];
    assign CLK_DIV_OUT             = rx_outclock;
    
@@ -107,7 +94,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
       for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
 	 IBUFDS 
 	   #(.DIFF_TERM  ("TRUE"),     // Differential termination
-           .IOSTANDARD (`IOSTND))
+           .IOSTANDARD ("LVDS_25"))
 	 ibufds_inst
 	   (.I     (DATA_IN_FROM_PINS_P[pin_count]),
            .IB     (DATA_IN_FROM_PINS_N[pin_count]),
@@ -121,7 +108,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
 
    IBUFGDS 
      #(.DIFF_TERM  ("TRUE"),   // Differential termination
-       .IOSTANDARD (`IOSTND))
+       .IOSTANDARD ("LVDS_25"))
    ibufds_clk_inst
      (.I          (CLK_IN_P),
       .IB         (CLK_IN_N),
@@ -186,14 +173,14 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    generate 
       for (iddr_cnt = 0; iddr_cnt < 9; iddr_cnt = iddr_cnt + 1) begin: iddrs
 	 IDDR #(
-		.DDR_CLK_EDGE  (`CLKEDGE),     
+		.DDR_CLK_EDGE  ("SAME_EDGE_PIPELINED"),     
 		.SRTYPE ("ASYNC"))
 	 iddr_inst (
-		    .Q1  (iddr_q1[iddr_cnt]),
-		    .Q2  (iddr_q2[iddr_cnt]),
+		    .Q1  (clk_even[iddr_cnt]),
+		    .Q2  (clk_odd[iddr_cnt]),
 		    .C   (rxi_lclk),
 		    .CE  (1'b1),
-		    .D   (iddr_d[iddr_cnt]),
+		    .D   (rx_in[iddr_cnt]),
 		    .R   (reset),
 		    .S   (1'b0));
       end
