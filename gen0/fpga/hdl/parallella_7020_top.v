@@ -1,26 +1,3 @@
-/*
-  File: version.v
- 
-  This file is part of the Parallella Project
-
-  Copyright (C) 2013 Adapteva, Inc.
-  Contributed by Roman Trogan <support@adapteva.com>
-
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program (see the file COPYING).  If not, see
-  <http://www.gnu.org/licenses/>.
-*/
-
 module parallella_7020_top (/*AUTOARG*/
    // Outputs
    processing_system7_0_DDR_WEB_pin, GPIO12_P, GPIO12_N, GPIO13_P,
@@ -54,7 +31,12 @@ module parallella_7020_top (/*AUTOARG*/
    TXO_DATA2_N, TXO_DATA3_N, TXO_DATA4_N, TXO_DATA5_N, TXO_DATA6_N,
    TXO_DATA7_N, TXO_FRAME_P, TXO_FRAME_N, TXO_LCLK_P, TXO_LCLK_N,
    RXO_WR_WAIT_P, RXO_WR_WAIT_N, RXO_RD_WAIT_P, RXO_RD_WAIT_N,
-   DSP_FLAG
+   DSP_FLAG, 
+   //HDMI
+   HDMI_D23, HDMI_D22, HDMI_D21, HDMI_D20, HDMI_D19, HDMI_D18, HDMI_D17,
+   HDMI_D16, HDMI_D15, HDMI_D14, HDMI_D13, HDMI_D12, HDMI_D11, HDMI_D10,
+   HDMI_D9, HDMI_D8, HDMI_CLK, HDMI_HSYNC, HDMI_VSYNC, HDMI_DE, PS_I2C_SCL,
+   PS_I2C_SDA
    );
 
    parameter SIDW = 12; //ID Width
@@ -91,33 +73,33 @@ module parallella_7020_top (/*AUTOARG*/
    //######################
    //# HDMI Interface
    //######################
-//   output 	HDMI_D23;
-//   output 	HDMI_D22;
-//   output 	HDMI_D21;
-//   output 	HDMI_D20;
-//   output 	HDMI_D19;
-//   output 	HDMI_D18;
-//   output 	HDMI_D17;
-//   output 	HDMI_D16;
-//   output 	HDMI_D15;
-//   output 	HDMI_D14;
-//   output 	HDMI_D13;
-//   output 	HDMI_D12;
-//   output 	HDMI_D11;
-//   output 	HDMI_D10;
-//   output 	HDMI_D9;
-//   output 	HDMI_D8;
+   output 	HDMI_D23;
+   output 	HDMI_D22;
+   output 	HDMI_D21;
+   output 	HDMI_D20;
+   output 	HDMI_D19;
+   output 	HDMI_D18;
+   output 	HDMI_D17;
+   output 	HDMI_D16;
+   output 	HDMI_D15;
+   output 	HDMI_D14;
+   output 	HDMI_D13;
+   output 	HDMI_D12;
+   output 	HDMI_D11;
+   output 	HDMI_D10;
+   output 	HDMI_D9;
+   output 	HDMI_D8;
    
-//   output 	HDMI_CLK;
-//   output 	HDMI_HSYNC;
-//   output 	HDMI_VSYNC;
-//   output 	HDMI_DE;
+   output 	HDMI_CLK;
+   output 	HDMI_HSYNC;
+   output 	HDMI_VSYNC;
+   output 	HDMI_DE;
 //   output 	HDMI_SPDIF;
 
 //   input 	TURBO_MODE;
 
-//   inout 	PS_I2C_SCL;
-//   inout 	PS_I2C_SDA;
+   inout 	PS_I2C_SCL;
+   inout 	PS_I2C_SDA;
 
    input 	GPIO0_P;
    input 	GPIO0_N;
@@ -456,30 +438,30 @@ module parallella_7020_top (/*AUTOARG*/
 
    assign SD1_WPn = 1'b1;
    
-//   assign HDMI_D8  = hdmi_data[0];
-//   assign HDMI_D9  = hdmi_data[1];
-//   assign HDMI_D10 = hdmi_data[2];
-//   assign HDMI_D11 = hdmi_data[3];
-//   assign HDMI_D12 = hdmi_data[4];
-//   assign HDMI_D13 = hdmi_data[5];
-//   assign HDMI_D14 = hdmi_data[6];
-//   assign HDMI_D15 = hdmi_data[7];
-//   assign HDMI_D16 = hdmi_data[8];
-//   assign HDMI_D17 = hdmi_data[9];
-//   assign HDMI_D18 = hdmi_data[10];
-//   assign HDMI_D19 = hdmi_data[11];
-//   assign HDMI_D20 = hdmi_data[12];
-//   assign HDMI_D21 = hdmi_data[13];
-//   assign HDMI_D22 = hdmi_data[14];
-//   assign HDMI_D23 = hdmi_data[15];
+   assign HDMI_D8  = hdmi_data[0];
+   assign HDMI_D9  = hdmi_data[1];
+   assign HDMI_D10 = hdmi_data[2];
+   assign HDMI_D11 = hdmi_data[3];
+   assign HDMI_D12 = hdmi_data[4];
+   assign HDMI_D13 = hdmi_data[5];
+   assign HDMI_D14 = hdmi_data[6];
+   assign HDMI_D15 = hdmi_data[7];
+   assign HDMI_D16 = hdmi_data[8];
+   assign HDMI_D17 = hdmi_data[9];
+   assign HDMI_D18 = hdmi_data[10];
+   assign HDMI_D19 = hdmi_data[11];
+   assign HDMI_D20 = hdmi_data[12];
+   assign HDMI_D21 = hdmi_data[13];
+   assign HDMI_D22 = hdmi_data[14];
+   assign HDMI_D23 = hdmi_data[15];
    
-//   assign HDMI_CLK   = hdmi_clk;
-//   assign HDMI_HSYNC = hdmi_hsync;
-//   assign HDMI_VSYNC = hdmi_vsync;
-//   assign HDMI_DE    = hdmi_data_e;
+   assign HDMI_CLK   = hdmi_clk;
+   assign HDMI_HSYNC = hdmi_hsync;
+   assign HDMI_VSYNC = hdmi_vsync;
+   assign HDMI_DE    = hdmi_data_e;
 //   assign HDMI_SPDIF = hdmi_spdif;
 
-//   assign hdmi_int   = 1'b0;
+   assign hdmi_int   = 1'b0;
    
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
    assign esaxi_areset = ~processing_system7_0_M_AXI_GP1_ARESETN_pin;
@@ -771,8 +753,14 @@ module parallella_7020_top (/*AUTOARG*/
    system_stub system_stub(
 			   .processing_system7_0_M_AXI_GP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
 			   .processing_system7_0_S_AXI_HP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
-//			   .processing_system7_0_I2C0_SCL_pin(PS_I2C_SCL),
-//			   .processing_system7_0_I2C0_SDA_pin(PS_I2C_SDA),
+			   .processing_system7_0_I2C0_SCL_pin(PS_I2C_SCL),
+			   .processing_system7_0_I2C0_SDA_pin(PS_I2C_SDA),
+			   .hdmi_clk(hdmi_clk),
+               .hdmi_data(hdmi_data),
+               .hdmi_hsync(hdmi_hsync),
+               .hdmi_vsync(hdmi_vsync),
+               .hdmi_data_e(hdmi_data_e),
+               .hdmi_int(hdmi_int),
 //			   .otg_reset		(),
 //			   .processing_system7_0_GPIO_pin(),
 			   // must be tied to 1'b0 according to ug585 (2.6.1)
@@ -844,9 +832,9 @@ module parallella_7020_top (/*AUTOARG*/
 			   .processing_system7_0_DDR_VRN(processing_system7_0_DDR_VRN),
 			   .processing_system7_0_DDR_VRP(processing_system7_0_DDR_VRP),
 			   // Inputs
-			   .processing_system7_0_PS_SRSTB_pin(processing_system7_0_PS_SRSTB_pin),
-			   .processing_system7_0_PS_CLK_pin(processing_system7_0_PS_CLK_pin),
-			   .processing_system7_0_PS_PORB_pin(processing_system7_0_PS_PORB_pin),
+			   .processing_system7_0_PS_SRSTB(processing_system7_0_PS_SRSTB_pin),
+			   .processing_system7_0_PS_CLK(processing_system7_0_PS_CLK_pin),
+			   .processing_system7_0_PS_PORB(processing_system7_0_PS_PORB_pin),
 			   .processing_system7_0_M_AXI_GP1_ARREADY_pin(processing_system7_0_M_AXI_GP1_ARREADY_pin),
 			   .processing_system7_0_M_AXI_GP1_AWREADY_pin(processing_system7_0_M_AXI_GP1_AWREADY_pin),
 			   .processing_system7_0_M_AXI_GP1_BVALID_pin(processing_system7_0_M_AXI_GP1_BVALID_pin),

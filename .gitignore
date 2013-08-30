@@ -1,0 +1,17 @@
+######################
+# Compiled binaries
+*.elf
+*.o
+*.e
+*.d
+
+######################
+# Emacs/vim/gedit backup files
+*~
+.*.swp
+.*.swo
+
+#######################
+# Log files
+*.log
+
