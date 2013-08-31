@@ -508,7 +508,7 @@ module parallella (/*AUTOARG*/
    //#####################################
    
    //# "manual remapping" of external memory address seen by the chips
-   assign ext_mem_access = (elink_dstaddr_tmp[31:28] == `VIRT_EXT_MEM) &
+ assign ext_mem_access = (elink_dstaddr_tmp[31:28] == `VIRT_EXT_MEM) &
 			  ~(elink_dstaddr_tmp[31:20] == `AXI_COORD);
    
    assign elink_dstaddr_inb[31:28] = ext_mem_access ? `PHYS_EXT_MEM :
