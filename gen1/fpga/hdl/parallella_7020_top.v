@@ -30,7 +30,7 @@ module parallella_7020_top (/*AUTOARG*/
    TXO_DATA5_P, TXO_DATA6_P, TXO_DATA7_P, TXO_DATA0_N, TXO_DATA1_N,
    TXO_DATA2_N, TXO_DATA3_N, TXO_DATA4_N, TXO_DATA5_N, TXO_DATA6_N,
    TXO_DATA7_N, TXO_FRAME_P, TXO_FRAME_N, TXO_LCLK_P, TXO_LCLK_N,
-   RXO_WR_WAIT_P, RXO_WR_WAIT_N, RXO_RD_WAIT_P, RXO_RD_WAIT_N,
+   RXO_WR_WAIT_P, RXO_WR_WAIT_N, RXO_RD_WAIT,
    DSP_FLAG,TURBO_MODE, PROG_IO,
    //HDMI
    HDMI_D23, HDMI_D22, HDMI_D21, HDMI_D20, HDMI_D19, HDMI_D18, HDMI_D17,
@@ -179,8 +179,8 @@ module parallella_7020_top (/*AUTOARG*/
    input 	TXO_LCLK_N;
    input 	RXO_WR_WAIT_P;
    input 	RXO_WR_WAIT_N;
-   input 	RXO_RD_WAIT_P;
-   input 	RXO_RD_WAIT_N;
+   input 	RXO_RD_WAIT;//AO-CHANGE
+   //input 	RXO_RD_WAIT_N;//AO
    
    output 	RXI_DATA0_P;
    output 	RXI_DATA1_P;
@@ -494,8 +494,8 @@ module parallella_7020_top (/*AUTOARG*/
 
    assign txo_wr_wait_p = RXO_WR_WAIT_P;
    assign txo_wr_wait_n = RXO_WR_WAIT_N;
-   assign txo_rd_wait_p = RXO_RD_WAIT_P;
-   assign txo_rd_wait_n = RXO_RD_WAIT_N;
+   assign txo_rd_wait_p = RXO_RD_WAIT;//AO, made single ended
+   assign txo_rd_wait_n = 1'b0;//AO, made single ended
 
    assign RXI_DATA0_P = txo_data_p[0];
    assign RXI_DATA1_P = txo_data_p[1];
