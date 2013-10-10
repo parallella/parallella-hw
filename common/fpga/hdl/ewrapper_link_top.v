@@ -294,11 +294,18 @@ module ewrapper_link_top (/*AUTOARG*/
                                                        .IB  (txo_wr_wait_n),
                                                        .O   (txo_wr_wait));
    
-   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
-            .IOSTANDARD ("LVDS_25")) txo_rd_wait_inst (.I   (txo_rd_wait_p),
-                                                       .IB  (txo_rd_wait_n),
-                                                       .O   (txo_rd_wait));
 
+//   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
+//            .IOSTANDARD ("LVDS_25")) txo_rd_wait_inst (.I   (txo_rd_wait_p),
+//                                                       .IB  (txo_rd_wait_n),
+//                                                       .O   (txo_rd_wait));
+
+   //No need for differential buffer
+   //TODO:Need to clean up this hierarchy, make IP less technology dependant. 
+   assign txo_rd_wait = txo_rd_wait_p;
+   
+
+   
    //#################################
    //# Chip Scope Instantiation
    //#################################
