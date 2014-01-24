@@ -1,0 +1,11 @@
+***Design Hiearchy***
+parallella.v		- Top level file (start here)
+  -axi_slave	      	- AXI slave interface for the Zynq
+  -ax_master	      	- AXI master interface for the Zynq
+  -ewrapper_link_top	- eLink wrapper module
+  -axi_elink_if		- AXI<-->eLink interface module
+
+
+
+
+
