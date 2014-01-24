@@ -7,9 +7,9 @@ QSPI boot flash on the Parallella board.
 Directory Content:
 
 parallella.bin 		  (bootable flash image)
-parallella.bit.bin	  (u-boot loadable bitstream)
+parallella.bit.bin	  (FPGA bitstream loaded by U-Boot from SD card)
 fsbl.elf 		  (First Stage Boot Loader)
-uboot.elf 		  (U-Boot application)
+uboot.elf 		  (U-Boot executable)
 stub.tcl 		  (tcl script for putting the CPU in debug mode)
 ps7_init.tcl 		  (FSBL settings as tcl script for JTAG operation)
 
