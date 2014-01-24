@@ -48,7 +48,7 @@ Pre-requisites:
 
 5.  Start the JTAG debugger on machine connected to JTAG cable:
 
-    my-machine:~>XMD
+    my-machine:~>xmd
 
 6.  Enter the following command sequence in XMD to run the u-boot application
     through the JTAG loader:
@@ -75,8 +75,11 @@ Pre-requisites:
 
 9.  Power off board and take out the SD card.
 
-9.  Set the ethernet address
-    zynq-uboot> set ethaddr 04 4F 8B 00 00 66
+9.  Set the ethernet address. The first 6 characters contain the Adapteva
+assigned range of MAC-IDs. The last 6 characters should match the serial 
+number ("SN") on the board sticker.
+
+    zynq-uboot> set ethaddr 04 4F 8B 00 00 00 (for example)
     zynq-uboot> saveenv
 
 10. Power down board
