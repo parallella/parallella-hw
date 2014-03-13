@@ -308,9 +308,6 @@ module parallella_7020_top (/*AUTOARG*/
    //###########
    reg [19:0]    por_cnt;
    reg           por_reset;
-   reg [1:0] 	 user_pb_clean_reg;
-   reg [31:0]    counter_reg;
-
    
    //##########
    //# WIRES
@@ -318,9 +315,6 @@ module parallella_7020_top (/*AUTOARG*/
    wire 	 sys_clk;
    wire 	 esaxi_areset;
    wire 	 fpga_reset;
-   wire 	 pbr_reset;
-   wire [1:0] 	 user_pb_clean;
-   wire 	 user_pb7_pulse;
    wire [15:0] 	 hdmi_data;
    wire 	 hdmi_clk;
    wire 	 hdmi_hsync;
@@ -349,13 +343,11 @@ module parallella_7020_top (/*AUTOARG*/
    wire 	 rxi_rd_wait_p;
    wire 	 rxi_rd_wait_n;
    wire 	 aafm_resetn;
-   wire [7:0] 	 user_led;
    wire [1:0] 	 user_pb;
    wire [11:0] 	 gpio_in;
-   wire [23:0] 	 GPIO_P;
+   wire [11:0]   gpio_out;
+   wire [23:0]   GPIO_P;
    wire [23:0] 	 GPIO_N;
-   wire 	 SD1_WPn;
-   
 
    //##############################
    //# GPIOs
@@ -434,11 +426,11 @@ module parallella_7020_top (/*AUTOARG*/
 	 gpout_inst
 	   (.O     (GPIO_P[gpout_cnt]),
             .OB    (GPIO_N[gpout_cnt]),
-            .I     (1'b1));
+            .I     (gpio_out[gpout_cnt-12]));
       end
    endgenerate
 
-   assign SD1_WPn = 1'b1;
+   assign gpio_out = 12'd0;
    
    assign HDMI_D8  = hdmi_data[0];
    assign HDMI_D9  = hdmi_data[1];
@@ -464,6 +456,14 @@ module parallella_7020_top (/*AUTOARG*/
 //   assign HDMI_SPDIF = hdmi_spdif;
 
    assign hdmi_int   = 1'b0;//=HDMI_INT
+
+`ifndef kHDMI_INCLUDED
+   assign hdmi_data = 16'd0;
+   assign hdmi_clk = 1'b0;
+   assign hdmi_hsync = 1'b0;
+   assign hdmi_vsync = 1'b0;
+   assign hdmi_data_e = 1'b0;
+`endif   // !kHDMI_INCLUDED
    
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
    assign esaxi_areset = ~processing_system7_0_M_AXI_GP1_ARESETN_pin;
@@ -532,34 +532,12 @@ module parallella_7020_top (/*AUTOARG*/
    //# Defaults
    //############
 
-//   assign aafm_i2c_scl  = 1'b0;
-   assign user_pb[1:0]  = 2'b00;
-   
-   //###########################
-   //# Debouncer Circuit for PB
-   //###########################
-   genvar   k;   
-   generate
-      for(k=0;k<2;k=k+1) begin : gen_debounce
-         debouncer #(DPW) debouncer (.clean_out   (user_pb_clean[k]),
-                                     .clk         (sys_clk),
-                                     .noisy_in    (user_pb[k]));
-      end
-   endgenerate
-
-   always @(posedge sys_clk)    
-      user_pb_clean_reg[1:0] <= user_pb_clean[1:0];
- 
-   assign user_pb7_pulse = user_pb_clean[1] & ~user_pb_clean_reg[1];   
-   
-   
    //###########################################################
    //#                      RESET
    //# The following "reset-trigers" exist in the system:
    //# 1. POWER ON RESET    (por_reset)
-   //# 2. PUSH BUTTON RESET (reset_pb)
-   //# 3. AXI BUS RESET
-   //# 4. SW RESET 
+   //# 2. AXI BUS RESET
+   //# 3. SW RESET 
    //###########################################################
    
    //#################
@@ -571,52 +549,26 @@ module parallella_7020_top (/*AUTOARG*/
         if (por_cnt[19:0] == 20'hff13f)//stop count, deassert reset  
           begin   
              por_reset     <= 1'b0;
-             por_cnt[19:0] <= por_cnt[19:0]; 
           end
         else                          //keep count, assert reset
           begin
              por_reset     <= 1'b1;
-             por_cnt[19:0] <= por_cnt[19:0] + {{(19){1'b0}},1'b1};
+             por_cnt[19:0] <= por_cnt[19:0] + 20'd1;
           end
      end // always @ (posedge sys_clk)
    
    //####################
-   //# Push-Button-Reset
-   //####################
-
-   assign pbr_reset   = user_pb_clean[0];
-   //assign user_led[0] = pbr_reset;
-   assign user_led[7:0] = ~counter_reg[30:23];
-   
-   //######################
-   //# SMALL ALIVE COUNTER  
-   //######################
-   
-   always @ (posedge sys_clk or posedge fpga_reset) 
-     if(fpga_reset)
-       counter_reg[31:0] <= 32'b0;   
-     else
-       counter_reg[31:0] <= counter_reg[31:0] + 1'b1;   
-
-   //####################
    //# FPGA Logic Reset
    //####################
 
-   assign fpga_reset = por_reset | pbr_reset | esaxi_areset | reset_fpga;
+   assign fpga_reset = por_reset | esaxi_areset | reset_fpga;
 
    //#####################
    //# AAFM Board Reset
    //#####################
 
-   assign aafm_resetn = ~(por_reset | pbr_reset | reset_chip);
+   assign aafm_resetn = ~(por_reset | reset_chip);
 
-   //#################################
-   //# FLAGS forwarding to LED (DS20)
-   //#################################
-
-   //assign user_led[1] = aafm_flag0 | aafm_flag1 | aafm_flag2 | aafm_flag3;
-
-   
    //##################################
    //# PARALLELLA Instantiation
    //##################################
@@ -755,6 +707,7 @@ module parallella_7020_top (/*AUTOARG*/
    system_stub system_stub(
 			   .processing_system7_0_M_AXI_GP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
 			   .processing_system7_0_S_AXI_HP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
+`ifdef kHDMI_INCLUDED
 			   .processing_system7_0_I2C0_SCL_pin(PS_I2C_SCL),
 			   .processing_system7_0_I2C0_SDA_pin(PS_I2C_SDA),
 			   .hdmi_clk(hdmi_clk),
@@ -763,13 +716,7 @@ module parallella_7020_top (/*AUTOARG*/
                .hdmi_vsync(hdmi_vsync),
                .hdmi_data_e(hdmi_data_e),
                .hdmi_int(hdmi_int),
-//			   .otg_reset		(),
-//			   .processing_system7_0_GPIO_pin(),
-			   // must be tied to 1'b0 according to ug585 (2.6.1)
-			   //.processing_system7_0_FCLK_CLKTRIG0_N_pin(1'b0),
-			   //.processing_system7_0_FCLK_CLKTRIG1_N_pin(1'b0),
-			   //.processing_system7_0_FCLK_CLKTRIG2_N_pin(1'b0),
-			   //.processing_system7_0_FCLK_CLKTRIG3_N_pin(1'b0),
+`endif  // kHDMI_INCLUDED
 			   /*AUTOINST*/
 			   // Outputs
 			   .processing_system7_0_DDR_WEB_pin(processing_system7_0_DDR_WEB_pin),
@@ -834,9 +781,9 @@ module parallella_7020_top (/*AUTOARG*/
 			   .processing_system7_0_DDR_VRN(processing_system7_0_DDR_VRN),
 			   .processing_system7_0_DDR_VRP(processing_system7_0_DDR_VRP),
 			   // Inputs
-			   .processing_system7_0_PS_SRSTB(processing_system7_0_PS_SRSTB_pin),
-			   .processing_system7_0_PS_CLK(processing_system7_0_PS_CLK_pin),
-			   .processing_system7_0_PS_PORB(processing_system7_0_PS_PORB_pin),
+			   .processing_system7_0_PS_SRSTB_pin(processing_system7_0_PS_SRSTB_pin),
+			   .processing_system7_0_PS_CLK_pin(processing_system7_0_PS_CLK_pin),
+			   .processing_system7_0_PS_PORB_pin(processing_system7_0_PS_PORB_pin),
 			   .processing_system7_0_M_AXI_GP1_ARREADY_pin(processing_system7_0_M_AXI_GP1_ARREADY_pin),
 			   .processing_system7_0_M_AXI_GP1_AWREADY_pin(processing_system7_0_M_AXI_GP1_AWREADY_pin),
 			   .processing_system7_0_M_AXI_GP1_BVALID_pin(processing_system7_0_M_AXI_GP1_BVALID_pin),

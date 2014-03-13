@@ -1,5 +1,5 @@
 /*
-  File: ewrapper_io_rx_slow.v
+  File: ewrapper_io_tx_slow.v
  
   This file is part of the Parallella Project .
 
@@ -56,7 +56,9 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    reg [8:0] 	 clk_even_reg;
    reg [8:0] 	 clk_odd_reg;
    reg [71:0] 	 tx_in_sync;
-      
+   reg          tx_pedge_first;
+   reg [3:0]    cycle_sel;
+   
    //############
    //# WIRES
    //############
@@ -65,7 +67,6 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    wire 	tx_coreclock;
    wire 	reset;
 
-   wire 	tx_pedge_first;
    wire [8:0] 	clk_even;
    wire [8:0] 	clk0_even;
    wire [8:0] 	clk1_even;
@@ -76,11 +77,6 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    wire [8:0] 	clk1_odd;
    wire [8:0] 	clk2_odd;
    wire [8:0] 	clk3_odd;
-   
-   wire 	cycle_sel_0;
-   wire 	cycle_sel_1;
-   wire 	cycle_sel_2;
-   wire 	cycle_sel_3;
    
    wire [71:0] 	tx_in;   
    wire [8:0] 	tx_out;
@@ -104,10 +100,8 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    //# Synchronize incoming data to fast clock domain
    //#################################################
 
-   always @ (posedge txo_lclk or posedge reset)
-     if(reset)
-       tx_in_sync[71:0] <= {(72){1'b0}};
-     else if(tx_pedge_first)
+   always @ (posedge txo_lclk)
+     if(tx_pedge_first)
        tx_in_sync[71:0] <= tx_in[71:0];
    
    //################################
@@ -116,9 +110,9 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    genvar 	pin_count;
    generate 
       for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
-	 OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_inst
-	   (.O   (DATA_OUT_TO_PINS_P[pin_count]),
-	    .OB  (DATA_OUT_TO_PINS_N[pin_count]),
+         OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_inst
+           (.O   (DATA_OUT_TO_PINS_P[pin_count]),
+            .OB  (DATA_OUT_TO_PINS_N[pin_count]),
             .I   (tx_out[pin_count]));
       end
    endgenerate
@@ -167,55 +161,48 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    //# Data Serialization
    //########################
 
-   always @ (posedge txo_lclk or posedge reset)
-     if(reset)
-       begin
-	  clk_even_reg[8:0] <= {(9){1'b0}};
-	  clk_odd_reg[8:0]  <= {(9){1'b0}};
-       end
-     else
-       begin
-	  clk_even_reg[8:0] <= clk_even[8:0];
-	  clk_odd_reg[8:0]  <= clk_odd[8:0];
-       end
+   always @ (posedge txo_lclk) begin
+      clk_even_reg[8:0] <= clk_even[8:0];
+      clk_odd_reg[8:0]  <= clk_odd[8:0];
+   end
    
-   mux4 #(18) mux4(// Outputs
-                   .out ({clk_even[8:0],clk_odd[8:0]}),
-                   // Inputs
-                   .in0 ({clk0_even[8:0],clk0_odd[8:0]}), .sel0 (cycle_sel_0),
-                   .in1 ({clk1_even[8:0],clk1_odd[8:0]}), .sel1 (cycle_sel_1),
-                   .in2 ({clk2_even[8:0],clk2_odd[8:0]}), .sel2 (cycle_sel_2),
-                   .in3 ({clk3_even[8:0],clk3_odd[8:0]}), .sel3 (cycle_sel_3));
-      
+   mux4 #(18) mux4
+     (// Outputs
+      .out ({clk_even[8:0],clk_odd[8:0]}),
+      // Inputs
+      .in0 ({clk0_even[8:0],clk0_odd[8:0]}),
+      .sel0 (cycle_sel[0]),
+      .in1 ({clk1_even[8:0],clk1_odd[8:0]}),
+      .sel1 (cycle_sel[1]),
+      .in2 ({clk2_even[8:0],clk2_odd[8:0]}),
+      .sel2 (cycle_sel[2]),
+      .in3 ({clk3_even[8:0],clk3_odd[8:0]}),
+      .sel3 (cycle_sel[3]));
+   
    //#################################
    //# Serialization Cycle Counter
    //#################################
 
-   assign cycle_sel_0 = (clk_cnt[1:0] == 2'b00);
-   assign cycle_sel_1 = (clk_cnt[1:0] == 2'b01);
-   assign cycle_sel_2 = (clk_cnt[1:0] == 2'b10);
-   assign cycle_sel_3 = (clk_cnt[1:0] == 2'b11);
-    
-   always @ (posedge txo_lclk or posedge reset)
-     if(reset)
-       clk_cnt[1:0] <= 2'b00;
-     else if(tx_pedge_first)
-       clk_cnt[1:0] <= 2'b00;
-     else
-       clk_cnt[1:0] <= clk_cnt[1:0] + 2'b01;
+   always @ (posedge txo_lclk) begin
 
+     tx_pedge_first <= tx_coreclock_del_45 & tx_coreclock_del_135;
+
+     if(tx_pedge_first)
+       cycle_sel <= 4'b0001;
+     else
+       cycle_sel <= {cycle_sel[2:0], 1'b1};
+
+   end
+   
    //################################################################
    //# Posedge Detection of the Slow Clock in the Fast Clock Domain
    //################################################################
 
-   always @ (negedge txo_lclk)
+   always @ (negedge txo_lclk) begin
      tx_coreclock_del_45  <= tx_coreclock;
-
-   always @ (negedge txo_lclk)
      tx_coreclock_del_135 <= tx_coreclock_del_45;
-      
+   end
 
-   assign tx_pedge_first = tx_coreclock_del_45 & ~tx_coreclock_del_135;
 
    //##################################
    //# Data Alignment Channel-to-Byte

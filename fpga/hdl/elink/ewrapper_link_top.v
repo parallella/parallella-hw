@@ -228,7 +228,7 @@ module ewrapper_link_top (/*AUTOARG*/
 				     .burst_en		(burst_en));
 
    // xilinx MMCME2_ADV ip instantiation
-   io_clock_gen io_clock_gen(// Inputs
+   io_clock_gen_600mhz io_clock_gen(// Inputs
 			     .CLK_IN1      (clkin_100),
 			     .RESET        (reset),
                              // Outputs

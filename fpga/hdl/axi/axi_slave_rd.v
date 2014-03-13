@@ -160,7 +160,7 @@ module axi_slave_rd (/*AUTOARG*/
    wire [31:0] 	    realgn_hword;
    wire 	    byte_realgn;
    wire 	    hword_realgn;
-   wire 	    word_realgn;
+//   wire 	    word_realgn;
    wire [31:0] 	    data_realgn;
    wire [SIDW-1:0]   tran_id;
    wire 	    last_tran;
@@ -298,7 +298,7 @@ module axi_slave_rd (/*AUTOARG*/
    assign realgn_ctrl[2:0]  = dstaddr_reg[6:4];
    assign byte_realgn       = dstaddr_reg[3];
    assign hword_realgn      = dstaddr_reg[2];
-   assign word_realgn       = dstaddr_reg[1];
+//   assign word_realgn       = dstaddr_reg[1];
 
    //# Last transfer
    assign last_tran         = dstaddr_reg[0];
