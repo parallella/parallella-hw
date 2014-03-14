@@ -1,0 +1,6 @@
+*
+!*.mhs
+!*.xmp
+!data/*.xml
+!.gitignore
+
