@@ -20,4 +20,4 @@
   along with this program (see the file COPYING).  If not, see
   <http://www.gnu.org/licenses/>.
 */
-`define VERSION_VALUE   32'h13101001 //Firmware version YY_MM_DD_COUNT
+`define VERSION_VALUE   32'h14031201 //Firmware version YY_MM_DD_COUNT

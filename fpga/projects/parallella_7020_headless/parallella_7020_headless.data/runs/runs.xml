@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="8">
+	<Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-1" LaunchPart="xc7z020clg400-1" ConstrsSet="constrs_1" Description="PlanAhead Defaults (XST defaults with hierarchy)" State="current" Dir="$PRUNDIR/synth_1" LaunchTime="1394754702">
+		<File Type="XST-NGC" Name="parallella_7020_top.ngc"/>
+		<File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
+		<File Type="XST-SRP" Name="parallella_7020_top.srp"/>
+		<File Type="PA-XST" Name="parallella_7020_top.xst"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
+		<File Type="PA-XSTPRJ" Name="parallella_7020_top.prj"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
+	</Run>
+	<Run Id="impl_1" Type="Ft2:EntireDesign" SynthRun="synth_1" Part="xc7z020clg400-1" LaunchPart="xc7z020clg400-1" ConstrsSet="constrs_1" Description="ISE Defaults, including packing registers in IOs off" State="current" Dir="$PRUNDIR/impl_1" LaunchTime="1394754788">
+		<File Type="MAP-PSR" Name="parallella_7020_top.psr"/>
+		<File Type="PA-EDIF" Name="parallella_7020_top.edf"/>
+		<File Type="PAR-NCD" Name="parallella_7020_top_routed.ncd"/>
+		<File Type="PA-UCF" Name="parallella_7020_top.ucf"/>
+		<File Type="PAR-PAD" Name="parallella_7020_top_routed_pad.txt"/>
+		<File Type="PAR-PAR" Name="parallella_7020_top_routed.par"/>
+		<File Type="PAR-UNR" Name="parallella_7020_top_routed.unroutes"/>
+		<File Type="BG-BIT" Name="parallella_7020_top.bit"/>
+		<File Type="BG-DRC" Name="parallella_7020_top.drc"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="BG-BGN" Name="parallella_7020_top.bgn"/>
+		<File Type="TRCE-TWR" Name="parallella_7020_top.twr"/>
+		<File Type="TRCE-TWX" Name="parallella_7020_top.twx"/>
+		<File Type="XDL-XDL" Name="parallella_7020_top_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+		<File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+		<File Type="NGDB-NGD" Name="parallella_7020_top.ngd"/>
+		<File Type="NGDB-BLD" Name="parallella_7020_top.bld"/>
+		<File Type="MAP-NCD" Name="parallella_7020_top.ncd"/>
+		<File Type="MAP-PCF" Name="parallella_7020_top.pcf"/>
+		<File Type="MAP-MRP" Name="parallella_7020_top.mrp"/>
+		<File Type="MAP-MAP" Name="parallella_7020_top.map"/>
+	</Run>
+</Runs>
+
