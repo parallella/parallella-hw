@@ -453,7 +453,7 @@ module parallella_7020_top (/*AUTOARG*/
    assign HDMI_HSYNC = hdmi_hsync;
    assign HDMI_VSYNC = hdmi_vsync;
    assign HDMI_DE    = hdmi_data_e;
-//   assign HDMI_SPDIF = hdmi_spdif;
+   assign HDMI_SPDIF = hdmi_spdif;
 
    assign hdmi_int   = 1'b0;//=HDMI_INT
 
@@ -463,6 +463,9 @@ module parallella_7020_top (/*AUTOARG*/
    assign hdmi_hsync = 1'b0;
    assign hdmi_vsync = 1'b0;
    assign hdmi_data_e = 1'b0;
+   assign hdmi_spdif = 1'b0;
+   assign PS_I2C_SDA_IBUF = 1'bZ;
+   assign PS_I2C_SCL_IBUF = 1'bZ;
 `endif   // !kHDMI_INCLUDED
    
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
