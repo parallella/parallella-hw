@@ -23,15 +23,15 @@
 
 // This version info is local to each project.
 
-`define VERSION_VALUE   32'h14031201 //Firmware version YY_MM_DD_COUNT
+`define VERSION_VALUE   32'h14031401 //Firmware version YY_MM_DD_COUNT
 
 // Define one of the following for target FPGA
 //`define kTARGET_7Z010 1
 `define kTARGET_7Z020 1
 
 // Define one of the following for target processor
-`define kTARGET_E16 1
-//`define kTARGET_E64 1
+//`define kTARGET_E16 1
+`define kTARGET_E64 1
 
 // Define included features
 //`define kFEATURE_HDMI  1

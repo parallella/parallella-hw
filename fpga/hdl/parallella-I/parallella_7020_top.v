@@ -1,10 +1,46 @@
-module parallella_7020_top (/*AUTOARG*/
+/*
+  File: parallella_7020_top.v
+ 
+  This file is part of the Parallella FPGA Reference Design.
+
+  Copyright (C) 2013 Adapteva, Inc.
+  Contributed by Roman Trogan <support@adapteva.com>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program (see the file COPYING).  If not, see
+  <http://www.gnu.org/licenses/>.
+*/
+
+
+// Set # of GPIO pins based on target FPGA
+`ifdef kTARGET_7Z020
+  `define kGPIO_ALL
+  `define kGPIO_NUM 24
+`elsif kTARGET_7Z010
+  `define  kGPIO_NUM 12
+`endif  // else throw an error!
+
+module parallella_7020_top (/*AUTO ARG*/
    // Outputs
-   processing_system7_0_DDR_WEB_pin, GPIO12_P, GPIO12_N, GPIO13_P,
+   processing_system7_0_DDR_WEB_pin, 
+`ifdef kGPIO_ALL
+   GPIO12_P, GPIO12_N, GPIO13_P,
    GPIO13_N, GPIO14_P, GPIO14_N, GPIO15_P, GPIO15_N, GPIO16_P,
    GPIO16_N, GPIO17_P, GPIO17_N, GPIO18_P, GPIO18_N, GPIO19_P,
    GPIO19_N, GPIO20_P, GPIO20_N, GPIO21_P, GPIO21_N, GPIO22_P,
-   GPIO22_N, GPIO23_P, GPIO23_N, RXI_DATA0_P, RXI_DATA1_P,
+   GPIO22_N, GPIO23_P, GPIO23_N, 
+`endif
+   RXI_DATA0_P, RXI_DATA1_P,
    RXI_DATA2_P, RXI_DATA3_P, RXI_DATA4_P, RXI_DATA5_P, RXI_DATA6_P,
    RXI_DATA7_P, RXI_DATA0_N, RXI_DATA1_N, RXI_DATA2_N, RXI_DATA3_N,
    RXI_DATA4_N, RXI_DATA5_N, RXI_DATA6_N, RXI_DATA7_N, RXI_FRAME_P,
@@ -128,6 +164,7 @@ module parallella_7020_top (/*AUTOARG*/
    input 	GPIO11_P;
    input 	GPIO11_N;
    
+`ifdef kGPIO_ALL
    output 	GPIO12_P;
    output 	GPIO12_N;
    output 	GPIO13_P;
@@ -152,7 +189,8 @@ module parallella_7020_top (/*AUTOARG*/
    output 	GPIO22_N;
    output 	GPIO23_P;
    output 	GPIO23_N;
-   
+`endif
+
    //##################################
    //# LVDS to Epiphany 
    //##################################
@@ -346,8 +384,8 @@ module parallella_7020_top (/*AUTOARG*/
    wire [1:0] 	 user_pb;
    wire [11:0] 	 gpio_in;
    wire [11:0]   gpio_out;
-   wire [23:0]   GPIO_P;
-   wire [23:0] 	 GPIO_N;
+   wire [kGPIO_NUM-1:0]  GPIO_P;
+   wire [kGPIO_NUM-1:0]  GPIO_N;
 
    //##############################
    //# GPIOs
@@ -392,6 +430,7 @@ module parallella_7020_top (/*AUTOARG*/
       end
    endgenerate
 
+`ifdef kGPIO_ALL
    //Outputs
    assign GPIO12_P = GPIO_P[12];
    assign GPIO12_N = GPIO_N[12];
@@ -429,6 +468,7 @@ module parallella_7020_top (/*AUTOARG*/
             .I     (gpio_out[gpout_cnt-12]));
       end
    endgenerate
+`endif
 
    assign gpio_out = 12'd0;
    
@@ -457,7 +497,7 @@ module parallella_7020_top (/*AUTOARG*/
 
    assign hdmi_int   = 1'b0;//=HDMI_INT
 
-`ifndef kHDMI_INCLUDED
+`ifndef kFEATURE_HDMI
    assign hdmi_data = 16'd0;
    assign hdmi_clk = 1'b0;
    assign hdmi_hsync = 1'b0;
@@ -466,7 +506,7 @@ module parallella_7020_top (/*AUTOARG*/
    assign hdmi_spdif = 1'b0;
    assign PS_I2C_SDA_IBUF = 1'bZ;
    assign PS_I2C_SCL_IBUF = 1'bZ;
-`endif   // !kHDMI_INCLUDED
+`endif   // !kFEATURE_HDMI
    
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
    assign esaxi_areset = ~processing_system7_0_M_AXI_GP1_ARESETN_pin;
