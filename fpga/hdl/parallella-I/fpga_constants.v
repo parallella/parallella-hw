@@ -20,7 +20,13 @@
   along with this program (see the file COPYING).  If not, see
   <http://www.gnu.org/licenses/>.
 */
-`define AXI_COORD       12'h810 
+
+`ifdef kTARGET_E16
+ `define AXI_COORD       12'h810
+`elsif kTARGET_E64
+ `define AXI_COORD       12'h820
+`endif
+  
 `define VIRT_EXT_MEM     4'h8
 `define CHIP_CORE0_ID   12'h808    //core ID of chip's core 0
 `define PHYS_EXT_MEM     4'h3

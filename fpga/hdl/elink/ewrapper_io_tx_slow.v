@@ -85,6 +85,13 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    wire [8:0] 	DATA_OUT_TO_PINS_N;
    wire 	LCLK_OUT_TO_PINS_P;
    wire 	LCLK_OUT_TO_PINS_N;
+
+   // Inversions for E16/E64 migration
+`ifdef kTARGET_E16
+   wire     elink_invert = 1'b0;
+`elsif kTARGET_E64
+   wire     elink_invert = 1'b1;
+`endif
       
    /*AUTOINPUT*/
    /*AUTOWIRE*/
@@ -102,7 +109,7 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
 
    always @ (posedge txo_lclk)
      if(tx_pedge_first)
-       tx_in_sync[71:0] <= tx_in[71:0];
+       tx_in_sync <= elink_invert ? ~tx_in : tx_in;
    
    //################################
    //# Output Buffers Instantiation
@@ -152,8 +159,8 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
               .Q  (tx_lclk_out),
               .C  (txo_lclk90),
               .CE (1'b1),
-              .D1 (1'b1),
-              .D2 (1'b0),
+              .D1 (~elink_invert),
+              .D2 (elink_invert),
               .R  (CLK_RESET),
               .S  (1'b0));
    
@@ -185,12 +192,10 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
 
    always @ (posedge txo_lclk) begin
 
-     tx_pedge_first <= tx_coreclock_del_45 & tx_coreclock_del_135;
+      tx_pedge_first <= tx_coreclock_del_45 & tx_coreclock_del_135;
 
-     if(tx_pedge_first)
-       cycle_sel <= 4'b0001;
-     else
-       cycle_sel <= {cycle_sel[2:0], 1'b0};
+      cycle_sel[0] <= tx_pedge_first;
+      cycle_sel[3:1] <= cycle_sel[2:0];
 
    end
    

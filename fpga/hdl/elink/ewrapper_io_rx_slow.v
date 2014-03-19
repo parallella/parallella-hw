@@ -50,7 +50,8 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //############
    //# REGS
    //############
-   reg [1:0] 	 clk_cnt;
+   reg [3:0] 	 clk_edge;
+   reg           rx_pedge_first;
    reg [8:0] 	 clk_even_reg;
    reg [8:0] 	 clk_odd_reg;
    reg [8:0] 	 clk0_even;
@@ -71,14 +72,19 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //############
    wire 	 reset;
    wire 	 rx_outclock;
-   wire 	 rxi_lclk;
+   wire 	 rxi_lclk, rxi_lclk_raw;
    wire [71:0] 	 rx_out_int;
-   wire 	 rx_pedge_first;
    wire [8:0] 	 rx_in;
    wire [8:0] 	 clk_even;
    wire [8:0] 	 clk_odd;
       
-
+   // Inversions for E16/E64 migration
+`ifdef kTARGET_E16
+   wire     elink_invert = 1'b0;
+`elsif kTARGET_E64
+   wire     elink_invert = 1'b1;
+`endif
+      
    /*AUTOINPUT*/
    /*AUTOWIRE*/
 
@@ -112,8 +118,10 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    ibufds_clk_inst
      (.I          (CLK_IN_P),
       .IB         (CLK_IN_N),
-      .O          (rxi_lclk));
+      .O          (rxi_lclk_raw));
 
+   assign rxi_lclk = elink_invert ^ rxi_lclk_raw;
+   
    // BUFR generates the slow clock
    BUFR
      #(.SIM_DEVICE("7SERIES"),
@@ -128,42 +136,39 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //# De-serialization Cycle Counter
    //#################################
 
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk_cnt[1:0] <= 2'b00;
-     else if(rx_pedge_first)
-       clk_cnt[1:0] <= 2'b11;
-     else
-       clk_cnt[1:0] <= clk_cnt[1:0] + 2'b01;
+   always @ (posedge rxi_lclk) begin
+      if(rx_pedge_first)
+        clk_edge <= 4'b1000;
+      else
+        clk_edge <= {clk_edge[2:0], clk_edge[3]};
+   end
 
    //################################################################
    //# Posedge Detection of the Slow Clock in the Fast Clock Domain
    //################################################################
    
-   always @ (negedge rxi_lclk)
-     rx_outclock_del_45  <= rx_outclock;
-
-   always @ (negedge rxi_lclk)
-     rx_outclock_del_135 <= rx_outclock_del_45;
-      
-   assign rx_pedge_first = rx_outclock_del_45 & ~rx_outclock_del_135;
-
+   always @ (negedge rxi_lclk) begin
+      rx_outclock_del_45  <= rx_outclock;
+      rx_outclock_del_135 <= rx_outclock_del_45;
+      rx_pedge_first <= ~rx_outclock_del_45 & ~rx_outclock_del_135;
+   end
+   
    //#############################
    //# De-serialization Output
    //#############################
 
    // Synchronizing the clocks (fast to slow)
-   always @ (posedge rxi_lclk or posedge reset)
+   always @ (posedge rxi_lclk_raw or posedge reset)
      if(reset)
-       rx_out_sync_pos[71:0] <= {(72){1'b0}};
+       rx_out_sync_pos <= 72'd0;
      else
-       rx_out_sync_pos[71:0] <= rx_out_int[71:0];
+       rx_out_sync_pos <= rx_out_int;
 
    always @ (posedge rx_outclock or posedge reset)
      if(reset)
-       rx_out[71:0] <= {(72){1'b0}};
+       rx_out <= 72'd0;
      else
-       rx_out[71:0] <= rx_out_sync_pos[71:0];
+       rx_out <= rx_out_sync_pos;
 
    //#############################
    //# IDDR instantiation
@@ -181,7 +186,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
 		    .C   (rxi_lclk),
 		    .CE  (1'b1),
 		    .D   (rx_in[iddr_cnt]),
-		    .R   (reset),
+		    .R   (1'b0),
 		    .S   (1'b0));
       end
    endgenerate
@@ -190,67 +195,46 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //# De-serialization Registers
    //#############################
 
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       begin
-	  clk_even_reg[8:0] <= {(8){1'b0}};
-	  clk_odd_reg[8:0]  <= {(8){1'b0}};
-       end
-     else
-       begin
-	  clk_even_reg[8:0] <= clk_even[8:0];
-	  clk_odd_reg[8:0]  <= clk_odd[8:0];
-       end
+   always @ (posedge rxi_lclk or posedge reset) begin
+     if(reset) begin
+        clk_even_reg <= 9'd0;
+        clk_odd_reg  <= 9'd0;
+        clk0_even    <= 9'd0;
+        clk0_odd     <= 9'd0;
+        clk1_even    <= 9'd0;
+        clk1_odd     <= 9'd0;
+        clk2_even    <= 9'd0;
+        clk2_odd     <= 9'd0;
+        clk3_even    <= 9'd0;
+        clk3_odd     <= 9'd0;
+        
+     end else begin
+
+	    clk_even_reg <= clk_even ^ elink_invert;
+	    clk_odd_reg  <= clk_odd  ^ elink_invert;
+
+        if(clk_edge[0]) begin
+           clk0_even <= clk_even_reg;
+           clk0_odd  <= clk_odd_reg;
+        end
+      
+        if(clk_edge[1]) begin
+           clk1_even <= clk_even_reg;
+           clk1_odd  <= clk_odd_reg;
+        end
    
-   //# even bytes
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk0_even[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b00)
-       clk0_even[8:0] <= clk_even_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk1_even[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b01)
-       clk1_even[8:0] <= clk_even_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk2_even[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b10)
-       clk2_even[8:0] <= clk_even_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk3_even[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b11)
-       clk3_even[8:0] <= clk_even_reg[8:0];
-   
-   //# odd bytes
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk0_odd[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b00)
-       clk0_odd[8:0] <= clk_odd_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk1_odd[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b01)
-       clk1_odd[8:0] <= clk_odd_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk2_odd[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b10)
-       clk2_odd[8:0] <= clk_odd_reg[8:0];
-   
-   always @ (posedge rxi_lclk or posedge reset)
-     if(reset)
-       clk3_odd[8:0] <= {(8){1'b0}};
-     else if(clk_cnt[1:0] == 2'b11)
-       clk3_odd[8:0] <= clk_odd_reg[8:0];
+        if(clk_edge[2]) begin
+           clk2_even <= clk_even_reg;
+           clk2_odd  <= clk_odd_reg;
+        end
+
+        if(clk_edge[3]) begin
+           clk3_even <= clk_even_reg;
+           clk3_odd  <= clk_odd_reg;
+        end
+
+     end // else: !if(reset)
+   end // always @ (posedge rxi_lclk or posedge reset)
    
    //#####################################
    //# De-serialization Data Construction

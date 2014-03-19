@@ -153,14 +153,15 @@ NET "GPIO23_N" LOC = "U5"  | IOSTANDARD = LVDS_25;
 #######################
 # Internal constraints
 #######################
+# TX at I/O is TX -FROM- the Epiphany, RX into the FPGA
 NET "TXO_LCLK_P" TNM_NET = "TXO_LCLK_P";
-TIMESPEC "TS_TXO_LCLK_P" = PERIOD "TXO_LCLK_P" 6.6ns HIGH 50% INPUT_JITTER 100ps;
+TIMESPEC "TS_TXO_LCLK_P" = PERIOD "TXO_LCLK_P" 6.66ns HIGH 50% INPUT_JITTER 100ps;
 
 NET "parallella/ewrapper_link_top/io_tx/CLK_IN" TNM_NET = "CLK_IN";
-TIMESPEC "TS_CLK_IN" = PERIOD "CLK_IN" 10ns HIGH 50% INPUT_JITTER 100ps;
+TIMESPEC "TS_CLK_IN" = PERIOD "CLK_IN" 3.33ns HIGH 50% INPUT_JITTER 100ps;
 
 NET "parallella/ewrapper_link_top/io_tx/CLK_IN_90" TNM_NET = "CLK_FWD_IN";
-TIMESPEC "TS_CLK_FWD_IN" = PERIOD "CLK_FWD_IN" 10ns HIGH 50% INPUT_JITTER 100ps;
+TIMESPEC "TS_CLK_FWD_IN" = PERIOD "CLK_FWD_IN" 3.33ns HIGH 50% INPUT_JITTER 100ps;
 
 INST "parallella/axi_elink_if/fpgacfg/reset_chip_reg_4" TNM = "SW_RESET";
 TIMESPEC "TS_SW_RESET" = FROM "SW_RESET" TIG;
@@ -169,14 +170,15 @@ TIMESPEC "TS_SW_RESET" = FROM "SW_RESET" TIG;
 #PIN "CLK_RESET" TIG;
 #PIN "IO_RESET" TIG;
 
-NET "system_stub/system_i/processing_system7_0/FCLK_CLK3" TNM_NET = clk_fpga_3;
-TIMESPEC TS_clk_fpga_3 = PERIOD clk_fpga_3 40000 kHz;
+# These constraints will be forwarded from the PS module, no need to duplicate them here.
+#NET "system_stub/system_i/processing_system7_0/FCLK_CLK3" TNM_NET = clk_fpga_3;
+#TIMESPEC TS_clk_fpga_3 = PERIOD clk_fpga_3 40000 kHz;
 
-NET "system_stub/system_i/processing_system7_0/FCLK_CLK2" TNM_NET = clk_fpga_2;
-TIMESPEC TS_clk_fpga_2 = PERIOD clk_fpga_2 200000 kHz;
+#NET "system_stub/system_i/processing_system7_0/FCLK_CLK2" TNM_NET = clk_fpga_2;
+#TIMESPEC TS_clk_fpga_2 = PERIOD clk_fpga_2 200000 kHz;
 
-NET "system_stub/system_i/processing_system7_0/FCLK_CLK1" TNM_NET = clk_fpga_1;
-TIMESPEC TS_clk_fpga_1 = PERIOD clk_fpga_1 200000 kHz;
+#NET "system_stub/system_i/processing_system7_0/FCLK_CLK1" TNM_NET = clk_fpga_1;
+#TIMESPEC TS_clk_fpga_1 = PERIOD clk_fpga_1 200000 kHz;
 
-NET "system_stub/system_i/processing_system7_0/FCLK_CLK0" TNM_NET = clk_fpga_0;
-TIMESPEC TS_clk_fpga_0 = PERIOD clk_fpga_0 100000 kHz;
+#NET "system_stub/system_i/processing_system7_0/FCLK_CLK0" TNM_NET = clk_fpga_0;
+#TIMESPEC TS_clk_fpga_0 = PERIOD clk_fpga_0 100000 kHz;

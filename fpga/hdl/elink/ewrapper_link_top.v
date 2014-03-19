@@ -113,9 +113,6 @@ module ewrapper_link_top (/*AUTOARG*/
    //############
    //# WIRES
    //############
-//   wire [71:0] 	   tx_in;
-//   wire [63:0] 	   txo_data_paral;
-//   wire [7:0] 	   txo_frame_paral;
    wire [63:0] 	   rxi_data_paral;
    wire [7:0] 	   rxi_frame_paral;
    wire [8:0] 	   rx_in_p;
@@ -128,18 +125,17 @@ module ewrapper_link_top (/*AUTOARG*/
    wire 	   clk_fast_deg0;
    wire            clk_slow_deg0;
    wire 	   clk_fast_deg90;
-//   wire            clk_slow_deg45;
    wire 	   rxi_wr_wait;
    wire 	   rxi_rd_wait;
    wire 	   txo_wr_wait;
    wire 	   txo_rd_wait;
 
-//   wire [7:0] 	   cs_ila2_TRIG3;
-//   wire [7:0] 	   cs_ila3_TRIG3;
-//   wire [35:0] 	   CONTROL0;
-//   wire [35:0] 	   CONTROL1;
-//   wire [35:0] 	   CONTROL2;
-//   wire [35:0] 	   CONTROL3;
+   // Inversions for E16/E64 migration
+`ifdef kTARGET_E16
+   wire     elink_invert = 1'b0;
+`elsif kTARGET_E64
+   wire     elink_invert = 1'b1;
+`endif
       
    //#######################
    //# LVDS RECEIVER
@@ -201,7 +197,6 @@ module ewrapper_link_top (/*AUTOARG*/
    //# LVDS TRANSMITTER
    //#######################
 
-//   assign tx_in[71:0]  = {txo_frame_paral[7:0],txo_data_paral[63:0]};
    assign txo_frame_p     = tx_out_p[8];
    assign txo_frame_n     = tx_out_n[8];
    assign txo_data_p[7:0] = tx_out_p[7:0];
@@ -275,80 +270,100 @@ module ewrapper_link_top (/*AUTOARG*/
    
    // xilinx OBUFDS instantiation
    //
-   OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_cclk_inst (.O   (rxi_cclk_p),
-						       .OB  (rxi_cclk_n),
-						       .I   (rxi_cclk));
+   OBUFDS
+     #(.IOSTANDARD ("LVDS_25")) 
+   obufds_cclk_inst
+     (.O   (rxi_cclk_p),
+	  .OB  (rxi_cclk_n),
+	  .I   (rxi_cclk));
    
-   OBUFDS #(.IOSTANDARD ("LVDS_25")) rxi_wr_wait_inst (.O   (rxi_wr_wait_p),
-                                                       .OB  (rxi_wr_wait_n),
-                                                       .I   (rxi_wr_wait));
+   OBUFDS 
+     #(.IOSTANDARD ("LVDS_25"))
+   rxi_wr_wait_inst
+     (.O   (rxi_wr_wait_p),
+      .OB  (rxi_wr_wait_n),
+      .I   (rxi_wr_wait ^ elink_invert));
 
-   OBUFDS #(.IOSTANDARD ("LVDS_25")) rxi_rd_wait_inst (.O   (rxi_rd_wait_p),
-                                                       .OB  (rxi_rd_wait_n),
-                                                       .I   (rxi_rd_wait));
-
+   OBUFDS
+     #(.IOSTANDARD ("LVDS_25"))
+   rxi_rd_wait_inst
+     (.O   (rxi_rd_wait_p),
+      .OB  (rxi_rd_wait_n),
+      .I   (rxi_rd_wait ^ elink_invert));
+   
    // xilinx IBUFDS instantiation
    //
-   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
-            .IOSTANDARD ("LVDS_25")) txo_wr_wait_inst (.I   (txo_wr_wait_p),
-                                                       .IB  (txo_wr_wait_n),
-                                                       .O   (txo_wr_wait));
-   
+   IBUFDS
+     #(.DIFF_TERM  ("TRUE"),             // Differential termination
+       .IOSTANDARD ("LVDS_25"))
+   txo_wr_wait_inst
+     (.I   (txo_wr_wait_p),
+      .IB  (txo_wr_wait_n),
+      .O   (txo_wr_wait_raw));
 
+   assign txo_wr_wait = txo_wr_wait_raw ^ elink_invert;
+   
 //   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
 //            .IOSTANDARD ("LVDS_25")) txo_rd_wait_inst (.I   (txo_rd_wait_p),
 //                                                       .IB  (txo_rd_wait_n),
 //                                                       .O   (txo_rd_wait));
 
    //No need for differential buffer
-   //TODO:Need to clean up this hierarchy, make IP less technology dependant. 
-   assign txo_rd_wait = txo_rd_wait_p;
-   
-
+   assign txo_rd_wait = txo_rd_wait_p ^ elink_invert;
    
    //#################################
    //# Chip Scope Instantiation
    //#################################
 
-//   assign cs_ila2_TRIG3[7:0] = {emesh_wr_wait_inb,
-//				emesh_rd_wait_inb,
-//				emesh_ctrlmode_outb[1:0],
-//				emesh_datamode_outb[1:0],
-//				emesh_write_outb,
-//				emesh_access_outb};   
+`ifdef kCHIPSCOPE_EWRAPPER
 
-//   assign cs_ila3_TRIG3[7:0] = {emesh_wr_wait_outb,
-//				emesh_rd_wait_outb,
-//				emesh_ctrlmode_inb[1:0],
-//				emesh_datamode_inb[1:0],
-//				emesh_write_inb,
-//				emesh_access_inb};   
+   wire [7:0] 	   cs_ila2_TRIG3;
+   wire [7:0] 	   cs_ila3_TRIG3;
+   wire [35:0] 	   CONTROL0;
+   wire [35:0] 	   CONTROL1;
+   wire [35:0] 	   CONTROL2;
+   wire [35:0] 	   CONTROL3;
+      
+   assign cs_ila2_TRIG3[7:0] = {emesh_wr_wait_inb,
+				emesh_rd_wait_inb,
+				emesh_ctrlmode_outb[1:0],
+				emesh_datamode_outb[1:0],
+				emesh_write_outb,
+				emesh_access_outb};   
+
+   assign cs_ila3_TRIG3[7:0] = {emesh_wr_wait_outb,
+				emesh_rd_wait_outb,
+				emesh_ctrlmode_inb[1:0],
+				emesh_datamode_inb[1:0],
+				emesh_write_inb,
+				emesh_access_inb};   
    
-//   cs_ila0 cs_ila0(.TRIG0   (tx_in[71:0]),
-//		   .CONTROL (CONTROL0[35:0]),
-//		   .CLK     (clk_slow_deg0));
+   cs_ila0 cs_ila0(.TRIG0   (tx_in[71:0]),
+		   .CONTROL (CONTROL0[35:0]),
+		   .CLK     (clk_slow_deg0));
 
-//   cs_ila0 cs_ila1(.TRIG0   (rx_out[71:0]),
-//		   .CONTROL (CONTROL1[35:0]),
-//		   .CLK     (emesh_clk_inb));
+   cs_ila0 cs_ila1(.TRIG0   (rx_out[71:0]),
+		   .CONTROL (CONTROL1[35:0]),
+		   .CLK     (emesh_clk_inb));
 
-//   cs_ila1 cs_ila2(.TRIG0   (emesh_dstaddr_outb[31:0]),
-//		   .TRIG1   (emesh_data_outb[31:0]),
-//		   .TRIG2   (emesh_srcaddr_outb[31:0]),
-//		   .TRIG3   (cs_ila2_TRIG3[7:0]),
-//		   .CONTROL (CONTROL2[35:0]),
-//		   .CLK     (emesh_clk_inb));
+   cs_ila1 cs_ila2(.TRIG0   (emesh_dstaddr_outb[31:0]),
+		   .TRIG1   (emesh_data_outb[31:0]),
+		   .TRIG2   (emesh_srcaddr_outb[31:0]),
+		   .TRIG3   (cs_ila2_TRIG3[7:0]),
+		   .CONTROL (CONTROL2[35:0]),
+		   .CLK     (emesh_clk_inb));
 
-//   cs_ila1 cs_ila3(.TRIG0   (emesh_dstaddr_inb[31:0]),
-//		   .TRIG1   (emesh_data_inb[31:0]),
-//		   .TRIG2   (emesh_srcaddr_inb[31:0]),
-//		   .TRIG3   (cs_ila3_TRIG3[7:0]),
-//		   .CONTROL (CONTROL3[35:0]),
-//		   .CLK     (emesh_clk_inb));
+   cs_ila1 cs_ila3(.TRIG0   (emesh_dstaddr_inb[31:0]),
+		   .TRIG1   (emesh_data_inb[31:0]),
+		   .TRIG2   (emesh_srcaddr_inb[31:0]),
+		   .TRIG3   (cs_ila3_TRIG3[7:0]),
+		   .CONTROL (CONTROL3[35:0]),
+		   .CLK     (emesh_clk_inb));
 
-//   cs_icon cs_icon(.CONTROL0 (CONTROL0[35:0]),
-//		   .CONTROL1 (CONTROL1[35:0]),
-//		   .CONTROL2 (CONTROL2[35:0]),
-//		   .CONTROL3 (CONTROL3[35:0]));
+   cs_icon cs_icon(.CONTROL0 (CONTROL0[35:0]),
+		   .CONTROL1 (CONTROL1[35:0]),
+		   .CONTROL2 (CONTROL2[35:0]),
+		   .CONTROL3 (CONTROL3[35:0]));
+`endif // kCHIPSCOPE_EWRAPPER
       
 endmodule // ewrapper_link_top
