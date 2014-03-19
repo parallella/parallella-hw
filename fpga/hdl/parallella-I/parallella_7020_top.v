@@ -384,8 +384,8 @@ module parallella_7020_top (/*AUTO ARG*/
    wire [1:0] 	 user_pb;
    wire [11:0] 	 gpio_in;
    wire [11:0]   gpio_out;
-   wire [kGPIO_NUM-1:0]  GPIO_P;
-   wire [kGPIO_NUM-1:0]  GPIO_N;
+   wire [`kGPIO_NUM-1:0]  GPIO_P;
+   wire [`kGPIO_NUM-1:0]  GPIO_N;
 
    //##############################
    //# GPIOs

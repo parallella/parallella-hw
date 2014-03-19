@@ -190,7 +190,7 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
      if(tx_pedge_first)
        cycle_sel <= 4'b0001;
      else
-       cycle_sel <= {cycle_sel[2:0], 1'b1};
+       cycle_sel <= {cycle_sel[2:0], 1'b0};
 
    end
    
