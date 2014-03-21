@@ -14,7 +14,7 @@
 		<Option Name="TargetLanguage" Val="Verilog"/>
 		<Option Name="TargetSimulator" Val="ISim"/>
 		<Option Name="Board" Val=""/>
-		<Option Name="SourceMgmtMode" Val="All"/>
+		<Option Name="SourceMgmtMode" Val="DisplayOnly"/>
 		<Option Name="ActiveSimSet" Val="sim_1"/>
 		<Option Name="CxlOverwriteLibs" Val="1"/>
 		<Option Name="CxlFuncsim" Val="1"/>

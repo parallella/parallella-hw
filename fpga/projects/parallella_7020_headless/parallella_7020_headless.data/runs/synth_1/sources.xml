@@ -2,13 +2,13 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../hdl/parallella-I/fpga_constants.v">
+    <File Path="$PPRDIR/version.v">
       <FileInfo SFType="VHeader">
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/version.v">
+    <File Path="$PPRDIR/../../hdl/parallella-I/fpga_constants.v">
       <FileInfo SFType="VHeader">
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

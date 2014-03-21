@@ -130,7 +130,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
      (.O (rx_outclock),
       .CE(1'b1),
       .CLR(CLK_RESET),
-      .I (rxi_lclk));
+      .I (rxi_lclk_raw));
 
    //#################################
    //# De-serialization Cycle Counter
@@ -158,7 +158,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //#############################
 
    // Synchronizing the clocks (fast to slow)
-   always @ (posedge rxi_lclk_raw or posedge reset)
+   always @ (posedge rxi_lclk or posedge reset)
      if(reset)
        rx_out_sync_pos <= 72'd0;
      else
@@ -210,8 +210,8 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
         
      end else begin
 
-	    clk_even_reg <= clk_even ^ elink_invert;
-	    clk_odd_reg  <= clk_odd  ^ elink_invert;
+	    clk_even_reg <= clk_even ^ {9{elink_invert}};
+	    clk_odd_reg  <= clk_odd  ^ {9{elink_invert}};
 
         if(clk_edge[0]) begin
            clk0_even <= clk_even_reg;
