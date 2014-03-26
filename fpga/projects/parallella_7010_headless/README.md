@@ -21,9 +21,9 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 1. Launch the Xilinx PlanAhead tool
 
->  Linux hints:
->    $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
->    $ planAhead &
+    Linux hints:
+      $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
+      $ planAhead &
 
 2. From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
 

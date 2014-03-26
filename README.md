@@ -5,6 +5,7 @@ the Parallella board and various accessories.
 
 ## Directory Structure
 
+```
 boards/         -  Board design files, all projects
     archive/        - Older boards no longer supported,
         proto/          - Zedboard based prototype (Jan 2013)
@@ -33,6 +34,7 @@ fpga/           -  FPGA design files and projects
     projects/       - One folder for each project
         parallella_7020_headless/
         parallella_64_7020_headless
+```
 
 ## FPGA Project Build instructions
 
