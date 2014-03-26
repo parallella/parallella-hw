@@ -221,7 +221,7 @@
         <Attr Name="UsedInSimulation" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../hdl/parallella-I/parallella_7020_top.v">
+    <File Path="$PPRDIR/../../hdl/parallella-I/parallella_z7_top.v">
       <FileInfo>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
@@ -230,7 +230,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="parallella_7020_top"/>
+      <Option Name="TopModule" Val="parallella_z7_top"/>
     </Config>
   </FileSet>
 </DARoots>

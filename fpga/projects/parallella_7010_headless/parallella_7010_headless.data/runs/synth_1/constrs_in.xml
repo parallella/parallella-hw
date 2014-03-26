@@ -8,12 +8,6 @@
         <Attr Name="UsedInImplementation" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../boards/parallella-I/constraints/parallella_z7020_loc.ucf">
-      <FileInfo>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../boards/parallella-I/constraints/parallella_z70x0_loc.ucf">
       <FileInfo>
         <Attr Name="UsedInSynthesis" Val="1"/>

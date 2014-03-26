@@ -9,7 +9,7 @@
 	<DefaultPromote Dir="$PROMOTEDIR"/>
 	<Config>
 		<Option Name="Id" Val="bc4cf12ea4f649c283831a0785288419"/>
-		<Option Name="Part" Val="xc7z020clg400-1"/>
+		<Option Name="Part" Val="xc7z010clg400-1"/>
 		<Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
 		<Option Name="TargetLanguage" Val="Verilog"/>
 		<Option Name="TargetSimulator" Val="ISim"/>

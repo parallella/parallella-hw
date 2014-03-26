@@ -1,5 +1,5 @@
 /*
-  File: parallella_7020_top.v
+  File: parallella_z7_top.v
  
   This file is part of the Parallella FPGA Reference Design.
 
@@ -30,7 +30,7 @@
   `define  kGPIO_NUM 12
 `endif  // else throw an error!
 
-module parallella_7020_top (/*AUTO ARG*/
+module parallella_z7_top (/*AUTO ARG*/
    // Outputs
    processing_system7_0_DDR_WEB_pin, 
 `ifdef kGPIO_ALL
@@ -866,5 +866,5 @@ module parallella_7020_top (/*AUTO ARG*/
 			   .processing_system7_0_S_AXI_HP1_WDATA_pin(processing_system7_0_S_AXI_HP1_WDATA_pin[63:0]),
 			   .processing_system7_0_S_AXI_HP1_WSTRB_pin(processing_system7_0_S_AXI_HP1_WSTRB_pin[7:0]));
    
-endmodule // parallella_7020_top
+endmodule // parallella_z7_top
 

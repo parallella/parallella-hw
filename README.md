@@ -1,11 +1,9 @@
---------------------------------------------------------------------------------
+# parallella-hw
 
 This repository contains the board design sources and FPGA HDL sources for 
 the Parallella board and various accessories.
 
---------------------------------------------------------------------------------
-
-Directory Structure:
+## Directory Structure
 
 boards/         -  Board design files, all projects
     archive/        - Older boards no longer supported,
@@ -34,7 +32,13 @@ fpga/           -  FPGA design files and projects
     ip/             - Tool-specific IP generation (CoreGen) sources
     projects/       - One folder for each project
         parallella_7020_headless/
-        parallella_64_7020_headless/
+        parallella_64_7020_headless
+
+## FPGA Project Build instructions
+
+See README files in the individual project directories.
+
+## License
 
 COPYING         -  GNU GENERAL PUBLIC LICENSE file
 
