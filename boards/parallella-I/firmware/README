@@ -31,8 +31,7 @@ Pre-requisites:
 1.  Make sure you have xilinx tools installed and you have the 
     correct path set. For example:
 
-    my-machine:~> source /opt/Xilinx/14.4/ISE_DS/settings64.csh
-    my-machine:~> set path = (/opt/Xilinx/14.4/ISE_DS/PlanAhead/bin $path)
+    my-machine:~> source /opt/Xilinx/14.7/ISE_DS/settings64.csh
 
 2.  Copy over a raw FPGA bitstream file from the fpga project directory.
     For example: "parallella-hw/fpga/projects/parallella_7020_headless"
