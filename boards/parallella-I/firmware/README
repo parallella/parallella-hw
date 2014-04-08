@@ -6,7 +6,7 @@ QSPI boot flash on the Parallella board.
 -------------------------------------------------------------------------
 Directory Content:
 
-parallella.bin 		  (bootable flash image)
+parallella.flash.bin      (bootable flash image)
 parallella.bit.bin	  (FPGA bitstream loaded by U-Boot from SD card)
 fsbl.elf 		  (First Stage Boot Loader)
 uboot.elf 		  (U-Boot executable)
@@ -28,29 +28,44 @@ Pre-requisites:
 -Xilinx tools installed
 
 --------------------------------------------------------------------------
-
 1.  Make sure you have xilinx tools installed and you have the 
     correct path set. For example:
 
     my-machine:~> source /opt/Xilinx/14.4/ISE_DS/settings64.csh
     my-machine:~> set path = (/opt/Xilinx/14.4/ISE_DS/PlanAhead/bin $path)
 
-2.  Connect a console cable to the three pin serial port header and a computer.
+2.  Copy over a raw FPGA bitstream file from the fpga project directory.
+    For example: "parallella-hw/fpga/projects/parallella_7020_headless"
+
+3.  Run the Xilinx bootgen utility to create the binary file for the flash,
+    An bootgen ".bif" configuration file example is given below.
+
+    the_ROM_image:
+    {
+    [bootloader]/path/to/fsbl.elf
+    /path/to/your/fpga-bitstream.bin
+    /path/to/u-boot.elf
+   }
+
+   my-machine:~>bootgen -image /path/to/image.bif -o i parallella.bin
+
+         
+4.  Connect a console cable to the three pin serial port header and a computer.
     running a console application such as putty or tera term.
 
-3.  Connect the Xilinx Platform USB II cable to the JTAG PEC_POWER pins. (Note
+5.  Connect the Xilinx Platform USB II cable to the JTAG PEC_POWER pins. (Note
     that you will need a PEC_POWER breakout board for this). Connect the
     JTAG cable to the Linux based computer running the Xilinx software. There
     may be a driver conflict between the Xilinx cable and the serial cable so
     the safe bet is to connect the cables in step 2 and 3 to separate computers.
 
-4.  Power on the board
+6.  Power on the board
 
-5.  Start the JTAG debugger on machine connected to JTAG cable:
+7.  Start the JTAG debugger on machine connected to JTAG cable:
 
     my-machine:~>xmd
 
-6.  Enter the following command sequence in XMD to run the u-boot application
+8.  Enter the following command sequence in XMD to run the u-boot application
     through the JTAG loader:
 
     XMD% connect arm hw
@@ -62,28 +77,28 @@ Pre-requisites:
     XMD% dow u-boot.elf
     XMD% con
 
-7.  Insert an SD card with a file called "parallella.bin" on boot partition.
+9.  Insert an SD card with the file called "parallella.flash.bin" on boot partition.
 
-8.  In the serial port console program enter the following sequence:
+10.  In the serial port console program enter the following sequence:
     (Note: Takes several minutes, be patient)
 
     mmc info
-    fatload mmc 0 0x4000000 parallella.bin
+    fatload mmc 0 0x4000000 parallella.flash.bin
     sf probe 0 0 0
     sf erase 0 0x1000000
     sf write 0x4000000 0 0x$filesize
 
-9.  Power off board and take out the SD card.
+11.  Power off board and take out the SD card.
 
-9.  Set the ethernet address. The first 6 characters contain the Adapteva
+12.  Set the ethernet address. The first 6 characters contain the Adapteva
 assigned range of MAC-IDs. The last 6 characters should match the serial 
 number ("SN") on the board sticker.
 
     zynq-uboot> set ethaddr 04 4F 8B 00 00 00 (for example)
     zynq-uboot> saveenv
 
-10. Power down board
+13. Power down board
 
-11. At this point the board is ready for general use.
+14. At this point the board is ready for general use.
  
 
