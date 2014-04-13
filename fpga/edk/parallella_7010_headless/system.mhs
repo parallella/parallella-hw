@@ -105,6 +105,8 @@
  PORT processing_system7_0_S_AXI_HP1_WID_pin = processing_system7_0_S_AXI_HP1_WID, DIR = I, VEC = [5:0]
  PORT processing_system7_0_S_AXI_HP1_WDATA_pin = processing_system7_0_S_AXI_HP1_WDATA, DIR = I, VEC = [63:0]
  PORT processing_system7_0_S_AXI_HP1_WSTRB_pin = processing_system7_0_S_AXI_HP1_WSTRB, DIR = I, VEC = [7:0]
+ PORT processing_system7_0_I2C0_SDA_pin = processing_system7_0_I2C0_SDA_1, DIR = IO
+ PORT processing_system7_0_I2C0_SCL_pin = processing_system7_0_I2C0_SCL_0, DIR = IO
 
 
 BEGIN processing_system7
@@ -115,7 +117,7 @@ BEGIN processing_system7
  PARAMETER C_EN_EMIO_CAN1 = 0
  PARAMETER C_EN_EMIO_ENET0 = 0
  PARAMETER C_EN_EMIO_ENET1 = 0
- PARAMETER C_EN_EMIO_I2C0 = 0
+ PARAMETER C_EN_EMIO_I2C0 = 1
  PARAMETER C_EN_EMIO_I2C1 = 0
  PARAMETER C_EN_EMIO_PJTAG = 0
  PARAMETER C_EN_EMIO_SDIO0 = 0
@@ -143,7 +145,7 @@ BEGIN processing_system7
  PARAMETER C_EN_CAN1 = 0
  PARAMETER C_EN_ENET0 = 1
  PARAMETER C_EN_ENET1 = 0
- PARAMETER C_EN_I2C0 = 0
+ PARAMETER C_EN_I2C0 = 1
  PARAMETER C_EN_I2C1 = 0
  PARAMETER C_EN_PJTAG = 0
  PARAMETER C_EN_SDIO0 = 0
@@ -271,5 +273,7 @@ BEGIN processing_system7
  PORT S_AXI_HP1_WID = processing_system7_0_S_AXI_HP1_WID
  PORT S_AXI_HP1_WDATA = processing_system7_0_S_AXI_HP1_WDATA
  PORT S_AXI_HP1_WSTRB = processing_system7_0_S_AXI_HP1_WSTRB
+ PORT I2C0_SDA = processing_system7_0_I2C0_SDA_1
+ PORT I2C0_SCL = processing_system7_0_I2C0_SCL_0
 END
 

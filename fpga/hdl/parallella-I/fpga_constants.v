@@ -21,9 +21,11 @@
   <http://www.gnu.org/licenses/>.
 */
 
-`ifdef kTARGET_E16
+`include "version.v"
+
+`ifdef TARGET_E16
  `define AXI_COORD       12'h810
-`elsif kTARGET_E64
+`elsif TARGET_E64
  `define AXI_COORD       12'h820
 `endif
   

@@ -122,8 +122,8 @@ module fpgacfg (/*AUTOARG*/
    //#########
    reg  	 reset_reg;
    reg [31:0] 	 syscfg_reg;
-   reg [31:0] 	 version_reg;
-   reg [31:0] 	 filterl_reg;
+   wire [31:0]   version_reg = `VERSION_VALUE;
+   reg [31:0]    filterl_reg;
    reg [31:0] 	 filterh_reg;
    reg [31:0] 	 filterc_reg;
    reg [31:0] 	 timeout_reg;
@@ -206,12 +206,12 @@ module fpgacfg (/*AUTOARG*/
    wire [11:0] 	 sys_srcaddr_row2;
    
       
-`ifdef EP64
+`ifdef TARGET_E64
    assign sys_dwb_prev_dis       = syscfg_reg[27];
    assign sys_tran_modif_row2    = syscfg_reg[26];
    assign sys_ctrlmode_row2[3:0] = syscfg_reg[23:20];
    assign sys_srcaddr_row2[11:0] = syscfg_reg[19:8];
-`else
+`elsif TARGET_E16
    assign sys_dwb_prev_dis       = 1'b1;
    assign sys_tran_modif_row2    = 1'b0;
    assign sys_ctrlmode_row2[3:0] = 4'b0000;
@@ -312,10 +312,6 @@ module fpgacfg (/*AUTOARG*/
    
    assign version_reg_read = version_reg_access & ~axi_write_in;
    
-   always @ (posedge eclk or posedge reset)
-     if(reset)
-       version_reg[31:0] = `VERSION_VALUE;
-
    //###################################################################
    //#             Filter Low Register
    //# -----------------------------------------------------------------

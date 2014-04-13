@@ -205,15 +205,6 @@
         <Attr Name="UsedInSimulation" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/parallella_7020_headless/system_stub.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../edk/parallella_7020_headless/system_stub.v"/>
-        <Attr Name="ImportTime" Val="1394754028"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../hdl/parallella-I/parallella.v">
       <FileInfo>
         <Attr Name="UsedInSynthesis" Val="1"/>
@@ -223,6 +214,15 @@
     </File>
     <File Path="$PPRDIR/../../hdl/parallella-I/parallella_z7_top.v">
       <FileInfo>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/parallella_7020_headless/system_stub.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../edk/parallella_7020_headless/system_stub.v"/>
+        <Attr Name="ImportTime" Val="1397170463"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

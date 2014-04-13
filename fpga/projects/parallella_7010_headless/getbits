@@ -1,0 +1,2 @@
+cp *.runs/impl_1/*.bit ../bitstreams/parallella_e16_headless_nogpio_7010.bit
+

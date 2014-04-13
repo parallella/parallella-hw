@@ -23,15 +23,19 @@
 
 // This version info is local to each project.
 
-`define VERSION_VALUE   32'h14031401 //Firmware version YY_MM_DD_COUNT
+// Version register is {8'Reserved, 8'Revision, 8'Type, 8'Platform}
+//  Please see versions.txt in the top-level fpga directory.
+// Platform 5   - Parallella-I, E64, 7Z020, GPIO
+// Type     2   - Headless, GPIO unused
+`define VERSION_VALUE   {8'h00, 8'd01, 8'd02, 8'd05}
 
 // Define one of the following for target FPGA
-//`define kTARGET_7Z010 1
-`define kTARGET_7Z020 1
+//`define TARGET_7Z010 1
+`define TARGET_7Z020 1
 
 // Define one of the following for target processor
-//`define kTARGET_E16 1
-`define kTARGET_E64 1
+//`define TARGET_E16 1
+`define TARGET_E64 1
 
 // Define included features
-//`define kFEATURE_HDMI  1
+//`define FEATURE_HDMI  1

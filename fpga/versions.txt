@@ -1,0 +1,48 @@
+versions.txt - 4/10/14 F. Huettig
+
+  The ESYSINFO register, readable from the ARM host, allows software
+to determine what hardware platform it is running on and what
+features are available.  There are four 8-bit fields:
+ 
+  FPGAID[31:24]   - Reserved, currently 0x00
+  FPGAID[23:16]   - Revision #, incremented on each change
+  FPGAID[15:8]    - Type, defines features included in FPGA
+  FPGAID[7:0]     - Platform, defines the components and connections
+                    on the PCB.
+
+A given PCB assembly can generally only use FPGA configurations 
+corresponding to that platform.  Sometimes the same FPGA config might 
+work on multiple platforms, e.g. a config that doesn't use GPIO could 
+be used on a board that has or doesn't have GPIO connectors, however 
+for consistency it is desireable to create separate configurations for
+each platform so a user can always know what hardware platform [s]he has.
+
+Note that TYPE definitions may change with different platforms, though
+where possible they will be kept consistent at least within a platform
+family.
+
+Within each FPGA project this register value is set by a version.v file,
+it is VERY IMPORTANT that this file be updated as needed whenever changes
+are made to the code.
+
+ADDITIONS to this file must be synchronized with the master spreadsheet
+on dropbox and pushed down to the documentation and source code.
+
+Platforms IDs:
+
+  0   - Undefined
+
+  1   - Parallella-I, E16, 7Z020, GPIO connectors
+  2   - Parallella-I, E16, 7Z020, no GPIO
+  3   - Parallella-I, E16, 7Z010, GPIO
+  4   - Parallella-I, E16, 7Z010, no GPIO
+
+  5   - Parallella-I, E64, 7Z020, GPIO
+
+Types: (For platforms 1-5)
+
+  0   - Undefined
+
+  1   - HDMI enabled, GPIO unused
+  2   - Headless, GPIO unused
+

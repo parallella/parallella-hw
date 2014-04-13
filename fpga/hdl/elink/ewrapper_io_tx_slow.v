@@ -87,9 +87,9 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    wire 	LCLK_OUT_TO_PINS_N;
 
    // Inversions for E16/E64 migration
-`ifdef kTARGET_E16
+`ifdef TARGET_E16
    wire     elink_invert = 1'b0;
-`elsif kTARGET_E64
+`elsif TARGET_E64
    wire     elink_invert = 1'b1;
 `endif
       

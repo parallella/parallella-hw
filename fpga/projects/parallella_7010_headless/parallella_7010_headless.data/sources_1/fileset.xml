@@ -222,7 +222,7 @@
     <File Path="$PSRCDIR/sources_1/imports/parallella_7010_headless/system_stub.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../edk/parallella_7010_headless/system_stub.v"/>
-        <Attr Name="ImportTime" Val="1395858915"/>
+        <Attr Name="ImportTime" Val="1397169485"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

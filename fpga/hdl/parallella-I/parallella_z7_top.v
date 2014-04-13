@@ -3,8 +3,9 @@
  
   This file is part of the Parallella FPGA Reference Design.
 
-  Copyright (C) 2013 Adapteva, Inc.
+  Copyright (C) 2013-2014 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
+  updates by Fred Huettig
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,17 +24,17 @@
 
 
 // Set # of GPIO pins based on target FPGA
-`ifdef kTARGET_7Z020
-  `define kGPIO_ALL
-  `define kGPIO_NUM 24
-`elsif kTARGET_7Z010
-  `define  kGPIO_NUM 12
+`ifdef TARGET_7Z020
+  `define GPIO_ALL
+  `define GPIO_NUM 24
+`elsif TARGET_7Z010
+  `define  GPIO_NUM 12
 `endif  // else throw an error!
 
 module parallella_z7_top (/*AUTO ARG*/
    // Outputs
    processing_system7_0_DDR_WEB_pin, 
-`ifdef kGPIO_ALL
+`ifdef GPIO_ALL
    GPIO12_P, GPIO12_N, GPIO13_P,
    GPIO13_N, GPIO14_P, GPIO14_N, GPIO15_P, GPIO15_N, GPIO16_P,
    GPIO16_N, GPIO17_P, GPIO17_N, GPIO18_P, GPIO18_N, GPIO19_P,
@@ -164,7 +165,7 @@ module parallella_z7_top (/*AUTO ARG*/
    input 	GPIO11_P;
    input 	GPIO11_N;
    
-`ifdef kGPIO_ALL
+`ifdef GPIO_ALL
    output 	GPIO12_P;
    output 	GPIO12_N;
    output 	GPIO13_P;
@@ -384,8 +385,8 @@ module parallella_z7_top (/*AUTO ARG*/
    wire [1:0] 	 user_pb;
    wire [11:0] 	 gpio_in;
    wire [11:0]   gpio_out;
-   wire [`kGPIO_NUM-1:0]  GPIO_P;
-   wire [`kGPIO_NUM-1:0]  GPIO_N;
+   wire [`GPIO_NUM-1:0]  GPIO_P;
+   wire [`GPIO_NUM-1:0]  GPIO_N;
 
    //##############################
    //# GPIOs
@@ -430,7 +431,7 @@ module parallella_z7_top (/*AUTO ARG*/
       end
    endgenerate
 
-`ifdef kGPIO_ALL
+`ifdef GPIO_ALL
    //Outputs
    assign GPIO12_P = GPIO_P[12];
    assign GPIO12_N = GPIO_N[12];
@@ -497,16 +498,14 @@ module parallella_z7_top (/*AUTO ARG*/
 
    assign hdmi_int   = 1'b0;//=HDMI_INT
 
-`ifndef kFEATURE_HDMI
+`ifndef FEATURE_HDMI
    assign hdmi_data = 16'd0;
    assign hdmi_clk = 1'b0;
    assign hdmi_hsync = 1'b0;
    assign hdmi_vsync = 1'b0;
    assign hdmi_data_e = 1'b0;
    assign hdmi_spdif = 1'b0;
-   assign PS_I2C_SDA_IBUF = 1'bZ;
-   assign PS_I2C_SCL_IBUF = 1'bZ;
-`endif   // !kFEATURE_HDMI
+`endif   // !FEATURE_HDMI
    
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
    assign esaxi_areset = ~processing_system7_0_M_AXI_GP1_ARESETN_pin;
@@ -750,16 +749,16 @@ module parallella_z7_top (/*AUTO ARG*/
    system_stub system_stub(
 			   .processing_system7_0_M_AXI_GP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
 			   .processing_system7_0_S_AXI_HP1_ACLK_pin(processing_system7_0_FCLK_CLK3_pin),
-`ifdef kHDMI_INCLUDED
 			   .processing_system7_0_I2C0_SCL_pin(PS_I2C_SCL),
 			   .processing_system7_0_I2C0_SDA_pin(PS_I2C_SDA),
+`ifdef FEATURE_HDMI
 			   .hdmi_clk(hdmi_clk),
                .hdmi_data(hdmi_data),
                .hdmi_hsync(hdmi_hsync),
                .hdmi_vsync(hdmi_vsync),
                .hdmi_data_e(hdmi_data_e),
                .hdmi_int(hdmi_int),
-`endif  // kHDMI_INCLUDED
+`endif  // FEATURE_HDMI
 			   /*AUTOINST*/
 			   // Outputs
 			   .processing_system7_0_DDR_WEB_pin(processing_system7_0_DDR_WEB_pin),

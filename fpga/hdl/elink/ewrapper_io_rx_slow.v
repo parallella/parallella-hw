@@ -79,9 +79,9 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    wire [8:0] 	 clk_odd;
       
    // Inversions for E16/E64 migration
-`ifdef kTARGET_E16
+`ifdef TARGET_E16
    wire     elink_invert = 1'b0;
-`elsif kTARGET_E64
+`elsif TARGET_E64
    wire     elink_invert = 1'b1;
 `endif
       
