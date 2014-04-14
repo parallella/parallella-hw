@@ -20,6 +20,7 @@ boards/         -  Board design files, all projects
         mfg/            - Manufacturing files: Fab Gerbers, Assembly docs
 
 fpga/           -  FPGA design files and projects
+    bitstreams/     - Latest generated bitstreams
     edk/            - EDK sources
         parallella_7020_headless/ - EDK for headless 7020-based Parallella
     externals/      - Container for external repositories used by our projects
@@ -33,7 +34,8 @@ fpga/           -  FPGA design files and projects
     ip/             - Tool-specific IP generation (CoreGen) sources
     projects/       - One folder for each project
         parallella_7020_headless/
-        parallella_64_7020_headless
+        parallella_7010_headless/
+        parallella_64_7020_headless/
 ```
 
 ## FPGA Project Build instructions

@@ -19,7 +19,9 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 ## Build instructions
 
-1. Launch the Xilinx PlanAhead tool
+1.  Be sure to update the version.v file with a new version number, and type or platform if needed.
+
+2.  Launch the Xilinx PlanAhead tool
 
 ```
     Linux hints:
@@ -27,14 +29,15 @@ Xilinx ISE/EDK/PlanAhead version 14.7
       $ planAhead &
 ```
 
-2. From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
+3.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
 
-3. Answer "Yes" to "OK to launch synthesis and implementation?"
+4.  Answer "Yes" to "OK to launch synthesis and implementation?"
 
 ## Output
 
 The generated bitstream file will be found in the directory
 *parallella_7010_headless.runs/impl_1*
+To copy it to the ../bitstreams directory, run the script 'getbits'.
 
 ##  Critical Warnings
 
