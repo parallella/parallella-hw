@@ -28,6 +28,8 @@
 `elsif TARGET_E64
  `define AXI_COORD       12'h820
 `endif
+
+`define IOSTD_ELINK      "PPDS_25"
   
 `define VIRT_EXT_MEM     4'h8
 `define CHIP_CORE0_ID   12'h808    //core ID of chip's core 0

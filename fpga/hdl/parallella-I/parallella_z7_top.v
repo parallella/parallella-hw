@@ -423,7 +423,7 @@ module parallella_z7_top (/*AUTO ARG*/
       for (gpin_cnt = 0; gpin_cnt < 12; gpin_cnt = gpin_cnt + 1) begin: gpins
 	 IBUFDS 
 	   #(.DIFF_TERM  ("TRUE"),     // Differential termination
-           .IOSTANDARD ("LVDS_25"))
+           .IOSTANDARD (`IOSTD_GPIO))
 	 gpin_inst
 	   (.I     (GPIO_P[gpin_cnt]),
            .IB     (GPIO_N[gpin_cnt]),
@@ -462,7 +462,7 @@ module parallella_z7_top (/*AUTO ARG*/
    generate 
       for (gpout_cnt = 12; gpout_cnt < 24; gpout_cnt = gpout_cnt + 1) begin: gps
 	 OBUFDS 
-	   #(.IOSTANDARD ("LVDS_25"))
+	   #(.IOSTANDARD (`IOSTD_GPIO))
 	 gpout_inst
 	   (.O     (GPIO_P[gpout_cnt]),
             .OB    (GPIO_N[gpout_cnt]),

@@ -117,14 +117,14 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    genvar 	pin_count;
    generate 
       for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
-         OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_inst
+         OBUFDS #(.IOSTANDARD (`IOSTD_ELINK)) obufds_inst
            (.O   (DATA_OUT_TO_PINS_P[pin_count]),
             .OB  (DATA_OUT_TO_PINS_N[pin_count]),
             .I   (tx_out[pin_count]));
       end
    endgenerate
 
-   OBUFDS #(.IOSTANDARD ("LVDS_25")) obufds_lclk_inst
+   OBUFDS #(.IOSTANDARD (`IOSTD_ELINK)) obufds_lclk_inst
      (.O   (LCLK_OUT_TO_PINS_P),
       .OB  (LCLK_OUT_TO_PINS_N),
       .I   (tx_lclk_out));

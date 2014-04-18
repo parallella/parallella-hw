@@ -81,7 +81,7 @@ Pre-requisites:
 10.  In the serial port console program enter the following sequence:
     (Note: Takes several minutes, be patient)
 
-    mmc info
+    mmcinfo
     fatload mmc 0 0x4000000 parallella.flash.bin
     sf probe 0 0 0
     sf erase 0 0x1000000

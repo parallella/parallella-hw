@@ -271,21 +271,21 @@ module ewrapper_link_top (/*AUTOARG*/
    // xilinx OBUFDS instantiation
    //
    OBUFDS
-     #(.IOSTANDARD ("LVDS_25")) 
+     #(.IOSTANDARD (`IOSTD_ELINK)) 
    obufds_cclk_inst
      (.O   (rxi_cclk_p),
 	  .OB  (rxi_cclk_n),
 	  .I   (rxi_cclk));
    
    OBUFDS 
-     #(.IOSTANDARD ("LVDS_25"))
+     #(.IOSTANDARD (`IOSTD_ELINK))
    rxi_wr_wait_inst
      (.O   (rxi_wr_wait_p),
       .OB  (rxi_wr_wait_n),
       .I   (rxi_wr_wait ^ elink_invert));
 
    OBUFDS
-     #(.IOSTANDARD ("LVDS_25"))
+     #(.IOSTANDARD (`IOSTD_ELINK))
    rxi_rd_wait_inst
      (.O   (rxi_rd_wait_p),
       .OB  (rxi_rd_wait_n),
@@ -295,7 +295,7 @@ module ewrapper_link_top (/*AUTOARG*/
    //
    IBUFDS
      #(.DIFF_TERM  ("TRUE"),             // Differential termination
-       .IOSTANDARD ("LVDS_25"))
+       .IOSTANDARD (`IOSTD_ELINK))
    txo_wr_wait_inst
      (.I   (txo_wr_wait_p),
       .IB  (txo_wr_wait_n),
@@ -304,7 +304,7 @@ module ewrapper_link_top (/*AUTOARG*/
    assign txo_wr_wait = txo_wr_wait_raw ^ elink_invert;
    
 //   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
-//            .IOSTANDARD ("LVDS_25")) txo_rd_wait_inst (.I   (txo_rd_wait_p),
+//            .IOSTANDARD (`IOSTD_ELINK)) txo_rd_wait_inst (.I   (txo_rd_wait_p),
 //                                                       .IB  (txo_rd_wait_n),
 //                                                       .O   (txo_rd_wait));
 

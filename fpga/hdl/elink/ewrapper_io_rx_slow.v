@@ -100,7 +100,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
       for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
 	 IBUFDS 
 	   #(.DIFF_TERM  ("TRUE"),     // Differential termination
-           .IOSTANDARD ("LVDS_25"))
+           .IOSTANDARD (`IOSTD_ELINK))
 	 ibufds_inst
 	   (.I     (DATA_IN_FROM_PINS_P[pin_count]),
            .IB     (DATA_IN_FROM_PINS_N[pin_count]),
@@ -114,7 +114,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
 
    IBUFGDS 
      #(.DIFF_TERM  ("TRUE"),   // Differential termination
-       .IOSTANDARD ("LVDS_25"))
+       .IOSTANDARD (`IOSTD_ELINK))
    ibufds_clk_inst
      (.I          (CLK_IN_P),
       .IB         (CLK_IN_N),
