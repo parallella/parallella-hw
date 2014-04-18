@@ -23,8 +23,8 @@
 module parallella (/*AUTOARG*/
    // Outputs
    csysack, cactive, reset_chip, reset_fpga, txo_data_p, txo_data_n,
-   txo_frame_p, txo_frame_n, txo_lclk_p, txo_lclk_n, rxi_wr_wait_p,
-   rxi_wr_wait_n, rxi_rd_wait_p, rxi_rd_wait_n, rxi_cclk_p,
+   txo_frame_p, txo_frame_n, txo_lclk_p, txo_lclk_n, rxo_wr_wait_p,
+   rxo_wr_wait_n, rxo_rd_wait_p, rxo_rd_wait_n, rxi_cclk_p,
    rxi_cclk_n, emaxi_awid, emaxi_awaddr, emaxi_awlen, emaxi_awsize,
    emaxi_awburst, emaxi_awlock, emaxi_awcache, emaxi_awprot,
    emaxi_awvalid, esaxi_awready, emaxi_wid, emaxi_wdata, emaxi_wstrb,
@@ -37,8 +37,8 @@ module parallella (/*AUTOARG*/
    // Inputs
    clkin_100, esaxi_aclk, emaxi_aclk, reset, esaxi_aresetn,
    emaxi_aresetn, csysreq, rxi_data_p, rxi_data_n, rxi_frame_p,
-   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txo_wr_wait_p, txo_wr_wait_n,
-   txo_rd_wait_p, txo_rd_wait_n, emaxi_awready, esaxi_awid,
+   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txi_wr_wait_p, txi_wr_wait_n,
+   txi_rd_wait_p, txi_rd_wait_n, emaxi_awready, esaxi_awid,
    esaxi_awaddr, esaxi_awlen, esaxi_awsize, esaxi_awburst,
    esaxi_awlock, esaxi_awcache, esaxi_awprot, esaxi_awvalid,
    emaxi_wready, esaxi_wid, esaxi_wdata, esaxi_wstrb, esaxi_wlast,
@@ -80,10 +80,10 @@ module parallella (/*AUTOARG*/
    input       rxi_frame_n;
    input       rxi_lclk_p;
    input       rxi_lclk_n;
-   input       txo_wr_wait_p;
-   input       txo_wr_wait_n;
-   input       txo_rd_wait_p;
-   input       txo_rd_wait_n;
+   input       txi_wr_wait_p;
+   input       txi_wr_wait_n;
+   input       txi_rd_wait_p;
+   input       txi_rd_wait_n;
    
    //########################
    //# Write address channel
@@ -168,12 +168,12 @@ module parallella (/*AUTOARG*/
    output 	   txo_frame_n;
    output 	   txo_lclk_p;
    output 	   txo_lclk_n;
-   output 	   rxi_wr_wait_p;
-   output 	   rxi_wr_wait_n;
-   output 	   rxi_rd_wait_p;
-   output 	   rxi_rd_wait_n;
+   output 	   rxo_wr_wait_p;
+   output 	   rxo_wr_wait_n;
+   output 	   rxo_rd_wait_p;
+   output 	   rxo_rd_wait_n;
 
-   output          rxi_cclk_p;
+   output      rxi_cclk_p;
    output 	   rxi_cclk_n;
 
    //########################
@@ -545,10 +545,10 @@ module parallella (/*AUTOARG*/
 				       .txo_frame_n	(txo_frame_n),	 // Templated
 				       .txo_lclk_p	(txo_lclk_p),	 // Templated
 				       .txo_lclk_n	(txo_lclk_n),	 // Templated
-				       .rxi_wr_wait_p	(rxi_wr_wait_p), // Templated
-				       .rxi_wr_wait_n	(rxi_wr_wait_n), // Templated
-				       .rxi_rd_wait_p	(rxi_rd_wait_p), // Templated
-				       .rxi_rd_wait_n	(rxi_rd_wait_n), // Templated
+				       .rxo_wr_wait_p	(rxo_wr_wait_p), // Templated
+				       .rxo_wr_wait_n	(rxo_wr_wait_n), // Templated
+				       .rxo_rd_wait_p	(rxo_rd_wait_p), // Templated
+				       .rxo_rd_wait_n	(rxo_rd_wait_n), // Templated
 				       .rxi_cclk_p	(rxi_cclk_p),	 // Templated
 				       .rxi_cclk_n	(rxi_cclk_n),	 // Templated
 				       // Inputs
@@ -569,10 +569,10 @@ module parallella (/*AUTOARG*/
 				       .rxi_frame_n	(rxi_frame_n),	 // Templated
 				       .rxi_lclk_p	(rxi_lclk_p),	 // Templated
 				       .rxi_lclk_n	(rxi_lclk_n),	 // Templated
-				       .txo_wr_wait_p	(txo_wr_wait_p), // Templated
-				       .txo_wr_wait_n	(txo_wr_wait_n), // Templated
-				       .txo_rd_wait_p	(txo_rd_wait_p), // Templated
-				       .txo_rd_wait_n	(txo_rd_wait_n), // Templated
+				       .txi_wr_wait_p	(txi_wr_wait_p), // Templated
+				       .txi_wr_wait_n	(txi_wr_wait_n), // Templated
+				       .txi_rd_wait_p	(txi_rd_wait_p), // Templated
+				       .txi_rd_wait_n	(txi_rd_wait_n), // Templated
 				       .burst_en	(1'b1));		 // Templated
    
    //####################################

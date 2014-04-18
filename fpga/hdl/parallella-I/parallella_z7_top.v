@@ -367,20 +367,20 @@ module parallella_z7_top (/*AUTO ARG*/
    wire 	 rxi_frame_n;
    wire 	 rxi_lclk_p;
    wire 	 rxi_lclk_n;
-   wire 	 txo_wr_wait_p;
-   wire 	 txo_wr_wait_n;
-   wire 	 txo_rd_wait_p;
-   wire 	 txo_rd_wait_n;
+   wire 	 txi_wr_wait_p;
+   wire 	 txi_wr_wait_n;
+   wire 	 txi_rd_wait_p;
+   wire 	 txi_rd_wait_n;
    wire [7:0] 	 txo_data_p;
    wire [7:0]    txo_data_n;
    wire 	 txo_frame_p;
    wire 	 txo_frame_n;
    wire 	 txo_lclk_p;
    wire 	 txo_lclk_n;
-   wire 	 rxi_wr_wait_p;
-   wire 	 rxi_wr_wait_n;
-   wire 	 rxi_rd_wait_p;
-   wire 	 rxi_rd_wait_n;
+   wire 	 rxo_wr_wait_p;
+   wire 	 rxo_wr_wait_n;
+   wire 	 rxo_rd_wait_p;
+   wire 	 rxo_rd_wait_n;
    wire 	 aafm_resetn;
    wire [1:0] 	 user_pb;
    wire [11:0] 	 gpio_in;
@@ -534,10 +534,10 @@ module parallella_z7_top (/*AUTO ARG*/
    assign rxi_lclk_p = TXO_LCLK_P;
    assign rxi_lclk_n = TXO_LCLK_N;
 
-   assign txo_wr_wait_p = RXO_WR_WAIT_P;
-   assign txo_wr_wait_n = RXO_WR_WAIT_N;
-   assign txo_rd_wait_p = RXO_RD_WAIT;//AO, made single ended
-   assign txo_rd_wait_n = 1'b0;//AO, made single ended
+   assign txi_wr_wait_p = RXO_WR_WAIT_P;
+   assign txi_wr_wait_n = RXO_WR_WAIT_N;
+   assign txi_rd_wait_p = RXO_RD_WAIT;//AO, made single ended
+   assign txi_rd_wait_n = 1'b0;//AO, made single ended
 
    assign RXI_DATA0_P = txo_data_p[0];
    assign RXI_DATA1_P = txo_data_p[1];
@@ -563,10 +563,10 @@ module parallella_z7_top (/*AUTO ARG*/
    assign RXI_LCLK_P  = txo_lclk_p;
    assign RXI_LCLK_N  = txo_lclk_n;
 
-   assign TXI_WR_WAIT_P	= rxi_wr_wait_p;
-   assign TXI_WR_WAIT_N	= rxi_wr_wait_n;
-   assign TXI_RD_WAIT_P	= rxi_rd_wait_p;
-   assign TXI_RD_WAIT_N	= rxi_rd_wait_n;
+   assign TXI_WR_WAIT_P	= rxo_wr_wait_p;
+   assign TXI_WR_WAIT_N	= rxo_wr_wait_n;
+   assign TXI_RD_WAIT_P	= rxo_rd_wait_p;
+   assign TXI_RD_WAIT_N	= rxo_rd_wait_n;
 
    assign DSP_RESET_N = aafm_resetn;
    
@@ -641,10 +641,10 @@ module parallella_z7_top (/*AUTO ARG*/
 			 .txo_frame_n		(txo_frame_n),
 			 .txo_lclk_p		(txo_lclk_p),
 			 .txo_lclk_n		(txo_lclk_n),
-			 .rxi_wr_wait_p		(rxi_wr_wait_p),
-			 .rxi_wr_wait_n		(rxi_wr_wait_n),
-			 .rxi_rd_wait_p		(rxi_rd_wait_p),
-			 .rxi_rd_wait_n		(rxi_rd_wait_n),
+			 .rxo_wr_wait_p		(rxo_wr_wait_p),
+			 .rxo_wr_wait_n		(rxo_wr_wait_n),
+			 .rxo_rd_wait_p		(rxo_rd_wait_p),
+			 .rxo_rd_wait_n		(rxo_rd_wait_n),
 			 .rxi_cclk_p		(RXI_CCLK_P),	 // Templated
 			 .rxi_cclk_n		(RXI_CCLK_N),	 // Templated
 			 .emaxi_awid		(processing_system7_0_S_AXI_HP1_AWID_pin[MIDW-1:0]), // Templated
@@ -699,10 +699,10 @@ module parallella_z7_top (/*AUTO ARG*/
 			 .rxi_frame_n		(rxi_frame_n),
 			 .rxi_lclk_p		(rxi_lclk_p),
 			 .rxi_lclk_n		(rxi_lclk_n),
-			 .txo_wr_wait_p		(txo_wr_wait_p),
-			 .txo_wr_wait_n		(txo_wr_wait_n),
-			 .txo_rd_wait_p		(txo_rd_wait_p),
-			 .txo_rd_wait_n		(txo_rd_wait_n),
+			 .txi_wr_wait_p		(txi_wr_wait_p),
+			 .txi_wr_wait_n		(txi_wr_wait_n),
+			 .txi_rd_wait_p		(txi_rd_wait_p),
+			 .txi_rd_wait_n		(txi_rd_wait_n),
 			 .emaxi_awready		(processing_system7_0_S_AXI_HP1_AWREADY_pin), // Templated
 			 .esaxi_awid		(processing_system7_0_M_AXI_GP1_AWID_pin[SIDW-1:0]), // Templated
 			 .esaxi_awaddr		(processing_system7_0_M_AXI_GP1_AWADDR_pin[MAW-1:0]), // Templated

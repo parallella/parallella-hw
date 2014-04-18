@@ -22,7 +22,7 @@
 */
 module ewrapper_link_rxi (/*AUTOARG*/
    // Outputs
-   rxi_wait, emesh_access_inb, emesh_write_inb, emesh_datamode_inb,
+   rxo_wait, emesh_access_inb, emesh_write_inb, emesh_datamode_inb,
    emesh_ctrlmode_inb, emesh_dstaddr_inb, emesh_srcaddr_inb,
    emesh_data_inb,
    // Inputs
@@ -52,7 +52,7 @@ module ewrapper_link_rxi (/*AUTOARG*/
    //##########
 
    //# To the transmitter
-   output 	  rxi_wait;  //wait indicator   
+   output 	  rxo_wait;  //wait indicator
 
    //# To the emesh interface
    output 	  emesh_access_inb;
@@ -101,7 +101,7 @@ module ewrapper_link_rxi (/*AUTOARG*/
    reg 		  fifo_wr;
    reg [103:0] 	  fifo_out_reg;
    reg 		  emesh_access_inb;
-   reg 		  rxi_wait;
+   reg 		  rxo_wait;
    reg 		  add_latency;
    reg [31:0] 	  ref_dstaddr;
 
@@ -568,11 +568,11 @@ module ewrapper_link_rxi (/*AUTOARG*/
    //# Wait logic
    always @ (posedge rxi_lclk or posedge reset)
      if (reset)
-       rxi_wait <= 1'b0;
+       rxo_wait <= 1'b0;
      else if (emesh_wait_outb)
-       rxi_wait <= 1'b1;
+       rxo_wait <= 1'b1;
      else if (fifo_empty)
-       rxi_wait <= 1'b0;
+       rxo_wait <= 1'b0;
 
    assign emesh_srcaddr_inb[31:0] = fifo_out_reg[103:72];
    assign emesh_data_inb[31:0]    = fifo_out_reg[71:40];

@@ -22,7 +22,7 @@
 */
 module ewrapper_link_receiver (/*AUTOARG*/
    // Outputs
-   rxi_wr_wait, rxi_rd_wait, emesh_clk_inb, emesh_access_inb,
+   rxo_wr_wait, rxo_rd_wait, emesh_clk_inb, emesh_access_inb,
    emesh_write_inb, emesh_datamode_inb, emesh_ctrlmode_inb,
    emesh_dstaddr_inb, emesh_srcaddr_inb, emesh_data_inb,
    // Inputs
@@ -50,8 +50,8 @@ module ewrapper_link_receiver (/*AUTOARG*/
    //##########
 
    //# To the transmitter
-   output 	  rxi_wr_wait;  //wait indicator   
-   output 	  rxi_rd_wait;  //wait indicator   
+   output 	  rxo_wr_wait;  //wait indicator
+   output 	  rxo_rd_wait;  //wait indicator
 
    //# To the emesh interface
    output 	  emesh_clk_inb;
@@ -141,14 +141,14 @@ module ewrapper_link_receiver (/*AUTOARG*/
    /*ewrapper_link_rxi AUTO_TEMPLATE(
                                  .rxi_rd	  (1'b0),
                                  .emesh_wait_outb (wr_wait),
-                                 .rxi_wait	  (rxi_wr_wait),
+                                 .rxo_wait	  (rxo_wr_wait),
                                  .emesh_\(.*\)    (emesh_wr_\1[]),
                                 );
     */
 
    ewrapper_link_rxi wr_rxi(/*AUTOINST*/
 			    // Outputs
-			    .rxi_wait		(rxi_wr_wait),	 // Templated
+			    .rxo_wait		(rxo_wr_wait),	 // Templated
 			    .emesh_access_inb	(emesh_wr_access_inb), // Templated
 			    .emesh_write_inb	(emesh_wr_write_inb), // Templated
 			    .emesh_datamode_inb	(emesh_wr_datamode_inb[1:0]), // Templated
@@ -171,14 +171,14 @@ module ewrapper_link_receiver (/*AUTOARG*/
    /*ewrapper_link_rxi AUTO_TEMPLATE(
                                  .rxi_rd	  (1'b1),
                                  .emesh_wait_outb (rd_wait),
-                                 .rxi_wait	  (rxi_rd_wait),
+                                 .rxo_wait	  (rxo_rd_wait),
                                  .emesh_\(.*\)    (emesh_rd_\1[]),
                                 );
     */
 
    ewrapper_link_rxi rd_rxi(/*AUTOINST*/
 			    // Outputs
-			    .rxi_wait		(rxi_rd_wait),	 // Templated
+			    .rxo_wait		(rxo_rd_wait),	 // Templated
 			    .emesh_access_inb	(emesh_rd_access_inb), // Templated
 			    .emesh_write_inb	(emesh_rd_write_inb), // Templated
 			    .emesh_datamode_inb	(emesh_rd_datamode_inb[1:0]), // Templated

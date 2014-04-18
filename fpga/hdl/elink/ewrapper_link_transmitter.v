@@ -27,7 +27,7 @@ module ewrapper_link_transmitter(/*AUTOARG*/
    reset, txo_lclk, emesh_clk_inb, emesh_access_outb,
    emesh_write_outb, emesh_datamode_outb, emesh_ctrlmode_outb,
    emesh_dstaddr_outb, emesh_srcaddr_outb, emesh_data_outb,
-   txo_wr_wait, txo_rd_wait, burst_en
+   txi_wr_wait, txi_rd_wait, burst_en
    );
 
    //#########
@@ -49,8 +49,8 @@ module ewrapper_link_transmitter(/*AUTOARG*/
    input [31:0]   emesh_data_outb;   
 
    //# From the receiver
-   input 	  txo_wr_wait;  //wait indicator   
-   input 	  txo_rd_wait;  //wait indicator   
+   input 	  txi_wr_wait;  //wait indicator
+   input 	  txi_rd_wait;  //wait indicator
 
    input 	  burst_en; // Burst enable control
    //##########
@@ -75,10 +75,10 @@ module ewrapper_link_transmitter(/*AUTOARG*/
    //#########
    //# Wires
    //#########
-   wire [1:0] 	  txo_wait;
-   wire [1:0] 	  txo_wait_sync;
-   wire 	  txo_wr_wait_sync;
-   wire 	  txo_rd_wait_sync;
+   wire [1:0] 	  txi_wait;
+   wire [1:0] 	  txi_wait_sync;
+   wire 	  txi_wr_wait_sync;
+   wire 	  txi_rd_wait_sync;
    wire [103:0]   fifo_in;
    wire [103:0]   fifo_out;
    wire [107:0]   wrfifo_out;
@@ -107,12 +107,12 @@ module ewrapper_link_transmitter(/*AUTOARG*/
    //# txo_wait synchronization
    //############################
 
-   assign txo_wait[1:0] = {txo_rd_wait,txo_wr_wait};
-   assign txo_wr_wait_sync = txo_wait_sync[0];
-   assign txo_rd_wait_sync = txo_wait_sync[1];
+   assign txi_wait[1:0] = {txi_rd_wait,txi_wr_wait};
+   assign txi_wr_wait_sync = txi_wait_sync[0];
+   assign txi_rd_wait_sync = txi_wait_sync[1];
 
-   synchronizer #(.DW(2)) synchronizer(.out	(txo_wait_sync[1:0]),
-			               .in	(txo_wait[1:0]),
+   synchronizer #(.DW(2)) synchronizer(.out	(txi_wait_sync[1:0]),
+			               .in	(txi_wait[1:0]),
 				       .clk	(txo_lclk),
 				       .reset	(reset));
 
@@ -145,8 +145,8 @@ module ewrapper_link_transmitter(/*AUTOARG*/
    assign rdfifo_wr = emesh_access_outb &~emesh_write_outb & ~emesh_rd_wait_inb;
 
    //# FIFO reads
-   assign wrfifo_rd_int = ~(wrfifo_empty | txo_wr_wait_sync | txo_emesh_wait);
-   assign rdfifo_rd_int = ~(rdfifo_empty | txo_rd_wait_sync | txo_emesh_wait);
+   assign wrfifo_rd_int = ~(wrfifo_empty | txi_wr_wait_sync | txo_emesh_wait);
+   assign rdfifo_rd_int = ~(rdfifo_empty | txi_rd_wait_sync | txo_emesh_wait);
 
    //# arbitration
    always @ (posedge txo_lclk or posedge reset)

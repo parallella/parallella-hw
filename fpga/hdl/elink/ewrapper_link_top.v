@@ -26,15 +26,15 @@ module ewrapper_link_top (/*AUTOARG*/
    emesh_datamode_inb, emesh_ctrlmode_inb, emesh_dstaddr_inb,
    emesh_srcaddr_inb, emesh_data_inb, emesh_wr_wait_inb,
    emesh_rd_wait_inb, txo_data_p, txo_data_n, txo_frame_p,
-   txo_frame_n, txo_lclk_p, txo_lclk_n, rxi_wr_wait_p, rxi_wr_wait_n,
-   rxi_rd_wait_p, rxi_rd_wait_n, rxi_cclk_p, rxi_cclk_n,
+   txo_frame_n, txo_lclk_p, txo_lclk_n, rxo_wr_wait_p, rxo_wr_wait_n,
+   rxo_rd_wait_p, rxo_rd_wait_n, rxi_cclk_p, rxi_cclk_n,
    // Inputs
    reset, clkin_100, emesh_access_outb, emesh_write_outb,
    emesh_datamode_outb, emesh_ctrlmode_outb, emesh_dstaddr_outb,
    emesh_srcaddr_outb, emesh_data_outb, emesh_wr_wait_outb,
    emesh_rd_wait_outb, rxi_data_p, rxi_data_n, rxi_frame_p,
-   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txo_wr_wait_p, txo_wr_wait_n,
-   txo_rd_wait_p, txo_rd_wait_n, burst_en
+   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txi_wr_wait_p, txi_wr_wait_n,
+   txi_rd_wait_p, txi_rd_wait_n, burst_en
    );
 
    //#############
@@ -62,10 +62,10 @@ module ewrapper_link_top (/*AUTOARG*/
    input 	   rxi_frame_n;
    input 	   rxi_lclk_p;
    input 	   rxi_lclk_n;
-   input 	   txo_wr_wait_p;
-   input 	   txo_wr_wait_n;
-   input 	   txo_rd_wait_p;
-   input 	   txo_rd_wait_n;
+   input 	   txi_wr_wait_p;
+   input 	   txi_wr_wait_n;
+   input 	   txi_rd_wait_p;
+   input 	   txi_rd_wait_n;
 
    input 	   burst_en; // Burst enable control
 
@@ -92,10 +92,10 @@ module ewrapper_link_top (/*AUTOARG*/
    output 	   txo_frame_n;
    output 	   txo_lclk_p;
    output 	   txo_lclk_n;
-   output 	   rxi_wr_wait_p;
-   output 	   rxi_wr_wait_n;
-   output 	   rxi_rd_wait_p;
-   output 	   rxi_rd_wait_n;
+   output 	   rxo_wr_wait_p;
+   output 	   rxo_wr_wait_n;
+   output 	   rxo_rd_wait_p;
+   output 	   rxo_rd_wait_n;
 
    output          rxi_cclk_p;
    output 	   rxi_cclk_n;
@@ -125,10 +125,10 @@ module ewrapper_link_top (/*AUTOARG*/
    wire 	   clk_fast_deg0;
    wire            clk_slow_deg0;
    wire 	   clk_fast_deg90;
-   wire 	   rxi_wr_wait;
-   wire 	   rxi_rd_wait;
-   wire 	   txo_wr_wait;
-   wire 	   txo_rd_wait;
+   wire 	   rxo_wr_wait;
+   wire 	   rxo_rd_wait;
+   wire 	   txi_wr_wait;
+   wire 	   txi_rd_wait;
 
    // Inversions for E16/E64 migration
 `ifdef TARGET_E16
@@ -151,8 +151,8 @@ module ewrapper_link_top (/*AUTOARG*/
 				   .rxi_lclk		(rx_outclock),
 				   /*AUTOINST*/
 				   // Outputs
-				   .rxi_wr_wait		(rxi_wr_wait),
-				   .rxi_rd_wait		(rxi_rd_wait),
+				   .rxo_wr_wait		(rxo_wr_wait),
+				   .rxo_rd_wait		(rxo_rd_wait),
 				   .emesh_clk_inb	(emesh_clk_inb),
 				   .emesh_access_inb	(emesh_access_inb),
 				   .emesh_write_inb	(emesh_write_inb),
@@ -218,8 +218,8 @@ module ewrapper_link_top (/*AUTOARG*/
 				     .emesh_dstaddr_outb(emesh_dstaddr_outb[31:0]),
 				     .emesh_srcaddr_outb(emesh_srcaddr_outb[31:0]),
 				     .emesh_data_outb	(emesh_data_outb[31:0]),
-				     .txo_wr_wait	(txo_wr_wait),
-				     .txo_rd_wait	(txo_rd_wait),
+				     .txi_wr_wait	(txi_wr_wait),
+				     .txi_rd_wait	(txi_rd_wait),
 				     .burst_en		(burst_en));
 
    // xilinx MMCME2_ADV ip instantiation
@@ -279,29 +279,29 @@ module ewrapper_link_top (/*AUTOARG*/
    
    OBUFDS 
      #(.IOSTANDARD (`IOSTD_ELINK))
-   rxi_wr_wait_inst
-     (.O   (rxi_wr_wait_p),
-      .OB  (rxi_wr_wait_n),
-      .I   (rxi_wr_wait ^ elink_invert));
+   rxo_wr_wait_inst
+     (.O   (rxo_wr_wait_p),
+      .OB  (rxo_wr_wait_n),
+      .I   (rxo_wr_wait ^ elink_invert));
 
    OBUFDS
      #(.IOSTANDARD (`IOSTD_ELINK))
-   rxi_rd_wait_inst
-     (.O   (rxi_rd_wait_p),
-      .OB  (rxi_rd_wait_n),
-      .I   (rxi_rd_wait ^ elink_invert));
+   rxo_rd_wait_inst
+     (.O   (rxo_rd_wait_p),
+      .OB  (rxo_rd_wait_n),
+      .I   (rxo_rd_wait ^ elink_invert));
    
    // xilinx IBUFDS instantiation
    //
    IBUFDS
      #(.DIFF_TERM  ("TRUE"),             // Differential termination
        .IOSTANDARD (`IOSTD_ELINK))
-   txo_wr_wait_inst
-     (.I   (txo_wr_wait_p),
-      .IB  (txo_wr_wait_n),
-      .O   (txo_wr_wait_raw));
+   txi_wr_wait_inst
+     (.I   (txi_wr_wait_p),
+      .IB  (txi_wr_wait_n),
+      .O   (txi_wr_wait_raw));
 
-   assign txo_wr_wait = txo_wr_wait_raw ^ elink_invert;
+   assign txi_wr_wait = txi_wr_wait_raw ^ elink_invert;
    
 //   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
 //            .IOSTANDARD (`IOSTD_ELINK)) txo_rd_wait_inst (.I   (txo_rd_wait_p),
@@ -309,7 +309,7 @@ module ewrapper_link_top (/*AUTOARG*/
 //                                                       .O   (txo_rd_wait));
 
    //No need for differential buffer
-   assign txo_rd_wait = txo_rd_wait_p ^ elink_invert;
+   assign txi_rd_wait = txi_rd_wait_p ^ elink_invert;
    
    //#################################
    //# Chip Scope Instantiation
