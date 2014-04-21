@@ -292,16 +292,19 @@ module ewrapper_link_top (/*AUTOARG*/
       .I   (rxo_rd_wait ^ elink_invert));
    
    // xilinx IBUFDS instantiation
-   //
-   IBUFDS
+
+   wire [1:0] txi_wr_wait_buf;
+
+   IBUFDS_DIFF_OUT
      #(.DIFF_TERM  ("TRUE"),             // Differential termination
        .IOSTANDARD (`IOSTD_ELINK))
    txi_wr_wait_inst
      (.I   (txi_wr_wait_p),
       .IB  (txi_wr_wait_n),
-      .O   (txi_wr_wait_raw));
+      .O   (txi_wr_wait_buf[0]),
+      .OB  (txi_wr_wait_buf[1]));
 
-   assign txi_wr_wait = txi_wr_wait_raw ^ elink_invert;
+   assign txi_wr_wait = elink_invert ? txi_wr_wait_buf[1] : txi_wr_wait_buf[0];
    
 //   IBUFDS #(.DIFF_TERM  ("TRUE"),             // Differential termination
 //            .IOSTANDARD (`IOSTD_ELINK)) txo_rd_wait_inst (.I   (txo_rd_wait_p),

@@ -23,12 +23,15 @@
 
 // This version info is local to each project.
 
-// Version register is {8'Reserved, 8'Revision, 8'Type, 8'Platform}
+// Version register is {8'Generation, 8'Platform, 8'Type, 8'Version}
 //  Please see versions.txt in the top-level fpga directory.
-// Platform 3   - Parallella-I, E16, 7Z010, GPIO
-// Type     2   - Headless, GPIO unused
+// Generation 1 - Parallella-I
+// Platform   3 - E16, 7Z010, GPIO
+// Type       2 - Headless, GPIO unused
 
-`define VERSION_VALUE   {8'h00, 8'd01, 8'd02, 8'd03}
+// Version    1 - First working E16/010 4/10/14, FH
+
+`define VERSION_VALUE   {8'h01, 8'd03, 8'd02, 8'd01}
 
 // Define one of the following for target FPGA
 `define TARGET_7Z010 1

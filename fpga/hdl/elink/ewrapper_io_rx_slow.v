@@ -63,28 +63,37 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    reg [8:0] 	 clk2_odd;
    reg [8:0] 	 clk3_odd;
    reg [71:0] 	 rx_out_sync_pos;
-   reg 		 rx_outclock_del_45;
-   reg 		 rx_outclock_del_135;
+   reg           rx_outclock_del_45;
+   reg           rx_outclock_del_135;
    reg [71:0] 	 rx_out;
       
    //############
    //# WIRES
    //############
-   wire 	 reset;
-   wire 	 rx_outclock;
-   wire 	 rxi_lclk, rxi_lclk_raw;
+   wire          reset;
+   wire          rx_outclock;
+   wire          rxi_lclk;
    wire [71:0] 	 rx_out_int;
+   wire [8:0]    rx_in_t;
    wire [8:0] 	 rx_in;
    wire [8:0] 	 clk_even;
    wire [8:0] 	 clk_odd;
+   wire [8:0]    iddr_q1;
+   wire [8:0]    iddr_q2;
       
    // Inversions for E16/E64 migration
 `ifdef TARGET_E16
-   wire     elink_invert = 1'b0;
+   assign   rx_in = rx_in_t;
+   assign   clk_even = iddr_q1;
+   assign   clk_odd  = iddr_q2;
+   `define CLKEDGE_DDR  "SAME_EDGE_PIPELINED"
 `elsif TARGET_E64
-   wire     elink_invert = 1'b1;
+   assign   rx_in = ~rx_in_t;
+   assign   clk_even = iddr_q2;
+   assign   clk_odd  = iddr_q1;
+   `define CLKEDGE_DDR  "SAME_EDGE"
 `endif
-      
+
    /*AUTOINPUT*/
    /*AUTOWIRE*/
 
@@ -95,33 +104,27 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //################################
    //# Input Buffers Instantiation
    //################################
-   genvar 	 pin_count;
-   generate 
-      for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
-	 IBUFDS 
-	   #(.DIFF_TERM  ("TRUE"),     // Differential termination
-           .IOSTANDARD (`IOSTD_ELINK))
-	 ibufds_inst
-	   (.I     (DATA_IN_FROM_PINS_P[pin_count]),
-           .IB     (DATA_IN_FROM_PINS_N[pin_count]),
-           .O      (rx_in[pin_count]));
-      end
-   endgenerate
+   IBUFDS
+	 #(.DIFF_TERM  ("TRUE"),     // Differential termination
+       .IOSTANDARD (`IOSTD_ELINK))
+	 ibufds_inst[0:8]
+	   (.I     (DATA_IN_FROM_PINS_P),
+        .IB    (DATA_IN_FROM_PINS_N),
+        .O     (rx_in_t));
+
    
    //#####################
    //# Clock Buffers
    //#####################
 
-   IBUFGDS 
+   IBUFGDS
      #(.DIFF_TERM  ("TRUE"),   // Differential termination
        .IOSTANDARD (`IOSTD_ELINK))
    ibufds_clk_inst
      (.I          (CLK_IN_P),
       .IB         (CLK_IN_N),
-      .O          (rxi_lclk_raw));
+      .O          (rxi_lclk));
 
-   assign rxi_lclk = elink_invert ^ rxi_lclk_raw;
-   
    // BUFR generates the slow clock
    BUFR
      #(.SIM_DEVICE("7SERIES"),
@@ -130,7 +133,7 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
      (.O (rx_outclock),
       .CE(1'b1),
       .CLR(CLK_RESET),
-      .I (rxi_lclk_raw));
+      .I (rxi_lclk));
 
    //#################################
    //# De-serialization Cycle Counter
@@ -174,22 +177,17 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
    //# IDDR instantiation
    //#############################
    
-   genvar 	 iddr_cnt;
-   generate 
-      for (iddr_cnt = 0; iddr_cnt < 9; iddr_cnt = iddr_cnt + 1) begin: iddrs
-	 IDDR #(
-		.DDR_CLK_EDGE  ("SAME_EDGE_PIPELINED"),     
-		.SRTYPE ("ASYNC"))
-	 iddr_inst (
-		    .Q1  (clk_even[iddr_cnt]),
-		    .Q2  (clk_odd[iddr_cnt]),
+   IDDR #(
+	   .DDR_CLK_EDGE  (`CLKEDGE_DDR),
+	   .SRTYPE ("ASYNC"))
+     iddr_inst[0:8] (
+            .Q1  (iddr_q1),
+            .Q2  (iddr_q2),
 		    .C   (rxi_lclk),
 		    .CE  (1'b1),
-		    .D   (rx_in[iddr_cnt]),
+		    .D   (rx_in),
 		    .R   (1'b0),
 		    .S   (1'b0));
-      end
-   endgenerate
 
    //#############################
    //# De-serialization Registers
@@ -210,8 +208,8 @@ module ewrapper_io_rx_slow (/*AUTOARG*/
         
      end else begin
 
-	    clk_even_reg <= clk_even ^ {9{elink_invert}};
-	    clk_odd_reg  <= clk_odd  ^ {9{elink_invert}};
+	    clk_even_reg <= clk_even;
+	    clk_odd_reg  <= clk_odd;
 
         if(clk_edge[0]) begin
            clk0_even <= clk_even_reg;
