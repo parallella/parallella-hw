@@ -43,3 +43,6 @@
 
 // Define included features
 //`define FEATURE_HDMI  1
+
+// Set IOSTANDARD for GPIO pins
+`define IOSTD_GPIO       "LVDS_25"
