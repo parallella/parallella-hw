@@ -27,10 +27,10 @@
 //  Please see versions.txt in the top-level fpga directory.
 // Generation 1 - Parallella-I
 // Platform   1 - E16, 7Z020, GPIO
-// Type       2 - Headless, GPIO unused
-// Version    1 - First working E16 3/26/14, FH
+// Type       3 - Headless, 48 singled-ended GPIOs from EMIO
+// Version    1 - First E16/Type3 4/22/14, FH
 
-`define VERSION_VALUE   {8'h01, 8'd01, 8'd02, 8'd01}
+`define VERSION_VALUE   {8'h01, 8'd01, 8'd03, 8'd01}
 
 // Define one of the following for target FPGA
 //`define TARGET_7Z010 1
@@ -42,6 +42,9 @@
 
 // Define included features
 //`define FEATURE_HDMI  1
+`define FEATURE_GPIO_EMIO 1
+//`define FEATURE_GPIO_DIFF 1
 
 // Set IOSTANDARD for GPIO pins
-`define IOSTD_GPIO       "LVDS_25"
+`define IOSTD_GPIO       "LVCMOS25"
+//`define IOSTD_GPIO       "LVDS_25"

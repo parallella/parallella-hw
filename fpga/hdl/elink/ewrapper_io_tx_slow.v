@@ -114,17 +114,15 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    //################################
    //# Output Buffers Instantiation
    //################################
-   genvar 	pin_count;
-   generate 
-      for (pin_count = 0; pin_count < 9; pin_count = pin_count + 1) begin: pins
-         OBUFDS #(.IOSTANDARD (`IOSTD_ELINK)) obufds_inst
-           (.O   (DATA_OUT_TO_PINS_P[pin_count]),
-            .OB  (DATA_OUT_TO_PINS_N[pin_count]),
-            .I   (tx_out[pin_count]));
-      end
-   endgenerate
 
-   OBUFDS #(.IOSTANDARD (`IOSTD_ELINK)) obufds_lclk_inst
+   OBUFDS #(.IOSTANDARD (`IOSTD_ELINK))
+   obufds_inst [8:0]
+     (.O   (DATA_OUT_TO_PINS_P),
+      .OB  (DATA_OUT_TO_PINS_N),
+      .I   (tx_out));
+
+   OBUFDS #(.IOSTANDARD (`IOSTD_ELINK))
+   obufds_lclk_inst
      (.O   (LCLK_OUT_TO_PINS_P),
       .OB  (LCLK_OUT_TO_PINS_N),
       .I   (tx_lclk_out));
@@ -133,36 +131,33 @@ module ewrapper_io_tx_slow (/*AUTOARG*/
    //# ODDR instantiation
    //#############################
    
-   genvar        oddr_cnt;
-   generate 
-      for (oddr_cnt = 0; oddr_cnt < 9; oddr_cnt = oddr_cnt + 1) begin: oddrs
-         ODDR #(
-                .DDR_CLK_EDGE  ("SAME_EDGE"), 
-		.INIT          (1'b0),
-                .SRTYPE        ("ASYNC"))
-         oddr_inst (
-                    .Q  (tx_out[oddr_cnt]),
-                    .C  (txo_lclk),
-                    .CE (1'b1),
-                    .D1 (clk_even_reg[oddr_cnt]),
-                    .D2 (clk_odd_reg[oddr_cnt]),
-                    .R  (reset),
-                    .S  (1'b0));
-      end
-   endgenerate
+   ODDR #(
+          .DDR_CLK_EDGE  ("SAME_EDGE"), 
+		  .INIT          (1'b0),
+          .SRTYPE        ("ASYNC"))
+   oddr_inst [8:0] 
+     (
+      .Q  (tx_out),
+      .C  (txo_lclk),
+      .CE (1'b1),
+      .D1 (clk_even_reg),
+      .D2 (clk_odd_reg),
+      .R  (reset),
+      .S  (1'b0));
 
    ODDR #(
           .DDR_CLK_EDGE  ("SAME_EDGE"), 
-	  .INIT          (1'b0),
+	      .INIT          (1'b0),
           .SRTYPE        ("ASYNC"))
-   oddr_lclk_inst (
-              .Q  (tx_lclk_out),
-              .C  (txo_lclk90),
-              .CE (1'b1),
-              .D1 (~elink_invert),
-              .D2 (elink_invert),
-              .R  (CLK_RESET),
-              .S  (1'b0));
+   oddr_lclk_inst
+     (
+      .Q  (tx_lclk_out),
+      .C  (txo_lclk90),
+      .CE (1'b1),
+      .D1 (~elink_invert),
+      .D2 (elink_invert),
+      .R  (CLK_RESET),
+      .S  (1'b0));
    
    //########################
    //# Data Serialization

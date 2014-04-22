@@ -25,7 +25,6 @@
 
 // Set # of GPIO pins based on target FPGA
 `ifdef TARGET_7Z020
-  `define GPIO_ALL
   `define GPIO_NUM 24
 `elsif TARGET_7Z010
   `define  GPIO_NUM 12
@@ -34,17 +33,7 @@
 module parallella_z7_top (/*AUTO ARG*/
    // Outputs
    processing_system7_0_DDR_WEB_pin, 
-`ifdef GPIO_ALL
-   GPIO12_P, GPIO12_N, GPIO13_P,
-   GPIO13_N, GPIO14_P, GPIO14_N, GPIO15_P, GPIO15_N, GPIO16_P,
-   GPIO16_N, GPIO17_P, GPIO17_N, GPIO18_P, GPIO18_N, GPIO19_P,
-   GPIO19_N, GPIO20_P, GPIO20_N, GPIO21_P, GPIO21_N, GPIO22_P,
-   GPIO22_N, GPIO23_P, GPIO23_N, 
-`endif
-   RXI_DATA0_P, RXI_DATA1_P,
-   RXI_DATA2_P, RXI_DATA3_P, RXI_DATA4_P, RXI_DATA5_P, RXI_DATA6_P,
-   RXI_DATA7_P, RXI_DATA0_N, RXI_DATA1_N, RXI_DATA2_N, RXI_DATA3_N,
-   RXI_DATA4_N, RXI_DATA5_N, RXI_DATA6_N, RXI_DATA7_N, RXI_FRAME_P,
+   RXI_DATA_P, RXI_DATA_N, RXI_FRAME_P,
    RXI_FRAME_N, RXI_LCLK_P, RXI_LCLK_N, TXI_WR_WAIT_P, TXI_WR_WAIT_N,
    TXI_RD_WAIT_P, TXI_RD_WAIT_N, RXI_CCLK_P, RXI_CCLK_N, DSP_RESET_N,
    // Inouts
@@ -56,23 +45,15 @@ module parallella_z7_top (/*AUTO ARG*/
    processing_system7_0_DDR_DRSTB, processing_system7_0_DDR_DQ,
    processing_system7_0_DDR_DM, processing_system7_0_DDR_DQS,
    processing_system7_0_DDR_DQS_n, processing_system7_0_DDR_VRN,
-   processing_system7_0_DDR_VRP,
+   processing_system7_0_DDR_VRP, GPIO_P, GPIO_N,
    // Inputs
    processing_system7_0_PS_SRSTB_pin, processing_system7_0_PS_CLK_pin,
-   processing_system7_0_PS_PORB_pin, GPIO0_P, GPIO0_N, GPIO1_P,
-   GPIO1_N, GPIO2_P, GPIO2_N, GPIO3_P, GPIO3_N, GPIO4_P, GPIO4_N,
-   GPIO5_P, GPIO5_N, GPIO6_P, GPIO6_N, GPIO7_P, GPIO7_N, GPIO8_P,
-   GPIO8_N, GPIO9_P, GPIO9_N, GPIO10_P, GPIO10_N, GPIO11_P, GPIO11_N,
-   TXO_DATA0_P, TXO_DATA1_P, TXO_DATA2_P, TXO_DATA3_P, TXO_DATA4_P,
-   TXO_DATA5_P, TXO_DATA6_P, TXO_DATA7_P, TXO_DATA0_N, TXO_DATA1_N,
-   TXO_DATA2_N, TXO_DATA3_N, TXO_DATA4_N, TXO_DATA5_N, TXO_DATA6_N,
-   TXO_DATA7_N, TXO_FRAME_P, TXO_FRAME_N, TXO_LCLK_P, TXO_LCLK_N,
-   RXO_WR_WAIT_P, RXO_WR_WAIT_N, RXO_RD_WAIT,
+   processing_system7_0_PS_PORB_pin,
+   TXO_DATA_P, TXO_DATA_N, TXO_FRAME_P, TXO_FRAME_N, TXO_LCLK_P,
+   TXO_LCLK_N, RXO_WR_WAIT_P, RXO_WR_WAIT_N, RXO_RD_WAIT,
    DSP_FLAG,TURBO_MODE, PROG_IO,
    //HDMI
-   HDMI_D23, HDMI_D22, HDMI_D21, HDMI_D20, HDMI_D19, HDMI_D18, HDMI_D17,
-   HDMI_D16, HDMI_D15, HDMI_D14, HDMI_D13, HDMI_D12, HDMI_D11, HDMI_D10,
-   HDMI_D9, HDMI_D8, HDMI_CLK, HDMI_HSYNC, HDMI_VSYNC, HDMI_DE, HDMI_SPDIF,
+   HDMI_D, HDMI_CLK, HDMI_HSYNC, HDMI_VSYNC, HDMI_DE, HDMI_SPDIF,
    HDMI_INT,PS_I2C_SCL,PS_I2C_SDA
    );
 
@@ -110,23 +91,7 @@ module parallella_z7_top (/*AUTO ARG*/
    //######################
    //# HDMI Interface
    //######################
-   output 	HDMI_D23;
-   output 	HDMI_D22;
-   output 	HDMI_D21;
-   output 	HDMI_D20;
-   output 	HDMI_D19;
-   output 	HDMI_D18;
-   output 	HDMI_D17;
-   output 	HDMI_D16;
-   output 	HDMI_D15;
-   output 	HDMI_D14;
-   output 	HDMI_D13;
-   output 	HDMI_D12;
-   output 	HDMI_D11;
-   output 	HDMI_D10;
-   output 	HDMI_D9;
-   output 	HDMI_D8;
-   
+   output [23:8] HDMI_D;
    output 	HDMI_CLK;
    output 	HDMI_HSYNC;
    output 	HDMI_VSYNC;
@@ -140,78 +105,15 @@ module parallella_z7_top (/*AUTO ARG*/
    inout 	PS_I2C_SCL;
    inout 	PS_I2C_SDA;
 
-   input 	GPIO0_P;
-   input 	GPIO0_N;
-   input 	GPIO1_P;
-   input 	GPIO1_N;
-   input 	GPIO2_P;
-   input 	GPIO2_N;
-   input 	GPIO3_P;
-   input 	GPIO3_N;
-   input 	GPIO4_P;
-   input 	GPIO4_N;
-   input 	GPIO5_P;
-   input 	GPIO5_N;
-   input 	GPIO6_P;
-   input 	GPIO6_N;
-   input 	GPIO7_P;
-   input 	GPIO7_N;
-   input 	GPIO8_P;
-   input 	GPIO8_N;
-   input 	GPIO9_P;
-   input 	GPIO9_N;
-   input 	GPIO10_P;
-   input 	GPIO10_N;
-   input 	GPIO11_P;
-   input 	GPIO11_N;
-   
-`ifdef GPIO_ALL
-   output 	GPIO12_P;
-   output 	GPIO12_N;
-   output 	GPIO13_P;
-   output 	GPIO13_N;
-   output 	GPIO14_P;
-   output 	GPIO14_N;
-   output 	GPIO15_P;
-   output 	GPIO15_N;
-   output 	GPIO16_P;
-   output 	GPIO16_N;
-   output 	GPIO17_P;
-   output 	GPIO17_N;
-   output 	GPIO18_P;
-   output 	GPIO18_N;
-   output 	GPIO19_P;
-   output 	GPIO19_N;
-   output 	GPIO20_P;
-   output 	GPIO20_N;
-   output 	GPIO21_P;
-   output 	GPIO21_N;
-   output 	GPIO22_P;
-   output 	GPIO22_N;
-   output 	GPIO23_P;
-   output 	GPIO23_N;
-`endif
+   inout [`GPIO_NUM-1:0] GPIO_P;
+   inout [`GPIO_NUM-1:0] GPIO_N;
 
    //##################################
    //# LVDS to Epiphany 
    //##################################
    
-   input 	TXO_DATA0_P;
-   input 	TXO_DATA1_P;
-   input 	TXO_DATA2_P;
-   input 	TXO_DATA3_P;
-   input 	TXO_DATA4_P;
-   input 	TXO_DATA5_P;
-   input 	TXO_DATA6_P;
-   input 	TXO_DATA7_P;
-   input 	TXO_DATA0_N;
-   input 	TXO_DATA1_N;
-   input 	TXO_DATA2_N;
-   input 	TXO_DATA3_N;
-   input 	TXO_DATA4_N;
-   input 	TXO_DATA5_N;
-   input 	TXO_DATA6_N;
-   input 	TXO_DATA7_N;
+   input [7:0]	TXO_DATA_P;
+   input [7:0]	TXO_DATA_N;
    input 	TXO_FRAME_P;
    input 	TXO_FRAME_N;
    input 	TXO_LCLK_P;
@@ -221,22 +123,8 @@ module parallella_z7_top (/*AUTO ARG*/
    input 	RXO_RD_WAIT;//AO-CHANGE
    //input 	RXO_RD_WAIT_N;//AO
    
-   output 	RXI_DATA0_P;
-   output 	RXI_DATA1_P;
-   output 	RXI_DATA2_P;
-   output 	RXI_DATA3_P;
-   output 	RXI_DATA4_P;
-   output 	RXI_DATA5_P;
-   output 	RXI_DATA6_P;
-   output 	RXI_DATA7_P;
-   output 	RXI_DATA0_N;
-   output 	RXI_DATA1_N;
-   output 	RXI_DATA2_N;
-   output 	RXI_DATA3_N;
-   output 	RXI_DATA4_N;
-   output 	RXI_DATA5_N;
-   output 	RXI_DATA6_N;
-   output 	RXI_DATA7_N;
+   output [7:0]  RXI_DATA_P;
+   output [7:0]  RXI_DATA_N;
    output 	RXI_FRAME_P;
    output 	RXI_FRAME_N;
    output 	RXI_LCLK_P;
@@ -342,6 +230,15 @@ module parallella_z7_top (/*AUTO ARG*/
    wire			reset_fpga;		// From parallella of parallella.v
    // End of automatics
 
+   wire [47:0]  processing_system7_0_GPIO_I_pin;
+   wire [47:0]  processing_system7_0_GPIO_O_pin;
+   wire [47:0]  processing_system7_0_GPIO_T_pin;
+
+`ifndef FEATURE_GPIO_EMIO  // Tie-off GPIO signals if not connected to PS7
+   assign processing_system7_0_GPIO_O_pin = 47'd0;
+   assign processing_system7_0_GPIO_T_pin = 47'hFFFF_FFFF_FFFF;
+`endif
+
    //###########
    //# REGS
    //###########
@@ -383,113 +280,29 @@ module parallella_z7_top (/*AUTO ARG*/
    wire 	 rxo_rd_wait_n;
    wire 	 aafm_resetn;
    wire [1:0] 	 user_pb;
-   wire [11:0] 	 gpio_in;
-   wire [11:0]   gpio_out;
-   wire [`GPIO_NUM-1:0]  GPIO_P;
-   wire [`GPIO_NUM-1:0]  GPIO_N;
 
    //##############################
    //# GPIOs
    //##############################
 
-   //Inputs
-   assign GPIO_P[0]  = GPIO0_P;
-   assign GPIO_N[0]  = GPIO0_N;
-   assign GPIO_P[1]  = GPIO1_P;
-   assign GPIO_N[1]  = GPIO1_N;
-   assign GPIO_P[2]  = GPIO2_P;
-   assign GPIO_N[2]  = GPIO2_N;
-   assign GPIO_P[3]  = GPIO3_P;
-   assign GPIO_N[3]  = GPIO3_N;
-   assign GPIO_P[4]  = GPIO4_P;
-   assign GPIO_N[4]  = GPIO4_N;
-   assign GPIO_P[5]  = GPIO5_P;
-   assign GPIO_N[5]  = GPIO5_N;
-   assign GPIO_P[6]  = GPIO6_P;
-   assign GPIO_N[6]  = GPIO6_N;
-   assign GPIO_P[7]  = GPIO7_P;
-   assign GPIO_N[7]  = GPIO7_N;
-   assign GPIO_P[8]  = GPIO8_P;
-   assign GPIO_N[8]  = GPIO8_N;
-   assign GPIO_P[9]  = GPIO9_P;
-   assign GPIO_N[9]  = GPIO9_N;
-   assign GPIO_P[10] = GPIO10_P;
-   assign GPIO_N[10] = GPIO10_N;
-   assign GPIO_P[11] = GPIO11_P;
-   assign GPIO_N[11] = GPIO11_N;
+   // This module handles single-ended or differential, 7010 or 7020
+   parallella_gpio_emio parallella_gpio_emio
+     (
+      // Outputs
+      .processing_system7_0_GPIO_I_pin(processing_system7_0_GPIO_I_pin),
+      // Inouts
+      .GPIO_P(GPIO_P),
+      .GPIO_N(GPIO_N),
+      // Inputs
+      .processing_system7_0_GPIO_O_pin(processing_system7_0_GPIO_O_pin),
+      .processing_system7_0_GPIO_T_pin(processing_system7_0_GPIO_T_pin)
+      );
    
-   genvar 	 gpin_cnt;
-   generate 
-      for (gpin_cnt = 0; gpin_cnt < 12; gpin_cnt = gpin_cnt + 1) begin: gpins
-	 IBUFDS 
-	   #(.DIFF_TERM  ("TRUE"),     // Differential termination
-           .IOSTANDARD (`IOSTD_GPIO))
-	 gpin_inst
-	   (.I     (GPIO_P[gpin_cnt]),
-           .IB     (GPIO_N[gpin_cnt]),
-           .O      (gpio_in[gpin_cnt]));
-      end
-   endgenerate
+   //##############################
+   //# HDMI Interface
+   //##############################
 
-`ifdef GPIO_ALL
-   //Outputs
-   assign GPIO12_P = GPIO_P[12];
-   assign GPIO12_N = GPIO_N[12];
-   assign GPIO13_P = GPIO_P[13];
-   assign GPIO13_N = GPIO_N[13];
-   assign GPIO14_P = GPIO_P[14];
-   assign GPIO14_N = GPIO_N[14];
-   assign GPIO15_P = GPIO_P[15];
-   assign GPIO15_N = GPIO_N[15];
-   assign GPIO16_P = GPIO_P[16];
-   assign GPIO16_N = GPIO_N[16];
-   assign GPIO17_P = GPIO_P[17];
-   assign GPIO17_N = GPIO_N[17];
-   assign GPIO18_P = GPIO_P[18];
-   assign GPIO18_N = GPIO_N[18];
-   assign GPIO19_P = GPIO_P[19];
-   assign GPIO19_N = GPIO_N[19];
-   assign GPIO20_P = GPIO_P[20];
-   assign GPIO20_N = GPIO_N[20];
-   assign GPIO21_P = GPIO_P[21];
-   assign GPIO21_N = GPIO_N[21];
-   assign GPIO22_P = GPIO_P[22];
-   assign GPIO22_N = GPIO_N[22];
-   assign GPIO23_P = GPIO_P[23];
-   assign GPIO23_N = GPIO_N[23];
-
-   genvar 	 gpout_cnt;
-   generate 
-      for (gpout_cnt = 12; gpout_cnt < 24; gpout_cnt = gpout_cnt + 1) begin: gps
-	 OBUFDS 
-	   #(.IOSTANDARD (`IOSTD_GPIO))
-	 gpout_inst
-	   (.O     (GPIO_P[gpout_cnt]),
-            .OB    (GPIO_N[gpout_cnt]),
-            .I     (gpio_out[gpout_cnt-12]));
-      end
-   endgenerate
-`endif
-
-   assign gpio_out = 12'd0;
-   
-   assign HDMI_D8  = hdmi_data[0];
-   assign HDMI_D9  = hdmi_data[1];
-   assign HDMI_D10 = hdmi_data[2];
-   assign HDMI_D11 = hdmi_data[3];
-   assign HDMI_D12 = hdmi_data[4];
-   assign HDMI_D13 = hdmi_data[5];
-   assign HDMI_D14 = hdmi_data[6];
-   assign HDMI_D15 = hdmi_data[7];
-   assign HDMI_D16 = hdmi_data[8];
-   assign HDMI_D17 = hdmi_data[9];
-   assign HDMI_D18 = hdmi_data[10];
-   assign HDMI_D19 = hdmi_data[11];
-   assign HDMI_D20 = hdmi_data[12];
-   assign HDMI_D21 = hdmi_data[13];
-   assign HDMI_D22 = hdmi_data[14];
-   assign HDMI_D23 = hdmi_data[15];
-   
+   assign HDMI_D     = hdmi_data;
    assign HDMI_CLK   = hdmi_clk;
    assign HDMI_HSYNC = hdmi_hsync;
    assign HDMI_VSYNC = hdmi_vsync;
@@ -510,23 +323,16 @@ module parallella_z7_top (/*AUTO ARG*/
    assign sys_clk      =  processing_system7_0_FCLK_CLK3_pin;
    assign esaxi_areset = ~processing_system7_0_M_AXI_GP1_ARESETN_pin;
 
-   assign rxi_data_p[0] = TXO_DATA0_P;
-   assign rxi_data_p[1] = TXO_DATA1_P;
-   assign rxi_data_p[2] = TXO_DATA2_P;
-   assign rxi_data_p[3] = TXO_DATA3_P;
-   assign rxi_data_p[4] = TXO_DATA4_P;
-   assign rxi_data_p[5] = TXO_DATA5_P;
-   assign rxi_data_p[6] = TXO_DATA6_P;
-   assign rxi_data_p[7] = TXO_DATA7_P;
+   //##############################
+   //# E-Link Interface
+   //#   TX/RX at the IO level refers to the Epiphany
+   //#   (and the net names on the PCB).  Internally
+   //#   tx/rx refers to the FPGA, therefore the following
+   //#   connects TX->rx and tx->RX.
+   //##############################
 
-   assign rxi_data_n[0] = TXO_DATA0_N;
-   assign rxi_data_n[1] = TXO_DATA1_N;
-   assign rxi_data_n[2] = TXO_DATA2_N;
-   assign rxi_data_n[3] = TXO_DATA3_N;
-   assign rxi_data_n[4] = TXO_DATA4_N;
-   assign rxi_data_n[5] = TXO_DATA5_N;
-   assign rxi_data_n[6] = TXO_DATA6_N;
-   assign rxi_data_n[7] = TXO_DATA7_N;
+   assign rxi_data_p = TXO_DATA_P;
+   assign rxi_data_n = TXO_DATA_N;
 
    assign rxi_frame_p = TXO_FRAME_P;
    assign rxi_frame_n = TXO_FRAME_N;
@@ -539,23 +345,8 @@ module parallella_z7_top (/*AUTO ARG*/
    assign txi_rd_wait_p = RXO_RD_WAIT;//AO, made single ended
    assign txi_rd_wait_n = 1'b0;//AO, made single ended
 
-   assign RXI_DATA0_P = txo_data_p[0];
-   assign RXI_DATA1_P = txo_data_p[1];
-   assign RXI_DATA2_P = txo_data_p[2];
-   assign RXI_DATA3_P = txo_data_p[3];
-   assign RXI_DATA4_P = txo_data_p[4];
-   assign RXI_DATA5_P = txo_data_p[5];
-   assign RXI_DATA6_P = txo_data_p[6];
-   assign RXI_DATA7_P = txo_data_p[7];
-   	                             
-   assign RXI_DATA0_N = txo_data_n[0];
-   assign RXI_DATA1_N = txo_data_n[1];
-   assign RXI_DATA2_N = txo_data_n[2];
-   assign RXI_DATA3_N = txo_data_n[3];
-   assign RXI_DATA4_N = txo_data_n[4];
-   assign RXI_DATA5_N = txo_data_n[5];
-   assign RXI_DATA6_N = txo_data_n[6];
-   assign RXI_DATA7_N = txo_data_n[7];
+   assign RXI_DATA_P = txo_data_p;
+   assign RXI_DATA_N = txo_data_n;
    
    assign RXI_FRAME_P = txo_frame_p;
    assign RXI_FRAME_N = txo_frame_n;
@@ -759,9 +550,14 @@ module parallella_z7_top (/*AUTO ARG*/
                .hdmi_data_e(hdmi_data_e),
                .hdmi_int(hdmi_int),
 `endif  // FEATURE_HDMI
+`ifdef FEATURE_GPIO_EMIO
+               .processing_system7_0_GPIO_I_pin(processing_system7_0_GPIO_I_pin),
+               .processing_system7_0_GPIO_O_pin(processing_system7_0_GPIO_O_pin),
+               .processing_system7_0_GPIO_T_pin(processing_system7_0_GPIO_T_pin),
+`endif  // FEATURE_GPIO_EMIO
 			   /*AUTOINST*/
 			   // Outputs
-			   .processing_system7_0_DDR_WEB_pin(processing_system7_0_DDR_WEB_pin),
+			               .processing_system7_0_DDR_WEB_pin(processing_system7_0_DDR_WEB_pin),
 			   .processing_system7_0_M_AXI_GP1_ARESETN_pin(processing_system7_0_M_AXI_GP1_ARESETN_pin),
 			   .processing_system7_0_S_AXI_HP1_ARESETN_pin(processing_system7_0_S_AXI_HP1_ARESETN_pin),
 			   .processing_system7_0_FCLK_CLK3_pin(processing_system7_0_FCLK_CLK3_pin),

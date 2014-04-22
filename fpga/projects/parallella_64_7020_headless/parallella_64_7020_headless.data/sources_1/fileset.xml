@@ -222,7 +222,14 @@
     <File Path="$PSRCDIR/sources_1/imports/parallella_7020_headless/system_stub.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../edk/parallella_7020_headless/system_stub.v"/>
-        <Attr Name="ImportTime" Val="1397172484"/>
+        <Attr Name="ImportTime" Val="1398183771"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../hdl/gpio/parallella_gpio_emio.v">
+      <FileInfo>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

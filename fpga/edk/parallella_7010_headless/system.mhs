@@ -107,6 +107,9 @@
  PORT processing_system7_0_S_AXI_HP1_WSTRB_pin = processing_system7_0_S_AXI_HP1_WSTRB, DIR = I, VEC = [7:0]
  PORT processing_system7_0_I2C0_SDA_pin = processing_system7_0_I2C0_SDA_1, DIR = IO
  PORT processing_system7_0_I2C0_SCL_pin = processing_system7_0_I2C0_SCL_0, DIR = IO
+ PORT processing_system7_0_GPIO_I_pin = processing_system7_0_GPIO_I, DIR = I, VEC = [47:0]
+ PORT processing_system7_0_GPIO_O_pin = processing_system7_0_GPIO_O, DIR = O, VEC = [47:0]
+ PORT processing_system7_0_GPIO_T_pin = processing_system7_0_GPIO_T, DIR = O, VEC = [47:0]
 
 
 BEGIN processing_system7
@@ -137,8 +140,8 @@ BEGIN processing_system7
  PARAMETER C_EN_EMIO_MODEM_UART0 = 0
  PARAMETER C_EN_EMIO_MODEM_UART1 = 0
  PARAMETER C_EN_EMIO_WDT = 0
- PARAMETER C_EN_EMIO_GPIO = 0
- PARAMETER C_EMIO_GPIO_WIDTH = 64
+ PARAMETER C_EN_EMIO_GPIO = 1
+ PARAMETER C_EMIO_GPIO_WIDTH = 48
  PARAMETER C_EN_QSPI = 1
  PARAMETER C_EN_SMC = 0
  PARAMETER C_EN_CAN0 = 0
@@ -275,5 +278,8 @@ BEGIN processing_system7
  PORT S_AXI_HP1_WSTRB = processing_system7_0_S_AXI_HP1_WSTRB
  PORT I2C0_SDA = processing_system7_0_I2C0_SDA_1
  PORT I2C0_SCL = processing_system7_0_I2C0_SCL_0
+ PORT GPIO_I = processing_system7_0_GPIO_I
+ PORT GPIO_O = processing_system7_0_GPIO_O
+ PORT GPIO_T = processing_system7_0_GPIO_T
 END
 

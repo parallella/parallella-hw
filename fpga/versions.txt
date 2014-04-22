@@ -49,4 +49,4 @@ Types: (For gen 1 platforms 1-5)
 
   1   - HDMI enabled, GPIO unused
   2   - Headless, GPIO unused
-  3   - Headless, 48 singled-ended GPIOs from EMIO
+  3   - Headless, 24/48 singled-ended GPIOs from EMIO
