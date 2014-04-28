@@ -8,8 +8,8 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 ## Target Devices
 
-* Zynq xc7z010clg400-1
-* Epiphany E16G301
+* Zynq xc7z020clg400-1
+* Epiphany E64G401
 
 ## Dependencies
 
@@ -36,7 +36,7 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 ## Output
 
 The generated bitstream file will be found in the directory
-*parallella_7020_headless.runs/impl_1*
+*parallella_64_7020_headless.runs/impl_1*
 To copy it to the ../bitstreams directory, run the script 'getbits'.
 
 ##  Critical Warnings
