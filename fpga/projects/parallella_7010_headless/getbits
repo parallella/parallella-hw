@@ -1,1 +1,6 @@
-cp *.runs/impl_1/*.bit ../../bitstreams/parallella_e16_headless_gpiose_7010.bit
+. /opt/Xilinx/14.7/ISE_DS/settings64.sh
+rm -f *.bin
+bootgen -image bit2bin.bif -split bin
+mv parallella_z7_top.bit.bin ../../bitstreams/parallella_e16_headless_gpiose_7010.bit.bin
+rm -f *.bin
+
