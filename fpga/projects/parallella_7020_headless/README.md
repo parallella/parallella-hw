@@ -37,7 +37,7 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 The generated bitstream file will be found in the directory
 *parallella_7020_headless.runs/impl_1*
-To copy it to the ../bitstreams directory, run the script 'getbits'.
+To convert this to a raw binary file and copy it to the ../bitstreams directory, run the script 'getbits'.
 
 ##  Critical Warnings
 
