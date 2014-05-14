@@ -20,9 +20,6 @@ TIMESPEC "TS_CLK_IN" = PERIOD "CLK_IN" 3.33ns HIGH 50% INPUT_JITTER 100ps;
 NET "parallella/ewrapper_link_top/io_tx/CLK_IN_90" TNM_NET = "CLK_FWD_IN";
 TIMESPEC "TS_CLK_FWD_IN" = PERIOD "CLK_FWD_IN" 3.33ns HIGH 50% INPUT_JITTER 100ps;
 
-INST "parallella/axi_elink_if/fpgacfg/reset_chip_reg_4" TNM = "SW_RESET";
-TIMESPEC "TS_SW_RESET" = FROM "SW_RESET" TIG;
-
 #INST "rst_sync*" ASYNC_REG = TRUE;
 #PIN "CLK_RESET" TIG;
 #PIN "IO_RESET" TIG;

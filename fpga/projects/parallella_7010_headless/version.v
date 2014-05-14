@@ -30,8 +30,9 @@
 // Type       3 - Headless, 24 singled-ended GPIOs from EMIO
 
 // Version    1 - First 7010 type 3, 4/22/14, FH
+//            2 - Added cclk gating on e-reset, tx-disable, 5/5/14, FH
 
-`define VERSION_VALUE   {8'h01, 8'd03, 8'd03, 8'd01}
+`define VERSION_VALUE   {8'h01, 8'd03, 8'd03, 8'd02}
 
 // Define one of the following for target FPGA
 `define TARGET_7Z010 1
@@ -45,6 +46,7 @@
 //`define FEATURE_HDMI  1
 `define FEATURE_GPIO_EMIO 1
 //`define FEATURE_GPIO_DIFF 1
+`define FEATURE_CCLK_DIV 1
 
 // Set IOSTANDARD for GPIO pins
 `define IOSTD_GPIO       "LVCMOS25"

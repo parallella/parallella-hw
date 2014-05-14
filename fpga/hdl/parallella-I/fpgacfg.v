@@ -35,9 +35,10 @@ module fpgacfg (/*AUTOARG*/
    reset_chip, reset_fpga, elink_access_out, elink_write_out,
    elink_datamode_out, elink_ctrlmode_out, elink_dstaddr_out,
    elink_srcaddr_out, elink_data_out, elink_wr_wait_out,
-   elink_rd_wait_out, axi_access_out, axi_write_out, axi_datamode_out,
-   axi_ctrlmode_out, axi_dstaddr_out, axi_srcaddr_out, axi_data_out,
-   axi_wr_wait_out, axi_rd_wait_out,
+   elink_rd_wait_out, elink_disable, elink_cclk_enb, elink_clk_div,
+   axi_access_out, axi_write_out, axi_datamode_out, axi_ctrlmode_out,
+   axi_dstaddr_out, axi_srcaddr_out, axi_data_out, axi_wr_wait_out,
+   axi_rd_wait_out,
    // Inputs
    eclk, aclk, reset, elink_access_in, elink_write_in,
    elink_datamode_in, elink_ctrlmode_in, elink_dstaddr_in,
@@ -51,10 +52,10 @@ module fpgacfg (/*AUTOARG*/
    //# Inputs
    //#########
 
-   input         eclk;
-   input 	 aclk;
+   input     eclk;
+   input     aclk;
    input 	 reset;     
-      
+   
    //##############################
    //# From elink
    //##############################
@@ -99,8 +100,12 @@ module fpgacfg (/*AUTOARG*/
    output [31:0] elink_srcaddr_out;
    output [31:0] elink_data_out;   
    output 	 elink_wr_wait_out; 
-   output 	 elink_rd_wait_out; 
-
+   output 	 elink_rd_wait_out;
+   // controls
+   output    elink_disable;
+   output    elink_cclk_enb;
+   output [1:0] elink_clk_div;
+   
    //##############################
    //# To axi
    //##############################
@@ -120,7 +125,6 @@ module fpgacfg (/*AUTOARG*/
    //#########
    //# Regs
    //#########
-   reg  	 reset_reg;
    reg [31:0] 	 syscfg_reg;
    wire [31:0]   version_reg = `VERSION_VALUE;
    reg [31:0]    filterl_reg;
@@ -128,8 +132,7 @@ module fpgacfg (/*AUTOARG*/
    reg [31:0] 	 filterc_reg;
    reg [31:0] 	 timeout_reg;
 
-   reg [31:0] 	 reset_chip_reg;
-   reg 		 wb_access_reg;
+   reg           wb_access_reg;
    reg [1:0] 	 wb_datamode_reg;
    reg [3:0] 	 wb_ctrlmode_reg;
    reg [31:0] 	 wb_dstaddr_reg;
@@ -152,7 +155,6 @@ module fpgacfg (/*AUTOARG*/
    wire 	 reset_reg_access;
    wire 	 reset_reg_write;
    wire 	 reset_reg_write_sync;
-   wire 	 reset_reg_clear;
    wire 	 version_reg_access;
    wire 	 version_reg_read;
    wire [31:0] 	 wb_data;
@@ -215,7 +217,7 @@ module fpgacfg (/*AUTOARG*/
    assign sys_dwb_prev_dis       = 1'b1;
    assign sys_tran_modif_row2    = 1'b0;
    assign sys_ctrlmode_row2[3:0] = 4'b0000;
-   assign sys_srcaddr_row2[11:0] = {(12){1'b0}};
+   assign sys_srcaddr_row2[11:0] = 12'd0;
 `endif
 
    //##########################################
@@ -235,11 +237,20 @@ module fpgacfg (/*AUTOARG*/
    //#  bits            meaning
    //# ----------------------------------------------------------------------
    //# [31:28]        "Control Mode" 
-   //# [27:3]          Reserved:
+   //# [27:6]          Reserved:
    //#         [27]    - disable "double read" prevention logic
    //#         [26]    - enable tran modification for row 2
    //#         [23:20] - control mode for write tran to row 2
    //#         [19:8]  - src address for write tran to row 2
+   //#  [5:4]         "Epiphany Clock Divider"
+   //#                     00 - No division, full speed
+   //#                     01 - Divide by 2
+   //#                     10 - Divide by 4
+   //#                     11 - Divide by 8
+   //#  [3]           "Elink Disable"
+   //#                     0  - Normal operation
+   //#                     1  - Disable TX drivers (except lclk & frame)
+   //#                          CCLK continues to run, LCLK is held low
    //#  [2:1]         "Filter Enable"
    //#                     00 - filter disable
    //#                     01 - inclusive range (enable transactions 
@@ -261,11 +272,13 @@ module fpgacfg (/*AUTOARG*/
    
    always @ (posedge eclk or posedge reset)
      if(reset)
-       syscfg_reg[31:0] <= {(32){1'b0}};
+       syscfg_reg[31:0] <= 32'd0;
      else if(syscfg_reg_write)
        syscfg_reg[31:0] <= axi_data_in[31:0];
 
    assign sys_ctrlmode[3:0] = syscfg_reg[31:28];
+   assign elink_clk_div[1:0] = syscfg_reg[5:4];
+   assign elink_disable     = syscfg_reg[3];
    assign sys_filtere[1:0]  = syscfg_reg[2:1];
    assign sys_timeoute      = syscfg_reg[0];
 
@@ -276,7 +289,6 @@ module fpgacfg (/*AUTOARG*/
    assign reset_reg_access = fpgacfg_access & 
 			     (axi_dstaddr_in[7:2] == `REG_RESET);
    
-   
    assign reset_reg_write = reset_reg_access & axi_write_in & ~axi_wr_wait_out;
 
    pulse2pulse pulse2pulse (.out         (reset_reg_write_sync),
@@ -284,24 +296,60 @@ module fpgacfg (/*AUTOARG*/
                             .in          (reset_reg_write),
                             .inclk       (eclk),
                             .reset       (1'b0));
+
+   reg [6:0]     reset_counter;
+   reg           reset_go;
+   reg           reset_reg;
+   reg           elink_cclk_enb;
    
-   assign reset_reg_clear = |(reset_chip_reg[31:0]);
+   always @ (posedge aclk) begin
 
-   always @ (posedge aclk) 
-     if(reset_reg_write_sync)
-       reset_reg <= 1'b1;
-     else if(reset_reg_clear)
-       reset_reg <= 1'b0;
+      if(reset_reg_write_sync) begin
 
-   // reset chip
-   assign reset_chip = reset_chip_reg[31];
-   assign reset_fpga = reset_chip_reg[31];
+         reset_go       <= 1'b1;
+         reset_counter  <= 7'd0;
 
-   always @ (posedge aclk)
-     if(reset_reg)
-       reset_chip_reg[31:0] <= {(32){1'b1}};
-     else
-       reset_chip_reg[31:0] <= {reset_chip_reg[30:0],1'b0};
+      end else if(reset_go) begin
+
+         reset_counter <= reset_counter + 7'd1;
+         if(reset_counter[6:5] == 2'b11)
+           reset_go <= 1'b0;
+
+      end
+      
+      if(reset_go) begin
+
+         case(reset_counter[6:5])
+           2'b00: begin         // assert reset, keep clock going
+              reset_reg      <= 1'b1;
+              elink_cclk_enb <= 1'b1;
+           end
+           2'b01: begin         // keep asserting reset, stop clock
+              reset_reg      <= 1'b1;
+              elink_cclk_enb <= 1'b0;
+           end
+           2'b10: begin         // de-assert reset, clock still stopped
+              reset_reg      <= 1'b0;
+              elink_cclk_enb <= 1'b0;
+           end
+           default: begin       // restart clock, done
+              reset_reg      <= 1'b0;
+              elink_cclk_enb <= 1'b1;
+           end
+         endcase
+
+      end else begin // normal operation
+
+         reset_reg      <= 1'b0;
+         elink_cclk_enb <= 1'b1;  //~elink_disable;
+
+      end
+
+   end // always @ (posedge aclk)
+   
+   // reset chip & fpga at the same time
+   assign reset_chip = reset_reg;
+   assign reset_fpga = reset_reg;
 
    //#############################
    //# Version Control Register

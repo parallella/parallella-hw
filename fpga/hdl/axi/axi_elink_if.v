@@ -31,6 +31,7 @@ module axi_elink_if (/*AUTOARG*/
    elink_access_outb, elink_write_outb, elink_datamode_outb,
    elink_ctrlmode_outb, elink_dstaddr_outb, elink_srcaddr_outb,
    elink_data_outb, elink_wr_wait_outb, elink_rd_wait_outb,
+   elink_disable, elink_cclk_enb, elink_clk_div,
    // Inputs
    eclk, aclk, reset, emaxi_access_inb, emaxi_write_inb,
    emaxi_datamode_inb, emaxi_ctrlmode_inb, emaxi_dstaddr_inb,
@@ -135,6 +136,10 @@ module axi_elink_if (/*AUTOARG*/
    output [31:0] elink_data_outb;   
    output 	 elink_wr_wait_outb; 
    output 	 elink_rd_wait_outb; 
+   // controls
+   output    elink_disable;
+   output    elink_cclk_enb;
+   output [1:0] elink_clk_div;
 
    /*AUTOINPUT*/
    /*AUTOWIRE*/
@@ -183,50 +188,54 @@ module axi_elink_if (/*AUTOARG*/
                                  );
     */
 
-   fpgacfg fpgacfg(/*AUTOINST*/
-		   // Outputs
-		   .reset_chip		(reset_chip),
-		   .reset_fpga		(reset_fpga),
-		   .elink_access_out	(elink_access_outb),	 // Templated
-		   .elink_write_out	(elink_write_outb),	 // Templated
-		   .elink_datamode_out	(elink_datamode_outb[1:0]), // Templated
-		   .elink_ctrlmode_out	(elink_ctrlmode_outb[3:0]), // Templated
-		   .elink_dstaddr_out	(elink_dstaddr_outb[31:0]), // Templated
-		   .elink_srcaddr_out	(elink_srcaddr_outb[31:0]), // Templated
-		   .elink_data_out	(elink_data_outb[31:0]), // Templated
-		   .elink_wr_wait_out	(elink_wr_wait_outb),	 // Templated
-		   .elink_rd_wait_out	(elink_rd_wait_outb),	 // Templated
-		   .axi_access_out	(axi_access_out),	 // Templated
-		   .axi_write_out	(axi_write_out),	 // Templated
-		   .axi_datamode_out	(axi_datamode_out[1:0]), // Templated
-		   .axi_ctrlmode_out	(axi_ctrlmode_out[3:0]), // Templated
-		   .axi_dstaddr_out	(axi_dstaddr_out[31:0]), // Templated
-		   .axi_srcaddr_out	(axi_srcaddr_out[31:0]), // Templated
-		   .axi_data_out	(axi_data_out[31:0]),	 // Templated
-		   .axi_wr_wait_out	(axi_wr_wait_out),	 // Templated
-		   .axi_rd_wait_out	(axi_rd_wait_out),	 // Templated
-		   // Inputs
-		   .eclk		(eclk),
-		   .aclk		(aclk),
-		   .reset		(reset),
-		   .elink_access_in	(elink_access_inb),	 // Templated
-		   .elink_write_in	(elink_write_inb),	 // Templated
-		   .elink_datamode_in	(elink_datamode_inb[1:0]), // Templated
-		   .elink_ctrlmode_in	(elink_ctrlmode_inb[3:0]), // Templated
-		   .elink_dstaddr_in	(elink_dstaddr_inb[31:0]), // Templated
-		   .elink_srcaddr_in	(elink_srcaddr_inb[31:0]), // Templated
-		   .elink_data_in	(elink_data_inb[31:0]),	 // Templated
-		   .elink_wr_wait_in	(elink_wr_wait_inb),	 // Templated
-		   .elink_rd_wait_in	(elink_rd_wait_inb),	 // Templated
-		   .axi_access_in	(axi_access_in),	 // Templated
-		   .axi_write_in	(axi_write_in),		 // Templated
-		   .axi_datamode_in	(axi_datamode_in[1:0]),	 // Templated
-		   .axi_ctrlmode_in	(axi_ctrlmode_in[3:0]),	 // Templated
-		   .axi_dstaddr_in	(axi_dstaddr_in[31:0]),	 // Templated
-		   .axi_srcaddr_in	(axi_srcaddr_in[31:0]),	 // Templated
-		   .axi_data_in		(axi_data_in[31:0]),	 // Templated
-		   .axi_wr_wait_in	(axi_wr_wait_in),	 // Templated
-		   .axi_rd_wait_in	(axi_rd_wait_in));	 // Templated
+   fpgacfg fpgacfg
+     (/*AUTOINST*/
+      // Outputs
+      .reset_chip                       (reset_chip),
+      .reset_fpga                       (reset_fpga),
+      .elink_access_out                 (elink_access_outb),     // Templated
+      .elink_write_out                  (elink_write_outb),      // Templated
+      .elink_datamode_out               (elink_datamode_outb[1:0]), // Templated
+      .elink_ctrlmode_out               (elink_ctrlmode_outb[3:0]), // Templated
+      .elink_dstaddr_out                (elink_dstaddr_outb[31:0]), // Templated
+      .elink_srcaddr_out                (elink_srcaddr_outb[31:0]), // Templated
+      .elink_data_out                   (elink_data_outb[31:0]), // Templated
+      .elink_wr_wait_out                (elink_wr_wait_outb),    // Templated
+      .elink_rd_wait_out                (elink_rd_wait_outb),    // Templated
+      .elink_disable                    (elink_disable),
+      .elink_cclk_enb                   (elink_cclk_enb),
+      .elink_clk_div                    (elink_clk_div[1:0]),
+      .axi_access_out                   (axi_access_out),        // Templated
+      .axi_write_out                    (axi_write_out),         // Templated
+      .axi_datamode_out                 (axi_datamode_out[1:0]), // Templated
+      .axi_ctrlmode_out                 (axi_ctrlmode_out[3:0]), // Templated
+      .axi_dstaddr_out                  (axi_dstaddr_out[31:0]), // Templated
+      .axi_srcaddr_out                  (axi_srcaddr_out[31:0]), // Templated
+      .axi_data_out                     (axi_data_out[31:0]),    // Templated
+      .axi_wr_wait_out                  (axi_wr_wait_out),       // Templated
+      .axi_rd_wait_out                  (axi_rd_wait_out),       // Templated
+      // Inputs
+      .eclk                             (eclk),
+      .aclk                             (aclk),
+      .reset                            (reset),
+      .elink_access_in                  (elink_access_inb),      // Templated
+      .elink_write_in                   (elink_write_inb),       // Templated
+      .elink_datamode_in                (elink_datamode_inb[1:0]), // Templated
+      .elink_ctrlmode_in                (elink_ctrlmode_inb[3:0]), // Templated
+      .elink_dstaddr_in                 (elink_dstaddr_inb[31:0]), // Templated
+      .elink_srcaddr_in                 (elink_srcaddr_inb[31:0]), // Templated
+      .elink_data_in                    (elink_data_inb[31:0]),  // Templated
+      .elink_wr_wait_in                 (elink_wr_wait_inb),     // Templated
+      .elink_rd_wait_in                 (elink_rd_wait_inb),     // Templated
+      .axi_access_in                    (axi_access_in),         // Templated
+      .axi_write_in                     (axi_write_in),          // Templated
+      .axi_datamode_in                  (axi_datamode_in[1:0]),  // Templated
+      .axi_ctrlmode_in                  (axi_ctrlmode_in[3:0]),  // Templated
+      .axi_dstaddr_in                   (axi_dstaddr_in[31:0]),  // Templated
+      .axi_srcaddr_in                   (axi_srcaddr_in[31:0]),  // Templated
+      .axi_data_in                      (axi_data_in[31:0]),     // Templated
+      .axi_wr_wait_in                   (axi_wr_wait_in),        // Templated
+      .axi_rd_wait_in                   (axi_rd_wait_in));        // Templated
       
    //####################################
    //# Transactions from- AXI to- ELINK
@@ -294,3 +303,7 @@ module axi_elink_if (/*AUTOARG*/
 			  ~route_to_slave & emaxi_rd_wait_inb;
    
 endmodule // axi_elink_if
+
+    // Local Variables:
+    // verilog-library-directories:("." "../elink" "../parallella-I")
+    // End:

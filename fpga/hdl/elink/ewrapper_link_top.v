@@ -29,12 +29,13 @@ module ewrapper_link_top (/*AUTOARG*/
    txo_frame_n, txo_lclk_p, txo_lclk_n, rxo_wr_wait_p, rxo_wr_wait_n,
    rxo_rd_wait_p, rxo_rd_wait_n, rxi_cclk_p, rxi_cclk_n,
    // Inputs
-   reset, clkin_100, emesh_access_outb, emesh_write_outb,
-   emesh_datamode_outb, emesh_ctrlmode_outb, emesh_dstaddr_outb,
-   emesh_srcaddr_outb, emesh_data_outb, emesh_wr_wait_outb,
-   emesh_rd_wait_outb, rxi_data_p, rxi_data_n, rxi_frame_p,
-   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txi_wr_wait_p, txi_wr_wait_n,
-   txi_rd_wait_p, txi_rd_wait_n, burst_en
+   reset, clkin_100, elink_disable, elink_cclk_enb, elink_clk_div,
+   emesh_access_outb, emesh_write_outb, emesh_datamode_outb,
+   emesh_ctrlmode_outb, emesh_dstaddr_outb, emesh_srcaddr_outb,
+   emesh_data_outb, emesh_wr_wait_outb, emesh_rd_wait_outb,
+   rxi_data_p, rxi_data_n, rxi_frame_p, rxi_frame_n, rxi_lclk_p,
+   rxi_lclk_n, txi_wr_wait_p, txi_wr_wait_n, txi_rd_wait_p,
+   txi_rd_wait_n, burst_en
    );
 
    //#############
@@ -44,6 +45,11 @@ module ewrapper_link_top (/*AUTOARG*/
    input 	   reset;
    input 	   clkin_100;
 
+   //# Controls
+   input       elink_disable;
+   input       elink_cclk_enb;
+   input [1:0] elink_clk_div;
+   
    //# From the emesh interface
    input           emesh_access_outb;
    input           emesh_write_outb;
@@ -103,7 +109,7 @@ module ewrapper_link_top (/*AUTOARG*/
    /*AUTOINPUT*/
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-   wire [71:0]		tx_in;			// From ctrl_tx of ewrapper_link_transmitter.v
+   wire [71:0]          tx_in;                  // From ctrl_tx of ewrapper_link_transmitter.v
    // End of automatics
 
    //############
@@ -146,37 +152,39 @@ module ewrapper_link_top (/*AUTOARG*/
    assign rx_in_p[8:0]         = {rxi_frame_p,rxi_data_p[7:0]};
    assign rx_in_n[8:0]         = {rxi_frame_n,rxi_data_n[7:0]};
 
-   ewrapper_link_receiver  ctrl_rx(.rxi_data		(rxi_data_paral[63:0]),
-				   .rxi_frame		(rxi_frame_paral[7:0]),
-				   .rxi_lclk		(rx_outclock),
-				   /*AUTOINST*/
-				   // Outputs
-				   .rxo_wr_wait		(rxo_wr_wait),
-				   .rxo_rd_wait		(rxo_rd_wait),
-				   .emesh_clk_inb	(emesh_clk_inb),
-				   .emesh_access_inb	(emesh_access_inb),
-				   .emesh_write_inb	(emesh_write_inb),
-				   .emesh_datamode_inb	(emesh_datamode_inb[1:0]),
-				   .emesh_ctrlmode_inb	(emesh_ctrlmode_inb[3:0]),
-				   .emesh_dstaddr_inb	(emesh_dstaddr_inb[31:0]),
-				   .emesh_srcaddr_inb	(emesh_srcaddr_inb[31:0]),
-				   .emesh_data_inb	(emesh_data_inb[31:0]),
-				   // Inputs
-				   .reset		(reset),
-				   .emesh_wr_wait_outb	(emesh_wr_wait_outb),
-				   .emesh_rd_wait_outb	(emesh_rd_wait_outb));
+   ewrapper_link_receiver  ctrl_rx
+     (.rxi_data	        (rxi_data_paral[63:0]),
+	  .rxi_frame        (rxi_frame_paral[7:0]),
+	  .rxi_lclk         (rx_outclock),
+	  /*AUTOINST*/
+      // Outputs
+      .rxo_wr_wait                      (rxo_wr_wait),
+      .rxo_rd_wait                      (rxo_rd_wait),
+      .emesh_clk_inb                    (emesh_clk_inb),
+      .emesh_access_inb                 (emesh_access_inb),
+      .emesh_write_inb                  (emesh_write_inb),
+      .emesh_datamode_inb               (emesh_datamode_inb[1:0]),
+      .emesh_ctrlmode_inb               (emesh_ctrlmode_inb[3:0]),
+      .emesh_dstaddr_inb                (emesh_dstaddr_inb[31:0]),
+      .emesh_srcaddr_inb                (emesh_srcaddr_inb[31:0]),
+      .emesh_data_inb                   (emesh_data_inb[31:0]),
+      // Inputs
+      .reset                            (reset),
+      .emesh_wr_wait_outb               (emesh_wr_wait_outb),
+      .emesh_rd_wait_outb               (emesh_rd_wait_outb));
 
-   ewrapper_io_rx_slow io_rx(// Outputs
-			     .CLK_DIV_OUT	(rx_outclock),
-			     .DATA_IN_TO_DEVICE	(rx_out[71:0]),
-			     // Inputs
-			     .CLK_IN_P		(rxi_lclk_p),
-			     .CLK_IN_N		(rxi_lclk_n),
-			     .CLK_RESET		(reset),
-			     .IO_RESET		(reset),
-			     .DATA_IN_FROM_PINS_P(rx_in_p[8:0]),
-			     .DATA_IN_FROM_PINS_N(rx_in_n[8:0]),
-			     .BITSLIP		(1'b0));
+   ewrapper_io_rx_slow io_rx
+     (// Outputs
+	  .CLK_DIV_OUT        (rx_outclock),
+	  .DATA_IN_TO_DEVICE  (rx_out[71:0]),
+	  // Inputs
+	  .CLK_IN_P	          (rxi_lclk_p),
+	  .CLK_IN_N	          (rxi_lclk_n),
+	  .CLK_RESET          (reset),
+	  .IO_RESET           (reset),
+	  .DATA_IN_FROM_PINS_P(rx_in_p[8:0]),
+	  .DATA_IN_FROM_PINS_N(rx_in_n[8:0]),
+	  .BITSLIP            (1'b0));
    
    // xilinx ISERDESE2 ip instantiation
    // !!! Make sure that the DIFF_TERM attribute of IBUFDS and IBUFGDS
@@ -202,25 +210,26 @@ module ewrapper_link_top (/*AUTOARG*/
    assign txo_data_p[7:0] = tx_out_p[7:0];
    assign txo_data_n[7:0] = tx_out_n[7:0];
 
-   ewrapper_link_transmitter ctrl_tx(.txo_lclk		(clk_slow_deg0),
-				     /*AUTOINST*/
-				     // Outputs
-				     .emesh_wr_wait_inb	(emesh_wr_wait_inb),
-				     .emesh_rd_wait_inb	(emesh_rd_wait_inb),
-				     .tx_in		(tx_in[71:0]),
-				     // Inputs
-				     .reset		(reset),
-				     .emesh_clk_inb	(emesh_clk_inb),
-				     .emesh_access_outb	(emesh_access_outb),
-				     .emesh_write_outb	(emesh_write_outb),
-				     .emesh_datamode_outb(emesh_datamode_outb[1:0]),
-				     .emesh_ctrlmode_outb(emesh_ctrlmode_outb[3:0]),
-				     .emesh_dstaddr_outb(emesh_dstaddr_outb[31:0]),
-				     .emesh_srcaddr_outb(emesh_srcaddr_outb[31:0]),
-				     .emesh_data_outb	(emesh_data_outb[31:0]),
-				     .txi_wr_wait	(txi_wr_wait),
-				     .txi_rd_wait	(txi_rd_wait),
-				     .burst_en		(burst_en));
+   ewrapper_link_transmitter ctrl_tx
+     (.txo_lclk		(clk_slow_deg0),
+	  /*AUTOINST*/
+      // Outputs
+      .emesh_wr_wait_inb                (emesh_wr_wait_inb),
+      .emesh_rd_wait_inb                (emesh_rd_wait_inb),
+      .tx_in                            (tx_in[71:0]),
+      // Inputs
+      .reset                            (reset),
+      .emesh_clk_inb                    (emesh_clk_inb),
+      .emesh_access_outb                (emesh_access_outb),
+      .emesh_write_outb                 (emesh_write_outb),
+      .emesh_datamode_outb              (emesh_datamode_outb[1:0]),
+      .emesh_ctrlmode_outb              (emesh_ctrlmode_outb[3:0]),
+      .emesh_dstaddr_outb               (emesh_dstaddr_outb[31:0]),
+      .emesh_srcaddr_outb               (emesh_srcaddr_outb[31:0]),
+      .emesh_data_outb                  (emesh_data_outb[31:0]),
+      .txi_wr_wait                      (txi_wr_wait),
+      .txi_rd_wait                      (txi_rd_wait),
+      .burst_en                         (burst_en));
 
    // xilinx MMCME2_ADV ip instantiation
    io_clock_gen_600mhz io_clock_gen(// Inputs
@@ -244,6 +253,7 @@ module ewrapper_link_top (/*AUTOARG*/
 			     .CLK_DIV_IN	(clk_slow_deg0),
 			     .CLK_RESET		(reset),
 			     .IO_RESET		(reset),
+                 .elink_disable  (elink_disable),
 			     .DATA_OUT_FROM_DEVICE(tx_in[71:0]));
    
    // xilinx ISERDESE2 ip instantiation
@@ -267,6 +277,88 @@ module ewrapper_link_top (/*AUTOARG*/
 //			// Outputs
 //			.DATA_OUT_TO_PINS_P     (txo_lclk_p),
 //			.DATA_OUT_TO_PINS_N     (txo_lclk_n));
+
+`ifdef FEATURE_CCLK_DIV
+
+   // Create adjustable (but fast) CCLK
+   wire     rxi_cclk_out;
+   reg [8:1] cclk_pattern;
+   reg [1:0] clk_div_sync;
+   reg       enb_sync;
+   
+   always @ (posedge clk_slow_deg0) begin
+
+      clk_div_sync <= elink_clk_div;
+      enb_sync     <= elink_cclk_enb;
+
+      if(enb_sync)
+        case(clk_div_sync)
+          2'b00:   cclk_pattern <= 8'b10101010;  // Divide by 1
+          2'b01:   cclk_pattern <= 8'b11001100;  // Divide by 2
+          2'b10:   cclk_pattern <= 8'b11110000;  // Divide by 4
+          default: cclk_pattern <= {8{~cclk_pattern[1]}}; // /8
+        endcase
+      else
+        cclk_pattern <= 8'b00000000;
+
+   end // always @ (posedge clk_slow_deg0)
+      
+   OSERDESE2 
+     #(
+       .DATA_RATE_OQ("DDR"),  // DDR, SDR
+       .DATA_RATE_TQ("SDR"),  // DDR, BUF, SDR
+       .DATA_WIDTH(8),        // Parallel data width (2-8,10,14)
+       .INIT_OQ(1'b0),        // Initial value of OQ output (1'b0,1'b1)
+       .INIT_TQ(1'b0),        // Initial value of TQ output (1'b0,1'b1)
+       .SERDES_MODE("MASTER"), // MASTER, SLAVE
+       .SRVAL_OQ(1'b0),       // OQ output value when SR is used (1'b0,1'b1)
+       .SRVAL_TQ(1'b0),       // TQ output value when SR is used (1'b0,1'b1)
+       .TBYTE_CTL("FALSE"),   // Enable tristate byte operation (FALSE, TRUE)
+       .TBYTE_SRC("FALSE"),   // Tristate byte source (FALSE, TRUE)
+       .TRISTATE_WIDTH(1)     // 3-state converter width (1,4)
+       ) OSERDESE2_inst 
+       (
+        .OFB(),             // 1-bit output: Feedback path for data
+        .OQ(rxi_cclk_out),  // 1-bit output: Data path output
+        .SHIFTOUT1(),       // SHIFTOUTn: 1-bit (each): Data output expansion
+        .SHIFTOUT2(),
+        .TBYTEOUT(),        // 1-bit output: Byte group tristate
+        .TFB(),             // 1-bit output: 3-state control
+        .TQ(),              // 1-bit output: 3-state control
+        .CLK(rxi_cclk),     // 1-bit input: High speed clock
+        .CLKDIV(clk_slow_deg0), // 1-bit input: Divided clock
+        .D1(cclk_pattern[1]), // D1 - D8: Parallel data inputs (1-bit each)
+        .D2(cclk_pattern[2]),
+        .D3(cclk_pattern[3]),
+        .D4(cclk_pattern[4]),
+        .D5(cclk_pattern[5]),
+        .D6(cclk_pattern[6]),
+        .D7(cclk_pattern[7]),
+        .D8(cclk_pattern[8]),
+        .OCE(1'b1),         // 1-bit input: Output data clock enable
+        .RST(reset),        // 1-bit input: Reset
+        .SHIFTIN1(1'b0),    // SHIFTINn: Data input expansion (1-bit each)
+        .SHIFTIN2(1'b0),
+        .T1(1'b0),          // T1 - T4: Parallel 3-state inputs
+        .T2(1'b0),
+        .T3(1'b0),
+        .T4(1'b0),
+        .TBYTEIN(1'b0),     // 1-bit input: Byte group tristate
+        .TCE(1'b0)          // 1-bit input: 3-state clock enable
+        );
+
+`else  // Non-dividable CCLK
+
+   reg       enb_sync;
+
+   always @ (posedge clk_slow_deg0)
+      enb_sync     <= elink_cclk_enb;
+
+   // The following does not result in timing failures,
+   //  but doesn't seem glitch-safe
+   assign rxi_cclk_out = rxi_cclk & enb_sync;
+   
+`endif
    
    // xilinx OBUFDS instantiation
    //
@@ -275,7 +367,7 @@ module ewrapper_link_top (/*AUTOARG*/
    obufds_cclk_inst
      (.O   (rxi_cclk_p),
 	  .OB  (rxi_cclk_n),
-	  .I   (rxi_cclk));
+	  .I   (rxi_cclk_out));
    
    OBUFDS 
      #(.IOSTANDARD (`IOSTD_ELINK))
