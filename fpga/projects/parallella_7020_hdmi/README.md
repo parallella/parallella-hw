@@ -36,17 +36,18 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 4.  Launch the Xilinx PlanAhead tool
 
-```
-    Linux hints:
-      $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
-      $ planAhead &
-```
-
 5.  Open the project fpga/projects/parallella_7020_hdmi/parallella_7020_hdmi.ppr.
 
 6.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
 
 7.  Answer "Yes" to "OK to launch synthesis and implementation?"
+
+```
+    Linux hints:
+      $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
+      $ xps &
+      $ planAhead &
+```
 
 ## Output
 
