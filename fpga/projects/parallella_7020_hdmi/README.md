@@ -18,13 +18,30 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 * external edk library ../../externals/fpgahdl_xilinx
 * constraints in ../../../boards/parallella-I/constraints
 
-Be sure the external repository has been populated by running the script "get_fpgahdl_xilinx" in the /fpga/externals directory.
-
 ## Build instructions
 
-1.  Be sure to update the version.v file with a new version number, and type or platform if needed.
+1.  If you have just checked-out this repository, you will also have to populate the external submodule in "fpga/externals/fpgahdl_xilinx" by running the script "get_fpgahdl_xilinx" in the /fpga/externals directory.  This step only has to be done once for each external library.
 
-2.  Launch the Xilinx PlanAhead tool
+2.  If this is the first time you are trying to build a project that uses the parallella_7020_hdmi edk project, you will also have to point it to the external library pulled in step 1.  Unfortunately the Xilinx edk does not allow relative paths for libraries, so there is an extra step required here for each edk project that uses external libs:
+
+a.  Open the edk project "fpga/edk/parallella_7020_hdmi/system.xmp" using xps.
+
+
+```
+    Linux hints:
+      $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
+      $ xps &
+```
+
+b.  XPS will complain about a missing module, and present you with a dialog box to learn the new location.  Browse to "fpga/externals/fpgahdl_xilinx/cf_lib/edk/pcores/axi_hdmi_tx_16b_v1_00_a" in your local copy of the repository, and choose that directory.  From this information xps will be able to find all other modules it needs, and it will write the absolute path to these libraries into your copy of the xps project.
+
+c.  Close XPS.  The project file will automatically be saved.
+
+d.  This step has to be done for each edk project you want to use, e.g. parallella_7010_hdmi or parallella_7020_hdmi.
+
+3. Be sure to update the version.v file with a new version number, and type or platform as needed.
+
+4.  Launch the Xilinx PlanAhead tool
 
 ```
     Linux hints:
@@ -32,9 +49,11 @@ Be sure the external repository has been populated by running the script "get_fp
       $ planAhead &
 ```
 
-3.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
+5.  Open the project fpga/projects/parallella_7020_hdmi/parallella_7020_hdmi.ppr.
 
-4.  Answer "Yes" to "OK to launch synthesis and implementation?"
+6.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
+
+7.  Answer "Yes" to "OK to launch synthesis and implementation?"
 
 ## Output
 

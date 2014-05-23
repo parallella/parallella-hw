@@ -29,9 +29,11 @@ Xilinx ISE/EDK/PlanAhead version 14.7
       $ planAhead &
 ```
 
-3.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
+3.  Open the project fpga/projects/parallella_7020_headless/parallella_7020_headless.ppr.
 
-4.  Answer "Yes" to "OK to launch synthesis and implementation?"
+4.  From the planAhead GUI, in the Flow Navigator on the left side, select "Generate Bitstream"
+
+5.  Answer "Yes" to "OK to launch synthesis and implementation?"
 
 ## Output
 
