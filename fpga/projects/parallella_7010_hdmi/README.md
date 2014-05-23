@@ -26,13 +26,6 @@ Xilinx ISE/EDK/PlanAhead version 14.7
 
 	1.  Open the edk project "fpga/edk/parallella_7010_hdmi/system.xmp" using xps.
 
-
-```
-    Linux hints:
-      $ . /opt/Xilinx/14.7/ISE_DS/settings[32|64].[c]sh
-      $ xps &
-```
-
 	1.  XPS will complain about a missing module, and present you with a dialog box to learn the new location.  Browse to "fpga/externals/fpgahdl_xilinx/cf_lib/edk/pcores/axi_hdmi_tx_16b_v1_00_a" in your local copy of the repository, and choose that directory.  From this information xps will be able to find all other modules it needs, and it will write the absolute path to these libraries into your copy of the xps project.
 
 	1.  Close XPS.  The project file will automatically be saved.
