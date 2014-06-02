@@ -13,11 +13,15 @@ boards/         -  Board design files, all projects
         gen1.0/         - Solid board, but hdmi wiring bug (Oct 2013)
         gen1.1/         - Fully working board (Dec 2013)
     libraries/      - Shared schematic and PCB tools libraries
+        kicad/          - KiCad schematic (.lib/.dcm) and 3D source (.scad/.wrl) libs
+            adapteva-kicad.pretty/  - KiCad footprint (.mod) library
     parallella-I/   - Current Parallella-I board schematic and PCB source
         constraints/    - Constraints files for board-specific pin locations
         docs/           - Docs specific to each board
         firmware/       - Low-level firmware (fsbl, u-boot, etc.)
         mfg/            - Manufacturing files: Fab Gerbers, Assembly docs
+    parallella-template  - KiCad template files for parallella daughtercards
+        meta/           - Metadata files for template
 
 fpga/           -  FPGA design files and projects
     bitstreams/     - Latest generated bitstreams

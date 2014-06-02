@@ -1,0 +1,20 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CONN\SAMTEC\BTH\60
+D Samtec BTH Double-Row Terminal, 60 Pos.
+K CONN
+F /mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf
+$ENDCMP
+#
+$CMP MTG\PTH\125\SQ
+D Mounting Hole, PTH, 0.125dia., 0.125sq pad
+K MTG
+$ENDCMP
+#
+$CMP TEMPLATE
+D Part Description
+K Template
+F Documenation URL?
+$ENDCMP
+#
+#End Doc Library
