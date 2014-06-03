@@ -82,9 +82,9 @@ REG_EN1
 Text Label 10100 3900 0    60   ~ 0
 REG_EN3
 Text Label 6500 4650 2    60   ~ 0
-REG_EN[4:1]
+REG_EN[1..4]
 Text HLabel 5850 4650 0    60   Input ~ 0
-REG_EN[4:1]
+REG_EN[1..4]
 NoConn ~ 8650 4000
 Text HLabel 10550 4000 2    60   BiDi ~ 0
 PROG_IO
@@ -248,13 +248,13 @@ Wire Bus Line
 Wire Bus Line
 	5850 5050 6550 5050
 Text Label 5900 4850 0    60   ~ 0
-DSP_YID[3:0]
+DSP_YID[0..3]
 Text Label 5900 5050 0    60   ~ 0
-DSP_XID[3:0]
+DSP_XID[0..3]
 Text HLabel 5850 4850 0    60   Input ~ 0
-DSP_YID[3:0]
+DSP_YID[0..3]
 Text HLabel 5850 5050 0    60   Input ~ 0
-DSP_XID[3:0]
+DSP_XID[0..3]
 Text HLabel 7750 4700 0    60   Input ~ 0
 UART_RX
 Text HLabel 7750 4800 0    60   Output ~ 0

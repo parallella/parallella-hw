@@ -1,5 +1,34 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP CONN\HDR\0P1\1R\15
+D Connector, 0.1" Square Pin Header, 1 Row, 15 Pos.
+K conn
+F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\0P1\1R\8
+D Connector, 0.1" Square Pin Header, 1 Row, 8 Pos.
+K conn
+F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\0P1\2
+D Connector, 0.1" Square Pin Header, 2 Pos.
+K conn
+$ENDCMP
+#
+$CMP CONN\HDR\0P1\30\SHD
+D Connector, 0.1" Square Pin Header, 30 Pos., Shrouded
+K conn
+F http://www.on-shore.com/sites/default/files/manuals/302-sxxx.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\2MM\14\SHD
+D Connector, 2mm Square Pin Header, 14 Pos., Shrouded
+K conn
+F http://www.molex.com/pdm_docs/sd/878311420_sd.pdf
+$ENDCMP
+#
 $CMP CONN\SAMTEC\BTH\60
 D Samtec BTH Double-Row Terminal, 60 Pos.
 K CONN

@@ -3,8 +3,7 @@ XmpVersion: 14.7
 VerMgmt: 14.7
 IntStyle: default
 Flow: ise
-ModuleSearchPath: /mnt/windowsC/Adapteva/Parallella/temp/hw/fpga/externals/fpgahdl_xilinx/cf_lib/edk/pcores/axi_hdmi_tx_16b_v1_00_a/../../../
-ModuleSearchPath: ../../externals/fpgahdl_xilinx/
+ModuleSearchPath: /mnt/windowsC/Adapteva/Parallella/parallella-hw/fpga/externals/fpgahdl_xilinx/cf_lib/edk/pcores/axi_hdmi_tx_16b_v1_00_a/../../../
 MHS File: system.mhs
 Architecture: zynq
 Device: xc7z020

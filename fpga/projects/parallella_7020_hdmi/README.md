@@ -49,6 +49,12 @@ Xilinx ISE/EDK/PlanAhead version 14.7
       $ planAhead &
 ```
 
+## Creating derivative projects
+
+To create a new project using this one as a base, open the project in planAhead and do "Save Project as...," specifying your new directory and project name.  The current source files may be left in place by leaving "Import all files to the new project" unchecked.
+
+In the new project directory, create a new copy of version.v and update it with your settings.  After opening the new planAhead project you will have to remove the old 'version.v" and add the new local copy.  Select the file in the "sources" window, then in the "source file properties" windows set the type to "Verilog Header" and check the "Global" box, then press "apply."  The project is now ready to build.
+
 ## Output
 
 The generated bitstream file will be found in the directory

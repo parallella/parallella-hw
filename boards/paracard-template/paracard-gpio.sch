@@ -262,9 +262,9 @@ GPIO_N23
 Text Label 9400 6600 0    60   ~ 0
 GPIO_P23
 Text HLabel 8650 2850 0    60   BiDi ~ 0
-GPIO_N[23:0]
+GPIO_N[0..23]
 Text HLabel 8650 3000 0    60   BiDi ~ 0
-GPIO_P[23:0]
+GPIO_P[0..23]
 Text Label 5700 2800 2    60   ~ 0
 GPIO_N0
 Text Label 5700 2900 2    60   ~ 0
@@ -506,9 +506,9 @@ Entry Wire Line
 Entry Wire Line
 	6150 5300 6250 5200
 Text Label 6750 2700 2    60   ~ 0
-GPIO[47:0]
+GPIO[0..47]
 Text HLabel 6850 2700 2    60   BiDi ~ 0
-GPIO[47:0]
+GPIO[0..47]
 Entry Wire Line
 	6150 5100 6250 5000
 Entry Wire Line
@@ -654,9 +654,9 @@ Entry Wire Line
 Entry Wire Line
 	5200 2700 5300 2800
 Text Label 5900 2500 2    60   ~ 0
-GPIO_N[23:0]
+GPIO_N[0..23]
 Text Label 6100 8000 2    60   ~ 0
-GPIO_P[23:0]
+GPIO_P[0..23]
 Text Notes 6500 6900 1    80   ~ 0
 Aliases between differential and single-ended GPIOs
 Text HLabel 9650 3300 0    60   Output ~ 0
@@ -664,7 +664,7 @@ VGPIO
 Wire Wire Line
 	9800 3700 9950 3700
 Wire Wire Line
-	11050 3700 11050 3300
+	11050 3300 11050 3700
 Wire Bus Line
 	9200 2850 9200 6400
 Wire Bus Line
@@ -880,10 +880,7 @@ Wire Bus Line
 Wire Bus Line
 	5200 8000 6150 8000
 Wire Wire Line
-	11250 3300 9650 3300
-Wire Wire Line
 	9800 3700 9800 3300
-Connection ~ 9800 3300
 Wire Wire Line
 	11950 4200 11950 6700
 Wire Wire Line
@@ -933,4 +930,7 @@ F 5 "Samtec" V 10450 3950 60  0000 C CNN "MFR"
 	1    10450 5150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9650 3300 11050 3300
+Connection ~ 9800 3300
 $EndSCHEMATC
