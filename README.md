@@ -42,11 +42,12 @@ fpga/           -  FPGA design files and projects
         parallella-I/   - Modules specific to the Parallella
     ip/             - Tool-specific IP generation (CoreGen) sources
     projects/       - One folder for each project
+        parallella_64_7020_hdmi/
+        parallella_64_7020_headless/
         parallella_7020_hdmi/
         parallella_7010_hdmi/
         parallella_7020_headless/
         parallella_7010_headless/
-        parallella_64_7020_headless/
 ```
 
 ## FPGA Project Build instructions
