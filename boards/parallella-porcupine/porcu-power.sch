@@ -1,0 +1,726 @@
+EESchema Schematic File Version 2
+LIBS:adapteva_kicad
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:porcupine-cache
+EELAYER 24 0
+EELAYER END
+$Descr B 17000 11000
+encoding utf-8
+Sheet 7 10
+Title "Parallella Breakout Daughtercard"
+Date "09 May 2014"
+Rev "*"
+Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
+Comment1 "including JTAG"
+Comment2 "Various Power connectors and Jumpers"
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 7700 6100 0    60   BiDi ~ 0
+I2C_SDA
+Text Label 11250 6700 0    60   ~ 0
+REG_EN2
+Text Label 11250 6500 0    60   ~ 0
+REG_EN4
+Text Label 11000 7000 2    60   ~ 0
+REG_EN[1..4]
+Text HLabel 10350 7000 0    60   Output ~ 0
+REG_EN[1..4]
+Text Label 5950 3250 0    60   ~ 0
+DSP_YID0
+Text Label 5950 3350 0    60   ~ 0
+DSP_YID1
+Text Label 5950 3450 0    60   ~ 0
+DSP_YID2
+Text Label 5950 3550 0    60   ~ 0
+DSP_YID3
+Wire Wire Line
+	7950 6100 7700 6100
+Wire Wire Line
+	12050 6700 11150 6700
+Wire Wire Line
+	12050 6500 11150 6500
+Wire Wire Line
+	6500 3250 5850 3250
+Wire Wire Line
+	6500 3350 5850 3350
+Wire Wire Line
+	6500 3450 5850 3450
+Wire Wire Line
+	6500 3550 5850 3550
+Wire Wire Line
+	5450 6050 5200 6050
+Wire Wire Line
+	5450 5850 5200 5850
+Wire Wire Line
+	7950 5300 7700 5300
+Wire Wire Line
+	12050 6300 11150 6300
+Wire Wire Line
+	12050 6200 11150 6200
+Wire Wire Line
+	12050 6100 11150 6100
+Wire Wire Line
+	12050 6000 11150 6000
+Wire Wire Line
+	12050 5900 11150 5900
+Wire Wire Line
+	11150 5800 12050 5800
+Wire Wire Line
+	12050 5700 11150 5700
+Wire Wire Line
+	12050 5600 11150 5600
+Wire Bus Line
+	11050 7000 10350 7000
+Wire Bus Line
+	4950 2750 5750 2750
+Wire Bus Line
+	4950 2950 5650 2950
+Text Label 5000 2750 0    60   ~ 0
+DSP_YID[0..3]
+Text Label 5000 2950 0    60   ~ 0
+DSP_XID[0..3]
+Text HLabel 4950 2750 0    60   Output ~ 0
+DSP_YID[0..3]
+Text HLabel 4950 2950 0    60   Output ~ 0
+DSP_XID[0..3]
+Text HLabel 7700 6900 0    60   Output ~ 0
+UART_RX
+Text HLabel 7700 7000 0    60   Input ~ 0
+UART_TX
+Text HLabel 5200 6050 0    60   Input ~ 0
+USER_LED
+Text HLabel 5200 5850 0    60   BiDi ~ 0
+RESET_N
+Text HLabel 7700 5300 0    60   Output ~ 0
+VADC_P
+Text HLabel 9900 3600 2    60   Output ~ 0
+JTAG_TDI
+Text HLabel 9900 3500 2    60   Input ~ 0
+JTAG_TDO
+Text Label 11250 6300 0    60   ~ 0
+1P0V
+Text Label 11250 6200 0    60   ~ 0
+VDD_DSP
+Text Label 11250 6100 0    60   ~ 0
+1P35V
+Text Label 11250 6000 0    60   ~ 0
+1P8V
+Text Label 11250 5900 0    60   ~ 0
+VDD_ADJ
+Text Label 11250 5800 0    60   ~ 0
+VDD_GPIO
+Text Label 11250 5700 0    60   ~ 0
+2P5V
+Text Label 11250 5600 0    60   ~ 0
+3P3V
+Text HLabel 11150 6300 0    60   Output ~ 0
+1P0V
+Text HLabel 11150 6200 0    60   Output ~ 0
+VDD_DSP
+Text HLabel 11150 6100 0    60   Output ~ 0
+1P35V
+Text HLabel 11150 6000 0    60   Output ~ 0
+1P8V
+Text HLabel 11150 5900 0    60   Output ~ 0
+VDD_ADJ
+Text HLabel 11150 5800 0    60   Output ~ 0
+VDD_GPIO
+Text HLabel 11150 5700 0    60   Output ~ 0
+2P5V
+Text HLabel 11150 5600 0    60   Output ~ 0
+3P3V
+Text HLabel 11650 7000 0    60   Input ~ 0
+SYS_5P0V
+Wire Wire Line
+	12050 7000 11650 7000
+Text HLabel 7700 6200 0    60   BiDi ~ 0
+I2C_SCL
+Text Label 11250 6800 0    60   ~ 0
+REG_EN1
+Text Label 11250 6600 0    60   ~ 0
+REG_EN3
+Text HLabel 5200 6150 0    60   BiDi ~ 0
+PROG_IO
+Text Label 5950 3650 0    60   ~ 0
+DSP_XID0
+Text Label 5950 3750 0    60   ~ 0
+DSP_XID1
+Text Label 5950 3850 0    60   ~ 0
+DSP_XID2
+Text Label 5950 3950 0    60   ~ 0
+DSP_XID3
+Wire Wire Line
+	7950 6200 7700 6200
+Wire Wire Line
+	11150 6800 12050 6800
+Wire Wire Line
+	11150 6600 12050 6600
+Wire Wire Line
+	5450 6150 5200 6150
+Wire Wire Line
+	5750 3650 6500 3650
+Wire Wire Line
+	5750 3750 6500 3750
+Wire Wire Line
+	5750 3850 6500 3850
+Wire Wire Line
+	5750 3950 6500 3950
+Wire Wire Line
+	5450 5950 5200 5950
+Wire Wire Line
+	5450 6250 5200 6250
+Wire Wire Line
+	5450 6350 5200 6350
+Wire Wire Line
+	7950 5400 7700 5400
+Text HLabel 5200 5950 0    60   Input ~ 0
+DSP_FLAG
+Text HLabel 5200 6250 0    60   Input ~ 0
+TURBO_MODE
+Text HLabel 5200 6350 0    60   Input ~ 0
+SPDIF
+Text HLabel 11850 3350 2    60   Output ~ 0
+JTAG_BOOT_EN
+Text HLabel 7700 5400 0    60   Output ~ 0
+VADC_N
+Text HLabel 9900 3300 2    60   Output ~ 0
+JTAG_TMS
+Text HLabel 9900 3400 2    60   Output ~ 0
+JTAG_TCK
+NoConn ~ 9000 3200
+$Comp
+L GND #PWR015
+U 1 1 538E9BA0
+P 8850 3950
+F 0 "#PWR015" H 8850 3950 30  0001 C CNN
+F 1 "GND" H 8850 3880 30  0001 C CNN
+F 2 "" H 8850 3950 60  0000 C CNN
+F 3 "" H 8850 3950 60  0000 C CNN
+	1    8850 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 3300 8850 3300
+Wire Wire Line
+	8850 3300 8850 3950
+Wire Wire Line
+	9000 3400 8850 3400
+Connection ~ 8850 3400
+Wire Wire Line
+	9000 3500 8850 3500
+Connection ~ 8850 3500
+Wire Wire Line
+	9000 3600 8850 3600
+Connection ~ 8850 3600
+Wire Wire Line
+	9000 3700 8850 3700
+Connection ~ 8850 3700
+Wire Wire Line
+	9000 3800 8850 3800
+Connection ~ 8850 3800
+Wire Wire Line
+	9600 3200 10200 3200
+Text Label 9800 3200 0    60   ~ 0
+3P3V
+$Comp
+L R R1
+U 1 1 538E9D4A
+P 11300 3550
+F 0 "R1" V 11380 3550 40  0000 C CNN
+F 1 "1K" V 11307 3551 40  0000 C CNN
+F 2 "R_0805_HS" V 11230 3550 30  0000 C CNN
+F 3 "" H 11300 3550 30  0000 C CNN
+	1    11300 3550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9900 3300 9600 3300
+Wire Wire Line
+	9600 3400 9900 3400
+Wire Wire Line
+	9900 3500 9600 3500
+Wire Wire Line
+	9600 3600 9900 3600
+NoConn ~ 9600 3700
+NoConn ~ 9600 3800
+$Comp
+L GND #PWR016
+U 1 1 538E9E96
+P 11700 3650
+F 0 "#PWR016" H 11700 3650 30  0001 C CNN
+F 1 "GND" H 11700 3580 30  0001 C CNN
+F 2 "" H 11700 3650 60  0000 C CNN
+F 3 "" H 11700 3650 60  0000 C CNN
+	1    11700 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11850 3350 11650 3350
+Wire Wire Line
+	11050 3350 10950 3350
+Wire Wire Line
+	10950 3350 10950 3550
+Wire Wire Line
+	10950 3550 11050 3550
+Wire Wire Line
+	11550 3550 11700 3550
+Wire Wire Line
+	11700 3550 11700 3650
+Text Notes 4550 4450 0    60   ~ 0
+On the Parallella, ID pins are either 1k to ground or\n4.75k to Vdd.  These headers will be arranged\nin 3 rows 0.1" apart to support jumpering in either \ndirection.
+Text Notes 9600 6800 0    60   ~ 0
+Regulator Enables:\nEN1: 1P0V (Zynq)\nEN2: 1P8V (General)\nEN3: 3P3V (IO)\nEN4: 2P5V (FPGA LVDS)
+Wire Bus Line
+	5750 2750 5750 3450
+Wire Bus Line
+	5650 2950 5650 3850
+Entry Wire Line
+	5750 3150 5850 3250
+Entry Wire Line
+	5750 3250 5850 3350
+Entry Wire Line
+	5750 3350 5850 3450
+Entry Wire Line
+	5750 3450 5850 3550
+Entry Wire Line
+	5650 3550 5750 3650
+Entry Wire Line
+	5650 3650 5750 3750
+Entry Wire Line
+	5650 3750 5750 3850
+Entry Wire Line
+	5650 3850 5750 3950
+$Comp
+L GND #PWR017
+U 1 1 538EA970
+P 7200 4050
+F 0 "#PWR017" H 7200 4050 30  0001 C CNN
+F 1 "GND" H 7200 3980 30  0001 C CNN
+F 2 "" H 7200 4050 60  0000 C CNN
+F 3 "" H 7200 4050 60  0000 C CNN
+	1    7200 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 3250 4550 3250
+Wire Wire Line
+	5050 3250 5050 3950
+Wire Wire Line
+	5050 3950 5150 3950
+Connection ~ 5050 3250
+Wire Wire Line
+	5150 3850 5050 3850
+Connection ~ 5050 3850
+Wire Wire Line
+	5050 3750 5150 3750
+Connection ~ 5050 3750
+Wire Wire Line
+	5150 3650 5050 3650
+Connection ~ 5050 3650
+Wire Wire Line
+	5150 3550 5050 3550
+Connection ~ 5050 3550
+Wire Wire Line
+	5150 3450 5050 3450
+Connection ~ 5050 3450
+Wire Wire Line
+	5150 3350 5050 3350
+Connection ~ 5050 3350
+Text Label 4600 3250 0    60   ~ 0
+1P8V
+Wire Wire Line
+	7100 3250 7200 3250
+Wire Wire Line
+	7200 3250 7200 4050
+Wire Wire Line
+	7100 3350 7200 3350
+Connection ~ 7200 3350
+Wire Wire Line
+	7200 3450 7100 3450
+Connection ~ 7200 3450
+Wire Wire Line
+	7100 3550 7200 3550
+Connection ~ 7200 3550
+Wire Wire Line
+	7200 3650 7100 3650
+Connection ~ 7200 3650
+Wire Wire Line
+	7100 3750 7200 3750
+Connection ~ 7200 3750
+Wire Wire Line
+	7200 3850 7100 3850
+Connection ~ 7200 3850
+Wire Wire Line
+	7200 3950 7100 3950
+Connection ~ 7200 3950
+$Comp
+L GND #PWR018
+U 1 1 538EAE9D
+P 12750 7100
+F 0 "#PWR018" H 12750 7100 30  0001 C CNN
+F 1 "GND" H 12750 7030 30  0001 C CNN
+F 2 "" H 12750 7100 60  0000 C CNN
+F 3 "" H 12750 7100 60  0000 C CNN
+	1    12750 7100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12650 5600 12750 5600
+Wire Wire Line
+	12750 5600 12750 7100
+Wire Wire Line
+	12650 7000 12750 7000
+Connection ~ 12750 7000
+Wire Wire Line
+	12650 6900 12750 6900
+Connection ~ 12750 6900
+Wire Wire Line
+	12650 6800 12750 6800
+Connection ~ 12750 6800
+Wire Wire Line
+	12650 6700 12750 6700
+Connection ~ 12750 6700
+Wire Wire Line
+	12650 6600 12750 6600
+Connection ~ 12750 6600
+Wire Wire Line
+	12650 6500 12750 6500
+Connection ~ 12750 6500
+Wire Wire Line
+	12650 6400 12750 6400
+Connection ~ 12750 6400
+Wire Wire Line
+	12650 6300 12750 6300
+Connection ~ 12750 6300
+Wire Wire Line
+	12650 6200 12750 6200
+Connection ~ 12750 6200
+Wire Wire Line
+	12650 6100 12750 6100
+Connection ~ 12750 6100
+Wire Wire Line
+	12650 6000 12750 6000
+Connection ~ 12750 6000
+Wire Wire Line
+	12650 5900 12750 5900
+Connection ~ 12750 5900
+Wire Wire Line
+	12650 5800 12750 5800
+Connection ~ 12750 5800
+Wire Wire Line
+	12650 5700 12750 5700
+Connection ~ 12750 5700
+Wire Wire Line
+	11900 7000 11900 6900
+Wire Wire Line
+	11900 6900 12050 6900
+Connection ~ 11900 7000
+Wire Bus Line
+	11050 7000 11050 6600
+Entry Wire Line
+	11050 6900 11150 6800
+Entry Wire Line
+	11050 6800 11150 6700
+Entry Wire Line
+	11050 6700 11150 6600
+Entry Wire Line
+	11050 6600 11150 6500
+NoConn ~ 12050 6400
+$Comp
+L GND #PWR019
+U 1 1 538EBE96
+P 7850 5600
+F 0 "#PWR019" H 7850 5600 30  0001 C CNN
+F 1 "GND" H 7850 5530 30  0001 C CNN
+F 2 "" H 7850 5600 60  0000 C CNN
+F 3 "" H 7850 5600 60  0000 C CNN
+	1    7850 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 5600 7850 5500
+Wire Wire Line
+	7850 5500 7950 5500
+Wire Wire Line
+	7950 5200 7500 5200
+Text Label 7550 5200 0    60   ~ 0
+3P3V
+$Comp
+L GND #PWR020
+U 1 1 538EC9A1
+P 7850 6400
+F 0 "#PWR020" H 7850 6400 30  0001 C CNN
+F 1 "GND" H 7850 6330 30  0001 C CNN
+F 2 "" H 7850 6400 60  0000 C CNN
+F 3 "" H 7850 6400 60  0000 C CNN
+	1    7850 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 6400 7850 6300
+Wire Wire Line
+	7850 6300 7950 6300
+Wire Wire Line
+	7950 6000 7500 6000
+Text Label 7550 6000 0    60   ~ 0
+SYS_5P0V
+Wire Wire Line
+	7950 6900 7700 6900
+Wire Wire Line
+	7950 7000 7700 7000
+$Comp
+L GND #PWR021
+U 1 1 538EC9B8
+P 7850 7200
+F 0 "#PWR021" H 7850 7200 30  0001 C CNN
+F 1 "GND" H 7850 7130 30  0001 C CNN
+F 2 "" H 7850 7200 60  0000 C CNN
+F 3 "" H 7850 7200 60  0000 C CNN
+	1    7850 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 7200 7850 7100
+Wire Wire Line
+	7850 7100 7950 7100
+Wire Wire Line
+	7950 6800 7500 6800
+Text Label 7550 6800 0    60   ~ 0
+3P3V
+Text Notes 9750 4050 0    60   ~ 0
+Standard \n2mm Xilinx \nPinout
+$Comp
+L GND #PWR022
+U 1 1 538ED07C
+P 6150 6550
+F 0 "#PWR022" H 6150 6550 30  0001 C CNN
+F 1 "GND" H 6150 6480 30  0001 C CNN
+F 2 "" H 6150 6550 60  0000 C CNN
+F 3 "" H 6150 6550 60  0000 C CNN
+	1    6150 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 5750 6150 5750
+Wire Wire Line
+	6150 5750 6150 6550
+Wire Wire Line
+	6050 5850 6150 5850
+Connection ~ 6150 5850
+Wire Wire Line
+	6150 5950 6050 5950
+Connection ~ 6150 5950
+Wire Wire Line
+	6050 6050 6150 6050
+Connection ~ 6150 6050
+Wire Wire Line
+	6150 6150 6050 6150
+Connection ~ 6150 6150
+Wire Wire Line
+	6050 6250 6150 6250
+Connection ~ 6150 6250
+Wire Wire Line
+	6150 6350 6050 6350
+Connection ~ 6150 6350
+Wire Wire Line
+	6150 6450 6050 6450
+Connection ~ 6150 6450
+Wire Wire Line
+	5450 5750 5000 5750
+Text Label 5050 5750 0    60   ~ 0
+3P3V
+$Comp
+L GND #PWR023
+U 1 1 538ED5E6
+P 5350 6550
+F 0 "#PWR023" H 5350 6550 30  0001 C CNN
+F 1 "GND" H 5350 6480 30  0001 C CNN
+F 2 "" H 5350 6550 60  0000 C CNN
+F 3 "" H 5350 6550 60  0000 C CNN
+	1    5350 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 6550 5350 6450
+Wire Wire Line
+	5350 6450 5450 6450
+$Comp
+L GND #PWR024
+U 1 1 538FBBE6
+P 11750 4650
+F 0 "#PWR024" H 11750 4650 30  0001 C CNN
+F 1 "GND" H 11750 4580 30  0001 C CNN
+F 2 "" H 11750 4650 60  0000 C CNN
+F 3 "" H 11750 4650 60  0000 C CNN
+	1    11750 4650
+	1    0    0    -1  
+$EndComp
+Text HLabel 10800 4550 0    60   Input ~ 0
+MH_SYSPWR
+Wire Wire Line
+	10800 4550 11050 4550
+Wire Wire Line
+	11650 4550 11750 4550
+Wire Wire Line
+	11750 4550 11750 4650
+$Comp
+L CONN\HDR\P1\1R08 J5
+U 1 1 538F74E9
+P 5400 3600
+F 0 "J5" H 5100 4100 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R08" H 5450 4400 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R08" H 5450 4200 60  0001 C CNN
+F 3 "" H 5450 4150 60  0001 C CNN
+F 4 "PRPC008SAAN-RC" V 5500 3600 50  0000 C CNN "MFRPN"
+F 5 "Sullins" H 5450 4300 50  0001 C CNN "MFR"
+	1    5400 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\2R08 J7
+U 1 1 538F7519
+P 6800 3600
+F 0 "J7" H 6450 4100 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\2R08" H 6800 4400 60  0001 C CNN
+F 2 "CONN_HDR_P1_2R08" H 6800 4200 60  0000 C CNN
+F 3 "" H 6800 4150 60  0001 C CNN
+F 4 "PH2-230/120-081" H 7000 4100 50  0000 C CNN "MFRPN"
+F 5 "On-Shore_Tech." H 6800 4300 50  0001 C CNN "MFR"
+	1    6800 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\2R08 J6
+U 1 1 538F753B
+P 5750 6100
+F 0 "J6" H 5400 6600 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\2R08" H 5750 6900 60  0001 C CNN
+F 2 "CONN_HDR_P1_2R08" H 5750 6700 60  0000 C CNN
+F 3 "" H 5750 6650 60  0001 C CNN
+F 4 "PH2-230/120-081" H 5950 6600 50  0000 C CNN "MFRPN"
+F 5 "On-Shore_Tech." H 5750 6800 50  0001 C CNN "MFR"
+	1    5750 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\2MM\2R07\SHD J11
+U 1 1 538F757F
+P 9300 3500
+F 0 "J11" H 8950 3950 60  0000 C CNN
+F 1 "CONN\\HDR\\2MM\\2R07\\SHD" H 9300 4250 60  0001 C CNN
+F 2 "CONN_HDR_2MM_2R07_SHD" H 9300 4050 60  0000 C CNN
+F 3 "" H 9300 4000 60  0001 C CNN
+F 4 "0878311420" H 9300 3950 50  0000 C CNN "MFRPN"
+F 5 "Molex" H 9300 4150 50  0001 C CNN "MFR"
+	1    9300 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R02 J12
+U 1 1 538F75A1
+P 11350 3350
+F 0 "J12" H 11000 3500 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R02" H 11350 3800 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R02" H 11350 3600 60  0000 C CNN
+F 3 "" H 11350 3550 60  0001 C CNN
+F 4 "961102-6404-AR" H 11500 3500 50  0000 C CNN "MFRPN"
+F 5 "3M" H 11350 3700 50  0001 C CNN "MFR"
+	1    11350 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R02 J13
+U 1 1 538F75C3
+P 11350 4550
+F 0 "J13" H 11000 4700 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R02" H 11350 5000 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R02" H 11350 4800 60  0000 C CNN
+F 3 "" H 11350 4750 60  0001 C CNN
+F 4 "961102-6404-AR" H 11500 4700 50  0000 C CNN "MFRPN"
+F 5 "3M" H 11350 4900 50  0001 C CNN "MFR"
+	1    11350 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R04 J8
+U 1 1 538F75E5
+P 8200 5350
+F 0 "J8" H 7900 5650 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R04" H 8250 5950 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R04" H 8250 5750 60  0000 C CNN
+F 3 "" H 8250 5700 60  0001 C CNN
+F 4 "PRPC004SAAN-RC" H 8400 5650 50  0000 C CNN "MFRPN"
+F 5 "Sullins" H 8250 5850 50  0001 C CNN "MFR"
+	1    8200 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R04 J9
+U 1 1 538F7607
+P 8200 6150
+F 0 "J9" H 7900 6450 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R04" H 8250 6750 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R04" H 8250 6550 60  0000 C CNN
+F 3 "" H 8250 6500 60  0001 C CNN
+F 4 "PRPC004SAAN-RC" H 8400 6450 50  0000 C CNN "MFRPN"
+F 5 "Sullins" H 8250 6650 50  0001 C CNN "MFR"
+	1    8200 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R04 J10
+U 1 1 538F7629
+P 8200 6950
+F 0 "J10" H 7900 7250 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R04" H 8250 7550 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R04" H 8250 7350 60  0000 C CNN
+F 3 "" H 8250 7300 60  0001 C CNN
+F 4 "PRPC004SAAN-RC" H 8400 7250 50  0000 C CNN "MFRPN"
+F 5 "Sullins" H 8250 7450 50  0001 C CNN "MFR"
+	1    8200 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\2R15\SHD J14
+U 1 1 538F764B
+P 12350 6300
+F 0 "J14" H 12000 7150 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\2R15\\SHD" H 12350 7450 60  0001 C CNN
+F 2 "CONN_HDR_P1_2R15_SHD" H 12350 7250 60  0000 C CNN
+F 3 "" H 12350 7200 60  0001 C CNN
+F 4 "302-S301" H 12350 7150 50  0000 C CNN "MFRPN"
+F 5 "On-Shore_Tech." H 12350 7350 50  0001 C CNN "MFR"
+	1    12350 6300
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

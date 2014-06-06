@@ -1,32 +1,68 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP CONN\HDR\0P1\1R\15
-D Connector, 0.1" Square Pin Header, 1 Row, 15 Pos.
+$CMP CONN\HDR\2MM\1R15
+D Connector, 2mm Square Pin Header, 1 Row, 15 Pos.
+K conn
+F http://multimedia.3m.com/mws/mediawebserver?66666UuZjcFSLXTtmXMEmxMyEVuQEcuZgVs6EVs6E666666--
+$ENDCMP
+#
+$CMP CONN\HDR\2MM\2R07\SHD
+D Connector, 2mm Square Pin Header, 14 Pos., Shrouded
+K conn
+F http://www.molex.com/pdm_docs/sd/878311420_sd.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\2MM\2R15\SHD
+D Connector, 2mm Square Pin Header, 30 Pos., Shrouded
+K conn
+F http://portal.fciconnect.com/Comergent//fci/drawing/98424.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\2MM\SMD\2R07\SHD
+D Connector, 2mm Surface-Mount Pin Header, 14 Pos., Shrouded
+K conn
+F http://portal.fciconnect.com/Comergent//fci/drawing/98424.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\P1\1R02
+D Connector, 0.1" Square Pin Header, 2 Pos.
+K conn
+$ENDCMP
+#
+$CMP CONN\HDR\P1\1R04
+D Connector, 0.1" Square Pin Header, 1 Row, 4 Pos.
 K conn
 F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
 $ENDCMP
 #
-$CMP CONN\HDR\0P1\1R\8
+$CMP CONN\HDR\P1\1R08
 D Connector, 0.1" Square Pin Header, 1 Row, 8 Pos.
 K conn
 F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
 $ENDCMP
 #
-$CMP CONN\HDR\0P1\2
-D Connector, 0.1" Square Pin Header, 2 Pos.
+$CMP CONN\HDR\P1\1R15
+D Connector, 0.1" Square Pin Header, 1 Row, 15 Pos.
 K conn
+F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
 $ENDCMP
 #
-$CMP CONN\HDR\0P1\30\SHD
+$CMP CONN\HDR\P1\2R08
+D Connector, 0.1" Square Pin Header, 16 Pos.
+K conn
+F http://www.on-shore.com/sites/default/files/manuals/ipg24_2.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\P1\2R15
+D Connector, 0.1" Square Pin Header, 30 Pos.
+K conn
+F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzDxxN-RC_11636-B.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\P1\2R15\SHD
 D Connector, 0.1" Square Pin Header, 30 Pos., Shrouded
 K conn
 F http://www.on-shore.com/sites/default/files/manuals/302-sxxx.pdf
-$ENDCMP
-#
-$CMP CONN\HDR\2MM\14\SHD
-D Connector, 2mm Square Pin Header, 14 Pos., Shrouded
-K conn
-F http://www.molex.com/pdm_docs/sd/878311420_sd.pdf
 $ENDCMP
 #
 $CMP CONN\SAMTEC\BTH\60

@@ -1,0 +1,523 @@
+EESchema Schematic File Version 2
+LIBS:adapteva_kicad
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:porcupine-cache
+EELAYER 24 0
+EELAYER END
+$Descr B 17000 11000
+encoding utf-8
+Sheet 6 10
+Title "Parallella Breakout Daughtercard"
+Date "09 May 2014"
+Rev "*"
+Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
+Comment1 "GPIO Connectors"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Bus Line
+	7400 2800 7400 7550
+Wire Bus Line
+	9300 2600 9300 7550
+Entry Wire Line
+	7400 7550 7500 7650
+Entry Wire Line
+	7400 7450 7500 7550
+Entry Wire Line
+	7400 7350 7500 7450
+Entry Wire Line
+	7400 7150 7500 7250
+Entry Wire Line
+	7400 7050 7500 7150
+Entry Wire Line
+	7400 6950 7500 7050
+Entry Wire Line
+	7400 6950 7500 7050
+Entry Wire Line
+	7400 6750 7500 6850
+Entry Wire Line
+	7400 6650 7500 6750
+Entry Wire Line
+	7400 6550 7500 6650
+Entry Wire Line
+	7400 6350 7500 6450
+Entry Wire Line
+	7400 6250 7500 6350
+Entry Wire Line
+	7400 6150 7500 6250
+Entry Wire Line
+	7400 4650 7500 4750
+Entry Wire Line
+	7400 4550 7500 4650
+Entry Wire Line
+	7400 4450 7500 4550
+Entry Wire Line
+	7400 4250 7500 4350
+Entry Wire Line
+	7400 4150 7500 4250
+Entry Wire Line
+	7400 4050 7500 4150
+Entry Wire Line
+	7400 4050 7500 4150
+Entry Wire Line
+	7400 3850 7500 3950
+Entry Wire Line
+	7400 3750 7500 3850
+Entry Wire Line
+	7400 3650 7500 3750
+Entry Wire Line
+	7400 3450 7500 3550
+Entry Wire Line
+	7400 3350 7500 3450
+Entry Wire Line
+	7400 3250 7500 3350
+Entry Wire Line
+	9200 3350 9300 3250
+Entry Wire Line
+	9200 3350 9300 3250
+Entry Wire Line
+	9200 3450 9300 3350
+Entry Wire Line
+	9200 3550 9300 3450
+Entry Wire Line
+	9200 3750 9300 3650
+Entry Wire Line
+	9200 3850 9300 3750
+Entry Wire Line
+	9200 3950 9300 3850
+Entry Wire Line
+	9200 4150 9300 4050
+Entry Wire Line
+	9200 4250 9300 4150
+Entry Wire Line
+	9200 4350 9300 4250
+Entry Wire Line
+	9200 4550 9300 4450
+Entry Wire Line
+	9200 4650 9300 4550
+Entry Wire Line
+	9200 4750 9300 4650
+Entry Wire Line
+	9200 7650 9300 7550
+Entry Wire Line
+	9200 7550 9300 7450
+Entry Wire Line
+	9200 7450 9300 7350
+Entry Wire Line
+	9200 7250 9300 7150
+Entry Wire Line
+	9200 7150 9300 7050
+Entry Wire Line
+	9200 7150 9300 7050
+Entry Wire Line
+	9200 7050 9300 6950
+Entry Wire Line
+	9200 6850 9300 6750
+Entry Wire Line
+	9200 6750 9300 6650
+Entry Wire Line
+	9200 6650 9300 6550
+Entry Wire Line
+	9200 6450 9300 6350
+Entry Wire Line
+	9200 6350 9300 6250
+Entry Wire Line
+	9200 6250 9300 6150
+Wire Wire Line
+	9200 7650 8650 7650
+Wire Wire Line
+	9200 7550 8650 7550
+Wire Wire Line
+	9200 7450 8650 7450
+Wire Wire Line
+	9200 7250 8650 7250
+Wire Wire Line
+	9200 7150 8650 7150
+Wire Wire Line
+	9200 7050 8650 7050
+Wire Wire Line
+	9200 6850 8650 6850
+Wire Wire Line
+	9200 6750 8650 6750
+Wire Wire Line
+	9200 6650 8650 6650
+Wire Wire Line
+	9200 6450 8650 6450
+Wire Wire Line
+	9200 6350 8650 6350
+Wire Wire Line
+	9200 6250 8650 6250
+Wire Wire Line
+	8050 7650 7500 7650
+Wire Wire Line
+	8050 7550 7500 7550
+Wire Wire Line
+	8050 7450 7500 7450
+Wire Wire Line
+	8050 7250 7500 7250
+Wire Wire Line
+	8050 7150 7500 7150
+Wire Wire Line
+	8050 7050 7500 7050
+Wire Wire Line
+	8050 6850 7500 6850
+Wire Wire Line
+	8050 6750 7500 6750
+Wire Wire Line
+	8050 6650 7500 6650
+Wire Wire Line
+	8050 6450 7500 6450
+Wire Wire Line
+	8050 6350 7500 6350
+Wire Wire Line
+	8050 6250 7500 6250
+Wire Wire Line
+	8050 4750 7500 4750
+Wire Wire Line
+	8050 4650 7500 4650
+Wire Wire Line
+	8050 4550 7500 4550
+Wire Wire Line
+	8050 4350 7500 4350
+Wire Wire Line
+	8050 4250 7500 4250
+Wire Wire Line
+	8050 4150 7500 4150
+Wire Wire Line
+	8050 3950 7500 3950
+Wire Wire Line
+	8050 3850 7500 3850
+Wire Wire Line
+	8050 3750 7500 3750
+Wire Wire Line
+	8050 3550 7500 3550
+Wire Wire Line
+	8050 3450 7500 3450
+Wire Wire Line
+	8050 3350 7500 3350
+Wire Wire Line
+	9200 4750 8650 4750
+Wire Wire Line
+	9200 4650 8650 4650
+Wire Wire Line
+	9200 4550 8650 4550
+Wire Wire Line
+	9200 4350 8650 4350
+Wire Wire Line
+	9200 4250 8650 4250
+Wire Wire Line
+	9200 4150 8650 4150
+Wire Wire Line
+	9200 3950 8650 3950
+Wire Wire Line
+	9200 3850 8650 3850
+Wire Wire Line
+	9200 3750 8650 3750
+Wire Wire Line
+	9200 3550 8650 3550
+Wire Wire Line
+	9200 3450 8650 3450
+Wire Wire Line
+	9200 3350 8650 3350
+Text Label 8000 3350 2    50   ~ 0
+GPIO_N0
+Text Label 8000 3450 2    50   ~ 0
+GPIO_N1
+Text Label 8000 3550 2    50   ~ 0
+GPIO_N2
+Text Label 8000 3750 2    50   ~ 0
+GPIO_N3
+Text Label 8000 3850 2    50   ~ 0
+GPIO_N4
+Text Label 8000 3950 2    50   ~ 0
+GPIO_N5
+Text Label 8000 4150 2    50   ~ 0
+GPIO_N6
+Text Label 8000 4250 2    50   ~ 0
+GPIO_N7
+Text Label 8000 4350 2    50   ~ 0
+GPIO_N8
+Text Label 8000 4550 2    50   ~ 0
+GPIO_N9
+Text Label 8000 4650 2    50   ~ 0
+GPIO_N10
+Text Label 8000 4750 2    50   ~ 0
+GPIO_N11
+Text Label 8000 6250 2    50   ~ 0
+GPIO_N12
+Text Label 8000 6350 2    50   ~ 0
+GPIO_N13
+Text Label 8000 6450 2    50   ~ 0
+GPIO_N14
+Text Label 8000 6650 2    50   ~ 0
+GPIO_N15
+Text Label 8000 6750 2    50   ~ 0
+GPIO_N16
+Text Label 8000 6850 2    50   ~ 0
+GPIO_N17
+Text Label 8000 7050 2    50   ~ 0
+GPIO_N18
+Text Label 8000 7150 2    50   ~ 0
+GPIO_N19
+Text Label 8000 7250 2    50   ~ 0
+GPIO_N20
+Text Label 8000 7450 2    50   ~ 0
+GPIO_N21
+Text Label 8000 7550 2    50   ~ 0
+GPIO_N22
+Text Label 8000 7650 2    50   ~ 0
+GPIO_N23
+Text Label 8700 3350 0    50   ~ 0
+GPIO_P0
+Text Label 8700 3450 0    50   ~ 0
+GPIO_P1
+Text Label 8700 3550 0    50   ~ 0
+GPIO_P2
+Text Label 8700 3750 0    50   ~ 0
+GPIO_P3
+Text Label 8700 3850 0    50   ~ 0
+GPIO_P4
+Text Label 8700 3950 0    50   ~ 0
+GPIO_P5
+Text Label 8700 4150 0    50   ~ 0
+GPIO_P6
+Text Label 8700 4250 0    50   ~ 0
+GPIO_P7
+Text Label 8700 4350 0    50   ~ 0
+GPIO_P8
+Text Label 8700 4550 0    50   ~ 0
+GPIO_P9
+Text Label 8700 4650 0    50   ~ 0
+GPIO_P10
+Text Label 8700 4750 0    50   ~ 0
+GPIO_P11
+Text Label 8700 6250 0    50   ~ 0
+GPIO_P12
+Text Label 8700 6350 0    50   ~ 0
+GPIO_P13
+Text Label 8700 6450 0    50   ~ 0
+GPIO_P14
+Text Label 8700 6650 0    50   ~ 0
+GPIO_P15
+Text Label 8700 6750 0    50   ~ 0
+GPIO_P16
+Text Label 8700 6850 0    50   ~ 0
+GPIO_P17
+Text Label 8700 7050 0    50   ~ 0
+GPIO_P18
+Text Label 8700 7150 0    50   ~ 0
+GPIO_P19
+Text Label 8700 7250 0    50   ~ 0
+GPIO_P20
+Text Label 8700 7450 0    50   ~ 0
+GPIO_P21
+Text Label 8700 7550 0    50   ~ 0
+GPIO_P22
+Text Label 8700 7650 0    50   ~ 0
+GPIO_P23
+$Comp
+L GND #PWR010
+U 1 1 538C694D
+P 7200 4750
+F 0 "#PWR010" H 7200 4750 30  0001 C CNN
+F 1 "GND" H 7200 4680 30  0001 C CNN
+F 2 "" H 7200 4750 60  0000 C CNN
+F 3 "" H 7200 4750 60  0000 C CNN
+	1    7200 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR011
+U 1 1 538C6961
+P 9500 4750
+F 0 "#PWR011" H 9500 4750 30  0001 C CNN
+F 1 "GND" H 9500 4680 30  0001 C CNN
+F 2 "" H 9500 4750 60  0000 C CNN
+F 3 "" H 9500 4750 60  0000 C CNN
+	1    9500 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR012
+U 1 1 538C6975
+P 7200 7700
+F 0 "#PWR012" H 7200 7700 30  0001 C CNN
+F 1 "GND" H 7200 7630 30  0001 C CNN
+F 2 "" H 7200 7700 60  0000 C CNN
+F 3 "" H 7200 7700 60  0000 C CNN
+	1    7200 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR013
+U 1 1 538C6989
+P 9500 7650
+F 0 "#PWR013" H 9500 7650 30  0001 C CNN
+F 1 "GND" H 9500 7580 30  0001 C CNN
+F 2 "" H 9500 7650 60  0000 C CNN
+F 3 "" H 9500 7650 60  0000 C CNN
+	1    9500 7650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 7700 7200 6550
+Wire Wire Line
+	7200 6550 8050 6550
+Wire Wire Line
+	7200 6950 8050 6950
+Connection ~ 7200 6950
+Wire Wire Line
+	7200 7350 8050 7350
+Connection ~ 7200 7350
+Wire Wire Line
+	9500 7650 9500 6550
+Wire Wire Line
+	9500 6550 8650 6550
+Wire Wire Line
+	9500 6950 8650 6950
+Connection ~ 9500 6950
+Wire Wire Line
+	8650 7350 9500 7350
+Connection ~ 9500 7350
+Wire Wire Line
+	7200 4750 7200 3650
+Wire Wire Line
+	7200 3650 8050 3650
+Wire Wire Line
+	8050 4050 7200 4050
+Connection ~ 7200 4050
+Wire Wire Line
+	8050 4450 7200 4450
+Connection ~ 7200 4450
+Wire Wire Line
+	9500 4750 9500 3650
+Wire Wire Line
+	9500 3650 8650 3650
+Wire Wire Line
+	9500 4050 8650 4050
+Connection ~ 9500 4050
+Wire Wire Line
+	9500 4450 8650 4450
+Connection ~ 9500 4450
+Text Notes 11150 2300 0    100  ~ 0
+NOTE:\nGPIO assignments are made to facilitate differential \nsignaling (e.g. twisted-pair).  For single-ended GPIOs,\nthe assignments are as follows:\n
+Text Notes 12750 7750 0    100  ~ 0
+ 0   2\n 1   3\n 4   6\n\n 5   7\n 8  10\n 9  11\n\n12  14\n13  15\n16  18\n\n17  19\n20  22\n21  23\n\n\n\n24  26\n25  27\n28  30\n\n29  31\n32  34\n33  35\n\n36  38\n37  39\n40  42\n\n41  43\n44  46\n45  47\n
+Text HLabel 6700 2800 0    80   BiDi ~ 0
+GPIO_N[0..23]
+Text HLabel 6700 2600 0    80   BiDi ~ 0
+GPIO_P[0..23]
+Wire Bus Line
+	7400 2800 6700 2800
+Wire Bus Line
+	6700 2600 9300 2600
+$Comp
+L GND #PWR014
+U 1 1 538C747F
+P 5200 4800
+F 0 "#PWR014" H 5200 4800 30  0001 C CNN
+F 1 "GND" H 5200 4730 30  0001 C CNN
+F 2 "" H 5200 4800 60  0000 C CNN
+F 3 "" H 5200 4800 60  0000 C CNN
+	1    5200 4800
+	1    0    0    -1  
+$EndComp
+Text HLabel 4050 4250 0    80   Input ~ 0
+VDD_GPIO
+Wire Wire Line
+	4350 4250 4050 4250
+Wire Wire Line
+	4200 4650 4200 4250
+Connection ~ 4200 4250
+Wire Wire Line
+	4950 4250 5200 4250
+Wire Wire Line
+	5200 4250 5200 4800
+Wire Wire Line
+	5200 4650 4950 4650
+Connection ~ 5200 4650
+Wire Wire Line
+	4200 4650 4350 4650
+$Comp
+L CONN\HDR\P1\1R02 J1
+U 1 1 538F7CB4
+P 4650 4250
+F 0 "J1" H 4300 4400 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R02" H 4650 4700 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R02" H 4650 4500 60  0000 C CNN
+F 3 "" H 4650 4450 60  0001 C CNN
+F 4 "961102-6404-AR" H 4800 4400 50  0000 C CNN "MFRPN"
+F 5 "3M" H 4650 4600 50  0001 C CNN "MFR"
+	1    4650 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\1R02 J2
+U 1 1 538F7CD6
+P 4650 4650
+F 0 "J2" H 4300 4800 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\1R02" H 4650 5100 60  0001 C CNN
+F 2 "CONN_HDR_P1_1R02" H 4650 4900 60  0000 C CNN
+F 3 "" H 4650 4850 60  0001 C CNN
+F 4 "961102-6404-AR" H 4800 4800 50  0000 C CNN "MFRPN"
+F 5 "3M" H 4650 5000 50  0001 C CNN "MFR"
+	1    4650 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\2R15\SHD J3
+U 1 1 538F7D06
+P 8350 4050
+F 0 "J3" H 8000 4900 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\2R15\\SHD" H 8350 5200 60  0001 C CNN
+F 2 "CONN_HDR_P1_2R15_SHD" H 8350 5000 60  0000 C CNN
+F 3 "" H 8350 4950 60  0001 C CNN
+F 4 "302-S301" H 8350 4900 50  0000 C CNN "MFRPN"
+F 5 "On-Shore_Tech." H 8350 5100 50  0001 C CNN "MFR"
+	1    8350 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN\HDR\P1\2R15\SHD J4
+U 1 1 538F7D36
+P 8350 6950
+F 0 "J4" H 8000 7800 60  0000 C CNN
+F 1 "CONN\\HDR\\P1\\2R15\\SHD" H 8350 8100 60  0001 C CNN
+F 2 "CONN_HDR_P1_2R15_SHD" H 8350 7900 60  0000 C CNN
+F 3 "" H 8350 7850 60  0001 C CNN
+F 4 "302-S301" H 8350 7800 50  0000 C CNN "MFRPN"
+F 5 "On-Shore_Tech." H 8350 8000 50  0001 C CNN "MFR"
+	1    8350 6950
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

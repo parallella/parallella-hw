@@ -78,7 +78,7 @@
   (pad 60 smd rect (at 7.25676 3.0861) (size 0.3048 1.4478) (layers F.Cu F.Paste F.Mask))
   (pad "" np_thru_hole circle (at -9.24052 -2.032) (size 1.016 1.016) (drill 1.016) (layers *.Cu *.Mask Dwgs.User))
   (pad "" np_thru_hole circle (at 9.24052 -2.032) (size 1.016 1.016) (drill 1.016) (layers *.Cu *.Mask Dwgs.User))
-  (model ../libraries/kicad/conn_samtec_bth_60.wrl
+  (model ../libraries/kicad/adapteva-kicad.pretty/packages3d/conn_samtec_bth_60.wrl
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
