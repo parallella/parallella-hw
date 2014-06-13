@@ -12,16 +12,31 @@ K conn
 F http://www.molex.com/pdm_docs/sd/878311420_sd.pdf
 $ENDCMP
 #
+$CMP CONN\HDR\2MM\2R08
+D Connector, 2mm Square Pin Header, 16 Pos.
+K conn
+$ENDCMP
+#
 $CMP CONN\HDR\2MM\2R15\SHD
 D Connector, 2mm Square Pin Header, 30 Pos., Shrouded
 K conn
 F http://portal.fciconnect.com/Comergent//fci/drawing/98424.pdf
 $ENDCMP
 #
+$CMP CONN\HDR\2MM\3R08
+D Connector, 2mm Header, 3 rows 24 Pos.
+K conn
+$ENDCMP
+#
 $CMP CONN\HDR\2MM\SMD\2R07\SHD
 D Connector, 2mm Surface-Mount Pin Header, 14 Pos., Shrouded
 K conn
 F http://portal.fciconnect.com/Comergent//fci/drawing/98424.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\P1FRA\2R06
+D Connector, 0.1" Socket Header, Right-angle, 12 Pos.
+K conn
 $ENDCMP
 #
 $CMP CONN\HDR\P1\1R02
@@ -45,6 +60,11 @@ $CMP CONN\HDR\P1\1R15
 D Connector, 0.1" Square Pin Header, 1 Row, 15 Pos.
 K conn
 F http://media.digikey.com/PDF/Data%20Sheets/Sullins%20PDFs/xRxCzzzSxxN-RC_ST_11635-B.pdf
+$ENDCMP
+#
+$CMP CONN\HDR\P1\2R04
+D Connector, 0.1" Square Pin Header, 8 Pos.
+K conn
 $ENDCMP
 #
 $CMP CONN\HDR\P1\2R08
@@ -74,6 +94,16 @@ $ENDCMP
 $CMP MTG\PTH\125\SQ
 D Mounting Hole, PTH, 0.125dia., 0.125sq pad
 K MTG
+$ENDCMP
+#
+$CMP R\SMD0805\1PCT\1K00
+D Resistor, 1k, 1%, SMD0805
+K R DEV
+$ENDCMP
+#
+$CMP R\SMD0805\1PCT\200
+D Resistor, 200, 1%, SMD0805
+K R DEV
 $ENDCMP
 #
 $CMP TEMPLATE

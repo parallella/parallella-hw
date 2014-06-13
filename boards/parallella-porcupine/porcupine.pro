@@ -1,4 +1,4 @@
-update=Wed 04 Jun 2014 04:29:30 PM EDT
+update=Thu 12 Jun 2014 12:46:09 AM EDT
 version=1
 last_client=pcbnew
 [cvpcb]
@@ -14,11 +14,11 @@ PageLayoutDescrFile=adapteva_parallella_bsheet.kicad_wks
 SubpartIdSeparator=0
 SubpartFirstId=65
 LibDir=../libraries/kicad
-NetFmtName=
+NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100
 RptLab=1
-LabSize=100
+LabSize=50
 [eeschema/libraries]
 LibName1=adapteva_kicad
 LibName2=power
@@ -66,8 +66,8 @@ PcbTextThickness=0.3
 ModuleTextSizeV=1
 ModuleTextSizeH=1
 ModuleTextSizeThickness=0.15
-SolderMaskClearance=0
-SolderMaskMinWidth=0
+SolderMaskClearance=0.127
+SolderMaskMinWidth=0.127
 DrawSegmentWidth=0.2
 BoardOutlineThickness=0.09999999999999999
 ModuleOutlineThickness=0.254

@@ -35,7 +35,7 @@ EELAYER 24 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 6 10
+Sheet 5 10
 Title "Parallella Breakout Daughtercard"
 Date "09 May 2014"
 Rev "*"
