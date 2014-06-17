@@ -88,7 +88,12 @@ $ENDCMP
 $CMP CONN\SAMTEC\BTH\60
 D Samtec BTH Double-Row Terminal, 60 Pos.
 K CONN
-F /mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf
+F http://www.samtec.com/documents/webfiles/cpdf/BTH-XXX-XX-X-D-XX-MKT.pdf
+$ENDCMP
+#
+$CMP FIDUCIAL\040
+D Fiducial Marker, .04"
+K Fiducial
 $ENDCMP
 #
 $CMP MTG\PTH\125\SQ

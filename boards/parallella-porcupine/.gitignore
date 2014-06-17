@@ -1,0 +1,9 @@
+## CAD directory
+cad
+
+## archives
+*.zip
+
+## intermediate BOM files
+*.csv
+
