@@ -26,4 +26,9 @@
   (pad 10 thru_hole oval (at 3.81 1.27) (size 1.7272 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
   (pad 11 thru_hole oval (at 6.35 -1.27) (size 1.7272 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
   (pad 12 thru_hole oval (at 6.35 1.27) (size 1.7272 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (model ../libraries/kicad/adapteva-kicad.pretty/packages3d/socket_6x2_90.wrl
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

@@ -50,4 +50,9 @@
     (scale (xyz 0.7874 0.7874 0.7874))
     (rotate (xyz 0 0 0))
   )
+  (model ../libraries/kicad/adapteva-kicad.pretty/packages3d/shroud_2mm_2x15.wrl
+    (at (xyz 0.5508999999999999 0.0394 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

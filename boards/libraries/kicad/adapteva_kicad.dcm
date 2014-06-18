@@ -91,6 +91,12 @@ K CONN
 F http://www.samtec.com/documents/webfiles/cpdf/BTH-XXX-XX-X-D-XX-MKT.pdf
 $ENDCMP
 #
+$CMP C\SMD0805\50V\104
+D Capacitor, Ceramic, 0.1uF, 50V, X7R, 0805
+K CAP CAPACITOR
+F http://www.kemet.com/Lists/ProductCatalog/Attachments/53/KEM_C1002_X7R_SMD.pdf
+$ENDCMP
+#
 $CMP FIDUCIAL\040
 D Fiducial Marker, .04"
 K Fiducial
