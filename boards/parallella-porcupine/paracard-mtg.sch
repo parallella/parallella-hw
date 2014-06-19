@@ -37,10 +37,10 @@ $Descr B 17000 11000
 encoding utf-8
 Sheet 6 10
 Title "Parallella Breakout Daughtercard"
-Date "09 May 2014"
+Date "19 Jun 2014"
 Rev "*"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "Porcupin Top Level"
+Comment1 "Mounting Holes"
 Comment2 ""
 Comment3 ""
 Comment4 ""

@@ -415,9 +415,9 @@ AR Path="/5387844C/53893761" Ref="P4"  Part="1"
 F 0 "P2" H 8450 6550 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 8350 4850 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 8550 4850 60  0001 C CNN
-F 3 "/mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf" H 8550 5750 60  0001 C CNN
+F 3 "" H 8550 5750 60  0001 C CNN
 F 4 "BTH-030-01-F-D-A" V 8450 4850 80  0000 C CNN "MFRPN"
-F 5 "Samtec" V 8450 3650 60  0000 C CNN "MFR"
+F 5 "Samtec" V 8450 3650 60  0000 C CNN "Manufacturer"
 	1    8450 4850
 	1    0    0    -1  
 $EndComp

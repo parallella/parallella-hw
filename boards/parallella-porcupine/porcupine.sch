@@ -37,7 +37,7 @@ $Descr B 17000 11000
 encoding utf-8
 Sheet 1 10
 Title "Parallella Breakout Daughtercard"
-Date "09 May 2014"
+Date "19 Jun 2014"
 Rev "*"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
 Comment1 "Porcupine Top Level"
@@ -191,6 +191,7 @@ F27 "SYS_5P0V" O L 4150 1150 60
 F28 "REG_EN[1..4]" I L 4150 1650 60 
 F29 "DSP_YID[0..3]" I L 4150 1350 60 
 F30 "DSP_XID[0..3]" I L 4150 1450 60 
+F31 "SPARE" B R 6050 2950 60 
 $EndSheet
 $Sheet
 S 4150 4200 1900 900 
@@ -300,6 +301,7 @@ F28 "VADC_N" O L 7250 2450 60
 F29 "JTAG_TMS" O R 8950 2950 60 
 F30 "JTAG_TCK" O R 8950 3050 60 
 F31 "MH_SYSPWR" I L 7250 3050 60 
+F32 "SPARE" B L 7250 2950 60 
 $EndSheet
 $Sheet
 S 7250 4200 1700 900 
@@ -970,8 +972,6 @@ Wire Wire Line
 Wire Notes Line
 	6600 800  6600 1100
 Wire Notes Line
-	6600 2900 6600 3500
-Wire Notes Line
 	6600 3900 6600 4300
 Wire Notes Line
 	6600 4550 6600 5200
@@ -995,4 +995,8 @@ Text Label 9050 4400 0    50   ~ 0
 3P3V
 Text Notes 11150 8200 0    80   ~ 0
 This work is licensed under Creative Commons Attribution-Share Alike 3.0\nUnprotected License.  To view a copy of this license, visit \nhttp://creativecommons.org/licenses/by-sa/3.0/ or send a letter to \nCreative Commons, 171 Second Street, Suite 300, San Francisco, California,\n94105, USA.\n\nThis schematic is *NOT SUPPORTED* and DOES NOT constitute a reference design.\nOnly *community* support is allowed via resources at forums.parallella.org.\nTHERE IS NO WARRANTY FOR THIS DESIGN, TO THE EXTENT PERMITTED\nBY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE\nCOPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE DESIGN *AS IS*\nWITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,\nBUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND\nFITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY\nOF PERFORMANCE OF THE DESIGN IS WITH YOU. SHOULD THE DESIGN PROVE\nDEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\nREPAIR OR CORRECTION.
+Wire Wire Line
+	6050 2950 7250 2950
+Wire Notes Line
+	6600 3500 6600 3000
 $EndSCHEMATC

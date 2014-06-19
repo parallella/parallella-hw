@@ -301,8 +301,8 @@ Wire Notes Line
 	15200 3100 15200 2550
 Wire Notes Line
 	15200 2200 15200 1550
-Text Notes 12800 7200 0    100  ~ 0
-"Paracard" Daughtercard template for\nAdapteva Parallella-I.\nThis schematic and associated PCB\ndesign may be used as a starting point\nfor Parallella-I daughtercard design.\n\n<Add license here>\n
+Text Notes 11000 8750 0    80   ~ 0
+"Paracard" Daughtercard template for\nAdapteva Parallella-I.\nThis schematic and associated PCB\ndesign may be used as a starting point\nfor Parallella-I daughtercard design.\n\nThis work is licensed under Creative Commons Attribution-Share Alike 3.0\nUnprotected License.  To view a copy of this license, visit \nhttp://creativecommons.org/licenses/by-sa/3.0/ or send a letter to \nCreative Commons, 171 Second Street, Suite 300, San Francisco, California,\n94105, USA.\n\nThis schematic is *NOT SUPPORTED* and DOES NOT constitute a reference design.\nOnly *community* support is allowed via resources at forums.parallella.org.\nTHERE IS NO WARRANTY FOR THIS DESIGN, TO THE EXTENT PERMITTED\nBY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE\nCOPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE DESIGN *AS IS*\nWITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,\nBUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND\nFITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY\nOF PERFORMANCE OF THE DESIGN IS WITH YOU. SHOULD THE DESIGN PROVE\nDEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\nREPAIR OR CORRECTION.
 $Sheet
 S 3600 3050 1900 900 
 U 53860B1E
@@ -374,6 +374,7 @@ F27 "SYS_5P0V" O L 3600 4600 60
 F28 "REG_EN[1..4]" I L 3600 5100 60 
 F29 "DSP_YID[0..3]" I L 3600 4800 60 
 F30 "DSP_XID[0..3]" I L 3600 4900 60 
+F31 "SPARE" B R 5500 6400 60 
 $EndSheet
 $Sheet
 S 3600 7450 1950 700 

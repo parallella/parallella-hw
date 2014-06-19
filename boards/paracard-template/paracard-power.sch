@@ -85,7 +85,6 @@ Text Label 6500 4650 2    60   ~ 0
 REG_EN[1..4]
 Text HLabel 5850 4650 0    60   Input ~ 0
 REG_EN[1..4]
-NoConn ~ 8650 4000
 Text HLabel 10550 4000 2    60   BiDi ~ 0
 PROG_IO
 Text Label 7850 4200 0    60   ~ 0
@@ -342,10 +341,14 @@ P 9150 5050
 F 0 "P3" H 9150 6750 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 9050 5050 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 9250 5050 60  0001 C CNN
-F 3 "/mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf" H 9250 5950 60  0001 C CNN
+F 3 "" H 9250 5950 60  0001 C CNN
 F 4 "BTH-030-01-F-D-A" V 9150 5050 80  0000 C CNN "MFRPN"
-F 5 "Samtec" V 9150 3850 60  0000 C CNN "MFR"
+F 5 "Samtec" V 9150 3850 60  0000 C CNN "Manufacturer"
 	1    9150 5050
 	1    0    0    -1  
 $EndComp
+Text HLabel 7750 4000 0    60   BiDi ~ 0
+SPARE
+Wire Wire Line
+	7750 4000 8650 4000
 $EndSCHEMATC

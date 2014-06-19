@@ -7,9 +7,9 @@ DEF CONN\SAMTEC\BTH\60 P 0 1 Y N 1 F N
 F0 "P" 0 1700 60 H V C CNN
 F1 "CONN\\SAMTEC\\BTH\\60" -100 0 60 V V C CNN
 F2 "CONN_SAMTEC_BTH_60" 100 0 60 V I C CNN
-F3 "/mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf" 100 900 60 H I C CNN
+F3 "" 100 900 60 H I C CNN
 F4 "BTH-030-01-F-D-A" 0 0 80 V V C CNN "MFRPN"
-F5 "Samtec" 0 -1200 60 V V C CNN "MFR"
+F5 "Samtec" 0 -1200 60 V V C CNN "Manufacturer"
 $FPLIST
  CONN_SAMTEC_BTH_60
 $ENDFPLIST

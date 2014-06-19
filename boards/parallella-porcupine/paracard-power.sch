@@ -37,10 +37,10 @@ $Descr B 17000 11000
 encoding utf-8
 Sheet 2 10
 Title "Parallella Breakout Daughtercard"
-Date "09 May 2014"
+Date "19 Jun 2014"
 Rev "*"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "Porcupin Top Level"
+Comment1 "Parallella Power Connector"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -85,7 +85,6 @@ Text Label 6500 4650 2    60   ~ 0
 REG_EN[1..4]
 Text HLabel 5850 4650 0    60   Input ~ 0
 REG_EN[1..4]
-NoConn ~ 8650 4000
 Text HLabel 10550 4000 2    60   BiDi ~ 0
 PROG_IO
 Text Label 7850 4200 0    60   ~ 0
@@ -336,10 +335,10 @@ SYS_5P0V
 Wire Wire Line
 	9850 3250 8250 3250
 $Comp
-L CONN\SAMTEC\BTH\60 P3
+L CONN\SAMTEC\BTH\60 P1
 U 1 1 538934D7
 P 9150 5050
-F 0 "P3" H 9150 6750 60  0000 C CNN
+F 0 "P1" H 9150 6750 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 9050 5050 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 9250 5050 60  0001 C CNN
 F 3 "" H 9250 5950 60  0001 C CNN
@@ -348,4 +347,8 @@ F 5 "Samtec" V 9150 3850 60  0000 C CNN "Manufacturer"
 	1    9150 5050
 	1    0    0    -1  
 $EndComp
+Text HLabel 7750 4000 0    60   BiDi ~ 0
+SPARE
+Wire Wire Line
+	7750 4000 8650 4000
 $EndSCHEMATC

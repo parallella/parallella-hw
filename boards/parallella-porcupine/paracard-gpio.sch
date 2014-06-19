@@ -37,10 +37,10 @@ $Descr B 17000 11000
 encoding utf-8
 Sheet 3 10
 Title "Parallella Breakout Daughtercard"
-Date "09 May 2014"
+Date "19 Jun 2014"
 Rev "*"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "Porcupin Top Level"
+Comment1 "Parallella GPIO Connector"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -919,10 +919,10 @@ Wire Wire Line
 Wire Bus Line
 	8650 3000 11750 3000
 $Comp
-L CONN\SAMTEC\BTH\60 P1
+L CONN\SAMTEC\BTH\60 P2
 U 1 1 538932DF
 P 10450 5150
-F 0 "P1" H 10450 6850 60  0000 C CNN
+F 0 "P2" H 10450 6850 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 10350 5150 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 10550 5150 60  0001 C CNN
 F 3 "" H 10550 6050 60  0001 C CNN

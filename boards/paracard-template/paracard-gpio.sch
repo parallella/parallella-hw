@@ -924,13 +924,17 @@ P 10450 5150
 F 0 "P1" H 10450 6850 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 10350 5150 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 10550 5150 60  0001 C CNN
-F 3 "/mnt/windowsC/Adapteva/Fred-suppliers/Suppliers/www.samtec.com/BTH-XXX-XX-X-D-XX-MKT.pdf" H 10550 6050 60  0001 C CNN
+F 3 "" H 10550 6050 60  0001 C CNN
 F 4 "BTH-030-01-F-D-A" V 10450 5150 80  0000 C CNN "MFRPN"
-F 5 "Samtec" V 10450 3950 60  0000 C CNN "MFR"
+F 5 "Samtec" V 10450 3950 60  0000 C CNN "Manufacturer"
 	1    10450 5150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	9650 3300 11050 3300
 Connection ~ 9800 3300
+Text Label 9850 2850 0    60   ~ 0
+GPIO_N[0..23]
+Text Label 9850 3000 0    60   ~ 0
+GPIO_P[0..23]
 $EndSCHEMATC
