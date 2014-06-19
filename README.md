@@ -15,6 +15,8 @@ boards/         -  Board design files, all projects
     libraries/      - Shared schematic and PCB tools libraries
         kicad/          - KiCad schematic (.lib/.dcm) and 3D source (.scad/.wrl) libs
             adapteva-kicad.pretty/  - KiCad footprint (.mod) library
+                packages3d/  - 3D models for library parts, with some sources
+            scripts/        - Adapteva Kicad/BOM scripts in Python
     parallella-I/   - Current Parallella-I board schematic and PCB source
         constraints/    - Constraints files for board-specific pin locations
         docs/           - Docs specific to each board
@@ -22,6 +24,7 @@ boards/         -  Board design files, all projects
         mfg/            - Manufacturing files: Fab Gerbers, Assembly docs
     parallella-template  - KiCad template files for parallella daughtercards
         meta/           - Metadata files for template
+    parallella-porcupine - Breakout board for Parallella-I
 
 fpga/           -  FPGA design files and projects
     bitstreams/     - Latest generated bitstreams
