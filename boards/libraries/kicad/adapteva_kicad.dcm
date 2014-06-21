@@ -37,11 +37,13 @@ $ENDCMP
 $CMP CONN\HDR\P1FRA\2R06
 D Connector, 0.1" Socket Header, Right-angle, 12 Pos.
 K conn
+F http://www.sullinscorp.com/drawings/101_xPxCxx2LJBN-RC,_10494-C.pdf
 $ENDCMP
 #
 $CMP CONN\HDR\P1\1R02
 D Connector, 0.1" Square Pin Header, 2 Pos.
 K conn
+F http://multimedia.3m.com/mws/mediawebserver?66666UuZjcFSLXTtNxTElX&VEVuQEcuZgVs6EVs6E666666--
 $ENDCMP
 #
 $CMP CONN\HDR\P1\1R04
