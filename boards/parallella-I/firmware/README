@@ -3,10 +3,15 @@
 This file describes how to reprogram the content of the 128Mb
 QSPI boot flash on the Parallella board.
 
+To update the image on a board that has previously been programmed,
+power-on the board with no SD card inserted and start with step 9. In
+this case no Xilinx USB cable or Xilinx tools are required, only
+a serial connection and terminal program.
+
 -------------------------------------------------------------------------
 Directory Content:
 
-parallella.flash.bin      (bootable flash image)
+parallella.[7010|7020].flash.bin  (bootable flash image)
 parallella.bit.bin	  (FPGA bitstream loaded by U-Boot from SD card)
 fsbl.elf 		  (First Stage Boot Loader)
 uboot.elf 		  (U-Boot executable)
@@ -76,28 +81,30 @@ Pre-requisites:
     XMD% dow u-boot.elf
     XMD% con
 
-9.  Insert an SD card with the file called "parallella.flash.bin" on boot partition.
+9.  Insert an SD card with the file called "parallella.XXXX.flash.bin" on boot 
+    partition, where "XXXX" is either 7010 or 7020 to match the Zynq chip on 
+    the board.
 
 10.  In the serial port console program enter the following sequence:
     (Note: Takes several minutes, be patient)
 
     mmcinfo
-    fatload mmc 0 0x4000000 parallella.flash.bin
+    fatload mmc 0 0x4000000 parallella.XXXX.flash.bin
     sf probe 0 0 0
     sf erase 0 0x1000000
     sf write 0x4000000 0 0x$filesize
 
-11.  Power off board and take out the SD card.
-
-12.  Set the ethernet address. The first 6 characters contain the Adapteva
-assigned range of MAC-IDs. The last 6 characters should match the serial 
-number ("SN") on the board sticker.
+11.  Set the ethernet address and SKU. The first 6 characters of the MAC address
+     contain the Adapteva assigned range of MAC-IDs. The last 6 characters should
+     match the serial number ("SN") on the board sticker.  The AdaptevaSKU should
+     match the SKU on the sticker including the "SKU" at the start.
 
     zynq-uboot> set ethaddr 04 4F 8B 00 00 00 (for example)
+    zynq-uboot> set AdaptevaSKU SKUA101040    (for example)
     zynq-uboot> saveenv
 
-13. Power down board
+12. Power down board
 
-14. At this point the board is ready for general use.
+13. At this point the board is ready for general use.
  
 
