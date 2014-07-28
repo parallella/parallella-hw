@@ -1,0 +1,7 @@
+####
+# For now ignore everything except the configuration
+*
+!*.xci
+!.gitignore
+!README*
+

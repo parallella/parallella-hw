@@ -73,7 +73,7 @@ set origin_dir "."
 set orig_proj_dir "[file normalize "$origin_dir/"]"
 
 # Create project
-create_project parallella_7020_headless ./parallella_7020_headless
+create_project parallella_7020_headless .
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
@@ -220,12 +220,13 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 # Set 'constrs_1' fileset object
 set obj [get_filesets constrs_1]
 
+### This gets added below as the target... (FH)
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/../../../boards/parallella-I/constraints/parallella_timing.xdc"]"
-set file_imported [import_files -fileset constrs_1 $file]
-set file "constraints/parallella_timing.xdc"
-set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
-set_property "file_type" "XDC" $file_obj
+#set file "[file normalize "$origin_dir/../../../boards/parallella-I/constraints/parallella_timing.xdc"]"
+#set file_imported [import_files -fileset constrs_1 $file]
+#set file "constraints/parallella_timing.xdc"
+#set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
+#set_property "file_type" "XDC" $file_obj
 
 # Add/Import constrs file and set constrs file properties
 set file "[file normalize "$origin_dir/../../../boards/parallella-I/constraints/parallella_z7020_loc.xdc"]"
