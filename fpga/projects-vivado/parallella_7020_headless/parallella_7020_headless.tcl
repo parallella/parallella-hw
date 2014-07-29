@@ -192,14 +192,14 @@ set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
 set file "[file normalize "$origin_dir/../../../boards/parallella-I/constraints/parallella_z7020_loc.xdc"]"
-set file_imported [import_files -fileset constrs_1 $file]
+set file_added [add_files -fileset constrs_1 $file]
 set file "constraints/parallella_z7020_loc.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property "file_type" "XDC" $file_obj
 
 # Add/Import constrs file and set constrs file properties
 set file "[file normalize "$origin_dir/../../../boards/parallella-I/constraints/parallella_z70x0_loc.xdc"]"
-set file_imported [import_files -fileset constrs_1 $file]
+set file_added [add_files -fileset constrs_1 $file]
 set file "constraints/parallella_z70x0_loc.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property "file_type" "XDC" $file_obj
