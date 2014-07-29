@@ -27,22 +27,22 @@ To create the Vivado project if it has not been done already, i.e. if this is a 
 
 3.  Execute the tcl script "parallella_7020_headless.tcl" in Vivado:
 
-```
+    ```
     $ vivado -mode batch -source parallella_7020_headless.tcl
-```
+    ```
 4.  Vivado will generate several screens of output, including (in my case at least) two Critical Warnings:
 
-```
-    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
-    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
-```
+    ```
+    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file -
+    /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml, The board part
+    'xc7z045ffg900-2' is either not supported or invalid.
+    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file -
+    /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml, The board part
+     'xc7z045ffg900-2' is either not supported or invalid.
+    ```
 This seems odd since that part # is not referenced in the design.
 
-5.  Also one ordinary warning:
-```
-    WARNING: [Vivado 12-565] The source file 'parallella_timing.xdc' was previously imported. It will be reimported from the original location 'xxx/boards/parallella-I/constraints/parallella_timing.xdc'.
-```
-6.  The script concludes with "INFO: Project created:parallella_7020_headless."  Any other warnings or errors are unexpected.
+5.  The script concludes with "INFO: Project created:parallella_7020_headless."  Any other warnings or errors are unexpected.
 
 ## Build instructions
 
@@ -72,8 +72,12 @@ To convert this to a raw binary file and copy it to the ../bitstreams directory,
 
 The following 2 critical warnings are produced during both synthesis and implementation, and should be ignored.
 ```
-    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
-    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file - /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml, The board part 'xc7z045ffg900-2' is either not supported or invalid.
+    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file -
+    /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/1.0/board_part.xml,
+    The board part 'xc7z045ffg900-2' is either not supported or invalid.
+    CRITICAL WARNING: [Board 49-4] Problem parsing board_part file -
+    /opt/Xilinx/Vivado/2014.2/data/boards/board_parts/zynq/zc706/0.9/board_part.xml,
+    The board part 'xc7z045ffg900-2' is either not supported or invalid.
 ```
 
 Any other critical warnings are significant and should be investigated.

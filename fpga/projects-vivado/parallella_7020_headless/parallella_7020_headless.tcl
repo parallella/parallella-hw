@@ -129,41 +129,7 @@ set files [list \
 ]
 add_files -norecurse -fileset $obj $files
 
-# Import local files from the original project
-set files [list \
- "[file normalize "$origin_dir/../../hdl/parallella-I/fpga_constants.v"]"\
- "[file normalize "$origin_dir/version.v"]"\
- "[file normalize "$origin_dir/../../hdl/fifos/fifo_mem.v"]"\
- "[file normalize "$origin_dir/../../hdl/fifos/fifo_full_block.v"]"\
- "[file normalize "$origin_dir/../../hdl/fifos/fifo_empty_block.v"]"\
- "[file normalize "$origin_dir/../../hdl/common/synchronizer.v"]"\
- "[file normalize "$origin_dir/../../hdl/fifos/fifo.v"]"\
- "[file normalize "$origin_dir/../../hdl/common/toggle2pulse.v"]"\
- "[file normalize "$origin_dir/../../hdl/common/pulse2toggle.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_link_txo.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_link_rxi.v"]"\
- "[file normalize "$origin_dir/../../hdl/common/pulse2pulse.v"]"\
- "[file normalize "$origin_dir/../../hdl/common/mux4.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_slave_addrch.v"]"\
- "[file normalize "$origin_dir/../../hdl/parallella-I/fpgacfg.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_link_transmitter.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_link_receiver.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_io_tx_slow.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_io_rx_slow.v"]"\
- "[file normalize "$origin_dir/../../hdl/clocks/io_clock_gen_600mhz.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_slave_wr.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_slave_rd.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_master_wr.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_master_rd.v"]"\
- "[file normalize "$origin_dir/../../hdl/elink/ewrapper_link_top.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_slave.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_master.v"]"\
- "[file normalize "$origin_dir/../../hdl/axi/axi_elink_if.v"]"\
- "[file normalize "$origin_dir/../../hdl/parallella-I/parallella.v"]"\
- "[file normalize "$origin_dir/../../hdl/gpio/parallella_gpio_emio.v"]"\
- "[file normalize "$origin_dir/../../hdl/parallella-I/parallella_z7_top.v"]"\
-]
-set imported_files [import_files -fileset sources_1 $files]
+## Don't import the files, just add them as above (FH)
 
 # Set 'sources_1' fileset file properties for remote files
 # None
