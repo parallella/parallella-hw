@@ -5,4 +5,5 @@
 !*.v
 !.gitignore
 !README.md
+!create_project.sh
 

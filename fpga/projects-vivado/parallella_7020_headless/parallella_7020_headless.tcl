@@ -162,11 +162,7 @@ set files [list \
 ]
 add_files -norecurse -fileset $obj $files
 
-# Import local files from the original project
-set files [list \
- "[file normalize "$origin_dir/../../edk-vivado/parallella_7020_headless/processing_system7_0.xci"]"\
-]
-set imported_files [import_files -fileset processing_system7_0 $files]
+# Don't Import local files from the original project, just add them (FH)
 
 # Set 'processing_system7_0' fileset file properties for remote files
 # None
