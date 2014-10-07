@@ -5,7 +5,6 @@
 
   Copyright (C) 2013 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
-
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -101,7 +100,7 @@ module parallella (/*AUTOARG*/
    input [2:0] 	    esaxi_awprot;  //protection type
    input 	    esaxi_awvalid; //write address valid
    
-   //########################
+   //########################,
    //# Write data channel
    //########################
    // Master Port
