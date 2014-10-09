@@ -2,8 +2,9 @@
   Copyright (C) 2014 Adapteva, Inc.
  
   Contributed by Andreas Olofsson <andreas@adapteva.com>
+  Contributed by Fred Huettig <fred@adapteva.com>
 
-   This program is free software: you can redistribute it and/or modify
+  This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.This program is distributed in the hope 
@@ -16,20 +17,21 @@
 
 module elink (/*AUTOARG*/
    // Outputs
-   rxo_wr_wait, rxo_rd_wait, txo_lclk_p, txo_lclk_n, txo_frame_p,
-   txo_frame_n, txo_data_p, txo_data_n, m_axi_awid, m_axi_awaddr,
-   m_axi_awlen, m_axi_awsize, m_axi_awburst, m_axi_awlock,
-   m_axi_awcache, m_axi_awprot, m_axi_awvalid, m_axi_wid, m_axi_wdata,
-   m_axi_wstrb, m_axi_wlast, m_axi_wvalid, m_axi_bready, m_axi_arid,
-   m_axi_araddr, m_axi_arlen, m_axi_arsize, m_axi_arburst,
-   m_axi_arlock, m_axi_arcache, m_axi_arprot, m_axi_arvalid,
-   m_axi_rready, s_axi_awready, s_axi_wready, s_axi_bid, s_axi_bresp,
-   s_axi_bvalid, s_axi_arready, s_axi_rid, s_axi_rdata, s_axi_rresp,
-   s_axi_rlast, s_axi_rvalid,
+   rxo_wr_wait_p, rxo_wr_wait_n, rxo_rd_wait_p, rxo_rd_wait_n,
+   txo_lclk_p, txo_lclk_n, txo_frame_p, txo_frame_n, txo_data_p,
+   txo_data_n, m_axi_awid, m_axi_awaddr, m_axi_awlen, m_axi_awsize,
+   m_axi_awburst, m_axi_awlock, m_axi_awcache, m_axi_awprot,
+   m_axi_awvalid, m_axi_wid, m_axi_wdata, m_axi_wstrb, m_axi_wlast,
+   m_axi_wvalid, m_axi_bready, m_axi_arid, m_axi_araddr, m_axi_arlen,
+   m_axi_arsize, m_axi_arburst, m_axi_arlock, m_axi_arcache,
+   m_axi_arprot, m_axi_arvalid, m_axi_rready, s_axi_awready,
+   s_axi_wready, s_axi_bid, s_axi_bresp, s_axi_bvalid, s_axi_arready,
+   s_axi_rid, s_axi_rdata, s_axi_rresp, s_axi_rlast, s_axi_rvalid,
    // Inputs
    clk_in, reset, rxi_lclk_p, rxi_lclk_n, rxi_frame_p, rxi_frame_n,
-   rxi_data_p, rxi_data_n, txi_wr_wait, txi_rd_wait, m_axi_aclk,
-   m_axi_aresetn, m_axi_awready, m_axi_bid, m_axi_bresp, m_axi_bvalid,
+   rxi_data_p, rxi_data_n, txi_wr_wait_p, txi_wr_wait_n,
+   txi_rd_wait_p, txi_rd_wait_n, m_axi_aclk, m_axi_aresetn,
+   m_axi_awready, m_axi_wrready, m_axi_bid, m_axi_bresp, m_axi_bvalid,
    m_axi_arready, m_axi_rid, m_axi_rdata, m_axi_rresp, m_axi_rlast,
    m_axi_rvalid, s_axi_aclk, s_axi_aresetn, s_axi_awid, s_axi_awaddr,
    s_axi_awlen, s_axi_awsize, s_axi_awburst, s_axi_awlock,
@@ -37,14 +39,12 @@ module elink (/*AUTOARG*/
    s_axi_wstrb, s_axi_wlast, s_axi_wvalid, s_axi_bready, s_axi_arid,
    s_axi_araddr, s_axi_arlen, s_axi_arsize, s_axi_arburst,
    s_axi_arlock, s_axi_arcache, s_axi_arprot, s_axi_arvalid,
-   s_axi_rready, ecfg_reset, ecfg_elink_id, ecfg_elink_disable,
-   ecfg_tx_lclk_freq, ecfg_tx_ctrlmode, ecfg_tx_loopback_mode,
+   s_axi_rready, ecfg_sw_reset, ecfg_coreid, ecfg_elink_en,
+   ecfg_lclkdiv, ecfg_ctrlmode, ecfg_tx_loopback_mode,
    ecfg_tx_force_mode, ecfg_tx_force_data, ecfg_rx_remap_addr,
    ecfg_rx_filter_mode, ecfg_rx_filter_lo_addr,
    ecfg_rx_filter_hi_addr
    );
-   //TODO:
-   //should we drive differential or not to top level, what is better?
 
    //Slave parameters
    parameter SIDW  = 12; //Slave ID Width
@@ -82,8 +82,10 @@ module elink (/*AUTOARG*/
    input        rxi_frame_n;
    input [7:0]  rxi_data_p;      //receive data (dual data rate)
    input [7:0]  rxi_data_n;
-   output       rxo_wr_wait;     //outgoing pushback on write transactions
-   output       rxo_rd_wait;     //outgoing pushback on read transactions
+   output       rxo_wr_wait_p;     //outgoing pushback on write transactions
+   output       rxo_wr_wait_n;     //outgoing pushback on write transactions
+   output       rxo_rd_wait_p;     //outgoing pushback on read transactions
+   output       rxo_rd_wait_n;     //outgoing pushback on read transactions
    
    //Transmitter
    output       txo_lclk_p;      //high speed clock (up to 500MHz)
@@ -92,16 +94,18 @@ module elink (/*AUTOARG*/
    output       txo_frame_n;
    output [7:0] txo_data_p;     //transmit data (dual data rate)
    output [7:0] txo_data_n;          
-   input 	txi_wr_wait;    //incoming pushback on write transactions
-   input 	txi_rd_wait;    //incoming pushback on write transactions
+   input 	txi_wr_wait_p;    //incoming pushback on write transactions
+   input 	txi_wr_wait_n;    //incoming pushback on write transactions
+   input 	txi_rd_wait_p;    //incoming pushback on write transactions
+   input 	txi_rd_wait_n;    //incoming pushback on write transactions
    
    /*****************************/
    /*AXI MASTER I/F             */
    /*****************************/
-
+   
    //Global signals
    input 	     m_axi_aclk;      //clock source for axi master/slave interfaces
-   input 	     m_axi_aresetn;   //asynchronous reset signal, active low 
+   input 	     m_axi_aresetn;   //asynchronous reset signal, active low: TBD: do we need it?, qos?,  
    
    //Write address channel
    output [MIDW-1:0] m_axi_awid;      //write address ID
@@ -121,7 +125,8 @@ module elink (/*AUTOARG*/
    output [MSTW-1:0] m_axi_wstrb;     //write strobes
    output 	     m_axi_wlast;     //indicats last write transfer in burst
    output 	     m_axi_wvalid;    //write valid
-
+   input 	     m_axi_wrready;   //write ready
+   
    //Bufered write response channel
    input [MIDW-1:0]  m_axi_bid;       //response ID tag
    input [1:0] 	     m_axi_bresp;     //write response
@@ -153,7 +158,7 @@ module elink (/*AUTOARG*/
    /*****************************/
 
    //Global signals
-   input 	     s_axi_aclk;      //clock source for axi master/slave interfaces
+   input 	     s_axi_aclk;      //clock source for axi slave interfaces
    input 	     s_axi_aresetn;   //asynchronous reset signal, active low 
    
    //Write address channel
@@ -205,25 +210,23 @@ module elink (/*AUTOARG*/
    /*****************************/
    /*ELINK CONFIG INTERFACE     */
    /*****************************/
-
-   //Soft reset
-   input 	    ecfg_reset;             //Software initiated reset 
+   input 	    ecfg_sw_reset;          //Software initiated reset 
 
    //Coordinate (ID) of elink              
-   input [EIDW-1:0] ecfg_elink_id;          //ID (coordinate) of elink
+   input [EIDW-1:0] ecfg_coreid;            //ID (coordinate) of elink
    
    //Link low power mode
-   input            ecfg_elink_disable;     //0=normal operations
+   input            ecfg_elink_en;         //0=normal operations
                                             //1=disable TX data drivers, RX inputs, other logic
    
-   //Transmit clock divider
-   input [1:0]      ecfg_tx_lclk_freq;      //00=No division, full speed
+   //Transmit clock "lclk" divider
+   input [1:0]      ecfg_lclkdiv;           //00=No division, full speed
                                             //01=Divide by 2
                                             //10=Divide by 4
                                             //11=Divide by 8
 
    //Transmit mode signals
-   input [3:0] 	    ecfg_tx_ctrlmode;       //Special control mode tage used by Epiphany eMesh 
+   input [3:0] 	    ecfg_ctrlmode;          //Special control mode tage used by Epiphany eMesh 
    
    //Various transmit modes
    input            ecfg_tx_loopback_mode; //Loops back TX-->RX
