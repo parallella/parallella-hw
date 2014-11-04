@@ -62,9 +62,9 @@
                   1XXX - RESERVED
  [7:4]            PLL settings (TBD)
  -------------------------------------------------------------
- ESYSCOREID       ***CORE ID***
- [5:0]            Column ID-->default at powerup/reset             
- [11:6]           Row ID  
+ ESYSCOREID     ***CORE ID***
+ [5:0]           Column ID-->default at powerup/reset             
+ [11:6]          Row ID  
  -------------------------------------------------------------
  ESYSVERSION    ***Version number (read only)***
  [7:0]           Revision #, incremented in each change (match git?)
@@ -83,19 +83,6 @@
  [8]            tx_fram
  [9]            rx_wait_rd
  [10]           rx_wait_wr
- -------------------------------------------------------------
- ESYSRXMON0     ***Counts RX master write transactions***
--------------------------------------------------------------
- ESYSRXMON1     ***Counts RX master read transactions***
--------------------------------------------------------------
- ESYSRXMON2     ***Counts RX slave read response transactions*** 
--------------------------------------------------------------
- ESYSTXMON0     ***Counts TX slave write transactions*** 
--------------------------------------------------------------
- ESYSTXMON1     ***Counts TX slave read transactions*** 
--------------------------------------------------------------
- ESYSTXMON2     ***Counts TX master read response transactions*** 
--------------------------------------------------------------
  ########################################################################
  */
 
@@ -107,17 +94,13 @@
 `define REG_ESYSVERSION  6'h05
 `define REG_ESYSDATAIN   6'h06
 `define REG_ESYSDATAOUT  6'h07
-
-`define REG_ESYSIRQSRC   6'h0F
-`define REG_ESYSIRQDATA  6'h10
-`define EVERSION         32'h00000000
+`define EVERSION         32'h01_02_03_04
 module ecfg (/*AUTOARG*/
    // Outputs
    mi_data_out, ecfg_tx_enable, ecfg_tx_mmu_mode, ecfg_tx_gpio_mode,
    ecfg_tx_ctrl_mode, ecfg_tx_clkdiv, ecfg_rx_enable,
    ecfg_rx_mmu_mode, ecfg_rx_gpio_mode, ecfg_rx_loopback_mode,
    ecfg_cclk_div, ecfg_cclk_pllcfg, ecfg_coreid, ecfg_dataout,
-   ecfg_irqsrc_read,
    // Inputs
    param_coreid, clk, reset, mi_access, mi_write, mi_addr, mi_data_in
    );
@@ -178,13 +161,11 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    //gpio
    output [11:0]     ecfg_dataout;          //data for elink outputs {rd_wait,wr_wait,frame,data[7:0}
 
-   //irq
-   output 	     ecfg_irqsrc_read;      //increments the irq fifo pointer
 
    /*------------------------BODY CODE---------------------------------------*/
    
    //registers
-   reg [9:0] 	ecfg_cfgtx_reg;
+   reg [11:0] 	ecfg_cfgtx_reg;
    reg [4:0] 	ecfg_cfgrx_reg;
    reg [7:0] 	ecfg_cfgclk_reg;
    reg [11:0] 	ecfg_coreid_reg;
@@ -192,8 +173,6 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    reg 		ecfg_reset_reg;
    reg [11:0] 	ecfg_datain_reg;
    reg [11:0] 	ecfg_dataout_reg;
-   wire [11:0] 	ecfg_irqsrc_reg;
-   wire [31:0]  ecfg_irqdata_reg;
    reg [31:0] 	mi_data_out;
    
    //wires
@@ -229,7 +208,7 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    assign ecfg_dataout_match   = mi_addr[5:0]==`REG_ESYSDATAOUT;
 
    //Write enables
-   assign ecfg_reset_write     = ecfg_reset_match   & esys_write;
+   assign ecfg_reset_write     = ecfg_reset_match   & ecfg_write;
    assign ecfg_cfgtx_write     = ecfg_cfgtx_match   & ecfg_write;
    assign ecfg_cfgrx_write     = ecfg_cfgrx_match   & ecfg_write;
    assign ecfg_cfgclk_write    = ecfg_cfgclk_match  & ecfg_write;
@@ -243,9 +222,9 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    //###########################
    always @ (posedge clk)
      if(reset)
-       ecfg_cfgtx_reg[9:0] <= 10'b0;
+       ecfg_cfgtx_reg[11:0] <= 12'b0;
      else if (ecfg_cfgtx_write)
-       ecfg_cfgtx_reg[9:0] <= mi_data_in[9:0];
+       ecfg_cfgtx_reg[11:0] <= mi_data_in[11:0];
 
    assign ecfg_tx_enable        = ecfg_cfgtx_reg[0];
    assign ecfg_tx_mmu_mode      = ecfg_cfgtx_reg[1];   
@@ -263,7 +242,7 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
        ecfg_cfgrx_reg[4:0] <= mi_data_in[4:0];
 
    assign ecfg_rx_enable        = ecfg_cfgrx_reg[0];
-   assign ecfg_tx_mmu_mode      = ecfg_cfgrx_reg[1];   
+   assign ecfg_rx_mmu_mode      = ecfg_cfgrx_reg[1];   
    assign ecfg_rx_gpio_mode     = ecfg_cfgrx_reg[3:2]==2'b01;
    assign ecfg_rx_loopback_mode = ecfg_cfgrx_reg[3:2]==2'b10;
    assign ecfg_rx_monitor_mode  = ecfg_cfgrx_reg[4];
@@ -304,8 +283,6 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
        ecfg_datain_reg[11:0] <= 12'b0;   
      else if (ecfg_datain_write)
        ecfg_datain_reg[11:0] <= mi_data_in[11:0];  
-     else
-       ecfg_datain_reg[11:0] <= mi_data_in[11:0];  
 
    //###########################
    //# ESYSDATAOUT
@@ -333,18 +310,17 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    //# DATA READBACK MUX
    //###############################
 
-   assign ecfg_reg_mux[31:0] =   ({(32){ecfg_cfgtx_match}}   & {18'b0,ecfg_cfgtx_reg[11:0]})  |
-				 ({(32){ecfg_cfgrx_match}}   & {18'b0,ecfg_cfgrx_reg[11:0]})  |
-				 ({(32){ecfg_cfgclk_match}}  & {24'b0,ecfg_cfgclk_reg[7:0]})  |
-				 ({(32){ecfg_coreid_match}}  & {18'b0,ecfg_coreid_reg[11:0]}) |
-				 ({(32){ecfg_irqsrc_match}}  & {18'b0,ecfg_irqsrc_reg[11:0]}) |
-				 ({(32){ecfg_version_match}} & ecfg_version_reg[31:0])        |
-				 ({(32){ecfg_datain_match}}  & ecfg_datain_reg[31:0])         |
-				 ({(32){ecfg_dataout_match}} & ecfg_dataout_reg[31:0]);
+   assign ecfg_reg_mux[31:0] =   ({(32){ecfg_cfgtx_match}}   & {20'b0,ecfg_cfgtx_reg[11:0]})   |
+				 ({(32){ecfg_cfgrx_match}}   & {27'b0,ecfg_cfgrx_reg[4:0]})    |
+				 ({(32){ecfg_cfgclk_match}}  & {24'b0,ecfg_cfgclk_reg[7:0]})   |
+				 ({(32){ecfg_coreid_match}}  & {20'b0,ecfg_coreid_reg[11:0]})  |
+				 ({(32){ecfg_version_match}} & ecfg_version_reg[31:0])         |
+				 ({(32){ecfg_datain_match}}  & {20'b0,ecfg_datain_reg[11:0]})  |
+				 ({(32){ecfg_dataout_match}} & {20'b0,ecfg_dataout_reg[11:0]}) ;
       
    //Pipelineing readback
    always @ (posedge clk)
-     if(mi_access)
+     if(ecfg_read)
        mi_data_out[31:0] <= ecfg_reg_mux[31:0];
    
 endmodule // para_config
