@@ -147,7 +147,6 @@ module axi_ecfg (/*AUTOARG*/
    wire [3:0]		ecfg_cclk_pllcfg;	// From ecfg of ecfg.v
    wire [11:0]		ecfg_coreid;		// From ecfg of ecfg.v
    wire [11:0]		ecfg_dataout;		// From ecfg of ecfg.v
-   wire			ecfg_irqsrc_read;	// From ecfg of ecfg.v
    wire			ecfg_rx_enable;		// From ecfg of ecfg.v
    wire			ecfg_rx_gpio_mode;	// From ecfg of ecfg.v
    wire			ecfg_rx_loopback_mode;	// From ecfg of ecfg.v
@@ -211,7 +210,6 @@ module axi_ecfg (/*AUTOARG*/
 	     .ecfg_cclk_pllcfg		(ecfg_cclk_pllcfg[3:0]),
 	     .ecfg_coreid		(ecfg_coreid[11:0]),
 	     .ecfg_dataout		(ecfg_dataout[11:0]),
-	     .ecfg_irqsrc_read		(ecfg_irqsrc_read),
 	     // Inputs
 	     .param_coreid		(param_coreid[IDW-1:0]),
 	     .clk			(clk),
