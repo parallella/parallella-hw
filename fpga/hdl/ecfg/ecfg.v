@@ -97,10 +97,11 @@
 `define EVERSION         32'h01_02_03_04
 module ecfg (/*AUTOARG*/
    // Outputs
-   mi_data_out, ecfg_tx_enable, ecfg_tx_mmu_mode, ecfg_tx_gpio_mode,
-   ecfg_tx_ctrl_mode, ecfg_tx_clkdiv, ecfg_rx_enable,
-   ecfg_rx_mmu_mode, ecfg_rx_gpio_mode, ecfg_rx_loopback_mode,
-   ecfg_cclk_div, ecfg_cclk_pllcfg, ecfg_coreid, ecfg_dataout,
+   mi_data_out, ecfg_sw_reset, ecfg_tx_enable, ecfg_tx_mmu_mode,
+   ecfg_tx_gpio_mode, ecfg_tx_ctrl_mode, ecfg_tx_clkdiv,
+   ecfg_rx_enable, ecfg_rx_mmu_mode, ecfg_rx_gpio_mode,
+   ecfg_rx_loopback_mode, ecfg_cclk_en, ecfg_cclk_div,
+   ecfg_cclk_pllcfg, ecfg_coreid, ecfg_dataout,
    // Inputs
    param_coreid, clk, reset, mi_access, mi_write, mi_addr, mi_data_in
    );
@@ -130,20 +131,22 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    input              reset;
    input              mi_access;
    input              mi_write;
-   input  [5:0]  mi_addr;
+   input  [5:0]       mi_addr;
    input  [31:0]      mi_data_in;
    output [31:0]      mi_data_out;
 
    /*****************************/
    /*ELINK CONTROL SIGNALS      */
    /*****************************/
+   //RESET
+   output 	      ecfg_sw_reset;
 
    //tx
-   output 	     ecfg_tx_enable;      //enable signal for TX  
-   output 	     ecfg_tx_mmu_mode;    //enables MMU on transnmit path  
-   output 	     ecfg_tx_gpio_mode;   //forces TX output pins to constants
-   output [3:0]	     ecfg_tx_ctrl_mode;   //value for emesh ctrlmode tag
-   output [3:0]      ecfg_tx_clkdiv;      //transmit clock divider
+   output 	     ecfg_tx_enable;         //enable signal for TX  
+   output 	     ecfg_tx_mmu_mode;       //enables MMU on transnmit path  
+   output 	     ecfg_tx_gpio_mode;      //forces TX output pins to constants
+   output [3:0]	     ecfg_tx_ctrl_mode;      //value for emesh ctrlmode tag
+   output [3:0]      ecfg_tx_clkdiv;         //transmit clock divider
 
    //rx
    output 	     ecfg_rx_enable;         //enable signal for rx  
@@ -152,6 +155,7 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    output 	     ecfg_rx_loopback_mode;  //loops back tx to rx receiver (after serdes)
 
    //cclk
+   output 	     ecfg_cclk_en;           //cclk enable   
    output [3:0]      ecfg_cclk_div;          //cclk divider setting
    output [3:0]      ecfg_cclk_pllcfg;       //pll configuration
 
@@ -188,6 +192,15 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
    wire 	ecfg_dataout_match;
    wire 	ecfg_regmux;
    wire [31:0] 	ecfg_reg_mux;
+   wire 	ecfg_cfgtx_write;
+   wire 	ecfg_cfgrx_write;
+   wire 	ecfg_cfgclk_write;
+   wire 	ecfg_coreid_write;
+   wire 	ecfg_version_write;
+   wire 	ecfg_datain_write;
+   wire 	ecfg_dataout_write;
+   wire 	ecfg_rx_monitor_mode;
+   wire 	ecfg_reset_write;
    
    /*****************************/
    /*ADDRESS DECODE LOGIC       */
@@ -256,6 +269,7 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
      else if (ecfg_cfgclk_write)
        ecfg_cfgclk_reg[7:0] <= mi_data_in[7:0];
 
+   assign ecfg_cclk_en             = ~(ecfg_cfgclk_reg[3:0]==4'b0000);   
    assign ecfg_cclk_div[3:0]       = ecfg_cfgclk_reg[3:0];
    assign ecfg_cclk_pllcfg[3:0]    = ecfg_cfgclk_reg[7:4];
 
@@ -304,7 +318,7 @@ parameter RFAW   = 5;   //Number of registers=2^RFAW
       else if (ecfg_reset_write)
 	ecfg_reset_reg <= mi_data_in[0];  
 
-   assign ecfg_reset = ecfg_reset_reg;
+   assign ecfg_sw_reset = ecfg_reset_reg;
    
    //###############################
    //# DATA READBACK MUX
