@@ -57,8 +57,7 @@ module emon_counter (/*AUTOARG*/
    /*REGISTERS                                                              */
    /*************************************************************************/    
    reg [DW-1:0]      emon_reg;
-   reg 		     emon_input;
-   
+   reg 		     emon_input; 
      
    /*************************************************************************/
    /*INPUT MUX                                                              */
@@ -75,7 +74,7 @@ module emon_counter (/*AUTOARG*/
      else if(reg_write) 
        emon_reg[DW-1:0]   <= reg_data[DW-1:0];//writeable interface
      else
-       emon_reg[DW-1:0]   <= emon_reg[DW-1:0] - emon_input ;
+       emon_reg[DW-1:0]   <= emon_reg[DW-1:0] - {31'b0,emon_input};
       
    /************************************************************************ */
    /*OUTPUTS                                                                 */
