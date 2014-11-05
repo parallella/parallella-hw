@@ -216,33 +216,33 @@ module elink (/*AUTOARG*/
    input [EIDW-1:0] ecfg_coreid;            //ID (coordinate) of elink
    
    //Link low power mode
-   input            ecfg_elink_en;         //0=normal operations
+   input            esys_elink_en;         //0=normal operations
                                             //1=disable TX data drivers, RX inputs, other logic
    
    //Transmit clock "lclk" divider
-   input [1:0]      ecfg_lclkdiv;           //00=No division, full speed
+   input [1:0]      esys_lclkdiv;           //00=No division, full speed
                                             //01=Divide by 2
                                             //10=Divide by 4
                                             //11=Divide by 8
 
    //Transmit mode signals
-   input [3:0] 	    ecfg_ctrlmode;          //Special control mode tage used by Epiphany eMesh 
+   input [3:0] 	    esys_ctrlmode;          //Special control mode tage used by Epiphany eMesh 
    
    //Various transmit modes
-   input            ecfg_tx_loopback_mode; //Loops back TX-->RX
-   input            ecfg_tx_force_mode;    //force a constant on TX output pins
-   input [8:0] 	    ecfg_tx_force_data;    //data to force on {frame,data[7:0]}
+   input            esys_tx_loopback_mode; //Loops back TX-->RX
+   input            esys_tx_force_mode;    //force a constant on TX output pins
+   input [8:0] 	    esys_tx_force_data;    //data to force on {frame,data[7:0]}
 
    //Remapping address
-   input [VMW-1:0]  ecfg_rx_remap_addr;    //MSBs to insert into RX addr field
+   input [VMW-1:0]  esys_rx_remap_addr;    //MSBs to insert into RX addr field
 
 
    //Filtering illegal addresses on elink receiver port
-   input [1:0] 	    ecfg_rx_filter_mode;   //00=pass all
+   input [1:0] 	    esys_rx_filter_mode;   //00=pass all
                                            //01=pass lo < "addr" <hi,
                                            //10=pass (addr < lo) & (addr > hi)    
-   input [MAW-1:0]  ecfg_rx_filter_lo_addr;//lower bound address
-   input [MAW-1:0]  ecfg_rx_filter_hi_addr;//higher bound address
+   input [MAW-1:0]  esys_rx_filter_lo_addr;//lower bound address
+   input [MAW-1:0]  esys_rx_filter_hi_addr;//higher bound address
 
    
 endmodule // elink

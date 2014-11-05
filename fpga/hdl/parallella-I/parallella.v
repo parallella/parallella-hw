@@ -88,9 +88,36 @@ module parallella (/*AUTOARG*/
    //# Write address channel
    //########################
    // Master Port
-   input            emaxi_awready; //write address ready
+   input       emaxi_awready; //write address ready
+
+   
+
+   input       emaxi_wready;//write ready
+   // Master Port
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read valid
+   
+
    // Slave Port
-   input [SIDW-1:0] esaxi_awid;    //write address ID
+   input [SIDW-1:0] e // Master Port
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read valid // Master Port
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read valid // Master Port
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read validsaxi_awid;    //write address ID
    input [MAW-1:0]  esaxi_awaddr;  //write address
    input [3:0] 	    esaxi_awlen;   //burst lenght (the number of data transfers)
    input [2:0] 	    esaxi_awsize;  //burst size (the size of each transfer)
@@ -104,7 +131,7 @@ module parallella (/*AUTOARG*/
    //# Write data channel
    //########################
    // Master Port
-   input 	    emaxi_wready;//write ready
+  
    // Slave Port
    input [SIDW-1:0] esaxi_wid;   //write ID tag (supported only in AXI3)
    input [SDW-1:0]  esaxi_wdata; //write data
@@ -137,16 +164,21 @@ module parallella (/*AUTOARG*/
    input [3:0] 	    esaxi_arcache; //memory type
    input [2:0] 	    esaxi_arprot;  //protection type
    input 	    esaxi_arvalid; //write address valid
-
-   //########################
-   //# Read data channel
-   //########################
-   // Master Port
+ // Master Port // Master Port
    input [MIDW-1:0] emaxi_rid;   //read ID tag 
    input [MDW-1:0]  emaxi_rdata; //read data
    input [1:0] 	    emaxi_rresp; //read response
    input 	    emaxi_rlast; //read last, indicates last transfer in burst
    input 	    emaxi_rvalid;//read valid
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read valid
+   //########################
+   //# Read data channel
+   //########################
+  
    // Slave Port
    input 	    esaxi_rready; //read ready
 
