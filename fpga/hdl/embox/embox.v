@@ -52,7 +52,7 @@ module embox (/*AUTOARG*/
    input              clk;   
    input              mi_access;
    input              mi_write;
-   input  [RFW-1:0]   mi_addr;
+   input  [5:0]       mi_addr;
    input  [DW-1:0]    mi_data_in;
    output [DW-1:0]    mi_data_out;
 
@@ -83,8 +83,6 @@ module embox (/*AUTOARG*/
    wire 	      embox_status_read;
    wire [DW-1:0]      embox_read_data;
    wire [2*DW-1:0]    embox_fifo_data;
-   wire 	      embox_fifo_full;
-   wire 	      embox_fifo_empty;
    
    /*****************************/
    /*DECODE LOGIC               */
@@ -92,7 +90,7 @@ module embox (/*AUTOARG*/
    
    //access decode
    assign embox_w0_access     = (mi_addr[5:0]==`REG_EMBOX0); //lower 32 bit word
-   assign embox_w0_access     = (mi_addr[5:0]==`REG_EMBOX0); //lower 32 bit word
+   assign embox_w1_access     = (mi_addr[5:0]==`REG_EMBOX1); //upper 32 bit word
    assign embox_status_access = (mi_addr[5:0]==`REG_EMBSTATUS);//polling fifo status
 
    //write logic
@@ -118,7 +116,7 @@ module embox (/*AUTOARG*/
    /*****************************/
    /*READ BACK DATA             */
    /*****************************/
-   assign embox_read_data[DW-1:0] = embox_status_read ? {{(DW-2){1'b0}},embox_fifo_full,~embox_fifo_empty}  :
+   assign embox_read_data[DW-1:0] = embox_status_read ? {{(DW-2){1'b0}},embox_full,~embox_empty}  :
 				    embox_w0_read     ? embox_fifo_data[DW-1:0]                             :
 	                    	  	                embox_fifo_data[2*DW-1:DW];   
    always @ (posedge clk)
@@ -131,8 +129,8 @@ module embox (/*AUTOARG*/
    fifo #(.DW(2*DW), .AW(FAW)) mbox_fifo(
                                        // Outputs
                                        .rd_data         (embox_fifo_data[2*DW-1:0]),
-                                       .rd_fifo_empty   (embox_fifo_empty),
-                                       .wr_fifo_full    (embox_fifo_full),
+                                       .rd_fifo_empty   (embox_empty),
+                                       .wr_fifo_full    (embox_full),
                                        // Inputs
                                        .reset           (reset),
                                        .wr_clk          (clk),
