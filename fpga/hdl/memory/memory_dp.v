@@ -29,7 +29,7 @@ module memory_dp(/*AUTOARG*/
 
    parameter AW      = 14;   
    parameter DW      = 32;
-   parameter WED     = 4;    //one per byte, how to parametrize   
+   parameter WED     = DW/8; //one per byte  
    parameter MD      = 1<<AW;//memory depth
 
    //write-port
@@ -42,13 +42,14 @@ module memory_dp(/*AUTOARG*/
    input 	       rd_clk; //read clock
    input 	       rd_en;  //read enable
    input [AW-1:0]      rd_addr;//read address
-   output reg [DW-1:0] rd_data;//read output data
+   output[DW-1:0]      rd_data;//read output data
    
    //////////////////////
    //SIMPLE MEMORY MODEL 
    //////////////////////   
 `ifdef USE_MEM_MODEL     
    reg [DW-1:0]        ram    [MD-1:0];  
+   reg [DW-1:0]        rd_data;
    
    //read port
    always @ (posedge rd_clk)
@@ -58,8 +59,8 @@ module memory_dp(/*AUTOARG*/
    //write port
    generate
       genvar 	     i;
-      for (i = 0; i < 8; i = i+1) begin: gen_ram
-         always @(posedge wr_clk)
+      for (i = 0; i < WED; i = i+1) begin: gen_ram
+	 always @(posedge wr_clk)
            begin  
               if (wr_en[i]) 
                 ram[wr_addr[AW-1:0]][(i+1)*8-1:i*8] <= wr_data[(i+1)*8-1:i*8];
@@ -73,6 +74,10 @@ module memory_dp(/*AUTOARG*/
    //XILINX MEMORY 
    ////////////////////// 
 
+   //////////////////////
+   //ALTERA MEMORY 
+   ////////////////////// 
+   
    //////////////////////
    //CHIP MEMORY
    ////////////////////// 
