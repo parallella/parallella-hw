@@ -17,13 +17,13 @@
  EPIPHANY ELINK TRAFFIC MONITOR
  ########################################################################
  */
+`define REG_ESYSMONCFG   6'h07
 `define REG_ESYSRXMON0   6'h08
 `define REG_ESYSRXMON1   6'h09
 `define REG_ESYSRXMON2   6'h0A
 `define REG_ESYSTXMON0   6'h0B
 `define REG_ESYSTXMON1   6'h0C
 `define REG_ESYSTXMON2   6'h0D
-`define REG_ESYSMONCFG   6'h0F
 
 module emon (/*AUTOARG*/
    // Outputs
@@ -84,7 +84,7 @@ module emon (/*AUTOARG*/
    wire [15:0] 	     emon_vector;
    
    //regs
-   wire [DW-1:0]     emon_reg[5:0];
+   wire[DW-1:0]      emon_reg[5:0];
    reg [DW-1:0]      mi_data_out;
    reg [DW-1:0]      emon_cfg_reg;
    
@@ -95,8 +95,7 @@ module emon (/*AUTOARG*/
    assign emon_read         = mi_access & ~mi_write;   
 
    //access signals   
-   assign emon_cfg_match    = mi_addr[5:0] ==`REG_ESYSMONCFG;
-
+   assign emon_cfg_match    = mi_addr[5:0]==`REG_ESYSMONCFG;
    assign emon_access[0]    = mi_addr[5:0]==`REG_ESYSRXMON0;
    assign emon_access[1]    = mi_addr[5:0]==`REG_ESYSRXMON1;
    assign emon_access[2]    = mi_addr[5:0]==`REG_ESYSRXMON2;
@@ -159,7 +158,7 @@ module emon (/*AUTOARG*/
 				   .emon_vector	        (emon_vector[15:0]),
 				   .emon_sel		(emon_cfg_reg[4*i+3:4*i]),
 				   .reg_write		(emon_write[i]),
-				   .reg_data		(data_in[DW-1:0]));
+				   .reg_data		(mi_data_in[DW-1:0]));
       end      
    endgenerate		   
 				  
@@ -170,6 +169,7 @@ module emon (/*AUTOARG*/
    integer j;
    always @*
      begin
+	emon_reg_mux[DW-1:0]  = {(DW){1'b0}};
 	for(j=0;j<MONS;j=j+1)
 	  emon_reg_mux[DW-1:0] = emon_reg_mux[DW-1:0] | ({(DW){emon_access[j]}} & emon_reg[j]);
      end
