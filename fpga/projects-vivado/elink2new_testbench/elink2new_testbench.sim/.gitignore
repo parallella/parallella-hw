@@ -1,0 +1,10 @@
+*
+
+!.gitignore
+!waddr
+!wdata
+!raddr
+!waddr_ecfg
+!wdata_ecfg
+!raddr_ecfg
+

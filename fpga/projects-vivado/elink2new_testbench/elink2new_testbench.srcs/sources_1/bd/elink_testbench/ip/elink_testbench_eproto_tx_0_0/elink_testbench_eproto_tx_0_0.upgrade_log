@@ -1,0 +1,47 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:31:15 MDT 2014
+| Date         : Sat Nov 15 00:06:39 2014
+| Host         : FredsLaptop running 64-bit Ubuntu 14.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'elink_testbench_eproto_tx_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of elink_testbench_eproto_tx_0_0 (adapteva.com:Adatpeva:eproto_tx:1.0) from (Rev. 2) to (Rev. 3)
+
+
+
+
+
+
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:31:15 MDT 2014
+| Date         : Fri Nov 14 04:23:56 2014
+| Host         : FredsLaptop running 64-bit Ubuntu 14.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'elink_testbench_eproto_tx_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of elink_testbench_eproto_tx_0_0 (adapteva.com:Adatpeva:eproto_tx:1.0) from (Rev. 1) to (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading IP 'elink_testbench_eproto_tx_0_0'. These changes may impact your design.
+
+
+-upgrade has added port 'emtx_ack'
+
