@@ -27,39 +27,35 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
         <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_blk_mem_gen_0_0/elink_testbench_blk_mem_gen_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_1/elink_testbench_fifo_103x32_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_2/elink_testbench_fifo_103x32_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_esaxi_0_0/elink_testbench_esaxi_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_emaxi_0_0/elink_testbench_emaxi_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="hdl/elink_testbench.v"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="elink_testbench_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="hw_handoff/elink_testbench.hwh"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="hw_handoff/elink_testbench_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_0/elink_testbench_axi_protocol_converter_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_1/elink_testbench_axi_protocol_converter_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_elink_gold_0_0/elink_testbench_elink_gold_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_0_1/elink_testbench_axi_bram_ctrl_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_2/elink_testbench_axi_protocol_converter_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_0_1/elink_testbench_axi_traffic_controller_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_blk_mem_gen_0_1/elink_testbench_blk_mem_gen_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_2_2/elink_testbench_axi_bram_ctrl_2_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eclock_0_2/elink_testbench_eclock_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_tx_0_2/elink_testbench_eio_tx_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_rx_0_2/elink_testbench_eio_rx_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_1_0/elink_testbench_axi_traffic_controller_1_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_ecfg_split_0_0/elink_testbench_ecfg_split_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eCfg_0_0/elink_testbench_eCfg_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_generator_0_0/elink_testbench_fifo_generator_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_0/elink_testbench_fifo_103x32_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_earb_0_0/elink_testbench_earb_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_edistrib_0_0/elink_testbench_edistrib_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eproto_tx_0_0/elink_testbench_eproto_tx_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_emesh_split_0_0/elink_testbench_emesh_split_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_0/elink_testbench_fifo_103x16_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_1/elink_testbench_fifo_103x16_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_esaxi_0_0/elink_testbench_esaxi_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_2/elink_testbench_fifo_103x32_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_1/elink_testbench_fifo_103x32_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eproto_rx_0_0/elink_testbench_eproto_rx_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_1/elink_testbench_fifo_103x16_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_0/elink_testbench_fifo_103x16_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_emesh_split_0_0/elink_testbench_emesh_split_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eproto_tx_0_0/elink_testbench_eproto_tx_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_edistrib_0_0/elink_testbench_edistrib_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_earb_0_0/elink_testbench_earb_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_0/elink_testbench_fifo_103x32_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_generator_0_0/elink_testbench_fifo_generator_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eCfg_0_0/elink_testbench_eCfg_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_ecfg_split_0_0/elink_testbench_ecfg_split_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_1_0/elink_testbench_axi_traffic_controller_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_rx_0_2/elink_testbench_eio_rx_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_tx_0_2/elink_testbench_eio_tx_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eclock_0_2/elink_testbench_eclock_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_2_2/elink_testbench_axi_bram_ctrl_2_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_blk_mem_gen_0_1/elink_testbench_blk_mem_gen_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_0_1/elink_testbench_axi_traffic_controller_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_2/elink_testbench_axi_protocol_converter_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_0_1/elink_testbench_axi_bram_ctrl_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_elink_gold_0_0/elink_testbench_elink_gold_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_1/elink_testbench_axi_protocol_converter_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_0_0/elink_testbench_axi_bram_ctrl_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_0_0/elink_testbench_axi_traffic_controller_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_0/elink_testbench_axi_protocol_converter_0_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_axi_bram_ctrl_0_0/elink_testbench_axi_bram_ctrl_0_0.upgrade_log">
         <FileInfo>

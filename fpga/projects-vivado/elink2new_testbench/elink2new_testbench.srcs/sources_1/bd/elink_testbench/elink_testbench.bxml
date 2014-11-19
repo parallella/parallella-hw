@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="31">
   <CompositeFile CompositeFileTopName="elink_testbench" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET"/>
-    <Generation Name="IMPLEMENTATION" State="RESET"/>
-    <Generation Name="SIMULATION" State="RESET"/>
+    <Generation Name="SYNTHESIS" State="STALE"/>
+    <Generation Name="IMPLEMENTATION" State="STALE"/>
+    <Generation Name="SIMULATION" State="STALE"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/elink_testbench_blk_mem_gen_0_0/elink_testbench_blk_mem_gen_0_0.xci" Type="IP">
         <Instance HierarchyPath="blk_mem_gen_0"/>

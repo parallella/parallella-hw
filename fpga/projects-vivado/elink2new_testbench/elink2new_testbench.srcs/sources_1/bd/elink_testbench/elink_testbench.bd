@@ -765,13 +765,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>eCfg_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="eCfg" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eCfg_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>eclock_0</spirit:instanceName>
         <spirit:componentRef spirit:library="Adapteva" spirit:name="eclock" spirit:vendor="adapteva.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -926,6 +919,13 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_esaxi_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>eCfg_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="eCfg" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eCfg_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -1060,7 +1060,6 @@
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eCfg_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="eclock_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="ioreset"/>
@@ -1075,6 +1074,7 @@
         <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="eproto_rx_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="earb_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eCfg_0" spirit:portRef="hw_reset"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>aresetn_1</spirit:name>
