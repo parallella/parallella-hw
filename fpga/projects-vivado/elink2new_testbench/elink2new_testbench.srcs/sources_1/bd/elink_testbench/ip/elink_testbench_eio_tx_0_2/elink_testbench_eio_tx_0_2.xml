@@ -591,7 +591,7 @@
       <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
-  <spirit:description>eio_tx_v1_0</spirit:description>
+  <spirit:description>eLink TX I/O block</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>IOSTD_ELINK</spirit:name>
@@ -613,17 +613,17 @@
         <xilinx:taxonomy>/BaseIP</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>eio_tx_v1_0</xilinx:displayName>
-      <xilinx:vendorDisplayName>eio tx</xilinx:vendorDisplayName>
+      <xilinx:vendorDisplayName>Adapteva, Inc.</xilinx:vendorDisplayName>
       <xilinx:vendorURL>http://www.adapteva.com</xilinx:vendorURL>
-      <xilinx:coreRevision>10</xilinx:coreRevision>
+      <xilinx:coreRevision>16</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>user.org:user:eio_tx:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2014-11-10T02:07:05Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2014-11-24T21:31:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="user.org:user:eio_tx:1.0_ARCHIVE_LOCATION">/mnt/windowsC/Adapteva/Parallella/parallella-hwelink/fpga/src/eio_tx/ip</xilinx:tag>
         <xilinx:tag xilinx:name="adapteva.com:user:eio_tx:1.0_ARCHIVE_LOCATION">/mnt/windowsC/Adapteva/Parallella/parallella-hwelink/fpga/src/eio_tx/ip</xilinx:tag>
-        <xilinx:tag xilinx:name="adapteva.com:Adapteva:eio_tx:1.0_ARCHIVE_LOCATION">/mnt/windowsC/Adapteva/Parallella/parallella-hwelink/fpga/src/eio_tx/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="adapteva.com:Adapteva:eio_tx:1.0_ARCHIVE_LOCATION">/home/frhuettig</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
