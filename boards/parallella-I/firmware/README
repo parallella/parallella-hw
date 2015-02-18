@@ -51,7 +51,9 @@ Pre-requisites:
     /path/to/u-boot.elf
    }
 
-   my-machine:~>bootgen -image /path/to/image.bif -o i parallella.bin
+   my-machine:~>bootgen -image /path/to/image.bif -o i parallella.XXXX.flash.bin
+   
+   (where "XXXX" is either 7010 or 7020 to match the Zynq chip on the board)
 
          
 4.  Connect a console cable to the three pin serial port header and a computer.
