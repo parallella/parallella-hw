@@ -31,16 +31,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 4 10
-Title "Parallella Breakout Daughtercard"
-Date "19 Jun 2014"
-Rev "*"
+Sheet 5 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
+Date "17 feb 2015"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "Parallella eLink Connector"
+Comment1 "Porcupine Top Level"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -352,7 +352,7 @@ U 1 1 53875004
 P 6500 7100
 AR Path="/5386858E/53875004" Ref="#PWR05"  Part="1" 
 AR Path="/538F26B7/53875004" Ref="#PWR07"  Part="1" 
-F 0 "#PWR05" H 6500 7100 30  0001 C CNN
+F 0 "#PWR07" H 6500 7100 30  0001 C CNN
 F 1 "GND" H 6500 7030 30  0001 C CNN
 F 2 "" H 6500 7100 60  0000 C CNN
 F 3 "" H 6500 7100 60  0000 C CNN
@@ -365,7 +365,7 @@ U 1 1 53875018
 P 10400 7100
 AR Path="/5386858E/53875018" Ref="#PWR06"  Part="1" 
 AR Path="/538F26B7/53875018" Ref="#PWR08"  Part="1" 
-F 0 "#PWR06" H 10400 7100 30  0001 C CNN
+F 0 "#PWR08" H 10400 7100 30  0001 C CNN
 F 1 "GND" H 10400 7030 30  0001 C CNN
 F 2 "" H 10400 7100 60  0000 C CNN
 F 3 "" H 10400 7100 60  0000 C CNN
@@ -412,7 +412,7 @@ U 1 1 53893761
 P 8450 4850
 AR Path="/5386858E/53893761" Ref="P3"  Part="1" 
 AR Path="/538F26B7/53893761" Ref="P4"  Part="1" 
-F 0 "P3" H 8450 6550 60  0000 C CNN
+F 0 "P4" H 8450 6550 60  0000 C CNN
 F 1 "CONN\\SAMTEC\\BTH\\60" V 8350 4850 60  0000 C CNN
 F 2 "CONN_SAMTEC_BTH_60" V 8550 4850 60  0001 C CNN
 F 3 "" H 8550 5750 60  0001 C CNN
