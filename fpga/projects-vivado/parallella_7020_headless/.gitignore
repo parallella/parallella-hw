@@ -1,0 +1,9 @@
+####
+# For now ignore everything except the tcl file that creates the project, and the version info
+*
+!*.tcl
+!*.v
+!.gitignore
+!README.md
+!create_project.sh
+

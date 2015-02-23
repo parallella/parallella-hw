@@ -31,16 +31,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 6 10
-Title "Parallella Breakout Daughtercard"
-Date "19 Jun 2014"
-Rev "*"
+Sheet 6 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
+Date "17 feb 2015"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "Mounting Holes"
+Comment1 "Porcupine Top Level"
 Comment2 ""
 Comment3 ""
 Comment4 ""

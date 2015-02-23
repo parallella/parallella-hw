@@ -31,132 +31,132 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 1 10
-Title "Parallella Breakout Daughtercard"
-Date "19 Jun 2014"
-Rev "*"
+Sheet 1 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
+Date "17 feb 2015"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
 Comment1 "Porcupine Top Level"
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 13900 2200 0    60   ~ 0
+Text Notes 13900 2500 0    60   ~ 0
 Parallella Back Side\n(Connector Side)\n
-Text Notes 15200 1500 0    50   ~ 0
+Text Notes 15200 1800 0    50   ~ 0
 NORTH
-Text Notes 15200 2800 0    50   ~ 0
+Text Notes 15200 3100 0    50   ~ 0
 SOUTH
-Text Notes 13400 1500 0    50   ~ 0
+Text Notes 13400 1800 0    50   ~ 0
 GPIO
-Text Notes 13350 2800 0    50   ~ 0
+Text Notes 13350 3100 0    50   ~ 0
 POWER
-Text Notes 13750 2750 0    50   ~ 0
+Text Notes 13750 3050 0    50   ~ 0
 1
-Text Notes 13750 2850 0    50   ~ 0
+Text Notes 13750 3150 0    50   ~ 0
 2
-Text Notes 13750 1450 0    50   ~ 0
+Text Notes 13750 1750 0    50   ~ 0
 1
-Text Notes 13750 1550 0    50   ~ 0
+Text Notes 13750 1850 0    50   ~ 0
 2
-Text Notes 15600 1450 0    50   ~ 0
+Text Notes 15600 1750 0    50   ~ 0
 1
-Text Notes 15600 1550 0    50   ~ 0
+Text Notes 15600 1850 0    50   ~ 0
 2
-Text Notes 15600 2750 0    50   ~ 0
+Text Notes 15600 3050 0    50   ~ 0
 1
-Text Notes 15600 2850 0    50   ~ 0
+Text Notes 15600 3150 0    50   ~ 0
 2
-Text Notes 13100 1450 0    50   ~ 0
+Text Notes 13100 1750 0    50   ~ 0
 59
-Text Notes 13100 1550 0    50   ~ 0
+Text Notes 13100 1850 0    50   ~ 0
 60
-Text Notes 13100 2750 0    50   ~ 0
+Text Notes 13100 3050 0    50   ~ 0
 59
-Text Notes 13100 2850 0    50   ~ 0
+Text Notes 13100 3150 0    50   ~ 0
 60
-Text Notes 14950 1450 0    50   ~ 0
+Text Notes 14950 1750 0    50   ~ 0
 59
-Text Notes 14950 1550 0    50   ~ 0
+Text Notes 14950 1850 0    50   ~ 0
 60
-Text Notes 14950 2750 0    50   ~ 0
+Text Notes 14950 3050 0    50   ~ 0
 59
-Text Notes 14950 2850 0    50   ~ 0
+Text Notes 14950 3150 0    50   ~ 0
 60
-Text Notes 15750 1450 0    50   ~ 0
+Text Notes 15750 1750 0    50   ~ 0
 O
-Text Notes 13000 1450 0    50   ~ 0
+Text Notes 13000 1750 0    50   ~ 0
 O
-Text Notes 13000 2850 0    50   ~ 0
+Text Notes 13000 3150 0    50   ~ 0
 O
-Text Notes 15750 2850 0    50   ~ 0
+Text Notes 15750 3150 0    50   ~ 0
 O
-Text Notes 15550 1800 0    50   ~ 0
+Text Notes 15550 2100 0    50   ~ 0
 SDCARD
-Text Notes 12850 2600 1    50   ~ 0
+Text Notes 12850 2900 1    50   ~ 0
 ETHERNET
-Text Notes 12850 1650 1    50   ~ 0
+Text Notes 12850 1950 1    50   ~ 0
 DC
-Text Notes 14000 4300 0    60   ~ 0
+Text Notes 14000 4600 0    60   ~ 0
 Daughtercard\nTop Side\n(Connectors on Back)
-Text Notes 15200 3550 0    50   ~ 0
+Text Notes 15200 3850 0    50   ~ 0
 NORTH
-Text Notes 15200 4850 0    50   ~ 0
+Text Notes 15200 5150 0    50   ~ 0
 SOUTH
-Text Notes 13400 3550 0    50   ~ 0
+Text Notes 13400 3850 0    50   ~ 0
 GPIO
-Text Notes 13350 4850 0    50   ~ 0
+Text Notes 13350 5150 0    50   ~ 0
 POWER
-Text Notes 13750 4800 0    50   ~ 0
+Text Notes 13750 5100 0    50   ~ 0
 1
-Text Notes 13750 4900 0    50   ~ 0
+Text Notes 13750 5200 0    50   ~ 0
 2
-Text Notes 13750 3500 0    50   ~ 0
+Text Notes 13750 3800 0    50   ~ 0
 1
-Text Notes 13750 3600 0    50   ~ 0
+Text Notes 13750 3900 0    50   ~ 0
 2
-Text Notes 15600 3500 0    50   ~ 0
+Text Notes 15600 3800 0    50   ~ 0
 1
-Text Notes 15600 3600 0    50   ~ 0
+Text Notes 15600 3900 0    50   ~ 0
 2
-Text Notes 15600 4800 0    50   ~ 0
+Text Notes 15600 5100 0    50   ~ 0
 1
-Text Notes 15600 4900 0    50   ~ 0
+Text Notes 15600 5200 0    50   ~ 0
 2
-Text Notes 13100 3500 0    50   ~ 0
+Text Notes 13100 3800 0    50   ~ 0
 59
-Text Notes 13100 3600 0    50   ~ 0
+Text Notes 13100 3900 0    50   ~ 0
 60
-Text Notes 13100 4800 0    50   ~ 0
+Text Notes 13100 5100 0    50   ~ 0
 59
-Text Notes 13100 4900 0    50   ~ 0
+Text Notes 13100 5200 0    50   ~ 0
 60
-Text Notes 14950 3500 0    50   ~ 0
+Text Notes 14950 3800 0    50   ~ 0
 59
-Text Notes 14950 3600 0    50   ~ 0
+Text Notes 14950 3900 0    50   ~ 0
 60
-Text Notes 14950 4800 0    50   ~ 0
+Text Notes 14950 5100 0    50   ~ 0
 59
-Text Notes 14950 4900 0    50   ~ 0
+Text Notes 14950 5200 0    50   ~ 0
 60
-Text Notes 15750 3500 0    50   ~ 0
+Text Notes 15750 3800 0    50   ~ 0
 O
-Text Notes 13000 3500 0    50   ~ 0
+Text Notes 13000 3800 0    50   ~ 0
 O
-Text Notes 13000 4900 0    50   ~ 0
+Text Notes 13000 5200 0    50   ~ 0
 O
-Text Notes 15750 4900 0    50   ~ 0
+Text Notes 15750 5200 0    50   ~ 0
 O
-Text Notes 14150 1300 0    60   ~ 0
+Text Notes 14150 1600 0    60   ~ 0
 3.40"
-Text Notes 16000 2300 1    60   ~ 0
+Text Notes 16000 2600 1    60   ~ 0
 2.15"
-Text Notes 11250 1000 0    100  ~ 0
-"Porcupine" Breakout Daughtercard for\nAdapteva Parallella-I.
+Text Notes 11300 1200 0    100  ~ 0
+"Porcupine" Breakout Daughtercard for\nAdapteva Parallella-I.\n  Ver. 2: Added Camera Connector
 $Sheet
 S 4150 1000 1900 2200
 U 538682E8
@@ -264,7 +264,7 @@ F0 "MountingHoles" 100
 F1 "paracard-mtg.sch" 60
 F2 "SYS_5P0V" O R 3200 3550 60 
 $EndSheet
-Text Notes 12700 3300 0    60   ~ 0
+Text Notes 12700 3600 0    60   ~ 0
 POWER PAD
 $Sheet
 S 7250 1000 1700 2200
@@ -304,16 +304,6 @@ F31 "MH_SYSPWR" I L 7250 3050 60
 F32 "SPARE" B L 7250 2950 60 
 $EndSheet
 $Sheet
-S 7250 4200 1700 900 
-U 538C90E5
-F0 "P_GPIO" 100
-F1 "porcu-gpio.sch" 50
-F2 "VDD_GPIO" I L 7250 4400 60 
-F3 "GPIO_N[0..23]" B L 7250 4600 60 
-F4 "GPIO_P[0..23]" B L 7250 4700 60 
-F5 "3P3V" I R 8950 4400 60 
-$EndSheet
-$Sheet
 S 7250 5800 1950 1500
 U 538C99D9
 F0 "P_ELINK_N" 100
@@ -340,161 +330,161 @@ F20 "TXO_DATA_P[0..7]" I L 7250 7000 60
 F21 "TXO_DATA_N[0..7]" I L 7250 7100 60 
 $EndSheet
 Wire Notes Line
-	15850 2900 12950 2900
+	15850 3200 12950 3200
 Wire Notes Line
-	12950 2900 12950 1350
+	12950 3200 12950 1650
 Wire Notes Line
-	12950 1350 15850 1350
+	12950 1650 15850 1650
 Wire Notes Line
-	15850 1350 15850 2900
+	15850 1650 15850 3200
 Wire Notes Line
-	15850 4950 12950 4950
+	15850 5250 12950 5250
 Wire Notes Line
-	12950 4950 12950 3400
+	12950 5250 12950 3700
 Wire Notes Line
-	12950 3400 15850 3400
+	12950 3700 15850 3700
 Wire Notes Line
-	15850 3400 15850 4950
+	15850 3700 15850 5250
 Wire Notes Line
-	13250 1400 13250 1500
+	13250 1700 13250 1800
 Wire Notes Line
-	13250 1500 13300 1550
+	13250 1800 13300 1850
 Wire Notes Line
-	13300 1550 13650 1550
+	13300 1850 13650 1850
 Wire Notes Line
-	13650 1550 13700 1500
+	13650 1850 13700 1800
 Wire Notes Line
-	13700 1500 13700 1400
+	13700 1800 13700 1700
 Wire Notes Line
-	13700 1400 13250 1400
+	13700 1700 13250 1700
 Wire Notes Line
-	15100 1400 15100 1500
+	15100 1700 15100 1800
 Wire Notes Line
-	15100 1500 15150 1550
+	15100 1800 15150 1850
 Wire Notes Line
-	15150 1550 15500 1550
+	15150 1850 15500 1850
 Wire Notes Line
-	15500 1550 15550 1500
+	15500 1850 15550 1800
 Wire Notes Line
-	15550 1500 15550 1400
+	15550 1800 15550 1700
 Wire Notes Line
-	15550 1400 15100 1400
+	15550 1700 15100 1700
 Wire Notes Line
-	13250 2700 13250 2800
+	13250 3000 13250 3100
 Wire Notes Line
-	13250 2800 13300 2850
+	13250 3100 13300 3150
 Wire Notes Line
-	13300 2850 13650 2850
+	13300 3150 13650 3150
 Wire Notes Line
-	13650 2850 13700 2800
+	13650 3150 13700 3100
 Wire Notes Line
-	13700 2800 13700 2700
+	13700 3100 13700 3000
 Wire Notes Line
-	13700 2700 13250 2700
+	13700 3000 13250 3000
 Wire Notes Line
-	15100 2700 15100 2800
+	15100 3000 15100 3100
 Wire Notes Line
-	15100 2800 15150 2850
+	15100 3100 15150 3150
 Wire Notes Line
-	15150 2850 15500 2850
+	15150 3150 15500 3150
 Wire Notes Line
-	15500 2850 15550 2800
+	15500 3150 15550 3100
 Wire Notes Line
-	15550 2800 15550 2700
+	15550 3100 15550 3000
 Wire Notes Line
-	15550 2700 15100 2700
+	15550 3000 15100 3000
 Wire Notes Line
-	15850 1600 15500 1600
+	15850 1900 15500 1900
 Wire Notes Line
-	15500 1600 15500 1900
+	15500 1900 15500 2200
 Wire Notes Line
-	15500 1900 15850 1900
+	15500 2200 15850 2200
 Wire Notes Line
-	12950 2700 12900 2700
+	12950 3000 12900 3000
 Wire Notes Line
-	12900 2700 12900 2150
+	12900 3000 12900 2450
 Wire Notes Line
-	12900 2150 12950 2150
+	12900 2450 12950 2450
 Wire Notes Line
-	12950 1500 12900 1500
+	12950 1800 12900 1800
 Wire Notes Line
-	12900 1500 12900 1700
+	12900 1800 12900 2000
 Wire Notes Line
-	12900 1700 12950 1700
+	12900 2000 12950 2000
 Wire Notes Line
-	13250 3450 13250 3550
+	13250 3750 13250 3850
 Wire Notes Line
-	13250 3550 13300 3600
+	13250 3850 13300 3900
 Wire Notes Line
-	13300 3600 13650 3600
+	13300 3900 13650 3900
 Wire Notes Line
-	13650 3600 13700 3550
+	13650 3900 13700 3850
 Wire Notes Line
-	13700 3550 13700 3450
+	13700 3850 13700 3750
 Wire Notes Line
-	13700 3450 13250 3450
+	13700 3750 13250 3750
 Wire Notes Line
-	15100 3450 15100 3550
+	15100 3750 15100 3850
 Wire Notes Line
-	15100 3550 15150 3600
+	15100 3850 15150 3900
 Wire Notes Line
-	15150 3600 15500 3600
+	15150 3900 15500 3900
 Wire Notes Line
-	15500 3600 15550 3550
+	15500 3900 15550 3850
 Wire Notes Line
-	15550 3550 15550 3450
+	15550 3850 15550 3750
 Wire Notes Line
-	15550 3450 15100 3450
+	15550 3750 15100 3750
 Wire Notes Line
-	13250 4750 13250 4850
+	13250 5050 13250 5150
 Wire Notes Line
-	13250 4850 13300 4900
+	13250 5150 13300 5200
 Wire Notes Line
-	13300 4900 13650 4900
+	13300 5200 13650 5200
 Wire Notes Line
-	13650 4900 13700 4850
+	13650 5200 13700 5150
 Wire Notes Line
-	13700 4850 13700 4750
+	13700 5150 13700 5050
 Wire Notes Line
-	13700 4750 13250 4750
+	13700 5050 13250 5050
 Wire Notes Line
-	15100 4750 15100 4850
+	15100 5050 15100 5150
 Wire Notes Line
-	15100 4850 15150 4900
+	15100 5150 15150 5200
 Wire Notes Line
-	15150 4900 15500 4900
+	15150 5200 15500 5200
 Wire Notes Line
-	15500 4900 15550 4850
+	15500 5200 15550 5150
 Wire Notes Line
-	15550 4850 15550 4750
+	15550 5150 15550 5050
 Wire Notes Line
-	15550 4750 15100 4750
+	15550 5050 15100 5050
 Wire Notes Line
-	12950 1300 12950 1200
+	12950 1600 12950 1500
 Wire Notes Line
-	15850 1300 15850 1200
+	15850 1600 15850 1500
 Wire Notes Line
-	12950 1250 14100 1250
+	12950 1550 14100 1550
 Wire Notes Line
-	14450 1250 15850 1250
+	14450 1550 15850 1550
 Wire Notes Line
-	15900 1350 16000 1350
+	15900 1650 16000 1650
 Wire Notes Line
-	15900 2900 16000 2900
+	15900 3200 16000 3200
 Wire Notes Line
-	15950 2900 15950 2350
+	15950 3200 15950 2650
 Wire Notes Line
-	15950 2000 15950 1350
+	15950 2300 15950 1650
 Wire Notes Line
-	12800 3300 12900 3400
+	12800 3600 12900 3700
 Wire Notes Line
-	12900 3400 12900 3350
+	12900 3700 12900 3650
 Wire Notes Line
-	12900 3400 12850 3400
+	12900 3700 12850 3700
 Wire Wire Line
-	7250 4400 6900 4400
+	7250 3700 6900 3700
 Wire Wire Line
-	6900 4400 6900 3850
+	6900 3700 6900 4650
 Wire Wire Line
 	6900 3850 3900 3850
 Wire Wire Line
@@ -504,17 +494,17 @@ Wire Wire Line
 Wire Bus Line
 	6050 4400 6800 4400
 Wire Bus Line
-	6800 4400 6800 4600
+	6800 3900 6800 4850
 Wire Bus Line
-	6800 4600 7250 4600
-Text Label 6200 4400 0    50   ~ 0
+	6800 4850 7250 4850
+Text Label 6150 4400 0    50   ~ 0
 GPIO_N[0..23]
 Wire Bus Line
 	6050 4500 6700 4500
 Wire Bus Line
-	6700 4500 6700 4700
+	6700 4000 6700 4950
 Wire Bus Line
-	6700 4700 7250 4700
+	6700 4950 7250 4950
 Text Label 6150 4500 0    50   ~ 0
 GPIO_P[0..23]
 Wire Wire Line
@@ -990,13 +980,48 @@ Wire Notes Line
 Wire Notes Line
 	6600 7600 6600 7750
 Wire Wire Line
-	9650 4400 8950 4400
-Text Label 9050 4400 0    50   ~ 0
+	9650 4650 8950 4650
+Text Label 9050 4650 0    50   ~ 0
 3P3V
-Text Notes 11150 8200 0    80   ~ 0
+Text Notes 11150 7950 0    80   ~ 0
 This work is licensed under Creative Commons Attribution-Share Alike 3.0\nUnprotected License.  To view a copy of this license, visit \nhttp://creativecommons.org/licenses/by-sa/3.0/ or send a letter to \nCreative Commons, 171 Second Street, Suite 300, San Francisco, California,\n94105, USA.\n\nThis schematic is *NOT SUPPORTED* and DOES NOT constitute a reference design.\nOnly *community* support is allowed via resources at forums.parallella.org.\nTHERE IS NO WARRANTY FOR THIS DESIGN, TO THE EXTENT PERMITTED\nBY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE\nCOPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE DESIGN *AS IS*\nWITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,\nBUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND\nFITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY\nOF PERFORMANCE OF THE DESIGN IS WITH YOU. SHOULD THE DESIGN PROVE\nDEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\nREPAIR OR CORRECTION.
 Wire Wire Line
 	6050 2950 7250 2950
 Wire Notes Line
 	6600 3500 6600 3000
+Text Label 4450 3850 0    80   ~ 0
+VGPIO
+$Sheet
+S 7250 3500 1700 650 
+U 538C90E5
+F0 "P_GPIO" 100
+F1 "porcu-gpio.sch" 50
+F2 "VDD_GPIO" I L 7250 3700 60 
+F3 "GPIO_N[0..23]" B L 7250 3900 60 
+F4 "GPIO_P[0..23]" B L 7250 4000 60 
+F5 "3P3V" I R 8950 3700 60 
+$EndSheet
+Connection ~ 6900 3850
+Wire Bus Line
+	6700 4000 7250 4000
+Wire Bus Line
+	6800 3900 7250 3900
+Wire Wire Line
+	9650 3700 8950 3700
+Text Label 9050 3700 0    50   ~ 0
+3P3V
+$Sheet
+S 7250 4450 1700 650 
+U 54E32DF9
+F0 "P_CAM" 100
+F1 "porcu-cam.sch" 50
+F2 "V3P3" I R 8950 4650 60 
+F3 "VGPIO" I L 7250 4650 60 
+F4 "GPIO_N[0..23]" B L 7250 4850 60 
+F5 "GPIO_P[0..23]" B L 7250 4950 60 
+$EndSheet
+Wire Wire Line
+	6900 4650 7250 4650
+Connection ~ 6800 4400
+Connection ~ 6700 4500
 $EndSCHEMATC

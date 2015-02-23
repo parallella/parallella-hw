@@ -31,14 +31,14 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 3 10
-Title "Parallella Breakout Daughtercard"
+Sheet 3 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
 Date "19 Jun 2014"
-Rev "*"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
 Comment1 "Parallella GPIO Connector"
 Comment2 ""

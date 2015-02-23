@@ -31,16 +31,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 7 10
-Title "Parallella Breakout Daughtercard"
-Date "19 Jun 2014"
-Rev "*"
+Sheet 7 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
+Date "17 feb 2015"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "including JTAG"
+Comment1 "Porcupine Top Level"
 Comment2 "Various Power connectors and Jumpers"
 Comment3 ""
 Comment4 ""
@@ -167,7 +167,7 @@ NoConn ~ 5900 6550
 NoConn ~ 5900 6650
 Text Notes 2050 4400 0    60   ~ 0
 On the Parallella, ID pins are either 1k to ground or\n4.75k to 1.8V.  The default address is Y:1000 X:0010.
-Text Notes 9400 4350 0    60   ~ 0
+Text Notes 9250 4000 0    60   ~ 0
 Regulator Enables:\nEN4: 2P5V (FPGA LVDS)\nEN3: 3P3V (IO)\nEN2: 1P8V (General)\nEN1: 1P0V (Zynq)
 Entry Wire Line
 	7000 4150 6900 4250

@@ -31,16 +31,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:porcupine-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 8 10
-Title "Parallella Breakout Daughtercard"
-Date "19 Jun 2014"
-Rev "*"
+Sheet 10 11
+Title "Parallella Breakout Daughtercard, Ver. 2"
+Date "17 feb 2015"
+Rev "A"
 Comp "Adapteva, Inc., 1666 Massachusetts Ave., Lexington, MA, 02420"
-Comment1 "GPIO Connectors"
+Comment1 "Porcupine Top Level"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -246,10 +246,10 @@ GPIO_P22
 Text Label 10750 7650 0    50   ~ 0
 GPIO_P23
 $Comp
-L GND #PWR017
+L GND #PWR025
 U 1 1 538C694D
 P 9250 4750
-F 0 "#PWR017" H 9250 4750 30  0001 C CNN
+F 0 "#PWR025" H 9250 4750 30  0001 C CNN
 F 1 "GND" H 9250 4680 30  0001 C CNN
 F 2 "" H 9250 4750 60  0000 C CNN
 F 3 "" H 9250 4750 60  0000 C CNN
@@ -257,10 +257,10 @@ F 3 "" H 9250 4750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR018
+L GND #PWR026
 U 1 1 538C6961
 P 11550 4750
-F 0 "#PWR018" H 11550 4750 30  0001 C CNN
+F 0 "#PWR026" H 11550 4750 30  0001 C CNN
 F 1 "GND" H 11550 4680 30  0001 C CNN
 F 2 "" H 11550 4750 60  0000 C CNN
 F 3 "" H 11550 4750 60  0000 C CNN
@@ -268,10 +268,10 @@ F 3 "" H 11550 4750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR019
+L GND #PWR027
 U 1 1 538C6975
 P 9250 7700
-F 0 "#PWR019" H 9250 7700 30  0001 C CNN
+F 0 "#PWR027" H 9250 7700 30  0001 C CNN
 F 1 "GND" H 9250 7630 30  0001 C CNN
 F 2 "" H 9250 7700 60  0000 C CNN
 F 3 "" H 9250 7700 60  0000 C CNN
@@ -279,19 +279,19 @@ F 3 "" H 9250 7700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR020
+L GND #PWR028
 U 1 1 538C6989
 P 11550 7650
-F 0 "#PWR020" H 11550 7650 30  0001 C CNN
+F 0 "#PWR028" H 11550 7650 30  0001 C CNN
 F 1 "GND" H 11550 7580 30  0001 C CNN
 F 2 "" H 11550 7650 60  0000 C CNN
 F 3 "" H 11550 7650 60  0000 C CNN
 	1    11550 7650
 	1    0    0    -1  
 $EndComp
-Text Notes 11150 2300 0    100  ~ 0
+Text Notes 10950 1850 0    100  ~ 0
 NOTE:\nGPIO assignments are made to facilitate differential \nsignaling (e.g. twisted-pair).  For single-ended GPIOs,\nthe assignments are as follows:\n
-Text Notes 12750 7750 0    100  ~ 0
+Text Notes 12000 7850 0    100  ~ 0
  0   2\n 1   3\n 4   6\n\n 5   7\n 8  10\n 9  11\n\n12  14\n13  15\n16  18\n\n17  19\n20  22\n21  23\n\n\n\n24  26\n25  27\n28  30\n\n29  31\n32  34\n33  35\n\n36  38\n37  39\n40  42\n\n41  43\n44  46\n45  47\n
 Text HLabel 8750 2800 0    80   BiDi ~ 0
 GPIO_N[0..23]
@@ -301,19 +301,19 @@ Text HLabel 8900 4050 0    80   Input ~ 0
 VDD_GPIO
 Text Notes 4600 3500 0    100  ~ 0
 PMOD Connector
-Text Notes 3800 6300 0    100  ~ 0
+Text Notes 3750 6050 0    100  ~ 0
 NOTE: Pin numbering for PMODs is \nnon-standard.  The numbering \nlooking into the host (female) connector:
-Text Notes 4350 7250 0    100  ~ 0
+Text Notes 4400 7250 0    100  ~ 0
 1\n6\n\n12\n2
-Text Notes 4650 7250 0    100  ~ 0
+Text Notes 4700 7250 0    100  ~ 0
 3\n5\n\n11\n4
-Text Notes 4950 7250 0    100  ~ 0
+Text Notes 5000 7250 0    100  ~ 0
 5\n4\n\n10\n6
-Text Notes 5250 7250 0    100  ~ 0
+Text Notes 5300 7250 0    100  ~ 0
 7\n3\n\n9\n8
-Text Notes 5550 7250 0    100  ~ 0
+Text Notes 5600 7250 0    100  ~ 0
 9\n2\n\n8\n10
-Text Notes 5850 7250 0    100  ~ 0
+Text Notes 5900 7250 0    100  ~ 0
 11\n1\n\n7\n12
 Text Notes 4200 7250 2    100  ~ 0
 STD\nPMOD\n\nPMOD\nSTD
@@ -348,10 +348,10 @@ F 5 "Sullins" H 5100 4800 50  0001 C CNN "Manufacturer"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR021
+L GND #PWR029
 U 1 1 5397567C
 P 4700 4600
-F 0 "#PWR021" H 4700 4600 30  0001 C CNN
+F 0 "#PWR029" H 4700 4600 30  0001 C CNN
 F 1 "GND" H 4700 4530 30  0001 C CNN
 F 2 "" H 4700 4600 60  0000 C CNN
 F 3 "" H 4700 4600 60  0000 C CNN
@@ -359,10 +359,10 @@ F 3 "" H 4700 4600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR022
+L GND #PWR030
 U 1 1 53975690
 P 5500 4600
-F 0 "#PWR022" H 5500 4600 30  0001 C CNN
+F 0 "#PWR030" H 5500 4600 30  0001 C CNN
 F 1 "GND" H 5500 4530 30  0001 C CNN
 F 2 "" H 5500 4600 60  0000 C CNN
 F 3 "" H 5500 4600 60  0000 C CNN

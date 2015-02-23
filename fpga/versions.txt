@@ -51,4 +51,5 @@ Types: (For gen 1 platforms 1-5)
   2   - Headless, GPIO unused
   3   - Headless, 24/48 singled-ended GPIOs from EMIO
   4   - HDMI enabled, 24/48 singled-ended GPIOs from EMIO
+  5   - No Epiphany Support, Headless, 24/48 singled-ended GPIOs from EMIO
 

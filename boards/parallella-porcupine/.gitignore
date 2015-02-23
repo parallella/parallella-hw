@@ -2,9 +2,11 @@
 cad
 assy
 
-## archives
-*.zip
+## archives (now included)
+#*.zip
 
 ## intermediate BOM files
 *.csv
 
+## list files
+*.lst
