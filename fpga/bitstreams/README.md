@@ -14,12 +14,9 @@ Home of generated bitstreams from all FPGA projects.
 2.  And the features you want
 
 	1.  Low-power/low-resource "headless" (no display) or "HDMI"
-	2.  Basic single-ended GPIOs "gpiose" or peripheral-rich "megaio"
 
-  For example, the file "parallella_e16_headless_gpiose_7010.bit.bin" is for an E16 Epiphany
-  running on a board with a Zynq 7010, has no monitor output and 24 basic single-ended GPIOs.
-
-  (Note the megaio versions are not yet available in this repository, keep an eye on the forum)
+  For example, the file "parallella_e16_headless_7010.bit.bin" is for an E16 Epiphany
+  running on a board with a Zynq 7010, and no monitor output
 
 3.  Copy the chosen file to the BOOT partition of your already-formatted SD card.
 
