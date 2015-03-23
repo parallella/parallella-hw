@@ -5,6 +5,7 @@
 
   Copyright (C) 2013 Adapteva, Inc.
   Contributed by Roman Trogan <support@adapteva.com>
+  Vivado IP version by Fred Huettig <fred@adapteva.com>
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -19,12 +20,15 @@
   along with this program (see the file COPYING).  If not, see
   <http://www.gnu.org/licenses/>.
 */
-module parallella (/*AUTOARG*/
+
+`include "fpga_constants.v"
+
+module elink_ip_top (/*AUTOARG*/
    // Outputs
-   csysack, cactive, reset_chip, reset_fpga, txo_data_p, txo_data_n,
-   txo_frame_p, txo_frame_n, txo_lclk_p, txo_lclk_n, rxo_wr_wait_p,
-   rxo_wr_wait_n, rxo_rd_wait_p, rxo_rd_wait_n, rxi_cclk_p,
-   rxi_cclk_n, emaxi_awid, emaxi_awaddr, emaxi_awlen, emaxi_awsize,
+   csysack, cactive, reset_chip, reset_fpga, tx_data_p, tx_data_n,
+   tx_frame_p, tx_frame_n, tx_lclk_p, tx_lclk_n, rx_wr_wait_p,
+   rx_wr_wait_n, rx_rd_wait_p, rx_rd_wait_n, rx_cclk_p,
+   rx_cclk_n, emaxi_awid, emaxi_awaddr, emaxi_awlen, emaxi_awsize,
    emaxi_awburst, emaxi_awlock, emaxi_awcache, emaxi_awprot,
    emaxi_awvalid, esaxi_awready, emaxi_wid, emaxi_wdata, emaxi_wstrb,
    emaxi_wlast, emaxi_wvalid, esaxi_wready, emaxi_bready, esaxi_bid,
@@ -34,10 +38,10 @@ module parallella (/*AUTOARG*/
    esaxi_rid, esaxi_rdata, esaxi_rresp, esaxi_rlast, esaxi_rvalid,
    emaxi_awqos, emaxi_arqos,
    // Inputs
-   clkin_100, esaxi_aclk, emaxi_aclk, reset, esaxi_aresetn,
-   emaxi_aresetn, csysreq, rxi_data_p, rxi_data_n, rxi_frame_p,
-   rxi_frame_n, rxi_lclk_p, rxi_lclk_n, txi_wr_wait_p, txi_wr_wait_n,
-   txi_rd_wait_p, txi_rd_wait_n, emaxi_awready, esaxi_awid,
+   clkin_100, esaxi_aclk, emaxi_aclk, resetn, esaxi_aresetn,
+   emaxi_aresetn, csysreq, rx_data_p, rx_data_n, rx_frame_p,
+   rx_frame_n, rx_lclk_p, rx_lclk_n, tx_wr_wait_p, tx_wr_wait_n,
+   tx_rd_wait_p, tx_rd_wait_n, emaxi_awready, esaxi_awid,
    esaxi_awaddr, esaxi_awlen, esaxi_awsize, esaxi_awburst,
    esaxi_awlock, esaxi_awcache, esaxi_awprot, esaxi_awvalid,
    emaxi_wready, esaxi_wid, esaxi_wdata, esaxi_wstrb, esaxi_wlast,
@@ -51,13 +55,11 @@ module parallella (/*AUTOARG*/
    parameter SIDW = 12; //ID Width
    parameter SAW  = 32; //Address Bus Width
    parameter SDW  = 32; //Data Bus Width
+   parameter SSTW = 4;  // Number of strobes
    parameter MIDW = 6;  //ID Width
    parameter MAW  = 32; //Address Bus Width
    parameter MDW  = 64; //Data Bus Width
-   parameter STW = 8;   //Number of strobes
-   parameter LW  = 8;
-   parameter AW  = 32;  //Address Bus Width
-   parameter DW  = 32;  //Data Bus Width
+   parameter MSTW = 8;  //Number of strobes
    
    //#########
    //# Inputs
@@ -67,58 +69,30 @@ module parallella (/*AUTOARG*/
    input       clkin_100;      // 100MHz input clock 
    input       esaxi_aclk;     // clock source of the axi bus for slave port
    input       emaxi_aclk;     // clock source of the axi bus for master port
-   input       reset;          // system reset
+   input       resetn;         // system reset, active low
    input       esaxi_aresetn;  // reset of axi bus for slave port
    input       emaxi_aresetn;  // reset of axi bus for master port
    input       csysreq;        // system exit low-power state request 
       
    // LVDS FMC Port
-   input [7:0] rxi_data_p;
-   input [7:0] rxi_data_n;
-   input       rxi_frame_p;
-   input       rxi_frame_n;
-   input       rxi_lclk_p;
-   input       rxi_lclk_n;
-   input       txi_wr_wait_p;
-   input       txi_wr_wait_n;
-   input       txi_rd_wait_p;
-   input       txi_rd_wait_n;
+   input [7:0] rx_data_p;
+   input [7:0] rx_data_n;
+   input       rx_frame_p;
+   input       rx_frame_n;
+   input       rx_lclk_p;
+   input       rx_lclk_n;
+   input       tx_wr_wait_p;
+   input       tx_wr_wait_n;
+   input       tx_rd_wait_p;
+   input       tx_rd_wait_n;
    
    //########################
    //# Write address channel
    //########################
    // Master Port
-   input       emaxi_awready; //write address ready
-
-   
-
-   input       emaxi_wready;//write ready
-   // Master Port
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read valid
-   
-
+   input            emaxi_awready; //write address ready
    // Slave Port
-   input [SIDW-1:0] e // Master Port
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read valid // Master Port
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read valid // Master Port
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read validsaxi_awid;    //write address ID
-   input [MAW-1:0]  esaxi_awaddr;  //write address
+   input [SAW-1:0]  esaxi_awaddr;  //write address
    input [3:0] 	    esaxi_awlen;   //burst lenght (the number of data transfers)
    input [2:0] 	    esaxi_awsize;  //burst size (the size of each transfer)
    input [1:0] 	    esaxi_awburst; //burst type
@@ -131,11 +105,10 @@ module parallella (/*AUTOARG*/
    //# Write data channel
    //########################
    // Master Port
-  
+   input 	    emaxi_wready;//write ready
    // Slave Port
-   input [SIDW-1:0] esaxi_wid;   //write ID tag (supported only in AXI3)
    input [SDW-1:0]  esaxi_wdata; //write data
-   input [3:0] 	    esaxi_wstrb; //write strobes
+   input [SSTW-1:0] esaxi_wstrb; //write strobes
    input 	    esaxi_wlast; //write last. Indicates last transfer in burst
    input 	    esaxi_wvalid;//write valid
    
@@ -143,7 +116,6 @@ module parallella (/*AUTOARG*/
    // Write response channel
    //########################
    // Master Port
-   input [MIDW-1:0] emaxi_bid;   //response ID tag
    input [1:0] 	    emaxi_bresp; //write response
    input 	    emaxi_bvalid;//write response valid
    // Slave Port
@@ -155,8 +127,7 @@ module parallella (/*AUTOARG*/
    // Master Port
    input 	    emaxi_arready;//read address ready
    // Slave Port
-   input [SIDW-1:0] esaxi_arid;    //read address ID
-   input [MAW-1:0]  esaxi_araddr;  //read address
+   input [SAW-1:0]  esaxi_araddr;  //read address
    input [3:0] 	    esaxi_arlen;   //burst lenght (the number of data transfers)
    input [2:0] 	    esaxi_arsize;  //burst size (the size of each transfer)
    input [1:0] 	    esaxi_arburst; //burst type
@@ -164,21 +135,15 @@ module parallella (/*AUTOARG*/
    input [3:0] 	    esaxi_arcache; //memory type
    input [2:0] 	    esaxi_arprot;  //protection type
    input 	    esaxi_arvalid; //write address valid
- // Master Port // Master Port
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read valid
-   input [MIDW-1:0] emaxi_rid;   //read ID tag 
-   input [MDW-1:0]  emaxi_rdata; //read data
-   input [1:0] 	    emaxi_rresp; //read response
-   input 	    emaxi_rlast; //read last, indicates last transfer in burst
-   input 	    emaxi_rvalid;//read valid
+
    //########################
    //# Read data channel
    //########################
-  
+   // Master Port
+   input [MDW-1:0]  emaxi_rdata; //read data
+   input [1:0] 	    emaxi_rresp; //read response
+   input 	    emaxi_rlast; //read last, indicates last transfer in burst
+   input 	    emaxi_rvalid;//read valid
    // Slave Port
    input 	    esaxi_rready; //read ready
 
@@ -193,25 +158,24 @@ module parallella (/*AUTOARG*/
    output 	   reset_fpga;
       
    // LVDS FMC Port
-   output [7:0]    txo_data_p;
-   output [7:0]    txo_data_n;
-   output 	   txo_frame_p;
-   output 	   txo_frame_n;
-   output 	   txo_lclk_p;
-   output 	   txo_lclk_n;
-   output 	   rxo_wr_wait_p;
-   output 	   rxo_wr_wait_n;
-   output 	   rxo_rd_wait_p;
-   output 	   rxo_rd_wait_n;
+   output [7:0]    tx_data_p;
+   output [7:0]    tx_data_n;
+   output 	   tx_frame_p;
+   output 	   tx_frame_n;
+   output 	   tx_lclk_p;
+   output 	   tx_lclk_n;
+   output 	   rx_wr_wait_p;
+   output 	   rx_wr_wait_n;
+   output 	   rx_rd_wait_p;
+   output 	   rx_rd_wait_n;
 
-   output      rxi_cclk_p;
-   output 	   rxi_cclk_n;
+   output      rx_cclk_p;
+   output 	   rx_cclk_n;
 
    //########################
    //# Write address channel
    //########################
    // Master Port
-   output [MIDW-1:0] emaxi_awid;    //write address ID
    output [MAW-1:0]  emaxi_awaddr;  //write address
    output [3:0]      emaxi_awlen;   //burst length (number of data transfers)
    output [2:0]      emaxi_awsize;  //burst size (the size of each transfer)
@@ -227,9 +191,8 @@ module parallella (/*AUTOARG*/
    //# Write data channel
    //########################
    // Master Port
-   output [MIDW-1:0] emaxi_wid;   //write ID tag (supported only in AXI3)
    output [MDW-1:0]  emaxi_wdata; //write data
-   output [STW-1:0]  emaxi_wstrb; //write strobes
+   output [MSTW-1:0] emaxi_wstrb; //write strobes
    output 	     emaxi_wlast; //write last, indicates last transfer in burst
    output 	     emaxi_wvalid;//write valid
    // Slave Port
@@ -241,7 +204,6 @@ module parallella (/*AUTOARG*/
    // Master Port
    output 	     emaxi_bready;//response ready
    // Slave Port
-   output [SIDW-1:0] esaxi_bid;   //response ID tag
    output [1:0]      esaxi_bresp; //write response
    output 	     esaxi_bvalid;//write response valid
   
@@ -249,7 +211,6 @@ module parallella (/*AUTOARG*/
    //# Read address channel
    //########################
    // Master Port
-   output [MIDW-1:0] emaxi_arid;    //read address ID
    output [MAW-1:0]  emaxi_araddr;  //read address
    output [3:0]      emaxi_arlen;   //burst lenght (number of data transfers)
    output [2:0]      emaxi_arsize;  //burst size (the size of each transfer)
@@ -267,7 +228,6 @@ module parallella (/*AUTOARG*/
    // Master Port
    output 	     emaxi_rready; //read ready
    // Slave Port
-   output [SIDW-1:0] esaxi_rid;   //read ID tag (must match arid of transaction)
    output [SDW-1:0]  esaxi_rdata; //read data
    output [1:0]      esaxi_rresp; //read response
    output 	     esaxi_rlast; //read last, indicates last transfer in burst
@@ -296,6 +256,32 @@ module parallella (/*AUTOARG*/
    // output        buser;         //user signal (AXI4 only)
    // output        ruser;         //user signal (AXI4 only)
    
+   //#######################################################################
+   //# The following features are not supported (AXI3 only)
+   //# If commented, the slave signals have to be driven with default values
+   //#######################################################################
+   input [SIDW-1:0] esaxi_awid;    //write address ID
+   input [SIDW-1:0] esaxi_wid;   //write ID tag (supported only in AXI3)
+   input [MIDW-1:0] emaxi_bid;   //response ID tag
+   input [SIDW-1:0] esaxi_arid;    //read address ID
+   input [MIDW-1:0] emaxi_rid;   //read ID tag 
+   output [MIDW-1:0] emaxi_awid;    //write address ID
+   output [MIDW-1:0] emaxi_wid;   //write ID tag (supported only in AXI3)
+   output [SIDW-1:0] esaxi_bid;   //response ID tag
+   output [MIDW-1:0] emaxi_arid;    //read address ID
+   output [SIDW-1:0] esaxi_rid;   //read ID tag (must match arid of transaction)
+
+//   wire [SIDW-1:0] esaxi_awid = SIDW'd0;    //write address ID
+//   wire [SIDW-1:0] esaxi_wid = SIDW'd0;   //write ID tag (supported only in AXI3)
+//   wire [MIDW-1:0] emaxi_bid;   //response ID tag
+//   wire [SIDW-1:0] esaxi_arid = SIDW'd0;    //read address ID
+//   wire [MIDW-1:0] emaxi_rid;   //read ID tag 
+//   wire [MIDW-1:0] emaxi_awid;    //write address ID
+//   wire [MIDW-1:0] emaxi_wid;   //write ID tag (supported only in AXI3)
+//   wire [SIDW-1:0] esaxi_bid = SIDW'd0;   //response ID tag
+//   wire [MIDW-1:0] emaxi_arid;    //read address ID
+//   wire [SIDW-1:0] esaxi_rid = SIDW'd0;   //read ID tag (must match arid of transaction)
+
    /*AUTOINPUT*/
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -365,7 +351,7 @@ module parallella (/*AUTOARG*/
    //#########
    wire 	    emaxi_reset;
    wire 	    esaxi_reset;
-   wire 	    rxi_eclk;
+   wire 	    rx_eclk;
    wire [31:0] 	    elink_dstaddr_inb;
    wire [31:0] 	    elink_dstaddr_tmp;
    wire 	    ext_mem_access;
@@ -374,6 +360,7 @@ module parallella (/*AUTOARG*/
    //# global signals
    //#################
    
+   wire   reset = ~resetn; 
    assign emaxi_reset = ~emaxi_aresetn;
    assign esaxi_reset = ~esaxi_aresetn;
 
@@ -381,7 +368,7 @@ module parallella (/*AUTOARG*/
    //# AXI Slave Port Instantiation
    //##################################
 
-   /*axi_slave AUTO_TEMPLATE(.eclk         (rxi_eclk),
+   /*axi_slave AUTO_TEMPLATE(.eclk         (rx_eclk),
                              .reset        (esaxi_reset),
                              .aclk	   (esaxi_aclk),
                              .aw\(.*\)     (esaxi_aw\1[]),
@@ -399,12 +386,12 @@ module parallella (/*AUTOARG*/
                        .cactive         (cactive),
                        .awready         (esaxi_awready),         // Templated
                        .wready          (esaxi_wready),          // Templated
-                       .bid             (esaxi_bid[SIDW-1:0]),   // Templated
+                       .bid             (esaxi_bid[12-1:0]),   // Templated
                        .bresp           (esaxi_bresp[1:0]),      // Templated
                        .bvalid          (esaxi_bvalid),          // Templated
                        .arready         (esaxi_arready),         // Templated
-                       .rid             (esaxi_rid[SIDW-1:0]),   // Templated
-                       .rdata           (esaxi_rdata[SDW-1:0]),  // Templated
+                       .rid             (esaxi_rid[12-1:0]),   // Templated
+                       .rdata           (esaxi_rdata[32-1:0]),  // Templated
                        .rresp           (esaxi_rresp[1:0]),      // Templated
                        .rlast           (esaxi_rlast),           // Templated
                        .rvalid          (esaxi_rvalid),          // Templated
@@ -419,11 +406,11 @@ module parallella (/*AUTOARG*/
                        .emesh_rd_wait_inb(esaxi_rd_wait_inb),    // Templated
                        // Inputs
                        .aclk            (esaxi_aclk),            // Templated
-                       .eclk            (rxi_eclk),              // Templated
+                       .eclk            (rx_eclk),              // Templated
                        .reset           (esaxi_reset),           // Templated
                        .csysreq         (csysreq),
-                       .awid            (esaxi_awid[SIDW-1:0]),  // Templated
-                       .awaddr          (esaxi_awaddr[SAW-1:0]), // Templated
+                       .awid            (esaxi_awid[12-1:0]),  // Templated
+                       .awaddr          (esaxi_awaddr[32-1:0]), // Templated
                        .awlen           (esaxi_awlen[3:0]),      // Templated
                        .awsize          (esaxi_awsize[2:0]),     // Templated
                        .awburst         (esaxi_awburst[1:0]),    // Templated
@@ -431,14 +418,14 @@ module parallella (/*AUTOARG*/
                        .awcache         (esaxi_awcache[3:0]),    // Templated
                        .awprot          (esaxi_awprot[2:0]),     // Templated
                        .awvalid         (esaxi_awvalid),         // Templated
-                       .wid             (esaxi_wid[SIDW-1:0]),   // Templated
-                       .wdata           (esaxi_wdata[SDW-1:0]),  // Templated
-                       .wstrb           (esaxi_wstrb[3:0]),      // Templated
+                       .wid             (esaxi_wid[12-1:0]),   // Templated
+                       .wdata           (esaxi_wdata[32-1:0]),  // Templated
+                       .wstrb           (esaxi_wstrb[4-1:0]), // Templated
                        .wlast           (esaxi_wlast),           // Templated
                        .wvalid          (esaxi_wvalid),          // Templated
                        .bready          (esaxi_bready),          // Templated
-                       .arid            (esaxi_arid[SIDW-1:0]),  // Templated
-                       .araddr          (esaxi_araddr[SAW-1:0]), // Templated
+                       .arid            (esaxi_arid[12-1:0]),  // Templated
+                       .araddr          (esaxi_araddr[32-1:0]), // Templated
                        .arlen           (esaxi_arlen[3:0]),      // Templated
                        .arsize          (esaxi_arsize[2:0]),     // Templated
                        .arburst         (esaxi_arburst[1:0]),    // Templated
@@ -463,7 +450,7 @@ module parallella (/*AUTOARG*/
    //# AXI Master Port Instantiation
    //##################################
 
-   /*axi_master AUTO_TEMPLATE(.eclk         (rxi_eclk),
+   /*axi_master AUTO_TEMPLATE(.eclk         (rx_eclk),
                               .reset        (emaxi_reset),
                               .aclk	    (emaxi_aclk),
                               .aw\(.*\)     (emaxi_aw\1[]),
@@ -477,8 +464,8 @@ module parallella (/*AUTOARG*/
 
    axi_master axi_master(/*AUTOINST*/
                          // Outputs
-                         .awid                  (emaxi_awid[MIDW-1:0]), // Templated
-                         .awaddr                (emaxi_awaddr[MAW-1:0]), // Templated
+                         .awid                  (emaxi_awid[6-1:0]), // Templated
+                         .awaddr                (emaxi_awaddr[32-1:0]), // Templated
                          .awlen                 (emaxi_awlen[3:0]), // Templated
                          .awsize                (emaxi_awsize[2:0]), // Templated
                          .awburst               (emaxi_awburst[1:0]), // Templated
@@ -486,14 +473,14 @@ module parallella (/*AUTOARG*/
                          .awcache               (emaxi_awcache[3:0]), // Templated
                          .awprot                (emaxi_awprot[2:0]), // Templated
                          .awvalid               (emaxi_awvalid), // Templated
-                         .wid                   (emaxi_wid[MIDW-1:0]), // Templated
-                         .wdata                 (emaxi_wdata[MDW-1:0]), // Templated
-                         .wstrb                 (emaxi_wstrb[STW-1:0]), // Templated
+                         .wid                   (emaxi_wid[6-1:0]), // Templated
+                         .wdata                 (emaxi_wdata[64-1:0]), // Templated
+                         .wstrb                 (emaxi_wstrb[8-1:0]), // Templated
                          .wlast                 (emaxi_wlast),   // Templated
                          .wvalid                (emaxi_wvalid),  // Templated
                          .bready                (emaxi_bready),  // Templated
-                         .arid                  (emaxi_arid[MIDW-1:0]), // Templated
-                         .araddr                (emaxi_araddr[MAW-1:0]), // Templated
+                         .arid                  (emaxi_arid[6-1:0]), // Templated
+                         .araddr                (emaxi_araddr[32-1:0]), // Templated
                          .arlen                 (emaxi_arlen[3:0]), // Templated
                          .arsize                (emaxi_arsize[2:0]), // Templated
                          .arburst               (emaxi_arburst[1:0]), // Templated
@@ -515,16 +502,16 @@ module parallella (/*AUTOARG*/
                          .arqos                 (emaxi_arqos[3:0]), // Templated
                          // Inputs
                          .aclk                  (emaxi_aclk),    // Templated
-                         .eclk                  (rxi_eclk),      // Templated
+                         .eclk                  (rx_eclk),      // Templated
                          .reset                 (emaxi_reset),   // Templated
                          .awready               (emaxi_awready), // Templated
                          .wready                (emaxi_wready),  // Templated
-                         .bid                   (emaxi_bid[MIDW-1:0]), // Templated
+                         .bid                   (emaxi_bid[6-1:0]), // Templated
                          .bresp                 (emaxi_bresp[1:0]), // Templated
                          .bvalid                (emaxi_bvalid),  // Templated
                          .arready               (emaxi_arready), // Templated
-                         .rid                   (emaxi_rid[MIDW-1:0]), // Templated
-                         .rdata                 (emaxi_rdata[MDW-1:0]), // Templated
+                         .rid                   (emaxi_rid[6-1:0]), // Templated
+                         .rdata                 (emaxi_rdata[64-1:0]), // Templated
                          .rresp                 (emaxi_rresp[1:0]), // Templated
                          .rlast                 (emaxi_rlast),   // Templated
                          .rvalid                (emaxi_rvalid),  // Templated
@@ -550,7 +537,7 @@ module parallella (/*AUTOARG*/
 
    assign elink_dstaddr_inb[27:0] = elink_dstaddr_tmp[27:0];
       
-   /*ewrapper_link_top AUTO_TEMPLATE(.emesh_clk_inb (rxi_eclk),
+   /*ewrapper_link_top AUTO_TEMPLATE(.emesh_clk_inb (rx_eclk),
                                      .burst_en      (1'b1),
                                      .emesh_dstaddr_inb(elink_dstaddr_tmp[31:0]),
                                      .emesh_\(.*\)  (elink_\1[]),
@@ -560,7 +547,7 @@ module parallella (/*AUTOARG*/
    ewrapper_link_top ewrapper_link_top
      (/*AUTOINST*/
       // Outputs
-      .emesh_clk_inb                    (rxi_eclk),              // Templated
+      .emesh_clk_inb                    (rx_eclk),              // Templated
       .emesh_access_inb                 (elink_access_inb),      // Templated
       .emesh_write_inb                  (elink_write_inb),       // Templated
       .emesh_datamode_inb               (elink_datamode_inb[1:0]), // Templated
@@ -570,18 +557,18 @@ module parallella (/*AUTOARG*/
       .emesh_data_inb                   (elink_data_inb[31:0]),  // Templated
       .emesh_wr_wait_inb                (elink_wr_wait_inb),     // Templated
       .emesh_rd_wait_inb                (elink_rd_wait_inb),     // Templated
-      .txo_data_p                       (txo_data_p[7:0]),
-      .txo_data_n                       (txo_data_n[7:0]),
-      .txo_frame_p                      (txo_frame_p),
-      .txo_frame_n                      (txo_frame_n),
-      .txo_lclk_p                       (txo_lclk_p),
-      .txo_lclk_n                       (txo_lclk_n),
-      .rxo_wr_wait_p                    (rxo_wr_wait_p),
-      .rxo_wr_wait_n                    (rxo_wr_wait_n),
-      .rxo_rd_wait_p                    (rxo_rd_wait_p),
-      .rxo_rd_wait_n                    (rxo_rd_wait_n),
-      .rxi_cclk_p                       (rxi_cclk_p),
-      .rxi_cclk_n                       (rxi_cclk_n),
+      .txo_data_p                       (tx_data_p[7:0]),
+      .txo_data_n                       (tx_data_n[7:0]),
+      .txo_frame_p                      (tx_frame_p),
+      .txo_frame_n                      (tx_frame_n),
+      .txo_lclk_p                       (tx_lclk_p),
+      .txo_lclk_n                       (tx_lclk_n),
+      .rxo_wr_wait_p                    (rx_wr_wait_p),
+      .rxo_wr_wait_n                    (rx_wr_wait_n),
+      .rxo_rd_wait_p                    (rx_rd_wait_p),
+      .rxo_rd_wait_n                    (rx_rd_wait_n),
+      .rxi_cclk_p                       (rx_cclk_p),
+      .rxi_cclk_n                       (rx_cclk_n),
       // Inputs
       .reset                            (reset),
       .clkin_100                        (clkin_100),
@@ -597,23 +584,23 @@ module parallella (/*AUTOARG*/
       .emesh_data_outb                  (elink_data_outb[31:0]), // Templated
       .emesh_wr_wait_outb               (elink_wr_wait_outb),    // Templated
       .emesh_rd_wait_outb               (elink_rd_wait_outb),    // Templated
-      .rxi_data_p                       (rxi_data_p[7:0]),
-      .rxi_data_n                       (rxi_data_n[7:0]),
-      .rxi_frame_p                      (rxi_frame_p),
-      .rxi_frame_n                      (rxi_frame_n),
-      .rxi_lclk_p                       (rxi_lclk_p),
-      .rxi_lclk_n                       (rxi_lclk_n),
-      .txi_wr_wait_p                    (txi_wr_wait_p),
-      .txi_wr_wait_n                    (txi_wr_wait_n),
-      .txi_rd_wait_p                    (txi_rd_wait_p),
-      .txi_rd_wait_n                    (txi_rd_wait_n),
+      .rxi_data_p                       (rx_data_p[7:0]),
+      .rxi_data_n                       (rx_data_n[7:0]),
+      .rxi_frame_p                      (rx_frame_p),
+      .rxi_frame_n                      (rx_frame_n),
+      .rxi_lclk_p                       (rx_lclk_p),
+      .rxi_lclk_n                       (rx_lclk_n),
+      .txi_wr_wait_p                    (tx_wr_wait_p),
+      .txi_wr_wait_n                    (tx_wr_wait_n),
+      .txi_rd_wait_p                    (tx_rd_wait_p),
+      .txi_rd_wait_n                    (tx_rd_wait_n),
       .burst_en                         (1'b1));                  // Templated
    
    //####################################
    //# AXI-ELINK Interface Instantiation
    //####################################
 
-   /*axi_elink_if AUTO_TEMPLATE(.eclk (rxi_eclk),
+   /*axi_elink_if AUTO_TEMPLATE(.eclk (rx_eclk),
                                 .aclk (esaxi_aclk),
                                );
     */
@@ -653,7 +640,7 @@ module parallella (/*AUTOARG*/
       .elink_cclk_enb                   (elink_cclk_enb),
       .elink_clk_div                    (elink_clk_div[1:0]),
       // Inputs
-      .eclk                             (rxi_eclk),              // Templated
+      .eclk                             (rx_eclk),              // Templated
       .aclk                             (esaxi_aclk),            // Templated
       .reset                            (reset),
       .emaxi_access_inb                 (emaxi_access_inb),
@@ -684,7 +671,7 @@ module parallella (/*AUTOARG*/
       .elink_wr_wait_inb                (elink_wr_wait_inb),
       .elink_rd_wait_inb                (elink_rd_wait_inb));
    
-endmodule // parallella
+endmodule // elink_ip_top
 
     // Local Variables:
     // verilog-library-directories:("." "../elink" "../axi")

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="elink2_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="elink2_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject type="group" fp_name="group1283">
+      <obj_property name="label">CFG_AW</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_AWADDR">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_AWADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_AWADDR[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_AWPROT">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_AWPROT[2:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_AWPROT[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_AWVALID">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_AWVALID</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_AWVALID</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_AWREADY">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_AWREADY</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_AWREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1286">
+      <obj_property name="label">CFG_W</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_WDATA">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_WDATA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_WDATA[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_WSTRB">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_WSTRB[3:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_WSTRB[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_WVALID">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_WVALID</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_WVALID</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_WREADY">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_WREADY</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_WREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1284">
+      <obj_property name="label">CFG_B</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_BRESP">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_BRESP[1:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_BRESP[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_BVALID">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_BVALID</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_BVALID</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_BREADY">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_BREADY</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_BREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1282">
+      <obj_property name="label">CFG_AR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_ARADDR">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_ARADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_ARADDR[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_ARPROT">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_ARPROT[2:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_ARPROT[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_ARVALID">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_ARVALID</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_ARVALID</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_ARREADY">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_ARREADY</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_ARREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1285">
+      <obj_property name="label">CFG_R</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_RDATA">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_RDATA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_RDATA[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_RRESP">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_RRESP[1:0]</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_RRESP[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_RVALID">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_RVALID</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_RVALID</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_M_AXI_RREADY">
+         <obj_property name="ElementShortName">axi_traffic_controller_2_M_AXI_RREADY</obj_property>
+         <obj_property name="ObjectShortName">axi_traffic_controller_2_M_AXI_RREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_m_axi_error">
+      <obj_property name="ElementShortName">axi_traffic_controller_2_m_axi_error</obj_property>
+      <obj_property name="ObjectShortName">axi_traffic_controller_2_m_axi_error</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/axi_traffic_controller_2_m_axi_txn_done">
+      <obj_property name="ElementShortName">axi_traffic_controller_2_m_axi_txn_done</obj_property>
+      <obj_property name="ObjectShortName">axi_traffic_controller_2_m_axi_txn_done</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group1521">
+      <obj_property name="label">MI</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_clk">
+         <obj_property name="ElementShortName">mi_clk</obj_property>
+         <obj_property name="ObjectShortName">mi_clk</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_addr">
+         <obj_property name="ElementShortName">mi_addr[11:0]</obj_property>
+         <obj_property name="ObjectShortName">mi_addr[11:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_din">
+         <obj_property name="ElementShortName">mi_din[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mi_din[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_dout">
+         <obj_property name="ElementShortName">mi_dout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mi_dout[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_en">
+         <obj_property name="ElementShortName">mi_en</obj_property>
+         <obj_property name="ObjectShortName">mi_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_rst">
+         <obj_property name="ElementShortName">mi_rst</obj_property>
+         <obj_property name="ObjectShortName">mi_rst</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0/mi_we">
+         <obj_property name="ElementShortName">mi_we</obj_property>
+         <obj_property name="ObjectShortName">mi_we</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1522">
+      <obj_property name="label">ECFG_CCLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_div">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_div[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_div[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_en">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_en</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_pllcfg">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_pllcfg[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_pllcfg[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1523">
+      <obj_property name="label">ECFG</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_coreid">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_coreid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_coreid[11:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_datain">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_datain[10:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_datain[10:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_dataout">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_dataout[10:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_dataout[10:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_enable">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_enable</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_enable</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_gpio_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_gpio_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_gpio_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_loopback_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_loopback_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_loopback_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_mmu_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_mmu_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_mmu_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_sw_reset">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_sw_reset</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_sw_reset</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_clkdiv">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_clkdiv[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_clkdiv[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_ctrl_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_ctrl_mode[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_ctrl_mode[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_enable">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_enable</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_enable</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_gpio_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_gpio_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_gpio_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_mmu_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_mmu_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_mmu_mode</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

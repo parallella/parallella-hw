@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="elink2_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="elink2_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/ioreset">
+      <obj_property name="ElementShortName">ioreset</obj_property>
+      <obj_property name="ObjectShortName">ioreset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_tx_0_TX_data_p">
+      <obj_property name="ElementShortName">eio_tx_0_TX_data_p[7:0]</obj_property>
+      <obj_property name="ObjectShortName">eio_tx_0_TX_data_p[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eio_tx_0_TX_frame_p">
+      <obj_property name="ElementShortName">eio_tx_0_TX_frame_p</obj_property>
+      <obj_property name="ObjectShortName">eio_tx_0_TX_frame_p</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eio_tx_0_TX_lclk_p">
+      <obj_property name="ElementShortName">eio_tx_0_TX_lclk_p</obj_property>
+      <obj_property name="ObjectShortName">eio_tx_0_TX_lclk_p</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group243">
+      <obj_property name="label">ECFG_CCLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_div">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_div[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_div[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_en">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_en</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_cclk_pllcfg">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_cclk_pllcfg[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_cclk_pllcfg[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group244">
+      <obj_property name="label">ECFG</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_coreid">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_coreid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_coreid[11:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_datain">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_datain[10:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_datain[10:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_dataout">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_dataout[10:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_dataout[10:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_enable">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_enable</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_enable</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_gpio_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_gpio_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_gpio_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_loopback_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_loopback_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_loopback_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_rx_mmu_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_rx_mmu_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_rx_mmu_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_sw_reset">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_sw_reset</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_sw_reset</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_clkdiv">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_clkdiv[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_clkdiv[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_ctrl_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_ctrl_mode[3:0]</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_ctrl_mode[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_enable">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_enable</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_enable</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_gpio_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_gpio_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_gpio_mode</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eCfg_0_ecfg_tx_mmu_mode">
+         <obj_property name="ElementShortName">eCfg_0_ecfg_tx_mmu_mode</obj_property>
+         <obj_property name="ObjectShortName">eCfg_0_ecfg_tx_mmu_mode</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/rxframe_des">
+      <obj_property name="ElementShortName">rxframe_des[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rxframe_des[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/rxdata_des">
+      <obj_property name="ElementShortName">rxdata_des[63:0]</obj_property>
+      <obj_property name="ObjectShortName">rxdata_des[63:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/rx_data">
+      <obj_property name="ElementShortName">rx_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eio_rx_0/inst/rx_frame">
+      <obj_property name="ElementShortName">rx_frame</obj_property>
+      <obj_property name="ObjectShortName">rx_frame</obj_property>
+   </wvobject>
+</wave_config>

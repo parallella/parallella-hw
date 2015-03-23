@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="elink2_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="elink2_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="39" />
+   <wvobject type="group" fp_name="group152">
+      <obj_property name="label">Elink_Gold</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink_gold_0_tx_data_p">
+         <obj_property name="ElementShortName">elink_gold_0_tx_data_p[7:0]</obj_property>
+         <obj_property name="ObjectShortName">elink_gold_0_tx_data_p[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink_gold_0_tx_frame_p">
+         <obj_property name="ElementShortName">elink_gold_0_tx_frame_p</obj_property>
+         <obj_property name="ObjectShortName">elink_gold_0_tx_frame_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink_gold_0_tx_lclk_p">
+         <obj_property name="ElementShortName">elink_gold_0_tx_lclk_p</obj_property>
+         <obj_property name="ObjectShortName">elink_gold_0_tx_lclk_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink_gold_0_tx_rd_wait_p">
+         <obj_property name="ElementShortName">elink_gold_0_tx_rd_wait_p</obj_property>
+         <obj_property name="ObjectShortName">elink_gold_0_tx_rd_wait_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink_gold_0_tx_wr_wait_p">
+         <obj_property name="ElementShortName">elink_gold_0_tx_wr_wait_p</obj_property>
+         <obj_property name="ObjectShortName">elink_gold_0_tx_wr_wait_p</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group163">
+      <obj_property name="label">eio_rx</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_rx_0/rxframe_p">
+         <obj_property name="ElementShortName">rxframe_p[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rxframe_p[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eio_rx_0/rxdata_p">
+         <obj_property name="ElementShortName">rxdata_p[63:0]</obj_property>
+         <obj_property name="ObjectShortName">rxdata_p[63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group162">
+      <obj_property name="label">emrx</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_access">
+         <obj_property name="ElementShortName">emrx_access</obj_property>
+         <obj_property name="ObjectShortName">emrx_access</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_write">
+         <obj_property name="ElementShortName">emrx_write</obj_property>
+         <obj_property name="ObjectShortName">emrx_write</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_datamode">
+         <obj_property name="ElementShortName">emrx_datamode[1:0]</obj_property>
+         <obj_property name="ObjectShortName">emrx_datamode[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_ctrlmode">
+         <obj_property name="ElementShortName">emrx_ctrlmode[3:0]</obj_property>
+         <obj_property name="ObjectShortName">emrx_ctrlmode[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_dstaddr">
+         <obj_property name="ElementShortName">emrx_dstaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">emrx_dstaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_srcaddr">
+         <obj_property name="ElementShortName">emrx_srcaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">emrx_srcaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_rx_0/emrx_data">
+         <obj_property name="ElementShortName">emrx_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">emrx_data[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group172">
+      <obj_property name="label">edist_emwr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_full">
+         <obj_property name="ElementShortName">emrq_full</obj_property>
+         <obj_property name="ObjectShortName">emrq_full</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_prog_full">
+         <obj_property name="ElementShortName">emrq_prog_full</obj_property>
+         <obj_property name="ObjectShortName">emrq_prog_full</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_wr_data">
+         <obj_property name="ElementShortName">emrq_wr_data[102:0]</obj_property>
+         <obj_property name="ObjectShortName">emrq_wr_data[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_wr_en">
+         <obj_property name="ElementShortName">emrq_wr_en</obj_property>
+         <obj_property name="ObjectShortName">emrq_wr_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_full">
+         <obj_property name="ElementShortName">emrr_full</obj_property>
+         <obj_property name="ObjectShortName">emrr_full</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_prog_full">
+         <obj_property name="ElementShortName">emrr_prog_full</obj_property>
+         <obj_property name="ObjectShortName">emrr_prog_full</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_wr_data">
+         <obj_property name="ElementShortName">emrr_wr_data[102:0]</obj_property>
+         <obj_property name="ObjectShortName">emrr_wr_data[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_wr_en">
+         <obj_property name="ElementShortName">emrr_wr_en</obj_property>
+         <obj_property name="ObjectShortName">emrr_wr_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/emwr_wr_data">
+         <obj_property name="ElementShortName">emwr_wr_data[102:0]</obj_property>
+         <obj_property name="ObjectShortName">emwr_wr_data[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emwr_wr_en">
+         <obj_property name="ElementShortName">emwr_wr_en</obj_property>
+         <obj_property name="ObjectShortName">emwr_wr_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emwr_full">
+         <obj_property name="ElementShortName">emwr_full</obj_property>
+         <obj_property name="ObjectShortName">emwr_full</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emwr_prog_full">
+         <obj_property name="ElementShortName">emwr_prog_full</obj_property>
+         <obj_property name="ObjectShortName">emwr_prog_full</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_full">
+      <obj_property name="ElementShortName">emrq_full</obj_property>
+      <obj_property name="ObjectShortName">emrq_full</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_prog_full">
+      <obj_property name="ElementShortName">emrq_prog_full</obj_property>
+      <obj_property name="ObjectShortName">emrq_prog_full</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_wr_data">
+      <obj_property name="ElementShortName">emrq_wr_data[102:0]</obj_property>
+      <obj_property name="ObjectShortName">emrq_wr_data[102:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrq_wr_en">
+      <obj_property name="ElementShortName">emrq_wr_en</obj_property>
+      <obj_property name="ObjectShortName">emrq_wr_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_full">
+      <obj_property name="ElementShortName">emrr_full</obj_property>
+      <obj_property name="ObjectShortName">emrr_full</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_prog_full">
+      <obj_property name="ElementShortName">emrr_prog_full</obj_property>
+      <obj_property name="ObjectShortName">emrr_prog_full</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_wr_data">
+      <obj_property name="ElementShortName">emrr_wr_data[102:0]</obj_property>
+      <obj_property name="ObjectShortName">emrr_wr_data[102:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/emrr_wr_en">
+      <obj_property name="ElementShortName">emrr_wr_en</obj_property>
+      <obj_property name="ObjectShortName">emrr_wr_en</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group167">
+      <obj_property name="label">emaxi_emwr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_access">
+         <obj_property name="ElementShortName">ems_dir_access</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_access</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_write">
+         <obj_property name="ElementShortName">ems_dir_write</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_write</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_datamode">
+         <obj_property name="ElementShortName">ems_dir_datamode[1:0]</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_datamode[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_ctrlmode">
+         <obj_property name="ElementShortName">ems_dir_ctrlmode[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_ctrlmode[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_dstaddr">
+         <obj_property name="ElementShortName">ems_dir_dstaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_dstaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_srcaddr">
+         <obj_property name="ElementShortName">ems_dir_srcaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_srcaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/edistrib_0/ems_dir_data">
+         <obj_property name="ElementShortName">ems_dir_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ems_dir_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/emaxi_0/emwr_rd_en">
+         <obj_property name="ElementShortName">emwr_rd_en</obj_property>
+         <obj_property name="ObjectShortName">emwr_rd_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/emaxi_0/emwr_empty">
+         <obj_property name="ElementShortName">emwr_empty</obj_property>
+         <obj_property name="ObjectShortName">emwr_empty</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/emaxi_0/emwr_rd_data">
+         <obj_property name="ElementShortName">emwr_rd_data[102:0]</obj_property>
+         <obj_property name="ObjectShortName">emwr_rd_data[102:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group239">
+      <obj_property name="label">Elink2_M00</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group235">
+         <obj_property name="label">AW</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWADDR">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWADDR[12:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWADDR[12:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWBURST">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWBURST[1:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWBURST[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWCACHE">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWCACHE[3:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWCACHE[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWID[0:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWID[0:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWLEN">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWLEN[7:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWLEN[7:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWLOCK">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWLOCK</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWLOCK</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWPROT">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWPROT[2:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWPROT[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWREADY">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWREADY</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWREADY</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWSIZE">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWSIZE[2:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWSIZE[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_AWVALID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_AWVALID</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_AWVALID</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group238">
+         <obj_property name="label">W</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_WDATA">
+            <obj_property name="ElementShortName">elink2_M00_AXI_WDATA[63:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_WDATA[63:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_WLAST">
+            <obj_property name="ElementShortName">elink2_M00_AXI_WLAST</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_WLAST</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_WREADY">
+            <obj_property name="ElementShortName">elink2_M00_AXI_WREADY</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_WREADY</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_WSTRB">
+            <obj_property name="ElementShortName">elink2_M00_AXI_WSTRB[7:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_WSTRB[7:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_WVALID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_WVALID</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_WVALID</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group236">
+         <obj_property name="label">B</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_BID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_BID[0:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_BID[0:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_BREADY">
+            <obj_property name="ElementShortName">elink2_M00_AXI_BREADY</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_BREADY</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_BRESP">
+            <obj_property name="ElementShortName">elink2_M00_AXI_BRESP[1:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_BRESP[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_BVALID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_BVALID</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_BVALID</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group234">
+         <obj_property name="label">AR</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARADDR">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARADDR[12:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARADDR[12:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARBURST">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARBURST[1:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARBURST[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARCACHE">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARCACHE[3:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARCACHE[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARID[0:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARID[0:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARLEN">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARLEN[7:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARLEN[7:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARLOCK">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARLOCK</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARLOCK</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARPROT">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARPROT[2:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARPROT[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARREADY">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARREADY</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARREADY</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARSIZE">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARSIZE[2:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARSIZE[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_ARVALID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_ARVALID</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_ARVALID</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group237">
+         <obj_property name="label">R</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_RDATA">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RDATA[63:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RDATA[63:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_RID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RID[0:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RID[0:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_RLAST">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RLAST</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RLAST</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_RREADY">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RREADY</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RREADY</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_M00_AXI_RRESP">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RRESP[1:0]</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RRESP[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_M00_AXI_RVALID">
+            <obj_property name="ElementShortName">elink2_M00_AXI_RVALID</obj_property>
+            <obj_property name="ObjectShortName">elink2_M00_AXI_RVALID</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group821">
+      <obj_property name="label">elink2_TX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2_TX_data_p">
+         <obj_property name="ElementShortName">elink2_TX_data_p[7:0]</obj_property>
+         <obj_property name="ObjectShortName">elink2_TX_data_p[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_TX_frame_p">
+         <obj_property name="ElementShortName">elink2_TX_frame_p</obj_property>
+         <obj_property name="ObjectShortName">elink2_TX_frame_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_TX_lclk_p">
+         <obj_property name="ElementShortName">elink2_TX_lclk_p</obj_property>
+         <obj_property name="ObjectShortName">elink2_TX_lclk_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_TX_rd_wait_p">
+         <obj_property name="ElementShortName">elink2_TX_rd_wait_p</obj_property>
+         <obj_property name="ObjectShortName">elink2_TX_rd_wait_p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2_TX_wr_wait_p">
+         <obj_property name="ElementShortName">elink2_TX_wr_wait_p</obj_property>
+         <obj_property name="ObjectShortName">elink2_TX_wr_wait_p</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group831">
+      <obj_property name="label">earb_tx</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_access">
+         <obj_property name="ElementShortName">earb_0_emm_tx_access</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_access</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_ctrlmode">
+         <obj_property name="ElementShortName">earb_0_emm_tx_ctrlmode[3:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_ctrlmode[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_data">
+         <obj_property name="ElementShortName">earb_0_emm_tx_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_datamode">
+         <obj_property name="ElementShortName">earb_0_emm_tx_datamode[1:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_datamode[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_dstaddr">
+         <obj_property name="ElementShortName">earb_0_emm_tx_dstaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_dstaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_rd_wait">
+         <obj_property name="ElementShortName">earb_0_emm_tx_rd_wait</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_rd_wait</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_srcaddr">
+         <obj_property name="ElementShortName">earb_0_emm_tx_srcaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_srcaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_wr_wait">
+         <obj_property name="ElementShortName">earb_0_emm_tx_wr_wait</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_wr_wait</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emm_tx_write">
+         <obj_property name="ElementShortName">earb_0_emm_tx_write</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emm_tx_write</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group841">
+      <obj_property name="label">earb_fiford</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emrq_EMPTY">
+         <obj_property name="ElementShortName">earb_0_emrq_EMPTY</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrq_EMPTY</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emrq_RD_DATA">
+         <obj_property name="ElementShortName">earb_0_emrq_RD_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrq_RD_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emrq_RD_EN">
+         <obj_property name="ElementShortName">earb_0_emrq_RD_EN</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrq_RD_EN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emrr_EMPTY">
+         <obj_property name="ElementShortName">earb_0_emrr_EMPTY</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrr_EMPTY</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emrr_RD_DATA">
+         <obj_property name="ElementShortName">earb_0_emrr_RD_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrr_RD_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emrr_RD_EN">
+         <obj_property name="ElementShortName">earb_0_emrr_RD_EN</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emrr_RD_EN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emwr_EMPTY">
+         <obj_property name="ElementShortName">earb_0_emwr_EMPTY</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emwr_EMPTY</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0_emwr_RD_DATA">
+         <obj_property name="ElementShortName">earb_0_emwr_RD_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emwr_RD_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0_emwr_RD_EN">
+         <obj_property name="ElementShortName">earb_0_emwr_RD_EN</obj_property>
+         <obj_property name="ObjectShortName">earb_0_emwr_RD_EN</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/rr_ready">
+      <obj_property name="ElementShortName">rr_ready</obj_property>
+      <obj_property name="ObjectShortName">rr_ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/rq_ready">
+      <obj_property name="ElementShortName">rq_ready</obj_property>
+      <obj_property name="ObjectShortName">rq_ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/wr_ready">
+      <obj_property name="ElementShortName">wr_ready</obj_property>
+      <obj_property name="ObjectShortName">wr_ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/emrr_rd_en">
+      <obj_property name="ElementShortName">emrr_rd_en</obj_property>
+      <obj_property name="ObjectShortName">emrr_rd_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/emrq_rd_en">
+      <obj_property name="ElementShortName">emrq_rd_en</obj_property>
+      <obj_property name="ObjectShortName">emrq_rd_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/emwr_rd_en">
+      <obj_property name="ElementShortName">emwr_rd_en</obj_property>
+      <obj_property name="ObjectShortName">emwr_rd_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/earb_0/inst/fifo_data">
+      <obj_property name="ElementShortName">fifo_data[102:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_data[102:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/eproto_tx_0/inst/emtx_access">
+      <obj_property name="ElementShortName">emtx_access</obj_property>
+      <obj_property name="ObjectShortName">emtx_access</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_tx_0/inst/txframe_p">
+      <obj_property name="ElementShortName">txframe_p[7:0]</obj_property>
+      <obj_property name="ObjectShortName">txframe_p[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/eproto_tx_0/inst/txdata_p">
+      <obj_property name="ElementShortName">txdata_p[63:0]</obj_property>
+      <obj_property name="ObjectShortName">txdata_p[63:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/earb_0/inst/emtx_ack">
+      <obj_property name="ElementShortName">emtx_ack</obj_property>
+      <obj_property name="ObjectShortName">emtx_ack</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group371">
+      <obj_property name="label">esaxi_out</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrq_FULL">
+         <obj_property name="ElementShortName">esaxi_0_emrq_FULL</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrq_FULL</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrq_WR_DATA">
+         <obj_property name="ElementShortName">esaxi_0_emrq_WR_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrq_WR_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrq_WR_EN">
+         <obj_property name="ElementShortName">esaxi_0_emrq_WR_EN</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrq_WR_EN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrr_EMPTY">
+         <obj_property name="ElementShortName">esaxi_0_emrr_EMPTY</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrr_EMPTY</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrr_RD_DATA">
+         <obj_property name="ElementShortName">esaxi_0_emrr_RD_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrr_RD_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emrr_RD_EN">
+         <obj_property name="ElementShortName">esaxi_0_emrr_RD_EN</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emrr_RD_EN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emwr_FULL">
+         <obj_property name="ElementShortName">esaxi_0_emwr_FULL</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emwr_FULL</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0_emwr_WR_DATA">
+         <obj_property name="ElementShortName">esaxi_0_emwr_WR_DATA[102:0]</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emwr_WR_DATA[102:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0_emwr_WR_EN">
+         <obj_property name="ElementShortName">esaxi_0_emwr_WR_EN</obj_property>
+         <obj_property name="ObjectShortName">esaxi_0_emwr_WR_EN</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group515">
+      <obj_property name="label">ESAXI</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group510">
+         <obj_property name="label">AR</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_araddr">
+            <obj_property name="ElementShortName">S00_AXI_araddr[29:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_araddr[29:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arburst">
+            <obj_property name="ElementShortName">S00_AXI_arburst[1:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arburst[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arcache">
+            <obj_property name="ElementShortName">S00_AXI_arcache[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arcache[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arlen">
+            <obj_property name="ElementShortName">S00_AXI_arlen[7:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arlen[7:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_arlock">
+            <obj_property name="ElementShortName">S00_AXI_arlock</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arlock</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arprot">
+            <obj_property name="ElementShortName">S00_AXI_arprot[2:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arprot[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arqos">
+            <obj_property name="ElementShortName">S00_AXI_arqos[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arqos[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_arready">
+            <obj_property name="ElementShortName">S00_AXI_arready</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arready</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arregion">
+            <obj_property name="ElementShortName">S00_AXI_arregion[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arregion[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_arsize">
+            <obj_property name="ElementShortName">S00_AXI_arsize[2:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arsize[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_arvalid">
+            <obj_property name="ElementShortName">S00_AXI_arvalid</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_arvalid</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group511">
+         <obj_property name="label">AW</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awaddr">
+            <obj_property name="ElementShortName">S00_AXI_awaddr[29:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awaddr[29:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awburst">
+            <obj_property name="ElementShortName">S00_AXI_awburst[1:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awburst[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awcache">
+            <obj_property name="ElementShortName">S00_AXI_awcache[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awcache[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awlen">
+            <obj_property name="ElementShortName">S00_AXI_awlen[7:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awlen[7:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_awlock">
+            <obj_property name="ElementShortName">S00_AXI_awlock</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awlock</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awprot">
+            <obj_property name="ElementShortName">S00_AXI_awprot[2:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awprot[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awqos">
+            <obj_property name="ElementShortName">S00_AXI_awqos[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awqos[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_awready">
+            <obj_property name="ElementShortName">S00_AXI_awready</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awready</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awregion">
+            <obj_property name="ElementShortName">S00_AXI_awregion[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awregion[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_awsize">
+            <obj_property name="ElementShortName">S00_AXI_awsize[2:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awsize[2:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_awvalid">
+            <obj_property name="ElementShortName">S00_AXI_awvalid</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_awvalid</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group512">
+         <obj_property name="label">B</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_bready">
+            <obj_property name="ElementShortName">S00_AXI_bready</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_bready</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_bresp">
+            <obj_property name="ElementShortName">S00_AXI_bresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_bresp[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_bvalid">
+            <obj_property name="ElementShortName">S00_AXI_bvalid</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_bvalid</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group513">
+         <obj_property name="label">R</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_rdata">
+            <obj_property name="ElementShortName">S00_AXI_rdata[31:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_rdata[31:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_rlast">
+            <obj_property name="ElementShortName">S00_AXI_rlast</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_rlast</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_rready">
+            <obj_property name="ElementShortName">S00_AXI_rready</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_rready</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_rresp">
+            <obj_property name="ElementShortName">S00_AXI_rresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_rresp[1:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_rvalid">
+            <obj_property name="ElementShortName">S00_AXI_rvalid</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_rvalid</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group514">
+         <obj_property name="label">W</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_wdata">
+            <obj_property name="ElementShortName">S00_AXI_wdata[31:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_wdata[31:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_wlast">
+            <obj_property name="ElementShortName">S00_AXI_wlast</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_wlast</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_wready">
+            <obj_property name="ElementShortName">S00_AXI_wready</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_wready</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/S00_AXI_wstrb">
+            <obj_property name="ElementShortName">S00_AXI_wstrb[3:0]</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_wstrb[3:0]</obj_property>
+         </wvobject>
+         <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/S00_AXI_wvalid">
+            <obj_property name="ElementShortName">S00_AXI_wvalid</obj_property>
+            <obj_property name="ObjectShortName">S00_AXI_wvalid</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/read_active">
+      <obj_property name="ElementShortName">read_active</obj_property>
+      <obj_property name="ObjectShortName">read_active</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/axi_araddr">
+      <obj_property name="ElementShortName">axi_araddr[29:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[29:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/axi_arlen">
+      <obj_property name="ElementShortName">axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/axi_arburst">
+      <obj_property name="ElementShortName">axi_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_arburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/axi_arsize">
+      <obj_property name="ElementShortName">axi_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/axi_arready">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/last_rd_beat">
+      <obj_property name="ElementShortName">last_rd_beat</obj_property>
+      <obj_property name="ObjectShortName">last_rd_beat</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/elink2_tb/dut/elink2/esaxi_0/inst/esaxi_v1_0_S00_AXI_inst/S_AXI_ACLK">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+</wave_config>
