@@ -161,16 +161,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>param_coreid</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-            <spirit:vector>
-              <spirit:left>11</spirit:left>
-              <spirit:right>0</spirit:right>
-            </spirit:vector>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>rx_cclk_p</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
@@ -473,11 +463,6 @@
         <spirit:externalPortReference spirit:portRef="error2"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>param_coreid_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="param_coreid"/>
-        <spirit:internalPortReference spirit:componentRef="elink2" spirit:portRef="param_coreid"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>elink_gold_0_rx_cclk_p</spirit:name>
         <spirit:internalPortReference spirit:componentRef="elink_gold_0" spirit:portRef="rx_cclk_p"/>
         <spirit:externalPortReference spirit:portRef="rx_cclk_p"/>
@@ -693,16 +678,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>param_coreid</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-            <spirit:vector>
-              <spirit:left>11</spirit:left>
-              <spirit:right>0</spirit:right>
-            </spirit:vector>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>CCLK_P</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
@@ -762,27 +737,6 @@
         <spirit:componentRef spirit:library="Adapteva" spirit:name="ecfg_split" spirit:vendor="adapteva.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_ecfg_split_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>eclock_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="eclock" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eclock_0_2</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>eio_rx_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="eio_rx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eio_rx_0_2</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>eio_tx_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="eio_tx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eio_tx_0_2</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -870,27 +824,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>eproto_tx_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adatpeva" spirit:name="eproto_tx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eproto_tx_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>eproto_rx_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="eproto_rx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eproto_rx_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>emaxi_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="Adapteva" spirit:name="emaxi" spirit:vendor="adapteva.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_emaxi_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>emesh_split_0</spirit:instanceName>
         <spirit:componentRef spirit:library="Adapteva" spirit:name="emesh_split" spirit:vendor="adapteva.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -905,11 +838,46 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>eproto_tx_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adatpeva" spirit:name="eproto_tx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eproto_tx_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>eio_rx_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="eio_rx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eio_rx_0_2</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>eclock_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="eclock" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eclock_0_2</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>eio_tx_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="eio_tx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eio_tx_0_2</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>edistrib_0</spirit:instanceName>
         <spirit:componentRef spirit:library="Adapteva" spirit:name="edistrib" spirit:vendor="adapteva.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_edistrib_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_READ_TAG_ADDR">0x810</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>eproto_rx_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="eproto_rx" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eproto_rx_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -924,6 +892,13 @@
         <spirit:componentRef spirit:library="Adapteva" spirit:name="eCfg" spirit:vendor="adapteva.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_eCfg_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>emaxi_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="Adapteva" spirit:name="emaxi" spirit:vendor="adapteva.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">elink_testbench_emaxi_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -1043,13 +1018,13 @@
       <spirit:adHocConnection>
         <spirit:name>eclock_0_lclk_p</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eclock_0" spirit:portRef="lclk_p"/>
-        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="txlclk_p"/>
-        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txlclk_p"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_write" spirit:portRef="rd_clk"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_rresp" spirit:portRef="rd_clk"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_rdreq" spirit:portRef="rd_clk"/>
-        <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="txlclk_p"/>
         <spirit:internalPortReference spirit:componentRef="earb_0" spirit:portRef="clock"/>
+        <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="txlclk_p"/>
+        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="txlclk_p"/>
+        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txlclk_p"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>s_axi_aclk_1</spirit:name>
@@ -1060,20 +1035,20 @@
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eclock_0" spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="ioreset"/>
-        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="ioreset"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_rdreq" spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_rresp" spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_write" spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_rresp" spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_write" spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x16_rdreq" spirit:portRef="rst"/>
-        <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="eproto_rx_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="earb_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="ioreset"/>
+        <spirit:internalPortReference spirit:componentRef="eclock_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="ioreset"/>
+        <spirit:internalPortReference spirit:componentRef="eproto_rx_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="eCfg_0" spirit:portRef="hw_reset"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -1084,14 +1059,14 @@
       <spirit:adHocConnection>
         <spirit:name>eio_tx_0_tx_rd_wait</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="tx_rd_wait"/>
-        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="tx_rd_wait"/>
         <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="tx_rd_wait"/>
+        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="tx_rd_wait"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eio_tx_0_tx_wr_wait</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="tx_wr_wait"/>
-        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="tx_wr_wait"/>
         <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="tx_wr_wait"/>
+        <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="tx_wr_wait"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eclock_0_lclk_out</spirit:name>
@@ -1102,11 +1077,6 @@
         <spirit:name>eclock_0_lclk_s</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eclock_0" spirit:portRef="lclk_s"/>
         <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txlclk_s"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>param_coreid_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="param_coreid"/>
-        <spirit:internalPortReference spirit:componentRef="eCfg_0" spirit:portRef="param_coreid"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eclock_0_CCLK_P</spirit:name>
@@ -1121,14 +1091,14 @@
       <spirit:adHocConnection>
         <spirit:name>eproto_tx_0_txframe_p</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="txframe_p"/>
-        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txframe_p"/>
         <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="loopback_frame"/>
+        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txframe_p"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eproto_tx_0_txdata_p</spirit:name>
         <spirit:internalPortReference spirit:componentRef="eproto_tx_0" spirit:portRef="txdata_p"/>
-        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txdata_p"/>
         <spirit:internalPortReference spirit:componentRef="eio_rx_0" spirit:portRef="loopback_data"/>
+        <spirit:internalPortReference spirit:componentRef="eio_tx_0" spirit:portRef="txdata_p"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eio_rx_0_rxlclk_p</spirit:name>
@@ -1136,8 +1106,8 @@
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_rdreq" spirit:portRef="wr_clk"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_write" spirit:portRef="wr_clk"/>
         <spirit:internalPortReference spirit:componentRef="fifo_103x32_rresp" spirit:portRef="wr_clk"/>
-        <spirit:internalPortReference spirit:componentRef="eproto_rx_0" spirit:portRef="rxlclk_p"/>
         <spirit:internalPortReference spirit:componentRef="edistrib_0" spirit:portRef="rxlclk"/>
+        <spirit:internalPortReference spirit:componentRef="eproto_rx_0" spirit:portRef="rxlclk_p"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>eio_rx_0_rxframe_p</spirit:name>
