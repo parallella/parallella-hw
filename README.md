@@ -1,68 +1,39 @@
-# parallella-hw
+PARALLELLA: Supercomputing for Everyone
+========================================	
 
-This repository contains the board design sources and FPGA HDL sources for 
-the Parallella board and various accessories.
+This repository contains the Parallella board design source files and the FPGA
+source files.
 
-## Directory Structure
+## Board Files
+Contains the hardware design files of the Parallella and associated hardware.
 
-```
-boards/         -  Board design files, all projects
-    archive/        - Older boards no longer supported,
-        proto/          - Zedboard based prototype (Jan 2013)
-        gen0/           - First Parallella board, too hot (Apr 2013)
-        gen1.0/         - Solid board, but hdmi wiring bug (Oct 2013)
-        gen1.1/         - Fully working board (Dec 2013)
-    libraries/      - Shared schematic and PCB tools libraries
-        kicad/          - KiCad schematic (.lib/.dcm) and 3D source (.scad/.wrl) libs
-            adapteva-kicad.pretty/  - KiCad footprint (.mod) library
-                packages3d/  - 3D models for library parts, with some sources
-            scripts/        - Adapteva Kicad/BOM scripts in Python
-    parallella-I/   - Current Parallella-I board schematic and PCB source
-        constraints/    - Constraints files for board-specific pin locations
-        docs/           - Docs specific to each board
-        firmware/       - Low-level firmware (fsbl, u-boot, etc.)
-        mfg/            - Manufacturing files: Fab Gerbers, Assembly docs
-    parallella-template  - KiCad template files for parallella daughtercards
-        meta/           - Metadata files for template
-    parallella-porcupine - Breakout board for Parallella-I
+Board      | Description
+-----------|--------------
+[parallella-gen1](boards/parallella-gen1)         | Parallella Kickstarter board currently in production
+[parallella-template](boards/parallella-template) | KiCad template board for creating daughter cards  
+[porcupine](boards/porcupine)                     | Breakout board 
+[parallella-gen2](boards/parallella-gen2)         | The next Parallella board (work in progress...)
 
-fpga/           -  FPGA design files and projects
-    bitstreams/     - Latest generated bitstreams
-    edk/            - EDK sources
-        parallella_7010_hdmi/     - EDK for hdmi-enabled 7010-based Parallella
-        parallella_7020_hdmi/     - EDK for hdmi-enabled 7020-based Parallella
-        parallella_7010_headless/ - EDK for headless 7010-based Parallella
-        parallella_7020_headless/ - EDK for headless 7020-based Parallella
-    edk-vivado/     - PS descriptions for Vivado
-        parallella_7020_headless/ - EDK for headless 7020-based Parallella
-    externals/      - Container for external repositories used by our projects
-        fpgahdl_xilinx/   - Submodule for HDMI library modules from ADI
-    hdl/            - Verilog source files
-        axi/            - General AXI interface modules
-        clocks/         - Clock generation
-        common/         - General-purpose synchronizers/muxs/debouncers/etc.
-        elink/          - eLink modules
-        fifos/          - technology-independent FIFO modules
-        gpio/           - modules for GPIO pins
-        parallella-I/   - Modules specific to the Parallella
-    ip/             - Tool-specific IP generation (CoreGen) sources
-    projects/       - One folder for each project
-        parallella_64_7020_hdmi/
-        parallella_64_7020_headless/
-        parallella_7020_hdmi/
-        parallella_7010_hdmi/
-        parallella_7020_headless/
-        parallella_7010_headless/
-    projects-vivado/  - Vivado versions of projects
-        parallella_7020_headless/
-```
+## FPGA Sources
+The table below contains links to some of the key blocks used by the Parallella. All source can be found in "fpga/src"
 
-## FPGA Project Build instructions
+Board      | Description
+-----------|--------------
+[elink](src/elink/hdl/elink.v)             | Top level of elink physical interface used by the Epiphany
+[ecfg](src/ecfg/hdl/ecfg.v)                | elink configuration register file
+[erx](src/erx/hdl/erx.v)                   | elink receiver
+[etx](src/etx/hdl/etx.v)                   | elink transmitter
+[embox](src/embox/hdl/embox.v)             | Fifo based mailbox with interrupt output
+[emmu](src/emmu/hdl/emmu.v)                | Memory address translation unit
+[emaxi](src/axi/hdl/emaxi.v)               | AXI master interface
+[esaxi](src/axi/hdl/esaxi.v)               | AXI slave interface
 
-See README files in the individual project directories.
+## FPGA Projects
 
 ## License
+Unless otherwise specified the parallella-hw project uses the GPLv3 for RTL code and 
+Creative Common Share Alike for board design files. The GPLv3 license notice can be found at the bottom of the file.
 
-COPYING         -  GNU GENERAL PUBLIC LICENSE file
-
+##Contribution
+We are looking for external contribution to to the Parallella project! If you have something to contribute in the area of board, system, FPGA design, dig in! All pull requests will be considered. Instructions for contributing can be found [HERE](CONTRIBUTING.md). 
 
