@@ -1,8 +1,8 @@
+![alt tag](docs/parallella_logo_small.jpg)
 PARALLELLA: Supercomputing for Everyone
 ========================================	
 
-This repository contains the Parallella board design source files and the FPGA
-source files.
+This repository contains open source board and FPGA designs associated with the Parallella project. 
 
 ## Board Files
 The Parallella board is open source hardware. The table belo
