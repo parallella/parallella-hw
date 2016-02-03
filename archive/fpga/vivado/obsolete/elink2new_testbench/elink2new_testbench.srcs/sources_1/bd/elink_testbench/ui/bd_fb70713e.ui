@@ -1,0 +1,59 @@
+{
+   guistr: "# # String gsaved with Nlview 6.4.7  2014-07-30 bk=1.3165 VDI=35 GEI=35 GUI=JA:1.8
+#  -string -flagsOSRD
+preplace port csysreq -pg 1 -y 450 -defaultsOSRD
+preplace port done0 -pg 1 -y 250 -defaultsOSRD
+preplace port start -pg 1 -y 700 -defaultsOSRD
+preplace port done1 -pg 1 -y 510 -defaultsOSRD
+preplace port rx_cclk_n -pg 1 -y 440 -defaultsOSRD
+preplace port done2 -pg 1 -y 530 -defaultsOSRD
+preplace port rx_cclk_p -pg 1 -y 420 -defaultsOSRD
+preplace port aclk -pg 1 -y 270 -defaultsOSRD
+preplace port error0 -pg 1 -y 100 -defaultsOSRD
+preplace port error1 -pg 1 -y 490 -defaultsOSRD
+preplace port error2 -pg 1 -y 550 -defaultsOSRD
+preplace port reset -pg 1 -y 750 -defaultsOSRD
+preplace port aresetn -pg 1 -y 290 -defaultsOSRD
+preplace inst elink2 -pg 1 -lvl 3 -y 730 -defaultsOSRD
+preplace inst axi_protocol_converter_0 -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace inst axi_traffic_controller_0 -pg 1 -lvl 1 -y 290 -defaultsOSRD
+preplace inst axi_traffic_controller_1 -pg 1 -lvl 1 -y 530 -defaultsOSRD
+preplace inst elink_gold_0 -pg 1 -lvl 3 -y 370 -defaultsOSRD
+preplace inst axi_protocol_converter_1 -pg 1 -lvl 4 -y 320 -defaultsOSRD
+preplace inst axi_traffic_controller_2 -pg 1 -lvl 1 -y 680 -defaultsOSRD
+preplace inst axi_protocol_converter_2 -pg 1 -lvl 2 -y 590 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 50 -defaultsOSRD -orient R180
+preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 650 -defaultsOSRD -orient R180
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -y 180 -defaultsOSRD
+preplace inst axi_bram_ctrl_1 -pg 1 -lvl 4 -y 750 -defaultsOSRD
+preplace netloc start_1 1 0 1 N
+preplace netloc axi_protocol_converter_2_M_AXI 1 2 1 730
+preplace netloc axi_traffic_controller_0_m_axi_txn_done1 1 1 4 NJ 490 NJ 530 NJ 530 1370
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 1370
+preplace netloc axi_traffic_controller_0_m_axi_txn_done 1 1 4 NJ 220 NJ 220 NJ 250 N
+preplace netloc csysreq_1 1 0 3 NJ 450 NJ 450 N
+preplace netloc axi_traffic_controller_0_M_AXI1 1 1 1 420
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA1 1 4 1 1370
+preplace netloc rst_aclk_100M_peripheral_aresetn1 1 0 4 110 610 450 510 760 570 1100
+preplace netloc elink_gold_0_emaxi 1 3 1 N
+preplace netloc axi_protocol_converter_0_M_AXI 1 2 1 N
+preplace netloc axi_traffic_controller_2_M_AXI 1 1 2 NJ 660 740
+preplace netloc axi_traffic_controller_0_m_axi_error 1 1 4 NJ 210 NJ 210 NJ 100 N
+preplace netloc elink2_M00_AXI 1 3 1 N
+preplace netloc axi_traffic_controller_0_M_AXI 1 1 1 N
+preplace netloc elink_gold_0_rx_cclk_n 1 3 2 N 440 NJ
+preplace netloc axi_traffic_controller_2_m_axi_error 1 1 4 NJ 520 NJ 550 NJ 550 N
+preplace netloc axi_traffic_controller_0_m_axi_error1 1 1 4 NJ 480 NJ 520 NJ 520 1360
+preplace netloc elink2_TX 1 2 2 790 560 1080
+preplace netloc elink_gold_0_tx 1 2 2 800 510 1080
+preplace netloc reset_1 1 0 3 NJ 750 NJ 750 730
+preplace netloc aclk_1 1 0 4 120 360 440 360 750 500 1090
+preplace netloc axi_protocol_converter_1_M_AXI 1 3 2 1100 110 1360
+preplace netloc elink_gold_0_rx_cclk_p 1 3 2 N 420 NJ
+preplace netloc axi_traffic_controller_2_m_axi_txn_done 1 0 5 130 600 460 500 NJ 540 NJ 540 NJ
+levelinfo -pg 1 90 270 600 940 1230 1400
+",
+}
+{
+   da_axi4_cnt: "1",
+}

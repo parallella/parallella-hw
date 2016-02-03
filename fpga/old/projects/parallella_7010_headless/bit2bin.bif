@@ -1,6 +1,0 @@
-the_ROM_image:
-{
-	[bootloader]dummy.elf
-	parallella_7010_headless.runs/impl_1/parallella_z7_top.bit
-}
-

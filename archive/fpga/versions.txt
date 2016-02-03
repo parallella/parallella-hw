@@ -1,0 +1,84 @@
+versions.txt - 4/21/14 F. Huettig
+
+  The ESYSINFO register, readable from the ARM host, allows software
+to determine what hardware platform it is running on and what
+features are available.  There are four 8-bit fields:
+
+  FPGAID[31:24]   - Generation
+  FPGAID[23:16]   - Platform, defines the components and connections
+                    on the PCB.
+  FPGAID[15:8]    - Type, defines features included in FPGA
+  FPGAID[7:0]     - Revision #, incremented on each change
+
+A given PCB assembly can generally only use FPGA configurations 
+corresponding to that platform.  Sometimes the same FPGA config might 
+work on multiple platforms, e.g. a config that doesn't use GPIO could 
+be used on a board that has or doesn't have GPIO connectors, however 
+for consistency it is desireable to create separate configurations for
+each platform so a user can always know what hardware platform [s]he has.
+
+Note that TYPE definitions may change with different generations and
+possibly with different platforms, but where possible they will be kept
+consistent at least within a platform.
+
+Within each FPGA project this register value is set by a version.v file,
+it is VERY IMPORTANT that this file be updated as needed whenever changes
+are made to the code.
+
+Experimental versions may be identified by the highest order bit being 1.  
+These should not be released to users.
+
+ADDITIONS to this file must be synchronized with the master spreadsheet
+on dropbox and pushed down to the documentation and source code.
+
+Generation IDs:
+  0   - Undefined
+  1   - Parallella-I
+
+Platforms IDs:
+
+  0   - Undefined
+
+      For Parallella-I (Generation 1)
+  1   - E16, 7Z020, GPIO connectors
+  2   - E16, 7Z020, no GPIO
+  3   - E16, 7Z010, GPIO
+  4   - E16, 7Z010, no GPIO
+  5   - E64, 7Z020, GPIO
+
+Types: (For gen 1 platforms 1-5)
+
+  0   - Undefined
+
+  1   - HDMI enabled, GPIO unused
+  2   - Headless, GPIO unused
+  3   - Headless, 24/48 singled-ended GPIOs from EMIO
+  4   - HDMI enabled, 24/48 singled-ended GPIOs from EMIO
+  5   - No Epiphany Support, Headless, 24/48 singled-ended GPIOs from EMIO
+
+Versions created to date:
+
+1 1 3 = E16/7020/GPIO, Headless w/GPIO
+1 1 3 1  - 4/22/14
+1 1 3 2  - 5/5/14 
+1 1 3 3  - 1/15/15
+
+1 1 4 = E16/7020/GPIO, HDMI w/GPIO
+1 1 4 1  - 5/23/14
+
+1 3 3 = E16/7010/GPIO, Headless w/GPIO
+1 3 3 1  - 4/22/14
+1 3 3 2  - 5/5/14
+1 3 3 3  - 1/15/15
+
+1 3 4 = E16/7010/GPIO, HDMI w/GPIO
+1 3 4 1  - 5/16/14
+
+1 5 3 = E64/7020/GPIO, Headless w/GPIO
+1 5 3 1  - 4/21/14
+1 5 3 2  - 5/5/14
+
+1 5 4 = E64/7020/GPIO, HDMI w/GPIO
+1 5 4 1  - 6/3/14
+
+

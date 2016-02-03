@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+	[bootloader]dummy.elf
+	parallella_7020_hdmi.runs/impl_1/parallella_z7_top.bit
+}
+

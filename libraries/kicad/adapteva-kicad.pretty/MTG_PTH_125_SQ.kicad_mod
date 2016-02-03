@@ -1,0 +1,11 @@
+(module MTG_PTH_125_SQ (layer F.Cu)
+  (descr "Mounting hole, 0.125Dia, 0.25 Square Pad")
+  (fp_text reference MH (at 0 -4.50088) (layer F.SilkS) hide
+    (effects (font (thickness 0.3048)))
+  )
+  (fp_text value MTG\PTH\125\SQ (at 0 5.00126) (layer F.SilkS) hide
+    (effects (font (thickness 0.3048)))
+  )
+  (pad 1 thru_hole rect (at 0 0) (size 6.35 6.35) (drill 3.175) (layers *.Cu *.Mask Dwgs.User)
+    (clearance 0.508) (zone_connect 2))
+)

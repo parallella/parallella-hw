@@ -1,0 +1,5 @@
+This directory contains generated IP blocks from the Vivado tools.  
+
+Known Issues:  
+Xilinx header file 
+Portability  

@@ -1,0 +1,37 @@
+###############################################################
+##  Location constraints for the Parallella-I board
+##  3/12/14 F. Huettig
+####
+## This file defines pin locations & standards for the Parallella-I
+##   and Zynq 7020.  See the file parallella_z70x0_loc.ucf
+##    for all other pins.
+###############################################################
+
+##################################
+# IOs to be used with zc7020 ONLY
+##################################
+NET "GPIO_P[12]" LOC = "Y12";
+NET "GPIO_N[12]" LOC = "Y13";
+NET "GPIO_P[13]" LOC = "W11";
+NET "GPIO_N[13]" LOC = "Y11";
+NET "GPIO_P[14]" LOC = "V11";
+NET "GPIO_N[14]" LOC = "V10";
+NET "GPIO_P[15]" LOC = "T9" ;
+NET "GPIO_N[15]" LOC = "U10";
+NET "GPIO_P[16]" LOC = "W10";
+NET "GPIO_N[16]" LOC = "W9" ;
+NET "GPIO_P[17]" LOC = "U9" ;
+NET "GPIO_N[17]" LOC = "U8" ;
+NET "GPIO_P[18]" LOC = "V8" ;
+NET "GPIO_N[18]" LOC = "W8" ;
+NET "GPIO_P[19]" LOC = "Y9" ;
+NET "GPIO_N[19]" LOC = "Y8" ;
+NET "GPIO_P[20]" LOC = "Y7" ;
+NET "GPIO_N[20]" LOC = "Y6" ;
+NET "GPIO_P[21]" LOC = "U7" ;
+NET "GPIO_N[21]" LOC = "V7" ;
+NET "GPIO_P[22]" LOC = "V6" ;
+NET "GPIO_N[22]" LOC = "W6" ;
+NET "GPIO_P[23]" LOC = "T5" ;
+NET "GPIO_N[23]" LOC = "U5" ;
+

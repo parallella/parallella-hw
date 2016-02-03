@@ -1,0 +1,10 @@
+pushd ../../
+git submodule init
+git submodule update
+popd
+cp fpgahdl_xilinx.sco ../../.git/modules/fpga/externals/fpgahdl_xilinx/info/sparse-checkout
+cd fpgahdl_xilinx
+git config core.sparsecheckout true
+git read-tree -mu HEAD
+cd ..
+

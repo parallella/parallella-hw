@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2014.3.1 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="2" Path="/home/aolofsson/Work_all/parallella-hw/fpga/vivado_projects/elink2new_testbench/elink2new_testbench.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="51f80e57f0364280a4f57fdaf16f1efa"/>
+    <Option Name="Part" Val="xc7z020clg400-1"/>
+    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+    <Option Name="SimulatorLanguage" Val="Verilog"/>
+    <Option Name="BoardPart" Val=""/>
+    <Option Name="ActiveSimSet" Val="sim_3"/>
+    <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../test/test_bench/ip_repo"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../hdl/elink-gold"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../src"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/elink2_top.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/hdl/elink2_top_wrapper.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/elink_testbench.bd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink_testbench/elink_testbench.srcs/sources_1/bd/elink_testbench/elink_testbench.bd"/>
+          <Attr Name="ImportTime" Val="1415202020"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_2/elink_testbench_axi_protocol_converter_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_0_1/elink_testbench_axi_traffic_controller_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_0_1/elink_testbench_axi_bram_ctrl_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_elink_gold_0_0/elink_testbench_elink_gold_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_1/elink_testbench_axi_protocol_converter_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_protocol_converter_0_0/elink_testbench_axi_protocol_converter_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_0_0/elink_testbench_axi_traffic_controller_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_0_0/elink_testbench_axi_bram_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_blk_mem_gen_0_0/elink_testbench_blk_mem_gen_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_emaxi_0_0/elink_testbench_emaxi_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_esaxi_0_0/elink_testbench_esaxi_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_2/elink_testbench_fifo_103x32_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_1/elink_testbench_fifo_103x32_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eproto_rx_0_0/elink_testbench_eproto_rx_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_1/elink_testbench_fifo_103x16_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x16_0_0/elink_testbench_fifo_103x16_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_emesh_split_0_0/elink_testbench_emesh_split_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eproto_tx_0_0/elink_testbench_eproto_tx_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_edistrib_0_0/elink_testbench_edistrib_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_earb_0_0/elink_testbench_earb_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_103x32_0_0/elink_testbench_fifo_103x32_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_fifo_generator_0_0/elink_testbench_fifo_generator_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_ecfg_split_0_0/elink_testbench_ecfg_split_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eCfg_0_0/elink_testbench_eCfg_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_traffic_controller_1_0/elink_testbench_axi_traffic_controller_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_rx_0_2/elink_testbench_eio_rx_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eio_tx_0_2/elink_testbench_eio_tx_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_eclock_0_2/elink_testbench_eclock_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_axi_bram_ctrl_2_2/elink_testbench_axi_bram_ctrl_2_2.xci"/>
+        <CompFileExtendedInfo CompFileName="elink_testbench.bd" FileRelPathName="ip/elink_testbench_blk_mem_gen_0_1/elink_testbench_blk_mem_gen_0_1.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_axi_bram_ctrl_0_0/elink_testbench_axi_bram_ctrl_0_0.upgrade_log">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink_testbench/elink_testbench.srcs/sources_1/bd/elink_testbench/ip/elink_testbench_axi_bram_ctrl_0_0/elink_testbench_axi_bram_ctrl_0_0.upgrade_log"/>
+          <Attr Name="ImportTime" Val="1414530388"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_blk_mem_gen_0_0/elink_testbench_blk_mem_gen_0_0.upgrade_log">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink_testbench/elink_testbench.srcs/sources_1/bd/elink_testbench/ip/elink_testbench_blk_mem_gen_0_0/elink_testbench_blk_mem_gen_0_0.upgrade_log"/>
+          <Attr Name="ImportTime" Val="1414530390"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_elink_gold_0_1/elink_testbench_elink_gold_0_1.upgrade_log">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink_testbench/elink_testbench.srcs/sources_1/bd/elink_testbench/ip/elink_testbench_elink_gold_0_1/elink_testbench_elink_gold_0_1.upgrade_log"/>
+          <Attr Name="ImportTime" Val="1415202180"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_elink_gold_0_0/elink_testbench_elink_gold_0_0.upgrade_log">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink_testbench/elink_testbench.srcs/sources_1/bd/elink_testbench/ip/elink_testbench_elink_gold_0_0/elink_testbench_elink_gold_0_0.upgrade_log"/>
+          <Attr Name="ImportTime" Val="1415137984"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eio_tx_0_0/elink_testbench_eio_tx_0_0.upgrade_log">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../elink2_testbench/elink2_testbench.srcs/sources_1/bd/elink_testbench/ip/elink_testbench_eio_tx_0_0/elink_testbench_eio_tx_0_0.upgrade_log"/>
+          <Attr Name="ImportTime" Val="1415358314"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eCfg_0_2/elink_testbench_eCfg_0_2.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eio_tx_0_2/elink_testbench_eio_tx_0_2.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eclock_0_2/elink_testbench_eclock_0_2.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eio_rx_0_2/elink_testbench_eio_rx_0_2.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_ecfg_split_0_0/elink_testbench_ecfg_split_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eCfg_0_0/elink_testbench_eCfg_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_edistrib_0_0/elink_testbench_edistrib_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eproto_rx_0_0/elink_testbench_eproto_rx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_earb_0_0/elink_testbench_earb_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_eproto_tx_0_0/elink_testbench_eproto_tx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_emaxi_0_0/elink_testbench_emaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_esaxi_0_0/elink_testbench_esaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink_testbench/ip/elink_testbench_emesh_split_0_0/elink_testbench_emesh_split_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eproto_tx_0_0/elink2_top_eproto_tx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eio_rx_0_0/elink2_top_eio_rx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eio_tx_0_0/elink2_top_eio_tx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eclock_0_0/elink2_top_eclock_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_edistrib_0_0/elink2_top_edistrib_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_esaxi_0_0/elink2_top_esaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eproto_rx_0_0/elink2_top_eproto_rx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_emaxi_0_0/elink2_top_emaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_eCfg_0_0/elink2_top_eCfg_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_parallella_gpio_emio_0_0/elink2_top_parallella_gpio_emio_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/elink2_top/ip/elink2_top_parallella_i2c_0_0/elink2_top_parallella_i2c_0_0.upgrade_log"/>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+      <Filter Type="Constrs"/>
+      <File Path="$PPRDIR/../../../boards/parallella-I/constraints/parallella_timing.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../boards/parallella-I/constraints/parallella_z70x0_loc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../boards/parallella-I/constraints/parallella_z7020_loc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TargetConstrsFile" Val="$PPRDIR/../../../boards/parallella-I/constraints/parallella_timing.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../../test/elink_test/elink2new_tb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="elink2_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/elink_tb_behav.wcfg"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_2" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_2">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_2/bd/elink2_stream/elink2_stream.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../test/elink_test/elink2stream_tb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_2/bd/elink2_stream/ip/elink2_stream_eproto_rx_0_0/elink2_stream_eproto_rx_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sim_2/bd/elink2_stream/ip/elink2_stream_emaxi_0_0/elink2_stream_emaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sim_2/bd/elink2_stream/ip/elink2_stream_esaxi_0_0/elink2_stream_esaxi_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sim_2/bd/elink2_stream/ip/elink2_stream_eCfg_0_0/elink2_stream_eCfg_0_0.upgrade_log"/>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="elink2stream_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_3" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_3">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../../test/elink_test/estream_tb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/fifo_mem.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/fifo_full_block.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/fifo_empty_block.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/synchronizer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/fifo.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/ewrapper_link_txo.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../hdl/elink-gold/ewrapper_link_rxi.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="estream_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="QuestaSim/ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="IES">
+      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="9">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" SynthRun="synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+  </Runs>
+  <HWSession Dir="hw_1" File="hw.xml"/>
+  <MsgRule>
+    <MsgAttr Name="RuleType" Val="0"/>
+    <MsgAttr Name="Limit" Val="-1"/>
+    <MsgAttr Name="NewSeverity" Val="ANY"/>
+    <MsgAttr Name="Id" Val=""/>
+    <MsgAttr Name="Severity" Val="INFO"/>
+    <MsgAttr Name="ShowRule" Val="1"/>
+    <MsgAttr Name="RuleSource" Val="16"/>
+    <MsgAttr Name="StringIsRegExp" Val="0"/>
+  </MsgRule>
+</Project>

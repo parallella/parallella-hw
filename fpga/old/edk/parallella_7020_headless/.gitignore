@@ -1,7 +1,0 @@
-*
-!*.mhs
-!*.xmp
-!data/
-!data/*.xml
-!.gitignore
-

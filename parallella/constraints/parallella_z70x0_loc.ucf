@@ -1,0 +1,138 @@
+###############################################################
+##  Location constraints for the Parallella-I board
+##  3/12/14 F. Huettig
+####
+## This file defines pin locations & standards for the Parallella-I
+##   and Zynq 7010 or 7020.  See the file parallella_z7020_loc.ucf
+##    for pins added with the 7020.
+## Timing constraints are defined elsewhere.
+###############################################################
+
+#  NOTE:  IOSTANDARDS for e-link and gpio have been removed
+#    from these files.  IOSTANDARDS are to be set in the 
+#    verilog instead.
+
+#######################
+# HDMI constraints
+#######################
+
+NET HDMI_D[8]  	    LOC = Y18  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[9]  	    LOC = W18  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[10] 	    LOC = V18  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[11] 	    LOC = V15  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[12] 	    LOC = R18  | IOSTANDARD = LVCMOS25; 
+NET HDMI_D[13] 	    LOC = P18  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[14] 	    LOC = Y19  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[15] 	    LOC = W19  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[16] 	    LOC = W15  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[17] 	    LOC = T19  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[18] 	    LOC = R19  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[19] 	    LOC = P19  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[20] 	    LOC = W20  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[21] 	    LOC = V20  | IOSTANDARD = LVCMOS25;
+NET HDMI_D[22] 	    LOC = U20  | IOSTANDARD = LVCMOS25;   
+NET HDMI_D[23] 	    LOC = T20  | IOSTANDARD = LVCMOS25;
+NET HDMI_CLK        LOC = R17  | IOSTANDARD = LVCMOS25;
+NET HDMI_VSYNC      LOC = V17  | IOSTANDARD = LVCMOS25;
+NET HDMI_HSYNC      LOC = T17  | IOSTANDARD = LVCMOS25;
+NET HDMI_DE         LOC = Y17  | IOSTANDARD = LVCMOS25;
+NET HDMI_SPDIF      LOC = Y16  | IOSTANDARD = LVCMOS25;
+NET HDMI_INT        LOC = P20  | IOSTANDARD = LVCMOS25;
+
+#####################
+# I2C
+#####################
+NET PS_I2C_SCL      LOC = N18  | IOSTANDARD = LVCMOS25;
+NET PS_I2C_SDA      LOC = N17  | IOSTANDARD = LVCMOS25;
+
+#####################
+# MISC
+#####################
+NET TURBO_MODE      LOC = R16  | IOSTANDARD = LVCMOS25;
+NET PROG_IO         LOC = N20  | IOSTANDARD = LVCMOS25;
+
+#####################
+# Epiphany Interface
+#####################
+NET "RXI_CCLK_P"     LOC = "H16";
+NET "RXI_CCLK_N"     LOC = "H17";
+NET "DSP_RESET_N"    LOC = "G14" | IOSTANDARD = LVCMOS25 | DRIVE = 4;
+#NET "DSP_FLAG"      LOC = "J15" | IOSTANDARD = LVCMOS25;
+NET "RXI_LCLK_P"     LOC = "F16";
+NET "RXI_LCLK_N"     LOC = "F17";
+NET "RXI_DATA_P[0]"  LOC = "B19";
+NET "RXI_DATA_N[0]"  LOC = "A20";
+NET "RXI_DATA_P[1]"  LOC = "C20";
+NET "RXI_DATA_N[1]"  LOC = "B20";
+NET "RXI_DATA_P[2]"  LOC = "D19";
+NET "RXI_DATA_N[2]"  LOC = "D20";
+NET "RXI_DATA_P[3]"  LOC = "E18";
+NET "RXI_DATA_N[3]"  LOC = "E19";
+NET "RXI_DATA_P[4]"  LOC = "E17";
+NET "RXI_DATA_N[4]"  LOC = "D18";
+NET "RXI_DATA_P[5]"  LOC = "F19";
+NET "RXI_DATA_N[5]"  LOC = "F20";
+NET "RXI_DATA_P[6]"  LOC = "G17";
+NET "RXI_DATA_N[6]"  LOC = "G18";
+NET "RXI_DATA_P[7]"  LOC = "G19";
+NET "RXI_DATA_N[7]"  LOC = "G20";
+NET "RXI_FRAME_P"    LOC = "H15";
+NET "RXI_FRAME_N"    LOC = "G15";
+NET "RXO_RD_WAIT"    LOC = "J15" | IOSTANDARD = LVCMOS25;
+#NET "RXO_RD_WAIT_N" LOC = "H17";
+NET "RXO_WR_WAIT_P"  LOC = "J18";
+NET "RXO_WR_WAIT_N"  LOC = "H18";
+NET "TXO_LCLK_P"     LOC = "K17";
+NET "TXO_LCLK_N"     LOC = "K18";
+NET "TXO_DATA_P[0]"  LOC = "K19";
+NET "TXO_DATA_N[0]"  LOC = "J19";
+NET "TXO_DATA_P[1]"  LOC = "L14";
+NET "TXO_DATA_N[1]"  LOC = "L15";
+NET "TXO_DATA_P[2]"  LOC = "L16";
+NET "TXO_DATA_N[2]"  LOC = "L17";
+NET "TXO_DATA_P[3]"  LOC = "M14";
+NET "TXO_DATA_N[3]"  LOC = "M15";
+NET "TXO_DATA_P[4]"  LOC = "L19";
+NET "TXO_DATA_N[4]"  LOC = "L20";
+NET "TXO_DATA_P[5]"  LOC = "M19";
+NET "TXO_DATA_N[5]"  LOC = "M20";
+NET "TXO_DATA_P[6]"  LOC = "M17";
+NET "TXO_DATA_N[6]"  LOC = "M18";
+NET "TXO_DATA_P[7]"  LOC = "N15";
+NET "TXO_DATA_N[7]"  LOC = "N16";
+NET "TXO_FRAME_P"    LOC = "J20";
+NET "TXO_FRAME_N"    LOC = "H20";
+NET "TXI_RD_WAIT_P"  LOC = "K14";
+NET "TXI_RD_WAIT_N"  LOC = "J14";
+NET "TXI_WR_WAIT_P"  LOC = "K16";
+NET "TXI_WR_WAIT_N"  LOC = "J16";
+
+#######################
+# GPIO
+#  First 12 pairs are present on all parts, next 12 on 7020 only
+#######################
+NET "GPIO_P[0]"  LOC = "T16";
+NET "GPIO_N[0]"  LOC = "U17";
+NET "GPIO_P[1]"  LOC = "V16";
+NET "GPIO_N[1]"  LOC = "W16";
+NET "GPIO_P[2]"  LOC = "P15";
+NET "GPIO_N[2]"  LOC = "P16";
+NET "GPIO_P[3]"  LOC = "U18";
+NET "GPIO_N[3]"  LOC = "U19";
+NET "GPIO_P[4]"  LOC = "P14";
+NET "GPIO_N[4]"  LOC = "R14";
+NET "GPIO_P[5]"  LOC = "T14";
+NET "GPIO_N[5]"  LOC = "T15";
+NET "GPIO_P[6]"  LOC = "U14";
+NET "GPIO_N[6]"  LOC = "U15";
+NET "GPIO_P[7]"  LOC = "W14";
+NET "GPIO_N[7]"  LOC = "Y14";
+NET "GPIO_P[8]"  LOC = "U13";
+NET "GPIO_N[8]"  LOC = "V13";
+NET "GPIO_P[9]"  LOC = "V12";
+NET "GPIO_N[9]"  LOC = "W13";
+NET "GPIO_P[10]" LOC = "T12";
+NET "GPIO_N[10]" LOC = "U12";
+NET "GPIO_P[11]" LOC = "T11";
+NET "GPIO_N[11]" LOC = "T10";
+
