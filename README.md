@@ -4,15 +4,18 @@ PARALLELLA: Supercomputing for Everyone
 
 This repository contains open source board and FPGA designs associated with the Parallella project. 
 
-## Open Source Board Design
-The Parallella board is open source hardware. The table belo
+## Open Source Board Designs
 
-Board                                      | Description                   | CAD     |
--------------------------------------------|-------------------------------|---------|
-[parallella-gen1](parallella-gen1)         | Kickstarter Parallella board  | Allegro |
-[porcupine](porcupine)                     | Breakout board                | KiCad   |
-[parallella-template](parallella-template) | Parallella KiCad template     | KiCad   |
-[library](library)                         | KiCad library                 | KiCad   |
+Board                                      | Description              | CAD     |
+-------------------------------------------|--------------------------|---------|
+[meta](meta)                               | PCI 104 board            | N/A     |
+[parallella-gen1](parallella-gen1)         | Kickstarter Parallella   | Allegro |
+[porcupine](porcupine)                     | Breakout board           | KiCad   |
+[parallella-template](parallella-template) | Daugher Card Template    | KiCad   |
+[parallella-rf](parallella-rf)             | RF board (wip)           | Pads    |
+[parallella-fmc](parallella-fmc)           | FMC adapter board        | Allegro |
+[parallella-4k](parallella-4k)             | Server sized Parallella  | N/A     |
+[library](library)                         | CAD librares             | Various |
 
 ## FPGA Design Sources
 All Parallella related FPGA sources have been moved to the [OH! library](https://github.com/parallella/oh/tree/master/parallella) library and released under MIT license.
