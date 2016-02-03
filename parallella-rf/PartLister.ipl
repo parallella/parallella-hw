@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<PartListerConfiguration version="2">
+  <Entry name="outputVersion" value="1"/>
+  <Entry name="outputFormat" value="EXCEL"/>
+  <Entry name="pagination" value="NO"/>
+  <Entry name="pagelength" value="65535"/>
+  <Entry name="delimiter" value=" "/>
+  <Entry name="delimiterbefore" value="NO"/>
+  <Entry name="delimiterafter" value="NO"/>
+  <Entry name="addTitleRow" value="YES"/>
+  <Entry name="ignoreColumnWidths" value="NO"/>
+  <Header>
+    <Line text="Part Lister output for Parallella-RF"/>
+    <Line text="Generated on $(DATE)"/>
+    <Line text="  "/>
+  </Header>
+  <Columns>
+    <Column type="NUMBER" label="#" width="3"/>
+    <Column type="QUANTITY" label="QTY" width="5"/>
+    <Column type="PROPERTY" property="REFDES" label="Designators" width="30" sort="ASCENDING" key="SECONDARY" display="Compress"/>
+    <Column type="PROPERTY" property="DEVICE" label="Part Number" width="20" key="PRIMARY" display="Compress"/>
+    <Column type="PROPERTY" property="VALUE" label="Value" width="10" display="Compress"/>
+    <Column type="PROPERTY" property="DESCRIPTION" label="Description" width="40" display="Compress"/>
+    <Column type="PROPERTY" property="MFR" label="Manufacturer" width="18" display="Compress"/>
+    <Column type="PROPERTY" property="DNI" label="DNI" width="10" sort="ASCENDING" key="SECONDARY" display="Full"/>
+    <Column type="PROPERTY" property="PKG_TYPE" label="PCB Package" width="30" display="Compress"/>
+  </Columns>
+</PartListerConfiguration>

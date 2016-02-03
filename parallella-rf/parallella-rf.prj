@@ -1,0 +1,61 @@
+SECTION DesignInfo
+LIST IndependentLibraries
+VALUE "DIR [W] . (parallella_rf)"
+VALUE "DIR [W] ..\wvlibs\alib_adi (alib_adi)"
+VALUE "DIR [W] ..\wvlibs\alib_analog (alib_analog)"
+VALUE "DIR [W] ..\wvlibs\alib_rlc (alib_rlc)"
+VALUE "DIR [W] ..\wvlibs\alib_conn (alib_conn)"
+VALUE "DIR [W] ..\wvlibs\alib_rf (alib_rf)"
+VALUE "DIR [W] ..\wvlibs\adapteva (adapteva)"
+VALUE "DIR [W] ..\wvlibs\alib_misc (alib_misc)"
+VALUE "DIR [W] ..\wvlibs\alib_power (alib_power)"
+VALUE "DIR [W] ..\wvlibs\special (special)"
+ENDLIST
+KEY BorderSymbols "./borders.ini"
+KEY Bus_Contents "./busconts.ini"
+KEY CentralLibrary ""
+KEY CnsFileName ""
+KEY FrontEndSnapshot "DxD"
+KEY LayoutID "PADS95"
+KEY PcbCfgFileName ""
+KEY PinComponents "./speccomp.ini"
+KEY SheetsEditMode "1"
+KEY DxD_Version "7.9.4"
+KEY NumberingType "VERTICAL"
+KEY OrderFileName ".\"
+KEY PropertyDefinitions "%SDD_HOME%\standard\netlist.prp"
+KEY PartListerCfg "C:\Starboard\Adapteva\adapteva-boards\parallella-rf\PartLister.ipl"
+ENDSECTION
+SECTION FlowSettings
+KEY FlowType "NETLIST"
+ENDSECTION
+SECTION ICXProInfo
+KEY ICXProDir "ICXPro"
+ENDSECTION
+SECTION ProjectBackup
+KEY ConfigFile ".\ProjectBackup\ProjectBackup.cfg"
+ENDSECTION
+SECTION Template_Design
+KEY CADBackAnno "0"
+KEY ConfigType "PCB"
+KEY SchematicConflict "FE"
+KEY SchematicDesignBackAnno "0"
+KEY SchematicDesignStatus "0"
+KEY SearchPathScheme "(Default)"
+ENDSECTION
+SECTION iCDB
+LIST Designs
+VALUE "Board1"
+ENDLIST
+KEY DedicatedServerName ""
+KEY iCDBDir ".\database"
+ENDSECTION
+SECTION Board1
+KEY CADBackAnno "0"
+KEY ConfigType "PCB"
+KEY SchematicConflict "FE"
+KEY SchematicDesignBackAnno "0"
+KEY SchematicDesignStatus "0"
+KEY SearchPathScheme "(Default)"
+KEY RootBlock "parallella-rf"
+ENDSECTION
