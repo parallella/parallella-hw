@@ -20,10 +20,11 @@ Cadence Allegro
 
 Published under Creative Common License
 
-## Author
+## Authors
 
-[Andreas Olofsson](@aolofsson)
-[Boston Design Solutions](http://www.bostondesignsolutions.com) (layout)
+* [Andreas Olofsson](https://github.com/aolofsson)
+* [Boston Design Solutions](http://www.bostondesignsolutions.com) (layout)
+
 
 
 
