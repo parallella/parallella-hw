@@ -3,7 +3,7 @@ Parallella
 ![front](docs/front_600x400.png)
 ![back](docs/back_600x400.png)
 
-## Documentation
+## Design Files
 
 * [Reference Manual](docs/parallella_manual.pdf)
 * [Schematic](docs/parallella_schematic.pdf)
@@ -19,6 +19,10 @@ Cadence Allegro
 ## License
 
 Published under Creative Common License
+
+## Status
+
+In production. 20,000 units built
 
 ## Authors
 
