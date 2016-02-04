@@ -11,10 +11,10 @@ Board                                | Description             | CAD     |
 [daughtercard](daughtercard)         | Daugher Card Template   | KiCad   |
 [library](library)                   | CAD librares            | Various |
 [meta](meta)                         | PCI 104 board           | N/A     |
-[para-tile](para-tile)               | Simple breakout board   | Eagle   |
+[para-tile](para-tile/README.md)     | Simple breakout board   | Eagle   |
 [parallella](parallella)             | Kickstarter Parallella  | Allegro |
 [parallella-rf](parallella-rf)       | RF board (wip)          | Pads    |
-[parallella-fmc](parallella-fmc)     | FMC adapter board       | Allegro |
+[parallella-fmc](parallella-fmc)     | FMC SDR adapter board   | Allegro |
 [parallella-4k](parallella-4k)       | Server sized Parallella | N/A     |
 [porcupine](porcupine)               | Breakout board          | KiCad   |
 
