@@ -6,17 +6,17 @@ This repository contains open source board and FPGA designs associated with the 
 
 ## Board Designs
 
-Board                                | Description             | CAD     |
--------------------------------------|-------------------------|---------|
-[daughtercard](daughtercard)         | Daugher Card Template   | KiCad   |
-[library](library)                   | CAD librares            | Various |
-[meta](meta)                         | PCI 104 board           | N/A     |
-[para-tile](para-tile/README.md)     | Simple breakout board   | Eagle   |
-[parallella](parallella)             | Kickstarter Parallella  | Allegro |
-[parallella-rf](parallella-rf)       | RF board (wip)          | Pads    |
-[parallella-fmc](parallella-fmc)     | FMC SDR adapter board   | Allegro |
-[parallella-4k](parallella-4k)       | Server sized Parallella | N/A     |
-[porcupine](porcupine)               | Breakout board          | KiCad   |
+Board                                | Description             | CAD     | Status     |
+-------------------------------------|-------------------------|---------|------------|
+[daughtercard](daughtercard)         | Daugher Card Template   | KiCad   | Production |
+[library](library)                   | CAD librares            | Various | Done       |
+[meta](meta)                         | PCI 104 board           | N/A     | Concept    |
+[para-tile](para-tile/README.md)     | Simple breakout board   | Eagle   | Prototype  | 
+[parallella](parallella/README.md)   | Kickstarter Parallella  | Allegro | Production |
+[parallella-rf](parallella-rf)       | RF board (wip)          | Pads    | Concept    | 
+[parallella-fmc](parallella-fmc)     | FMC SDR adapter board   | Allegro | Production |
+[parallella-4k](parallella-4k)       | Server sized Parallella | N/A     | Concept    |
+[porcupine](porcupine)               | Breakout board          | KiCad   | Production |
 
 ## FPGA Design Sources
 All Parallella related FPGA sources have been moved to the [OH! library](https://github.com/parallella/oh/tree/master/parallella) library and released under MIT license.
