@@ -1,0 +1,80 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+U12        TSSOP16N               81.5mm        40.5mm        81.5mm        40.5mm      79.225mm      37.475mm  T         90.00 DS90LV032A     
+U11        TSSOP16N               89.5mm        40.5mm        89.5mm        40.5mm      87.225mm      37.475mm  T         90.00 DS90LV032A     
+U10        TSSOP16N               81.5mm        14.5mm        81.5mm        14.5mm      79.225mm      11.475mm  T         90.00 DS90LV032A     
+U9         TSSOP16N            89.5001mm     14.4996mm     89.5001mm     14.4996mm     87.2251mm     11.4746mm  T         90.00 DS90LV032A     
+CON7       8X3HEADER_2.54MM          61mm           5mm          61mm           5mm       69.89mm        2.46mm  T        180.00 8x3 HEADER     
+C34        C0603L                 77.5mm        40.5mm        77.5mm        40.5mm        77.5mm       39.85mm  T         90.00 0.1uF          
+C33        C0603L                 85.5mm        40.5mm        85.5mm        40.5mm        85.5mm       39.85mm  T         90.00 0.1uF          
+C32        C0603L                 85.5mm        14.5mm        85.5mm        14.5mm        85.5mm       13.85mm  T         90.00 0.1uF          
+C31        C0603L                 77.5mm        14.5mm        77.5mm        14.5mm        77.5mm       13.85mm  T         90.00 0.1uF          
+CON6       XILINX_JTAG_HEADER        39.5mm        21.9mm        39.5mm        21.9mm        33.5mm        22.9mm  T        360.00 Xilinx JTAG    
+CON5       8X3HEADER_2.54MM          61mm          51mm          61mm          51mm       52.11mm       53.54mm  T        360.00 8x3 HEADER     
+C7         C0603L                118.5mm          22mm       118.5mm          22mm       118.5mm       22.65mm  T        270.00 0.1uF          
+C8         C0603L                108.5mm        35.5mm       108.5mm        35.5mm      109.15mm        35.5mm  T        180.00 10uF           
+C9         C0603L                103.5mm        27.5mm       103.5mm        27.5mm       103.5mm       26.85mm  T         90.00 0.1uF          
+C10        C0603L                  106mm        35.5mm         106mm        35.5mm      106.65mm        35.5mm  T        180.00 0.1uF          
+C11        C0603L                  111mm        35.5mm         111mm        35.5mm      110.35mm        35.5mm  T          0.00 0.1uF          
+C12        C0603L                118.5mm          32mm       118.5mm          32mm       118.5mm       31.35mm  T         90.00 10uF           
+C13        C0603L                118.5mm        29.5mm       118.5mm        29.5mm       118.5mm       30.15mm  T        270.00 0.1uF          
+C14        C0603L                118.5mm          27mm       118.5mm          27mm       118.5mm       26.35mm  T         90.00 0.1uF          
+C15        C0603L                 18.5mm          22mm        18.5mm          22mm        18.5mm       22.65mm  T        270.00 0.1uF          
+C16        C0603L                  8.5mm        35.5mm         8.5mm        35.5mm        9.15mm        35.5mm  T        180.00 10uF           
+C17        C0603L                  3.5mm        27.5mm         3.5mm        27.5mm         3.5mm       26.85mm  T         90.00 0.1uF          
+C18        C0603L                    6mm        35.5mm           6mm        35.5mm        6.65mm        35.5mm  T        180.00 0.1uF          
+C19        C0603L                   11mm        35.5mm          11mm        35.5mm       10.35mm        35.5mm  T        360.00 0.1uF          
+C20        C0603L                 18.5mm          32mm        18.5mm          32mm        18.5mm       31.35mm  T         90.00 10uF           
+C21        C0603L                 18.5mm        29.5mm        18.5mm        29.5mm        18.5mm       30.15mm  T        270.00 0.1uF          
+C22        C0603L                 18.5mm          27mm        18.5mm          27mm        18.5mm       26.35mm  T         90.00 0.1uF          
+C23        C0603L                 57.4mm        36.1mm        57.4mm        36.1mm       58.05mm        36.1mm  T        180.00 0.1uF          
+C25        C0603L                 57.4mm          32mm        57.4mm          32mm       58.05mm          32mm  T        180.00 0.1uF          
+C26        C0603L                 57.4mm        33.4mm        57.4mm        33.4mm       58.05mm        33.4mm  T        180.00 10uF           
+C27        C0603L                 52.5mm        27.9mm        52.5mm        27.9mm        52.5mm       28.55mm  T        270.00 0.1uF          
+C28        C0603L                 52.5mm        24.4mm        52.5mm        24.4mm        52.5mm       25.05mm  T        270.00 0.1uF          
+C29        C0603L                   38mm        37.5mm          38mm        37.5mm          38mm       36.85mm  T         90.00 0.1uF          
+C30        C0603L                   30mm        37.5mm          30mm        37.5mm          30mm       36.85mm  T         90.00 0.1uF          
+D3         LED0603_GREEN            28mm          28mm          28mm          28mm          28mm       27.25mm  T         90.00 GREEN          
+D4         LED0603_GREEN          94.5mm          28mm        94.5mm          28mm        94.5mm       27.25mm  T         90.00 GREEN          
+FB2        R0603L                118.5mm        34.5mm       118.5mm        34.5mm       118.5mm       35.15mm  T        270.00 600Ohm @ 100MHz
+FB3        R0603L                 18.5mm        34.5mm        18.5mm        34.5mm        18.5mm       35.15mm  T        270.00 600Ohm @ 100MHz
+FB4        R0603L                 57.4mm        34.7mm        57.4mm        34.7mm       56.75mm        34.7mm  T        360.00 600Ohm @ 100MHz
+R1         R0603L                103.5mm          33mm       103.5mm          33mm       103.5mm       32.35mm  T         90.00 1k             
+R2         R0603L                103.5mm        30.5mm       103.5mm        30.5mm       103.5mm       29.85mm  T         90.00 1k             
+R3         R0603L                118.5mm        24.5mm       118.5mm        24.5mm       118.5mm       25.15mm  T        270.00 10k            
+R4         R0603L                  3.5mm          33mm         3.5mm          33mm         3.5mm       32.35mm  T         90.00 1k             
+R5         R0603L                  3.5mm        30.5mm         3.5mm        30.5mm         3.5mm       29.85mm  T         90.00 1k             
+R6         R0603L                 18.5mm        24.5mm        18.5mm        24.5mm        18.5mm       25.15mm  T        270.00 10k            
+R7         R0603L                 52.5mm        21.4mm        52.5mm        21.4mm        52.5mm       20.75mm  T         90.00 1k             
+R8         R0603L                 52.5mm        18.4mm        52.5mm        18.4mm        52.5mm       19.05mm  T        270.00 1k             
+R9         CAC-80P319X159-8L        34.2mm        31.6mm        34.2mm        31.6mm          33mm       30.75mm  T         90.00 100R           
+R10        R0603L                   28mm          31mm          28mm          31mm          28mm       30.35mm  T         90.00 1k             
+R11        R0603L                 94.5mm          31mm        94.5mm          31mm        94.5mm       30.35mm  T         90.00 1k             
+U3         LCC-48N_MT9V03X         111mm          28mm         111mm          28mm       110.6mm      33.025mm  T          0.00 MT9V034C12STM  
+U4         LCC-48N_MT9V03X          11mm          28mm          11mm          28mm        10.6mm      33.025mm  T          0.00 MT9V034C12STM  
+U5         LGA14-N                61.4mm          34mm        61.4mm          34mm       62.15mm      35.175mm  T        270.00 LSM6DS3        
+U6         MTi-1                    61mm        23.4mm          61mm        23.4mm          61mm        28.9mm  T          0.00 MTi-2          
+U7         TSSOP14N                 42mm        37.5mm          42mm        37.5mm       40.05mm        34.5mm  T         90.00 SN74LV4T125PWR 
+U8         TSSOP14N                 34mm        37.5mm          34mm        37.5mm       32.05mm        34.5mm  T         90.00 SN74LV4T125PWR 
+CON4       BTH-030-01-X-D-A-K       82.58mm      50.605mm       82.58mm      50.605mm       89.83mm      53.695mm  B        180.00 BTH-030-01-F-D-A
+CON3       BTH-030-01-X-D-A-K       82.58mm       5.395mm       82.58mm       5.395mm       89.83mm       8.485mm  B        180.00 BTH-030-01-F-D-A
+CON2       BTH-030-01-X-D-A-K        39.4mm       5.395mm        39.4mm       5.395mm       46.65mm       8.485mm  B        180.00 BTH-030-01-F-D-A
+CON1       BTH-030-01-X-D-A-K        39.4mm      50.605mm        39.4mm      50.605mm       46.65mm      53.695mm  B        180.00 BTH-030-01-F-D-A
+D2         SOD123_DIODE           35.2mm           4mm        35.2mm           4mm        35.2mm         5.7mm  T        270.00 B0530W-7-F     
+L1         L_SRN3015              41.7mm        13.8mm        41.7mm        13.8mm        40.6mm        13.8mm  T          0.00 4.7uH          
+C1         C0603L                 41.7mm           7mm        41.7mm           7mm       41.05mm           7mm  T          0.00 10uF           
+C2         C0603L                 44.2mm          10mm        44.2mm          10mm        44.2mm       10.65mm  T        270.00 10uF           
+C3         C0603L                 45.6mm          10mm        45.6mm          10mm        45.6mm       10.65mm  T        270.00 10uF           
+C4         C0603L                 36.2mm           7mm        36.2mm           7mm       35.55mm           7mm  T          0.00 10uF           
+C5         C0603L                 37.2mm        13.5mm        37.2mm        13.5mm        37.2mm       12.85mm  T         90.00 10nF           
+C6         C0603L                 35.2mm        13.5mm        35.2mm        13.5mm        35.2mm       12.85mm  T         90.00 10uF           
+D1         SOD123_DIODE           37.6mm           4mm        37.6mm           4mm        37.6mm         5.7mm  T        270.00 B0530W-7-F     
+F1         FUSE_1812              43.7mm           4mm        43.7mm           4mm        45.8mm           4mm  T        180.00 PTC 0.5A       
+FB1        R0603L                 39.7mm           4mm        39.7mm           4mm        39.7mm        3.35mm  T         90.00 600Ohm @ 100MHz
+U1         SOT23-5N               41.7mm          10mm        41.7mm          10mm       40.75mm       8.675mm  T         90.00 MCP1603T-330I/OS
+U2         SOT23-5N               36.2mm          10mm        36.2mm          10mm       35.25mm       8.675mm  T         90.00 LP2992AIM5-3.3/NOPB
+R12        R0603L                 27.5mm        37.5mm        27.5mm        37.5mm        27.5mm       36.85mm  T         90.00 1k             
+R13        R0603L                 26.2mm        37.5mm        26.2mm        37.5mm        26.2mm       36.85mm  T         90.00 3.3k           
+R14        R0603L                   74mm          51mm          74mm          51mm       74.65mm          51mm  T        180.00 1k             
+R15        R0603L                   74mm        49.7mm          74mm        49.7mm       74.65mm        49.7mm  T        180.00 3.3k           
+
