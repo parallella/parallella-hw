@@ -1,15 +1,14 @@
-KVISION: 
-========================
+KVISION: Parallella stereo vision board
+============================================
 
-![alt tag](common/docs/kvision.jpg)
+![alt tag](docs/kvision.png)
 
 ## Introduction
-* A Parallella stero vision daughter card and IMU for UAV/drone and other interesting imaging applications.
+* A Parallella stero vision daughter card for UAV/drones imaging applications
 
 ## Key Comonents
 
 * [MT9V034C12STM](http://www.onsemi.com/pub_link/Collateral/MT9V034-D.PDF)
-* [LSM6DS3]
 
 ## SOURCES
 
@@ -23,8 +22,8 @@ KVISION:
 
 ## AUTHOR
 
-Emil Fresk
+* Emil Fresk
 
 ## LICENSE
 
-Creative Commons
+* Creative Commons
