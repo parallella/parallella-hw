@@ -24,6 +24,13 @@ KVISION: Parallella stereo vision board
 
 * Emil Fresk
 
+## STATUS
+
+* Prototypes built, in bringup stage.
+
+![alt tag](docs/kvision_top.jpg)
+![alt tag](docs/kvision_bot.jpg)
+
 ## LICENSE
 
 * Creative Commons
