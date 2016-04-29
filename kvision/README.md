@@ -28,6 +28,8 @@ KVISION: Parallella stereo vision board
 
 * Prototypes built, in bringup stage.
 
+![alt tag](docs/kvision_front.jpg)
+![alt tag](docs/kvision_back.jpg)
 ![alt tag](docs/kvision_top.jpg)
 ![alt tag](docs/kvision_bot.jpg)
 
