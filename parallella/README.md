@@ -18,7 +18,7 @@ Cadence Allegro
 
 ## License
 
-Published under Creative Common License
+Licensed under Creative Commons Attribution-Share Alike 3.0 Unprotected License by by the Parallella Foundation
 
 ## Status
 
