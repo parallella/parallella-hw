@@ -1,0 +1,46 @@
+Drill report for C:\Users\Champion\Documents\myPCB\MyriadRF_Parallella_r1.2\KiCAD Design Files\MYRIAD_RF.brd
+Created on 2014/8/22 下午 04:39:44
+Drill report for plated through holes :
+T1  0.20mm  0.008"  (791 holes)
+T2  0.20mm  0.008"  (7 holes)
+T3  0.20mm  0.008"  (37 holes)
+T4  0.30mm  0.012"  (49 holes)
+T5  0.90mm  0.035"  (44 holes)
+T6  1.02mm  0.040"  (4 holes)
+T7  3.17mm  0.125"  (4 holes)
+
+Total plated holes count 936
+
+
+Drill report for buried and blind vias :
+
+Drill report for holes from layer Back to layer Inner_GND :
+
+Total plated holes count 0
+
+
+Drill report for holes from layer Inner_GND to layer Inner_Analog_Signal :
+
+Total plated holes count 0
+
+
+Drill report for holes from layer Inner_Analog_Signal to layer Inner_Power :
+
+Total plated holes count 0
+
+
+Drill report for holes from layer Inner_Power to layer Inner_Digital_Signal :
+
+Total plated holes count 0
+
+
+Drill report for holes from layer Inner_Digital_Signal to layer Front :
+
+Total plated holes count 0
+
+
+Drill report for unplated through holes :
+
+Total unplated holes count 0
+
+

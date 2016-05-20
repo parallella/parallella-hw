@@ -1,0 +1,28 @@
+EESchema-LIBRARY Version 2.3  Date: 2014/7/29 上午 09:56:09
+#encoding utf-8
+#
+# RACON_TXCO_NF
+#
+DEF ~RACON_TXCO_NF X 0 40 Y Y 1 F N
+F0 "X" 150 200 50 H V C CNN
+F1 "RACON_TXCO_NF" 700 950 60 H I C CNN
+F2 "SMD_TXCO" 0 0 60 H I C CNN
+F3 "~" 0 0 60 H V C CNN
+F4 "30.72 MHz, TCVCXO, for Femtocells," 250 300 60 H I C CNN "Description"
+F5 "E5280LF" 350 400 60 H I C CNN "Manufacturer Part Number"
+F6 "E5280LF" 650 700 60 H I C CNN "Vendor Part Number"
+F7 "Rakon" 450 500 60 H I C CNN "Manufacturer"
+F8 "Rakon" 550 600 60 H I C CNN "Vendor"
+F9 "E5280LF_30.72MHz" 0 -200 50 H V C CNN "Component Value"
+F10 "NF" 0 100 60 H V C CNN "Placement"
+F11 "NOFIT" 950 1000 60 H I C CNN "Assemble"
+DRAW
+S -250 150 250 -150 0 1 0 N
+X VC 1 -450 0 200 R 50 50 1 1 P
+X GND 2 -450 -100 200 R 50 50 1 1 P
+X OUT 3 450 0 200 L 50 50 1 1 I
+X VDD 4 -450 100 200 R 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+#End Library
