@@ -6,27 +6,26 @@ This repository contains open source board and FPGA designs associated with the 
 
 ## Board Designs
 
-Board                                     | Description               | CAD     | Status     |
-------------------------------------------|---------------------------|---------|------------|
-[daughtercard](daughtercard)              | Daugher Card Template     | KiCad   | Production |
-[kvision](kvision)                        | UAV daughter card         | Altium  | Prototype  |
-[library](library)                        | CAD librares              | Various | Prouction  |
-[meta](meta)                              | PCI 104 board             | N/A     | Concept    |
-[para-tile](para-tile/README.md)          | Breakout board            | Eagle   | Prototype  | 
-[parallella](parallella/README.md)        | Kickstarter Parallella    | Allegro | Production |
-[parallella-rf](parallella-rf)            | RF board (wip)            | Pads    | Concept    | 
-[parallella-sdr](parallella-sdr/README.md)| FMC SDR adapter board     | Allegro | Production |
-[parallella-4k](parallella-4k)            | HPC board                 | N/A     | Concept    |
-[porcupine](porcupine/README.md)          | Parallella Breakout board | KiCad   | Production |
+Board                                       | Description               | CAD       | Status     |
+--------------------------------------------|---------------------------|-----------|------------|
+[daughtercard](daughtercard)                | Daugher Card Template     | KiCad     | Production |
+[kvision](kvision)                          | UAV daughter card         | Altium    | Prototype  |
+[library](library)                          | CAD librares              | Various   | Prouction  |
+[meta](meta)                                | PCI 104 board             | N/A       | Concept    |
+[para-tile](para-tile/README.md)            | Breakout board            | Eagle     | Prototype  | 
+[parallella](parallella/README.md)          | Kickstarter Parallella    | Allegro   | Production |
+[parallella-case](parallella-case)          | Parallella Aluminum Case  | SolidWorks| Production |
+[parallella-lime_rf](parallella-lime-rf)    | Myriad-RF daughter board  | KiCad     | Prototype  |
+[parallella-rf](parallella-rf)              | RF board (wip)            | Pads      | Concept    | 
+[parallella-sdr](parallella-sdr/README.md)  | FMC SDR adapter board     | Allegro   | Production |
+[parallella-4k](parallella-4k)              | HPC board                 | N/A       | Concept    |
+[porcupine](porcupine/README.md)            | Parallella Breakout board | KiCad     | Production |
 
 ## FPGA Design Sources
-All Parallella related FPGA sources have been moved to the [OH! library](https://github.com/parallella/oh/tree/master/parallella) library and released under MIT license.
+All Parallella related FPGA sources have been moved to the [OH! library](https://github.com/parallella/oh) library and released under MIT license.
 
 ## License
 Board design files are released under the Creative Common Share Alike license unlesss otherwise specified.
-
-## Contribution
-We are looking for external contribution to to the Parallella project! If you have something to contribute in the area of board, system, FPGA design, dig in! All pull requests will be considered. Instructions for contributing can be found [HERE](CONTRIBUTING.md).
 
 ## How to do a pull-requeste
 
