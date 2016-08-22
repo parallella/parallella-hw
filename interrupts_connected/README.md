@@ -41,6 +41,9 @@ This project contains the following components:
    
    edit_hdf.sh     - shell script that edits the HDF file according to location of Epiphany in the mesh
    
+   Design Files/ - design files for a costum PCB E-link connector
+   
+   In this folder you may also find a user guide to setting up the environment, a full technical report, a presentation about the project and an Excel memory map
 
 
 Prior to Building the project
