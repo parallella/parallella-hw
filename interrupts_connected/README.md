@@ -4,7 +4,7 @@ communication between multiple parallella boards
 June 2016
 
 
-Designed in the Parallel Programming Laboratory, 
+Designed in the Parallel Systems Laboratory, 
 The Faculty of Electrical Engineering,
 Technion Instittute of Technology.
 
