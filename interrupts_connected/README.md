@@ -1,6 +1,8 @@
-Interrupts Connected System - This project uses interrupts to test 
-communication between multiple parallella boards
+Interrupts Connected Systems
 =====================================================================
+This project uses interrupts to test 
+communication between multiple parallella boards
+
 June 2016
 
 
@@ -13,6 +15,7 @@ Instructor: Oz Shmueli
 Academic Supervisor: Prof. Tsahi Birk
 http://psl.eelabs.technion.ac.il/
 
+Overview
 =======================================================================
 
 
@@ -22,6 +25,7 @@ Works with the esdk 2015.1 version and the respective FPGA builds.
 
 Note that in order to use this code one must first connect the boards and set COREID as Explained in the PDF in this folder
 
+Design Files
 =========================================================================
 
 
@@ -39,11 +43,20 @@ This project contains the following components:
 		build.sh     - shell script for building the project on slave side
 		run.sh       - shell script for running the project on slave side
    
-   edit_hdf.sh     - shell script that edits the HDF file according to location of Epiphany in the mesh
+   edit_hdf.bash  - shell script that edits the HDF file according to location of Epiphany in the mesh
    
    Design Files/ - design files for a costum PCB E-link connector
    
-   In this folder you may also find a user guide to setting up the environment, a full technical report, a presentation about the project and an Excel memory map
+   Epiphany Cluster Technical Report.pdf - Full technical report about this project. To cite this work please use "A.Burshtein 					,"Parallella Epiphany Cluster", Parallel Systems Laboratory, Technion Institute of Technology,  2016."
+   
+   Set Up Your Epiphany Cluster.pdf - A user guide for reconstructing the cluster.
+   
+   Final Presentation.ppsx - An overview presentation
+   
+   mem_map_routh_map.xlsx - General Parallella memory map
+   
+   Interrupts connected.tar- .tar code library
+
 
 
 Prior to Building the project
