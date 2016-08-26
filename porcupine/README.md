@@ -9,6 +9,16 @@ Porcupine
 * [Layout Source](porcupine.pro)
 * [Schematic Source](porcupine.sch)
 
+## Dimensions
+* 
+
+## Building Elink Cables (2mm)
+* Connector: http://www.digikey.com/product-search/en?keywords=87568-3093
+* Cable: http://www.digikey.com/product-detail/en/3625%2F30%20100MSF/MC30L-5-ND/1190724
+* Video: https://www.youtube.com/watch?v=q6t8s_7eA0w
+
+## Building FPGA Cables (2.54mm)
+
 ## CAD Tool
 
 KiCad
@@ -25,6 +35,8 @@ In production (>1,000 built)
 
 * Fred Huettig
 * Andreas Olofsson
+
+
 
 
 
