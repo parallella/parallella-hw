@@ -12,6 +12,9 @@ Parallella
 * [Layout Source](parallella_layout.brd)
 * [Schematic Source](parallella_schematic.dsn)
 
+## Dimensions
+* 3.275" x 2.150" 
+
 ## CAD Tool
 
 Cadence Allegro
