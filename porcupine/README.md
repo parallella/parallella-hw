@@ -1,6 +1,8 @@
 Porcupine
 =================================
 
+![front](docs/porcupine.jpg)
+
 ## Design Files
 
 * [Schematic](docs/porcupine_schematic.pdf)
@@ -10,7 +12,7 @@ Porcupine
 * [Schematic Source](porcupine.sch)
 
 ## Dimensions
-* 
+* 3.275" x 2.150" 
 
 ## Building Elink Cables (2mm)
 * Connector: http://www.digikey.com/product-search/en?keywords=87568-3093
@@ -34,7 +36,7 @@ In production (>1,000 built)
 ## Authors
 
 * Fred Huettig
-* Andreas Olofsson
+* [Andreas Olofsson](https://github.com/aolofsson)
 
 
 
