@@ -1,0 +1,381 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : PC2230_6.brd                                  )
+(    Software Version : 16.6P004                                      )
+(    Date/Time        : Wed Mar 09 13:19:18 2016                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found ... using drawing extents
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          INCHES
+    FILM-SIZE             2400000 1600000
+    FORMAT                2.5
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  YES
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        YES
+    UNDEF-APT-CONT        NO
+
+
+================================================================
+     PROCESSING FILM < TOP >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: Film contains DRC error(s).
+    WARNING: rectangle or unfilled shape composed 0 width line found at (17687.50 12550.00)
+           ... ignored.
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.00800                                  DARK 
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.01800                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+  RECTANGLE  0.00940     x 0.07870       0.000 NO     DARK 
+
+     TOP created with warnings
+
+
+================================================================
+     PROCESSING FILM < GND2 >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/GND2.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: rectangle or unfilled shape having Multiple 0 width lines; all will be treated the same as the first.
+           ... ignored.
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.01800                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+
+     GND2 created with warnings
+
+
+================================================================
+     PROCESSING FILM < GND3 >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/GND3.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.01800                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+
+     GND3 created.
+
+
+================================================================
+     PROCESSING FILM < BOTTOM >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.00800                                  DARK 
+  CIRCLE     0.01800                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+  SQUARE     0.04000                     0.000 NO     DARK 
+
+     BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < DRAWING >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/DRAWING.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: 0 width line found at (19812.50 13732.00)
+           ... ignored.
+
+    WARNING: Multiple 0 width lines; all will be treated the same as the first.
+           ... ignored.
+
+    WARNING: text composed 0 width line found at (20262.00 14106.50)
+           ... ignored.
+
+    WARNING: text having Multiple 0 width lines; all will be treated the same as the first.
+           ... ignored.
+
+
+
+  APERTURES USED:  NONE
+     DRAWING created with warnings
+
+
+================================================================
+     PROCESSING FILM < SILK_TOP >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/SILK_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+
+     SILK_TOP created.
+
+
+================================================================
+     PROCESSING FILM < SILK_BOT >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/SILK_BOT.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.01200                                  DARK 
+
+     SILK_BOT created.
+
+
+================================================================
+     PROCESSING FILM < PASTE_TOP >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/PASTE_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+  RECTANGLE  0.00940     x 0.07870       0.000 NO     DARK 
+
+     PASTE_TOP created.
+
+
+================================================================
+     PROCESSING FILM < PASTE_BOT >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/PASTE_BOT.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.04100                                  DARK 
+  SQUARE     0.04000                     0.000 NO     DARK 
+
+     PASTE_BOT created.
+
+
+================================================================
+     PROCESSING FILM < SOLDER_TOP >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/SOLDER_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.03500                                  DARK 
+  CIRCLE     0.05000                                  DARK 
+  RECTANGLE  0.01940     x 0.08870       0.000 NO     DARK 
+
+     SOLDER_TOP created.
+
+
+================================================================
+     PROCESSING FILM < SOLDER_BOT >
+     TO FILE < Z:/sysarc/ela (132.68.55.11v_sysarc_s$q_dighomehome)/PCB/ALLEGRO/SHEET/Oz_Shmueli/aviv&ohad_25_11_15/1/allegro/SOLDER_BOT.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                6.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00600                                  DARK 
+  CIRCLE     0.03500                                  DARK 
+  CIRCLE     0.05000                                  DARK 
+  SQUARE     0.05000                     0.000 NO     DARK 
+
+     SOLDER_BOT created.
+
+
+------------------------------------------------------
+ SUMMARY:
+        TOP created with warnings
+        GND2 created with warnings
+        GND3 created.
+        BOTTOM created.
+        DRAWING created with warnings
+        SILK_TOP created.
+        SILK_BOT created.
+        PASTE_TOP created.
+        PASTE_BOT created.
+        SOLDER_TOP created.
+        SOLDER_BOT created.
+
+ ARTWORK finished

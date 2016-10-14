@@ -1,0 +1,35 @@
+
+INPUT-UNITS     INCHES
+
+WHEEL     1
+
+LINE               4            D32
+LINE               6            D29
+LINE               8            D31
+LINE              10            D30
+LINE              12            D36
+LINE              20            D34
+LINE              25            D33
+LINE             380            D35
+LINE             396            D37
+LINE             412            D38
+CIRCLE             5            D22
+CIRCLE            18            D10
+CIRCLE            24            D25
+CIRCLE            30            D23
+CIRCLE            33            D11
+CIRCLE            35            D13
+CIRCLE            41            D17
+CIRCLE            44            D26
+CIRCLE            50            D19
+CIRCLE            60            D18
+SQUARE            40   0.00000            D14
+SQUARE            50   0.00000            D16
+SQUARE            60   0.00000            D15
+RECTANGLE        9.4      78.7   0.00000  D20
+RECTANGLE       19.4      88.7   0.00000  D21
+RECTANGLE       78.7       9.4   0.00000  D28
+RECTANGLE       88.7      19.4   0.00000  D27
+FLASH     AB00                 0.00000  D24
+FLASH     TR_45_25             0.00000  D12
+

@@ -1,0 +1,55 @@
+#
+# ncdrill_view.txt
+#
+COMPOSITE_PAD
+#
+#   The only DRILL_HOLE_TYPE really wanted is CIRCLE_DRILL.
+#
+#   Other DRILL_HOLE_TYPE's of OVAL_SLOT and RECTANGLE_SLOT are
+#   included as well though so that we can at least warn of the
+#   existence of slot holes in a design when NCTAPE is run.
+#
+#   Slot hole types would have their major dimension in DRILL_HOLE_NAME
+#   and their minor dimension in DRILL_HOLE_NAME2. CIRCLE_DRILL types
+#   will simply have DRILL_HOLE_NAME2 set to the same value as in
+#   DRILL_HOLE_NAME. DRILL_HOLE_NONSTANDARD, and multi-drill fields such
+#   DRILL_ARRAY_LOCATIONS do not apply to slot holes. DRILL_FIGURE_ROTATION
+#   for slot holes will contain the rotation to be applied to the slot
+#   hole, with the assumption of 0 degrees being the major dimension
+#   of the slot hole along the X axis.
+#
+  DRILL_HOLE_TYPE = CIRCLE_DRILL
+  OR
+  DRILL_HOLE_TYPE = OVAL_SLOT
+  OR
+  DRILL_HOLE_TYPE = RECTANGLE_SLOT
+#
+  DRILL_HOLE_TYPE
+  DRILL_HOLE_NAME
+# DRILL_HOLE_NAME2 
+# DRILL_FIGURE_ROTATION
+  DRILL_HOLE_NONSTANDARD
+  DRILL_HOLE_PLATING
+  DRILL_HOLE_POSTOL 
+  DRILL_HOLE_NEGTOL 
+  DRILL_HOLE_X
+  DRILL_HOLE_Y
+  DRILL_ARRAY_LOCATIONS
+  START_LAYER_NAME
+  END_LAYER_NAME
+  START_LAYER_NUMBER
+  END_LAYER_NUMBER
+  REFDES
+  PIN_NUMBER
+  SYM_X
+  SYM_Y
+  BACKDRILL_TOP_FROM 
+  BACKDRILL_TOP_LAYER
+  BACKDRILL_BOTTOM_FROM 
+  BACKDRILL_BOTTOM_LAYER
+  DRILL_TOP_NAME
+  DRILL_TOP_NUMBER
+  DRILL_BOTTOM_NAME
+  DRILL_BOTTOM_NUMBER
+  EMBEDDED_ATTACH
+  EMBEDDED_LAYER
