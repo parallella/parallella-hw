@@ -4,24 +4,24 @@ PARALLELLA: Supercomputing for Everyone
 
 This repository contains open source board and FPGA designs associated with the Parallella project. 
 
-## Directory
+## Directtory
 
 Board                                       | Description               | CAD       | Status     |
 --------------------------------------------|---------------------------|-----------|------------|
-[aafm](aafm/README.md)                      | Epiphany-III FMC Board    | KiCad     | Production |
-[cluster](cluster/README.md)                | Parallella Cluster Board  | N/A       | Prototype  |
-[kvision](kvision/README.md)                | UAV daughter Board        | Altium    | Prototype  |
-[library](library)                          | CAD librares              | Various   | Prouction  |
-[meta](meta)                                | Epiphany-III 16 Chip Board| Cadence   | Concept    |
-[metapower](power)                          | Meta Power Board          | Cadence   | Concept    |
-[paratile](para-tile/README.md)            | Breakout Board            | Eagle     | Prototype  | 
+[archive](archive)                          | Old Parallella stuff      | N/A       | Obsolete   |
 [parallella](parallella/README.md)          | Kickstarter Parallella    | Cadence   | Production |
-[paracase](parallella-case)          | Parallella Aluminum Case  | SolidWorks| Production |
-[paralime](parallella-lime)          | Myriad-RF daughter Board  | KiCad     | Prototype  |
-[pararf](parallella-rf)              | RF board (wip)            | Pads      | Concept    | 
-[parasdr](parallella-sdr/README.md)  | FMC SDR adapter Board     | Cadence   | Production |
-[template](daughtercard)         | Daugher Card Template     | KiCad     | Production |
-[porcupine](porcupine/README.md)            | Parallella Breakout Board | KiCad     | Production |
+[porcupine](porcupine/README.md)            | Breakout Board            | KiCad     | Production |
+[paracase](paracase)                        | Aluminum Case             | SolidWorks| Production |
+[parasdr](parasdr/README.md)                | SDR adapter Board         | Cadence   | Production |
+[kvision](kvision/README.md)                | Stereo Vision Board       | Altium    | Prototype  |
+[paralime](paralime)                        | Myriad-RF daughter Board  | KiCad     | Prototype  |
+[pararf](pararf)                            | RF board (wip)            | Pads      | Concept    | 
+[paracluster](paracluster/README.md)        | Cluster Board             | N/A       | Prototype  |
+[paralib](parallib)                         | CAD librares              | Various   | Prouction  |
+[paratemplate](paratemplate)                | Daugher Card Template     | KiCad     | Production |
+[paratile](paratile/README.md)              | Breakout Board            | Eagle     | Prototype  |
+[meta](meta)                                | Epiphany-III 16 Chip Board| Cadence   | Concept    |
+[aafm](aafm/README.md)                      | Epiphany-III FMC Board    | KiCad     | Production |
 
 ## FPGA Design Sources
 All Parallella related FPGA sources have been moved to the [OH! library](https://github.com/parallella/oh) library and released under MIT license.
