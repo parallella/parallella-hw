@@ -1,7 +1,7 @@
 Porcupine
 =================================
 
-![front](docs/porcupine.jpg)
+![front](docs/porcupine_product.jpg)
 
 
 ## Documentation
