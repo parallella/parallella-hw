@@ -1,7 +1,17 @@
 Parallella 
 =================================
-![front](docs/front_600x400.png)
-![back](docs/back_600x400.png)
+
+## Summary
+
+* Credit card sized SBC
+* Adapteva 16-core Epiphany RISC 
+* Xilinx Zynq (FPGA+ARM)
+* 1GB SDRAM
+* Gigabit Ethernet, HDMI, USB 2.0, uSD card 
+* 48 GPIO pins
+* 96 elink pins
+* <5W peak power
+* 3.275" x 2.150"
 
 ## Design Files
 
@@ -11,9 +21,6 @@ Parallella
 * [Gerbers](mfg)
 * [Layout Source](parallella_layout.brd)
 * [Schematic Source](parallella_schematic.dsn)
-
-## Dimensions
-* 3.275" x 2.150" 
 
 ## CAD Tool
 
@@ -33,7 +40,10 @@ In production. 20,000 units built
 * [Boston Design Solutions](http://www.bostondesignsolutions.com) (layout)
 
 
+## Images
 
+![front](docs/front_600x400.png)
+![back](docs/back_600x400.png)
 
 
 
