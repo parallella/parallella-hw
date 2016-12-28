@@ -10,7 +10,7 @@ Porcupine
 * RASPBERRY CAMERA INTERFACE
 * ELINK HEADERS
 
-[pinout](docs/porcupine_pinout.png)
+![pinout](docs/porcupine_pinout.png)
 
 ## Design Files
 
