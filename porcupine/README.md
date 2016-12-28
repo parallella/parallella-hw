@@ -1,11 +1,16 @@
 Porcupine
 =================================
 
-![front](docs/porcupine_product.jpg)
+## Summary
 
+* 0.1" GPIO HEADERS 
+* UART, I2C, SPDIF, ANALOG-IN
+* PMOD
+* JTAG
+* RASPBERRY CAMERA INTERFACE
+* ELINK HEADERS
 
-## Documentation
-* [Reference Manual](docs/porcupine_manual.md)
+[pinout](docs/porcupine_pinout.png)
 
 ## Design Files
 
@@ -35,10 +40,9 @@ In production (>2,000 built)
 * Fred Huettig
 * [Andreas Olofsson](https://github.com/aolofsson)
 
+## Images
 
-
-
-
+![front](docs/porcupine_product.jpg)
 
 
 
