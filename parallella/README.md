@@ -3,11 +3,11 @@ Parallella
 
 ## Summary
 
-* Credit card sized SBC
+* Credit card sized Single Board Computer
 * Adapteva 16-core Epiphany RISC 
-* Xilinx Zynq (FPGA+ARM)
-* 1GB SDRAM
-* Gigabit Ethernet, HDMI, USB 2.0, uSD card 
+* Xilinx Zynq FPGA 
+* 1GB DDR3 RAM
+* Gigabit Ethernet, HDMI, USB 2.0, micro-SD
 * 48 GPIO pins
 * 96 elink pins
 * <5W peak power
@@ -32,12 +32,12 @@ Licensed under Creative Commons Attribution-Share Alike 3.0 Unprotected License 
 
 ## Status
 
-In production. 20,000 units built
+In production. >20,000 built
 
 ## Authors
 
 * [Andreas Olofsson](https://github.com/aolofsson)
-* [Boston Design Solutions](http://www.bostondesignsolutions.com) (layout)
+* [Boston Design Solutions](http://www.bostondesignsolutions.com)
 
 
 ## Images
