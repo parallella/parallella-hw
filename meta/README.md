@@ -1,6 +1,5 @@
 META
 =================================
-## Images
 
 ![front](docs/meta_front.jpg)
 
