@@ -1,5 +1,8 @@
 META
 =================================
+## Images
+
+![front](docs/meta_front.jpg)
 
 ## Summary
 * Meta Module with 256 RISC CPU (4x4 grid of E16G301 chips)
@@ -9,18 +12,18 @@ META
 * <32 Watt per module
 
 ## Documentation
-* [Reference Manual](docs/meta_reference.pdf)
+[Reference Manual](docs/meta_reference.pdf)
 
 ## Meta Carrier Sources
 * [Schematics (PDF)](src/meta_carrier_sch_rev1.dsn)
 * [Schematics (Orcad)](src/meta_carrier_sch_rev1.dsn)
-* [Layout (Allegro)](src/meta_carrier_lay_rev1.dsn)
+* [Layout (Allegro)](src/meta_carrier_lay_rev1.brd)
 * [BOM](src/meta_carrier_bom_rev1.xls)
 
 ## Meta Module Sources
 * [Schematics (PDF)](src/meta_module_sch_rev1.dsn)
 * [Schematics (Orcad)](src/meta_module_sch_rev1.dsn)
-* [Layout (Allegro)](src/meta_module_lay_rev1.dsn)
+* [Layout (Allegro)](src/meta_module_lay_rev1.brd)
 * [BOM](src/meta_module_bom_rev1.xls)
 
 ## License
@@ -36,7 +39,5 @@ Prototype
 
 [Andreas Olofsson](https://github.com/aolofsson)
 
-## Images
 
-![front](docs/meta_front.jpg)
 
