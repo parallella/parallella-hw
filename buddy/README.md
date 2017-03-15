@@ -16,8 +16,10 @@ BUDDY
 ## Sources
 * [Schematics (PDF)](src/buddy_sch_rev1.pdf)
 * [Schematics (Orcad)](src/buddy_sch_rev1.dsn)
-* [Layout (Allegro)](src/budy_lay_rev1.brd)
-* [BOM](src/buddy_bom_rev1.xls)
+* [Layout (Allegro)](src/buddy_lay_rev1.brd)
+* [BOM](src/buddy_bom_rev1.xlsx)
+* [Gerbers](mfg/buddy_fab_rev1.zip)
+* [Assembly](mfg/buddy_odb_rev1.zip)
 
 ## License
 
