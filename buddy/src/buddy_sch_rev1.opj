@@ -1,0 +1,99 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\buddy_sch_rev1.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector)
+  (MPSSessionName "aolofsson")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\buddy_sch_rev1.dsn")
+      (Path "Design Resources" ".\buddy_sch_rev1.dsn" "TOP")
+      (Path "Design Resources" ".\buddy_sch_rev1.dsn" "TILE_DUT")
+      (Path "Design Resources" ".\buddy_sch_rev1.dsn" "TILE_FMC")
+      (Path "Design Resources" ".\buddy_sch_rev1.dsn" "Design Cache")
+      (Select "Design Resources" ".\buddy_sch_rev1.dsn" "TILE_FMC" "TILE_FMC"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 200 0 296"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 75 1449 75 413")
+        (Scroll "0 504")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\Users\aolofsson\Desktop\GIT\parallella-hw\buddy\src\buddy_sch_rev1.dsn")
+      (Schematic "TOP")
+      (Page "01-TOP"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 100 1474 100 438")
+        (Scroll "0 186")
+        (Zoom "100")
+        (Occurrence "/NO0"))
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 75 1449 75 413")
+        (Scroll "0 504")
+        (Zoom "100")
+        (Occurrence "/WE0"))
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 100 1474 100 438")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/EA0"))
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -30 150 1524 150 488")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/SO1"))
+      (Path
+         "C:\Users\aolofsson\Desktop\GIT\parallella-hw\buddy\src\buddy_sch_rev1.dsn")
+      (Schematic "TILE_FMC")
+      (Page "TILE_FMC"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 150 1524 150 488")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/DUT"))
+      (Path
+         "C:\Users\aolofsson\Desktop\GIT\parallella-hw\buddy\src\buddy_sch_rev1.dsn")
+      (Schematic "TILE_DUT")
+      (Page "DUT_POWER"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 1374 0 338")
+        (Scroll "0 57")
+        (Zoom "100")
+        (Occurrence "/DUT"))
+      (Path
+         "C:\Users\aolofsson\Desktop\GIT\parallella-hw\buddy\src\buddy_sch_rev1.dsn")
+      (Schematic "TILE_DUT")
+      (Page "DUT_SERIAL"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 25 1399 25 363")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/DUT"))
+      (Path
+         "C:\Users\aolofsson\Desktop\GIT\parallella-hw\buddy\src\buddy_sch_rev1.dsn")
+      (Schematic "TILE_DUT")
+      (Page "DUT_PARALLEL"))))
