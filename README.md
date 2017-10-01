@@ -16,7 +16,6 @@ Board                                | Description                | CAD       | 
 [parasdr](parasdr/README.md)         | SDR adapter Board          | Cadence   | Production |
 [kvision](kvision/README.md)         | Stereo Vision Board        | Altium    | Prototype  |
 [paralime](paralime)                 | Myriad-RF daughter Board   | KiCad     | Prototype  |
-[pararf](pararf)                     | RF board (wip)             | Pads      | Concept    | 
 [paracluster](paracluster/README.md) | Cluster Board              | N/A       | Prototype  |
 [paralib](paralib)                   | CAD librares               | Various   | Prouction  |
 [paratemplate](paratemplate)         | Daugher Card Template      | KiCad     | Production |
