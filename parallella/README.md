@@ -17,10 +17,10 @@ Parallella
 
 * [Reference Manual](docs/parallella_manual.pdf)
 * [Schematic](docs/parallella_schematic.pdf)
-* [BOM](parallella_bom.xls)
+* [BOM](src/parallella_bom.xls)
 * [Gerbers](mfg)
-* [Layout Source](parallella_layout.brd)
-* [Schematic Source](parallella_schematic.dsn)
+* [Layout Source](src/parallella_layout.brd)
+* [Schematic Source](src/parallella_schematic.dsn)
 
 ## CAD Tool
 
